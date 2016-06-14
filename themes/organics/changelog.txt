@@ -1,0 +1,7 @@
+Version 1.2
+	  + Fixed: Fix menu position
+Version 1.1
+	  + Plugins included into the theme are updated to their latest versions
+      + Wordpress 4.5 ready
+Version 1.0
+	Release

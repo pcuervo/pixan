@@ -1,0 +1,3046 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Organics\n"
+"POT-Creation-Date: 2016-03-07 12:19+0200\n"
+"PO-Revision-Date: 2016-03-07 12:19+0200\n"
+"Last-Translator: \n"
+"Language-Team: AxiomThemes\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: _e;gettext;gettext_noop;__;_x;_n_noop\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: fw/core/core.admin.php:153 fw/lib/tgm/class-tgm-plugin-activation.php:168
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgstr ""
+
+#: fw/core/core.admin.php:154 fw/lib/tgm/class-tgm-plugin-activation.php:169
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgstr ""
+
+#: fw/core/core.admin.php:155 fw/lib/tgm/class-tgm-plugin-activation.php:170
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"installed."
+msgstr ""
+
+#: fw/core/core.admin.php:156 fw/lib/tgm/class-tgm-plugin-activation.php:171
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgstr ""
+
+#: fw/core/core.admin.php:157 fw/lib/tgm/class-tgm-plugin-activation.php:172
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgstr ""
+
+#: fw/core/core.admin.php:158 fw/lib/tgm/class-tgm-plugin-activation.php:173
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgstr ""
+
+#: fw/core/core.admin.php:159 fw/lib/tgm/class-tgm-plugin-activation.php:174
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr ""
+
+#: fw/core/core.admin.php:160 fw/lib/tgm/class-tgm-plugin-activation.php:175
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgstr ""
+
+#: fw/core/core.admin.php:161 fw/lib/tgm/class-tgm-plugin-activation.php:176
+msgid "Begin installing plugin"
+msgstr ""
+
+#: fw/core/core.admin.php:162
+msgid "Activate installed plugin"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:311
+#, php-format
+msgid ""
+"Specify the color for each element in the scheme \"%s\". After that you will "
+"be able to use your color scheme for the entire page, any part thereof and/"
+"or for the shortcodes!"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:320
+msgid ""
+"You can duplicate current color scheme (appear on new tab) or delete it (if "
+"not last scheme)"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:351
+msgid ""
+"Specify scheme title (to represent this color scheme in the lists) and "
+"scheme slug (to use this color scheme in the shortcodes).<br>Attention! If "
+"you change scheme title or slug - you must save options (press Save), then "
+"reload the page (press F5) after the success saving message appear!"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:381
+msgid ""
+"Below you can see the example of decoration of the page with selected colors."
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:393
+msgid ""
+"Specify colors for theme accented elements (if need). The theme may not use "
+"all of the colors."
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:400
+#: fw/core/core.customizer/core.customizer.php:432
+#: fw/core/core.customizer/core.customizer.php:461
+msgid "Select color for accented elements and their hover state"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:491
+msgid "Specify colors for the plain text, post info blocks and headers"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:498
+msgid ""
+"Select colors for the text: normal text color, light text (for example - "
+"post info) and dark text (headers, bold text, etc.)"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:539
+msgid "Select colors for inversed text (text on accented background)"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:577
+msgid "Select colors for inversed links (links on accented background)"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:609
+msgid ""
+"Specify border and background to decorate whole page (if scheme accepted to "
+"the page) or entire block/section."
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:616
+msgid "Select the border color and it hover state"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:641
+msgid "Select the background color and it hover state"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:669
+msgid "Select first background image and it display parameters"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:723
+msgid "Select second background image and it display parameters"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:779
+msgid "Specify colors to decorate inner blocks or input fields in the forms"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:786
+msgid ""
+"Specify colors for the plain text, post info blocks and headers in the "
+"highlight blocks"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:825
+msgid "Specify colors for the links in the highlight blocks"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:854
+msgid ""
+"Select the border colors for the normal state and for active (focused) field"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:883
+msgid ""
+"Select the background colors for the normal state and for active (focused) "
+"field"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:912
+msgid "Select alter background image and it display parameters"
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:982
+msgid ""
+"Select fonts, sizes and styles for the headings and paragraphs. You can use "
+"Google fonts and custom fonts.<br><br>How to install custom @font-face fonts "
+"into the theme?<br>All @font-face fonts are located in \"theme_name/css/font-"
+"face/\" folder in the separate subfolders for the each font. Subfolder name "
+"is a font-family name!<br>Place full set of the font files (for each font "
+"style and weight) and css-file named stylesheet.css in the each subfolder."
+"<br>Create your @font-face kit by using <a href=\"http://www.fontsquirrel."
+"com/fontface/generator\">Fontsquirrel @font-face Generator</a> and then "
+"extract the font kit (with folder in the kit) into the \"theme_name/css/font-"
+"face\" folder to install."
+msgstr ""
+
+#: fw/core/core.customizer/core.customizer.php:1111
+msgid "Customize fonts and colors for your site."
+msgstr ""
+
+#: fw/core/core.importer/core.importer.php:179
+msgid "Organics Importer"
+msgstr ""
+
+#: fw/core/core.importer/core.importer.php:180
+msgid "Attention! Important info:"
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:167
+#, php-format
+msgid "(continue from ID = %s)"
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:255
+msgid "Have fun!"
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:460
+#, php-format
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:534
+#, php-format
+msgid "Category \"%s\" imported."
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:537
+#, php-format
+msgid "Failed to import category \"%s\""
+msgstr ""
+
+#: fw/core/core.importer/wordpress-importer.php:834
+#, php-format
+msgid "Failed to import post term %s: \"%s\""
+msgstr ""
+
+#: fw/core/core.options/core.options.php:598
+msgid ""
+"Global settings affect the entire website's display. They can be overriden "
+"when editing pages/categories/posts"
+msgstr ""
+
+#: fw/core/core.options/core.options.php:600
+msgid ""
+"Settings template for a certain post type: affects the display of just one "
+"specific post type. They can be overriden when editing categories and/or "
+"posts of a certain type"
+msgstr ""
+
+#: fw/core/core.reviews.php:105
+msgid "no rated"
+msgstr ""
+
+#: fw/core/core.reviews.php:132
+msgid "Accept your votes"
+msgstr ""
+
+#: fw/core/core.reviews.php:137
+msgid "Summary"
+msgstr ""
+
+#: fw/core/core.reviews.php:157
+#, php-format
+msgid "%s / %s"
+msgstr ""
+
+#: fw/core/core.reviews.php:157
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:273
+#: fw/core/core.shortcodes/shortcodes.php:625
+#: fw/core/core.shortcodes/shortcodes.php:2524 includes/theme_shortcodes.php:60
+#: includes/theme_shortcodes.php:824 includes/theme_shortcodes.php:828
+msgid "Learn more"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:462
+#: fw/core/core.shortcodes/shortcodes.php:469 includes/theme_shortcodes.php:239
+#: includes/theme_shortcodes.php:246
+msgid "All"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1110
+#: fw/core/core.shortcodes/shortcodes_settings.php:4213
+#: fw/core/core.shortcodes/shortcodes_settings.php:4256
+#: fw/core/core.shortcodes/shortcodes_settings.php:4291
+#: fw/core/core.shortcodes/shortcodes_settings.php:4334
+#: fw/core/core.shortcodes/shortcodes_settings.php:4377
+#: fw/core/core.shortcodes/shortcodes_settings.php:4420
+#: fw/core/core.shortcodes/shortcodes_settings.php:4486
+#: fw/core/core.shortcodes/shortcodes_settings.php:4529
+#: fw/core/core.shortcodes/shortcodes_settings.php:4584
+#: fw/core/core.shortcodes/shortcodes_vc.php:5539
+#: fw/core/core.shortcodes/shortcodes_vc.php:5599
+#: fw/core/core.shortcodes/shortcodes_vc.php:5650
+#: fw/core/core.shortcodes/shortcodes_vc.php:5710
+#: fw/core/core.shortcodes/shortcodes_vc.php:5770
+#: fw/core/core.shortcodes/shortcodes_vc.php:5830
+#: fw/core/core.shortcodes/shortcodes_vc.php:5921
+#: fw/core/core.shortcodes/shortcodes_vc.php:5982
+#: fw/core/core.shortcodes/shortcodes_vc.php:6060
+#: includes/theme_shortcodes_settings.php:250
+#: includes/theme_shortcodes_settings.php:294
+#: includes/theme_shortcodes_settings.php:362
+#: includes/theme_shortcodes_settings.php:405
+#: includes/theme_shortcodes_vc.php:149 includes/theme_shortcodes_vc.php:209
+#: includes/theme_shortcodes_vc.php:308 includes/theme_shortcodes_vc.php:368
+msgid "Date"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1117
+msgid "Time"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1146
+msgid "Unknown admin email!"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1157
+#, php-format
+msgid "Site %s - Contact form message from %s"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1158
+msgid "Name:"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1159
+msgid "E-mail:"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1160
+msgid "Subject:"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1161
+msgid "Message:"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1165
+#, php-format
+msgid "Site %s - Custom form data"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1177
+msgid "Error send message!"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1270
+msgid "Days"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1275
+msgid "Hours"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1280
+msgid "Minutes"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:1285
+msgid "Seconds"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:2323
+#: includes/theme_shortcodes.php:757
+msgid "Search"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:2347
+#: includes/theme_shortcodes.php:781
+msgid "Open search"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:2347
+#: includes/theme_shortcodes.php:781
+msgid "Start search"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes.php:2518
+msgid "Skills"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:105
+msgid "Unordered"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:106
+msgid "Ordered"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:107
+msgid "Iconed"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:304
+msgid "Choose audio"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:310
+msgid "Choose audio file"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:311
+msgid "Select audio file"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:513
+#: fw/core/core.shortcodes/shortcodes_settings.php:1764
+#: fw/core/core.shortcodes/shortcodes_settings.php:2700
+#: fw/core/core.shortcodes/shortcodes_vc.php:721
+#: fw/core/core.shortcodes/shortcodes_vc.php:2330
+#: fw/core/core.shortcodes/shortcodes_vc.php:3560
+msgid "Thin (100)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:514
+#: fw/core/core.shortcodes/shortcodes_settings.php:1765
+#: fw/core/core.shortcodes/shortcodes_settings.php:2701
+#: fw/core/core.shortcodes/shortcodes_vc.php:722
+#: fw/core/core.shortcodes/shortcodes_vc.php:2331
+#: fw/core/core.shortcodes/shortcodes_vc.php:3561
+msgid "Light (300)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:515
+#: fw/core/core.shortcodes/shortcodes_settings.php:1766
+#: fw/core/core.shortcodes/shortcodes_settings.php:2702
+#: fw/core/core.shortcodes/shortcodes_vc.php:723
+#: fw/core/core.shortcodes/shortcodes_vc.php:2332
+#: fw/core/core.shortcodes/shortcodes_vc.php:3562
+msgid "Normal (400)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:516
+#: fw/core/core.shortcodes/shortcodes_settings.php:1767
+#: fw/core/core.shortcodes/shortcodes_settings.php:2703
+#: fw/core/core.shortcodes/shortcodes_vc.php:724
+#: fw/core/core.shortcodes/shortcodes_vc.php:2333
+#: fw/core/core.shortcodes/shortcodes_vc.php:3563
+msgid "Bold (700)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:637
+#: fw/core/core.shortcodes/shortcodes_settings.php:3012
+#: fw/core/core.shortcodes/shortcodes_vc.php:968
+#: fw/core/core.shortcodes/shortcodes_vc.php:3970
+msgid "- Select category -"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:800
+#: fw/core/core.shortcodes/shortcodes_settings.php:1728
+#: fw/core/core.shortcodes/shortcodes_settings.php:3085
+#: fw/core/core.shortcodes/shortcodes_vc.php:1084
+#: fw/core/core.shortcodes/shortcodes_vc.php:2309
+#: fw/core/core.shortcodes/shortcodes_vc.php:4058
+msgid "None"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:801
+#: fw/core/core.shortcodes/shortcodes_vc.php:1085
+msgid "Left"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:802
+#: fw/core/core.shortcodes/shortcodes_vc.php:1086
+msgid "Right"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:803
+#: fw/core/core.shortcodes/shortcodes_vc.php:1087
+msgid "Both"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:831
+#: fw/core/core.shortcodes/shortcodes_settings.php:1730
+#: fw/core/core.shortcodes/shortcodes_settings.php:1845
+#: fw/core/core.shortcodes/shortcodes_vc.php:1130
+#: fw/core/core.shortcodes/shortcodes_vc.php:2311
+#: fw/core/core.shortcodes/shortcodes_vc.php:2412
+#: includes/theme_shortcodes_settings.php:62
+#: includes/theme_shortcodes_settings.php:104
+#: includes/theme_shortcodes_vc.php:59 includes/theme_shortcodes_vc.php:418
+msgid "Square"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:832
+#: fw/core/core.shortcodes/shortcodes_settings.php:1729
+#: fw/core/core.shortcodes/shortcodes_settings.php:1846
+#: fw/core/core.shortcodes/shortcodes_vc.php:1131
+#: fw/core/core.shortcodes/shortcodes_vc.php:2310
+#: fw/core/core.shortcodes/shortcodes_vc.php:2413
+#: includes/theme_shortcodes_settings.php:105
+#: includes/theme_shortcodes_vc.php:417
+msgid "Round"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:842
+#: fw/core/core.shortcodes/shortcodes_vc.php:1141
+#: includes/theme_shortcodes_settings.php:115
+#: includes/theme_shortcodes_vc.php:428
+msgid "Filled"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:843
+#: fw/core/core.shortcodes/shortcodes_vc.php:1142
+#: includes/theme_shortcodes_settings.php:116
+#: includes/theme_shortcodes_vc.php:429
+msgid "Border"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:853
+#: fw/core/core.shortcodes/shortcodes_vc.php:1153
+#: includes/theme_shortcodes_settings.php:139
+#: includes/theme_shortcodes_vc.php:453
+msgid "Small"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:854
+#: fw/core/core.shortcodes/shortcodes_vc.php:1154
+#: includes/theme_shortcodes_settings.php:140
+#: includes/theme_shortcodes_vc.php:454
+msgid "Medium"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:855
+#: fw/core/core.shortcodes/shortcodes_vc.php:1155
+#: includes/theme_shortcodes_settings.php:141
+#: includes/theme_shortcodes_vc.php:455
+msgid "Large"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1009
+#: fw/core/core.shortcodes/shortcodes_settings.php:2200
+#: fw/core/core.shortcodes/shortcodes_settings.php:3835
+msgid "Choose video"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1015
+#: fw/core/core.shortcodes/shortcodes_settings.php:2206
+#: fw/core/core.shortcodes/shortcodes_settings.php:3841
+msgid "Choose video file"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1016
+#: fw/core/core.shortcodes/shortcodes_settings.php:2207
+#: fw/core/core.shortcodes/shortcodes_settings.php:3842
+msgid "Select video file"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1654
+#: fw/core/core.shortcodes/shortcodes_vc.php:2210
+msgid "Custom"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1655
+#: fw/core/core.shortcodes/shortcodes_vc.php:2211
+msgid "Type 1"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1656
+#: fw/core/core.shortcodes/shortcodes_vc.php:2212
+msgid "Type 2"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1657
+#: fw/core/core.shortcodes/shortcodes_vc.php:2213
+msgid "Type 3"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1884
+#: fw/core/core.shortcodes/shortcodes_settings.php:2509
+#: fw/core/core.shortcodes/shortcodes_vc.php:2485
+#: fw/core/core.shortcodes/shortcodes_vc.php:3328
+msgid "Regular"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1885
+#: fw/core/core.shortcodes/shortcodes_vc.php:2486
+msgid "Info"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1886
+#: fw/core/core.shortcodes/shortcodes_vc.php:2487
+msgid "Success"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1887
+#: fw/core/core.shortcodes/shortcodes_vc.php:2488
+msgid "Error"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1951
+#: fw/core/core.shortcodes/shortcodes_vc.php:2576
+msgid "Solid"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1952
+#: fw/core/core.shortcodes/shortcodes_vc.php:2577
+msgid "Dashed"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1953
+#: fw/core/core.shortcodes/shortcodes_vc.php:2578
+msgid "Dotted"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:1954
+#: fw/core/core.shortcodes/shortcodes_vc.php:2579
+msgid "Double"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2144
+#: fw/core/core.shortcodes/shortcodes_vc.php:2858
+msgid "Up"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2145
+#: fw/core/core.shortcodes/shortcodes_vc.php:2859
+msgid "Down"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2510
+msgid "Rounded"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2519
+#: fw/core/core.shortcodes/shortcodes_vc.php:3339
+msgid "Fixed"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2520
+#: fw/core/core.shortcodes/shortcodes_vc.php:3340
+msgid "Opened"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2521
+#: fw/core/core.shortcodes/shortcodes_vc.php:3341
+msgid "Closed"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2528
+#: fw/core/core.shortcodes/shortcodes_vc.php:3351
+msgid "Search &hellip;"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2749
+#: fw/core/core.shortcodes/shortcodes_vc.php:3629
+msgid "Bar"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2750
+#: fw/core/core.shortcodes/shortcodes_vc.php:3630
+msgid "Pie chart"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2751
+#: fw/core/core.shortcodes/shortcodes_vc.php:3631
+msgid "Counter"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2752
+#: fw/core/core.shortcodes/shortcodes_vc.php:3632
+msgid "Arc"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2765
+#: fw/core/core.shortcodes/shortcodes_vc.php:3647
+msgid "Rows"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:2766
+#: fw/core/core.shortcodes/shortcodes_vc.php:3648
+msgid "Columns"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3086
+#: fw/core/core.shortcodes/shortcodes_vc.php:4059
+msgid "Dots"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3087
+#: fw/core/core.shortcodes/shortcodes_vc.php:4060
+msgid "Side Titles"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3088
+#: fw/core/core.shortcodes/shortcodes_vc.php:4061
+msgid "Over Titles"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3101
+#: fw/core/core.shortcodes/shortcodes_vc.php:4076
+msgid "Not show"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3102
+#: fw/core/core.shortcodes/shortcodes_vc.php:4077
+msgid "Show/Hide info"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3103
+#: fw/core/core.shortcodes/shortcodes_vc.php:4078
+msgid "Fixed info"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3229
+#: fw/core/core.shortcodes/shortcodes_vc.php:4246
+msgid "Icons"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3230
+#: fw/core/core.shortcodes/shortcodes_vc.php:4247
+msgid "Images"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3426
+#: fw/core/core.shortcodes/shortcodes_vc.php:4527
+msgid "Title content"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3433
+#: fw/core/core.shortcodes/shortcodes_vc.php:4535
+msgid "Title type (header level)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3448
+msgid "Title style"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3460
+#: fw/core/core.shortcodes/shortcodes_vc.php:4565
+msgid "Title text alignment"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3468
+#: fw/core/core.shortcodes/shortcodes_vc.php:4574
+msgid "Custom font size. If empty - use theme default"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3474
+#: fw/core/core.shortcodes/shortcodes_vc.php:4582
+msgid "Custom font weight. If empty or inherit - use theme default"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3490
+#: fw/core/core.shortcodes/shortcodes_vc.php:4598
+msgid "Select color for the title"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3496
+#: fw/core/core.shortcodes/shortcodes_vc.php:4606
+msgid ""
+"Select font icon for the title from Fontello icons set (if style=iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3506
+#: fw/core/core.shortcodes/shortcodes_vc.php:4619
+msgid "Select image icon for the title instead icon above (if style=iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3517
+#: fw/core/core.shortcodes/shortcodes_vc.php:4632
+msgid "Select or upload image or write URL from other site (if style=iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3527
+msgid "Select image (picture) size (if style='iconed')"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3541
+#: fw/core/core.shortcodes/shortcodes_vc.php:4654
+msgid "Select icon (image) position (if style=iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3857
+#: fw/core/core.shortcodes/shortcodes_vc.php:5003
+msgid "16:9"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3858
+#: fw/core/core.shortcodes/shortcodes_vc.php:5004
+msgid "4:3"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3957
+#: fw/core/core.shortcodes/shortcodes_vc.php:5117
+msgid "Lens"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:3958
+#: fw/core/core.shortcodes/shortcodes_vc.php:5118
+msgid "Zoom"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4128
+#: fw/core/core.shortcodes/shortcodes_vc.php:5408
+msgid "Publish"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4129
+#: fw/core/core.shortcodes/shortcodes_vc.php:5409
+msgid "Protected"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4130
+#: fw/core/core.shortcodes/shortcodes_vc.php:5410
+msgid "Private"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4131
+#: fw/core/core.shortcodes/shortcodes_vc.php:5411
+msgid "Pending"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4132
+#: fw/core/core.shortcodes/shortcodes_vc.php:5412
+msgid "Draft"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4445
+#: fw/core/core.shortcodes/shortcodes_vc.php:5860
+msgid "IN"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4446
+#: fw/core/core.shortcodes/shortcodes_vc.php:5861
+msgid "NOT IN"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_settings.php:4447
+#: fw/core/core.shortcodes/shortcodes_vc.php:5862
+msgid "AND"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:16
+msgid "Width (in pixels or percent) of the current element"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:29
+msgid "Height (only in pixels) of the current element"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:107 plugins/type.clients.php:632
+#: plugins/type.clients.php:874 plugins/type.services.php:588
+#: plugins/type.services.php:867 plugins/type.team.php:789
+#: plugins/type.team.php:1094 plugins/type.testimonials.php:686
+#: plugins/type.testimonials.php:1017
+msgid "Select color scheme for this block"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:184
+msgid "ID for current element"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:194
+msgid "CSS class for current element"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:204
+msgid "Select animation while object enter in the visible area of page"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:215
+msgid "Any additional CSS rules (if need)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:226
+msgid "Top margin (in pixels)."
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:235
+msgid "Bottom margin (in pixels)."
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:244
+msgid "Left margin (in pixels)."
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:253
+msgid "Right margin (in pixels)."
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:572
+#: fw/core/core.shortcodes/shortcodes_vc.php:3401
+msgid "Use as dedicated content"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:598
+#: fw/core/core.shortcodes/shortcodes_vc.php:608
+#: fw/core/core.shortcodes/shortcodes_vc.php:3427
+#: fw/core/core.shortcodes/shortcodes_vc.php:3437
+msgid "Content scroller"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:635
+#: fw/core/core.shortcodes/shortcodes_vc.php:3460
+msgid "Show scroll controls"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:685
+#: fw/core/core.shortcodes/shortcodes_vc.php:1609
+#: fw/core/core.shortcodes/shortcodes_vc.php:3510
+msgid "Tile background image"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:720
+#: fw/core/core.shortcodes/shortcodes_vc.php:2329
+#: fw/core/core.shortcodes/shortcodes_vc.php:3559
+msgid "Default"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:854
+msgid "Show rating"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:863
+msgid "Show info"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:882
+msgid "Allow links"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1031
+msgid "Use scroller"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1040
+#: fw/core/core.shortcodes/shortcodes_vc.php:4043
+msgid "Show controls"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1215
+#: includes/theme_shortcodes_vc.php:515
+msgid "Open in popup"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1506
+msgid "Fluid columns"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1515
+msgid "Disable margins between columns"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:1524
+msgid "Use Banner Grid"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2013
+msgid "Initially opened"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2489
+msgid "Result"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2498
+msgid "Close button"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2580
+msgid "Shadow"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2680
+msgid "Item 1"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2681
+msgid "Item 2"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:2848
+msgid "Create gap"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3329
+msgid "Flat"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3359
+msgid "Use AJAX search"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3542
+msgid "Disable padding around content in this block"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3744
+msgid "Show all skills in one diagram"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3943
+msgid "Custom slides"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:3958
+msgid "- Select slider -"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4105
+msgid "Titles as a links"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4118
+msgid "Crop images"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4131
+msgid "Autoheight"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4282
+msgid "Custom socials"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4451
+msgid "Tab 1"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4452
+msgid "Tab 2"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4516
+msgid "Create header tag (1-6 level) with many styles"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4551
+msgid "Title style: only text (regular) or with icon/image (iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4641
+msgid "Select image (picture) size (if style=iconed)"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4739
+msgid "Item 1 title"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4740
+msgid "Item 2 title"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:4747
+msgid "Add item"
+msgstr ""
+
+#: fw/core/core.shortcodes/shortcodes_vc.php:5540
+#: fw/core/core.shortcodes/shortcodes_vc.php:5600
+#: fw/core/core.shortcodes/shortcodes_vc.php:5651
+#: fw/core/core.shortcodes/shortcodes_vc.php:5711
+#: fw/core/core.shortcodes/shortcodes_vc.php:5771
+#: fw/core/core.shortcodes/shortcodes_vc.php:5831
+#: fw/core/core.shortcodes/shortcodes_vc.php:5922
+#: fw/core/core.shortcodes/shortcodes_vc.php:5983
+#: fw/core/core.shortcodes/shortcodes_vc.php:6061
+#: includes/theme_shortcodes_settings.php:35
+#: includes/theme_shortcodes_vc.php:65 includes/theme_shortcodes_vc.php:150
+#: includes/theme_shortcodes_vc.php:210 includes/theme_shortcodes_vc.php:309
+#: includes/theme_shortcodes_vc.php:369
+msgid "Title"
+msgstr ""
+
+#: fw/core/core.theme.php:686 fw/core/core.theme.php:688
+msgid "Post delete error!"
+msgstr ""
+
+#: fw/core/core.theme.php:691
+msgid "Post delete denied!"
+msgstr ""
+
+#: fw/core/core.wp.php:684
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
+
+#: fw/core/type.post.php:125
+msgid "In this section you can put your reviews marks"
+msgstr ""
+
+#: fw/core/type.post.php:130 includes/theme.options.php:1987
+msgid ""
+"Show reviews block on single post page and average reviews rating after "
+"post's title in stream pages"
+msgstr ""
+
+#: fw/core/type.post.php:141
+msgid "Marks for this review"
+msgstr ""
+
+#: fw/core/type.taxonomy.php:162
+msgid "Custom settings for this taxonomy (and nested):"
+msgstr ""
+
+#: fw/core/type.taxonomy.php:166
+msgid ""
+"Select parameters for showing posts from this taxonomy and all nested "
+"taxonomies."
+msgstr ""
+
+#: fw/core/type.taxonomy.php:167
+msgid "Attention: In each nested taxonomy you can override this settings."
+msgstr ""
+
+#: fw/lib/tgm/class-tgm-plugin-activation.php:177
+msgid "Begin activating plugin"
+msgstr ""
+
+#: fw/lib/tgm/class-tgm-plugin-activation.php:535
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: fw/lib/tgm/class-tgm-plugin-activation.php:1375
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: fw/lib/tgm/class-tgm-plugin-activation.php:1944
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: fw/tools/emailer/emailer.php:342
+#, php-format
+msgid ""
+"You or someone else added this e-mail address into our subcribtion list.\n"
+"Please, confirm your wish to receive newsletters from our website by "
+"clicking on the link below:\n"
+"\n"
+"<a href=\"%s\">%s</a>\n"
+"\n"
+"If you do not wiish to subscribe to our newsletters, simply ignore this "
+"message."
+msgstr ""
+
+#: fw/tools/po_composer/po_composer.php:281
+#, php-format
+msgid "Language file \"<b>%s.po</b>\" was updated!"
+msgstr ""
+
+#: fw/tools/po_composer/po_composer.php:285
+#, php-format
+msgid "Language file \"<b>%s.mo</b>\" was generated!"
+msgstr ""
+
+#: fw/tools/po_composer/po_composer.php:288
+#, php-format
+msgid ""
+"Error writing in language file \"<b>%s.po</b>\"!<br>Please, copy text from "
+"textarea below and paste it in the .po-file manually<br>or use links to "
+"upload .po and .mo files below the text area!"
+msgstr ""
+
+#: includes/theme.options.php:120
+msgid ""
+"Select body style, skin and color scheme for entire site. You can override "
+"this parameters on any page, post or category"
+msgstr ""
+
+#: includes/theme.options.php:127
+msgid "Select body style:"
+msgstr ""
+
+#: includes/theme.options.php:129
+msgid "<b>boxed</b> - if you want use background color and/or image"
+msgstr ""
+
+#: includes/theme.options.php:131
+msgid "<b>wide</b> - page fill whole window with centered content"
+msgstr ""
+
+#: includes/theme.options.php:133
+msgid ""
+"<b>fullwide</b> - page content stretched on the full width of the window "
+"(with few left and right paddings)"
+msgstr ""
+
+#: includes/theme.options.php:136
+msgid "<b>fullscreen</b> - page content fill whole window without any paddings"
+msgstr ""
+
+#: includes/theme.options.php:147
+msgid "Add paddings above and below the page content"
+msgstr ""
+
+#: includes/theme.options.php:156
+msgid "Select skin for the theme decoration"
+msgstr ""
+
+#: includes/theme.options.php:165
+msgid "Select predefined color scheme for the entire page"
+msgstr ""
+
+#: includes/theme.options.php:174
+msgid ""
+"Fill the page background with the solid color or leave it transparend to "
+"show background image (or video background)"
+msgstr ""
+
+#: includes/theme.options.php:183
+msgid "Color and image for the site background"
+msgstr ""
+
+#: includes/theme.options.php:190
+msgid "Use custom color and/or image as the site background"
+msgstr ""
+
+#: includes/theme.options.php:199
+msgid "Body background color"
+msgstr ""
+
+#: includes/theme.options.php:210
+msgid "Select theme background pattern (first case - without pattern)"
+msgstr ""
+
+#: includes/theme.options.php:230
+msgid ""
+"Select or upload background custom pattern. If selected - use it instead the "
+"theme predefined pattern (selected in the field above)"
+msgstr ""
+
+#: includes/theme.options.php:241
+msgid "Select theme background image (first case - without image)"
+msgstr ""
+
+#: includes/theme.options.php:259
+msgid ""
+"Select or upload background custom image. If selected - use it instead the "
+"theme predefined image (selected in the field above)"
+msgstr ""
+
+#: includes/theme.options.php:270
+msgid "Select custom image position"
+msgstr ""
+
+#: includes/theme.options.php:292
+msgid "Always load background images or only for boxed body style"
+msgstr ""
+
+#: includes/theme.options.php:309
+msgid "Parameters of the video, used as site background"
+msgstr ""
+
+#: includes/theme.options.php:316
+msgid "Show video as the site background"
+msgstr ""
+
+#: includes/theme.options.php:325
+msgid "Youtube code of video"
+msgstr ""
+
+#: includes/theme.options.php:336
+msgid "URL to video-file (uploaded on your site)"
+msgstr ""
+
+#: includes/theme.options.php:357
+msgid "Use overlay texture for the video background"
+msgstr ""
+
+#: includes/theme.options.php:382
+msgid ""
+"Top panel settings. It include user menu area (with contact info, cart "
+"button, language selector, login/logout menu and user menu) and main menu "
+"area (with logo and main menu)."
+msgstr ""
+
+#: includes/theme.options.php:388
+msgid "Select desired style of the page header"
+msgstr ""
+
+#: includes/theme.options.php:397
+msgid ""
+"Select default background image of the page header (if not single post or "
+"featured image for current post is not specified)"
+msgstr ""
+
+#: includes/theme.options.php:407
+msgid "Select position for the top panel with logo and main menu"
+msgstr ""
+
+#: includes/theme.options.php:420
+msgid "Select predefined color scheme for the top panel"
+msgstr ""
+
+#: includes/theme.options.php:429
+msgid "Select or upload background custom image)"
+msgstr ""
+
+#: includes/theme.options.php:440
+msgid "Show post/page/category title"
+msgstr ""
+
+#: includes/theme.options.php:448
+msgid "Show path to current category (post, page)"
+msgstr ""
+
+#: includes/theme.options.php:456
+msgid "Max number of the nested categories in the breadcrumbs (0 - unlimited)"
+msgstr ""
+
+#: includes/theme.options.php:471
+msgid "Select the Main menu style and position"
+msgstr ""
+
+#: includes/theme.options.php:477
+msgid "Select main menu for the current page"
+msgstr ""
+
+#: includes/theme.options.php:485
+msgid "Attach main menu to top of window then page scroll down"
+msgstr ""
+
+#: includes/theme.options.php:496
+msgid "Use slider background for main menu items"
+msgstr ""
+
+#: includes/theme.options.php:503
+msgid "Select animation to show submenu "
+msgstr ""
+
+#: includes/theme.options.php:510
+msgid "Select animation to hide submenu "
+msgstr ""
+
+#: includes/theme.options.php:533
+msgid ""
+"Allow responsive version for the main menu if window width less then this "
+"value"
+msgstr ""
+
+#: includes/theme.options.php:541
+msgid "Width for dropdown menus in main menu"
+msgstr ""
+
+#: includes/theme.options.php:553
+msgid "Select parts for the user's menu area"
+msgstr ""
+
+#: includes/theme.options.php:559
+msgid "Show user menu area on top of page"
+msgstr ""
+
+#: includes/theme.options.php:567
+msgid "Select user menu for the current page"
+msgstr ""
+
+#: includes/theme.options.php:578
+msgid ""
+"Show language selector in the user menu (if WPML plugin installed and "
+"current page/post has multilanguage version)"
+msgstr ""
+
+#: includes/theme.options.php:588
+msgid "Show Login and Logout buttons in the user menu area"
+msgstr ""
+
+#: includes/theme.options.php:598
+msgid "Show bookmarks selector in the user menu"
+msgstr ""
+
+#: includes/theme.options.php:608
+msgid ""
+"Show Social icons in the mobile menu and Top Panel Style \"Socials Ecommerce"
+"\""
+msgstr ""
+
+#: includes/theme.options.php:664
+msgid "Select or upload logos for the site's header and select it position"
+msgstr ""
+
+#: includes/theme.options.php:671
+msgid ""
+"Upload a 16px x 16px image that will represent your website's favicon.<br /"
+"><em>To ensure cross-browser compatibility, we recommend converting the "
+"favicon into .ico format before uploading. (<a href='http://www.favicon."
+"cc/'>www.favicon.cc</a>)</em>"
+msgstr ""
+
+#: includes/theme.options.php:678
+msgid "Main logo image"
+msgstr ""
+
+#: includes/theme.options.php:686
+msgid "Logo image for the header (if menu is mobile)"
+msgstr ""
+
+#: includes/theme.options.php:695
+msgid "Logo text - display it after logo image"
+msgstr ""
+
+#: includes/theme.options.php:703
+msgid "Logo slogan - display it under logo image (instead the site tagline)"
+msgstr ""
+
+#: includes/theme.options.php:711
+msgid "Height for the logo in the header area"
+msgstr ""
+
+#: includes/theme.options.php:723
+msgid "Top offset for the logo in the header area"
+msgstr ""
+
+#: includes/theme.options.php:750
+msgid ""
+"Select parameters for main slider (you can override it in each category and "
+"page)"
+msgstr ""
+
+#: includes/theme.options.php:756
+msgid "Do you want to show slider on each page (post)"
+msgstr ""
+
+#: includes/theme.options.php:764
+msgid ""
+"How display slider: boxed (fixed width and height), fullwide (fixed height) "
+"or fullscreen"
+msgstr ""
+
+#: includes/theme.options.php:779
+msgid "Slider height (in pixels) - only if slider display with fixed height."
+msgstr ""
+
+#: includes/theme.options.php:791
+msgid "What engine use to show slider?"
+msgstr ""
+
+#: includes/theme.options.php:802
+msgid "Select slider to show (if engine=revo in the field above)"
+msgstr ""
+
+#: includes/theme.options.php:814
+msgid ""
+"Select category to show in Flexslider (ignored for Revolution and Royal "
+"sliders)"
+msgstr ""
+
+#: includes/theme.options.php:828
+msgid ""
+"How many recent posts display in slider or comma separated list of posts ID "
+"(in this case selected category ignored)"
+msgstr ""
+
+#: includes/theme.options.php:839
+msgid ""
+"Posts in slider ordered by date (default), comments, views, author rating, "
+"users rating, random or alphabetically"
+msgstr ""
+
+#: includes/theme.options.php:851 includes/theme.options.php:1692
+msgid "Select the desired ordering method for posts"
+msgstr ""
+
+#: includes/theme.options.php:864
+msgid "Interval (in ms) for slides change in slider"
+msgstr ""
+
+#: includes/theme.options.php:877
+msgid "Choose pagination style for the slider"
+msgstr ""
+
+#: includes/theme.options.php:893
+msgid ""
+"Do you want to show post's title, reviews rating and description on slides "
+"in slider"
+msgstr ""
+
+#: includes/theme.options.php:909
+msgid "Do you want to show post's category on slides in slider"
+msgstr ""
+
+#: includes/theme.options.php:921
+msgid "Do you want to show post's reviews rating on slides in slider"
+msgstr ""
+
+#: includes/theme.options.php:933
+msgid ""
+"How many characters show in the post's description in slider. 0 - no "
+"descriptions"
+msgstr ""
+
+#: includes/theme.options.php:959
+msgid ""
+"In this section you can create unlimited sidebars. You can fill them with "
+"widgets in the menu Appearance - Widgets"
+msgstr ""
+
+#: includes/theme.options.php:964
+msgid ""
+"Manage custom sidebars. You can use it with each category (page, post) "
+"independently"
+msgstr ""
+
+#: includes/theme.options.php:971
+msgid "Show / Hide and select main sidebar"
+msgstr ""
+
+#: includes/theme.options.php:977
+msgid "Select position for the main sidebar or hide it"
+msgstr ""
+
+#: includes/theme.options.php:986
+msgid "Select predefined color scheme for the main sidebar"
+msgstr ""
+
+#: includes/theme.options.php:998
+msgid "Select main sidebar content"
+msgstr ""
+
+#: includes/theme.options.php:1117
+msgid ""
+"Select components of the footer, set style and put the content for the "
+"user's footer area"
+msgstr ""
+
+#: includes/theme.options.php:1123
+msgid "Select style for the footer sidebar or hide it"
+msgstr ""
+
+#: includes/theme.options.php:1131
+msgid "Select predefined color scheme for the footer"
+msgstr ""
+
+#: includes/theme.options.php:1143
+msgid "Select footer sidebar for the blog page"
+msgstr ""
+
+#: includes/theme.options.php:1154
+msgid "Select columns number for the footer sidebar"
+msgstr ""
+
+#: includes/theme.options.php:1167
+msgid "Add shortcode for the Footer"
+msgstr ""
+
+#: includes/theme.options.php:1173
+msgid "You can add shortcode for the Footer"
+msgstr ""
+
+#: includes/theme.options.php:1182
+msgid "Select predefined color scheme for the footer shortcode area"
+msgstr ""
+
+#: includes/theme.options.php:1194
+msgid "Add shortcode or simple text for the Footer"
+msgstr ""
+
+#: includes/theme.options.php:1247
+msgid ""
+"Select parameters for Google map (you can override it in each category and "
+"page)"
+msgstr ""
+
+#: includes/theme.options.php:1253
+msgid "Do you want to show Google map on each page (post)"
+msgstr ""
+
+#: includes/theme.options.php:1261
+msgid "Map height (default - in pixels, allows any CSS units of measure)"
+msgstr ""
+
+#: includes/theme.options.php:1273
+msgid "Enter address to show on map center"
+msgstr ""
+
+#: includes/theme.options.php:1283
+msgid ""
+"Enter coordinates (separated by comma) to show on map center (instead of "
+"address)"
+msgstr ""
+
+#: includes/theme.options.php:1293
+msgid "Enter title to show on map center"
+msgstr ""
+
+#: includes/theme.options.php:1303
+msgid "Enter description to show on map center"
+msgstr ""
+
+#: includes/theme.options.php:1313
+msgid "Enter desired initial zoom for Google map"
+msgstr ""
+
+#: includes/theme.options.php:1326
+msgid "Select style to show Google map"
+msgstr ""
+
+#: includes/theme.options.php:1337
+msgid "Select or upload png-image with Google map marker"
+msgstr ""
+
+#: includes/theme.options.php:1348
+msgid "Show/Hide contacts area in the footer"
+msgstr ""
+
+#: includes/theme.options.php:1354
+msgid ""
+"Show contact information area in footer: site logo, contact info and large "
+"social icons"
+msgstr ""
+
+#: includes/theme.options.php:1362
+msgid "Select predefined color scheme for the contacts area"
+msgstr ""
+
+#: includes/theme.options.php:1402
+msgid "Show/Hide copyright area in the footer"
+msgstr ""
+
+#: includes/theme.options.php:1408
+msgid ""
+"Show area with copyright information, footer menu and small social icons in "
+"footer"
+msgstr ""
+
+#: includes/theme.options.php:1422
+msgid "Select predefined color scheme for the copyright area"
+msgstr ""
+
+#: includes/theme.options.php:1434
+msgid "Select footer menu for the current page"
+msgstr ""
+
+#: includes/theme.options.php:1445
+msgid "Copyright text to show in footer area (bottom of site)"
+msgstr ""
+
+#: includes/theme.options.php:1469
+msgid "Animation parameters and responsive layouts for the small screens"
+msgstr ""
+
+#: includes/theme.options.php:1475
+msgid ""
+"Do you want to show theme customizer in the right panel? Your website "
+"visitors will be able to customise it yourself."
+msgstr ""
+
+#: includes/theme.options.php:1483
+msgid ""
+"Timer for demo mode for the customizer panel (in milliseconds: 1000ms = 1s). "
+"If 0 - no demo."
+msgstr ""
+
+#: includes/theme.options.php:1495
+msgid "Do you want use extended animations effects on your site?"
+msgstr ""
+
+#: includes/theme.options.php:1503
+msgid ""
+"To remember the settings that were made by the visitor, when navigating to "
+"other pages or to limit their effect only within the current page"
+msgstr ""
+
+#: includes/theme.options.php:1511
+msgid ""
+"Do you want use responsive layouts on small screen or still use main layout?"
+msgstr ""
+
+#: includes/theme.options.php:1521
+msgid "Put here your custom CSS and JS code"
+msgstr ""
+
+#: includes/theme.options.php:1528
+msgid ""
+"Do you want use custom HTML/CSS/JS code in your site? For example: custom "
+"styles, Google Analitics code, etc."
+msgstr ""
+
+#: includes/theme.options.php:1536
+msgid ""
+"Put here Google Tags Manager (GTM) code from your account: Google analitics, "
+"remarketing, etc. This code will be placed after open body tag."
+msgstr ""
+
+#: includes/theme.options.php:1547
+msgid ""
+"Put here Google Remarketing code from your account. This code will be placed "
+"before close body tag."
+msgstr ""
+
+#: includes/theme.options.php:1559
+msgid "Put here your invisible html/js code: Google analitics, counters, etc"
+msgstr ""
+
+#: includes/theme.options.php:1572
+msgid "Put here your css code to correct main theme styles"
+msgstr ""
+
+#: includes/theme.options.php:1615
+msgid ""
+"Select desired blog streampage parameters (you can override it in each "
+"category)"
+msgstr ""
+
+#: includes/theme.options.php:1621
+msgid "Select desired blog style"
+msgstr ""
+
+#: includes/theme.options.php:1629
+msgid "Select desired hover style (only for Blog style = Portfolio)"
+msgstr ""
+
+#: includes/theme.options.php:1640
+msgid ""
+"Select hover direction (only for Blog style = Portfolio and Hover style = "
+"Circle or Square)"
+msgstr ""
+
+#: includes/theme.options.php:1652
+msgid "Select article display method: boxed or stretch"
+msgstr ""
+
+#: includes/theme.options.php:1661
+msgid ""
+"Select location for the dedicated content or featured image in the \"excerpt"
+"\" blog style"
+msgstr ""
+
+#: includes/theme.options.php:1672
+msgid "What taxonomy use for filter buttons"
+msgstr ""
+
+#: includes/theme.options.php:1683
+msgid "Select the desired sorting method for posts"
+msgstr ""
+
+#: includes/theme.options.php:1701
+msgid ""
+"How many posts display on blog pages for selected style. If empty or 0 - "
+"inherit system wordpress settings"
+msgstr ""
+
+#: includes/theme.options.php:1709
+msgid ""
+"How many characters from post excerpt are display in blog streampage (only "
+"for Blog style = Excerpt). 0 - do not trim excerpt."
+msgstr ""
+
+#: includes/theme.options.php:1720
+msgid ""
+"How many characters from post excerpt are display in blog streampage (only "
+"for Blog style = Classic or Masonry). 0 - do not trim excerpt."
+msgstr ""
+
+#: includes/theme.options.php:1744
+msgid ""
+"Select desired parameters for single (detail) pages (you can override it in "
+"each category and single post (page))"
+msgstr ""
+
+#: includes/theme.options.php:1750
+msgid "Select desired style for single page"
+msgstr ""
+
+#: includes/theme.options.php:1759
+msgid "Select icon for output before post/category name in some layouts"
+msgstr ""
+
+#: includes/theme.options.php:1770
+msgid ""
+"Select thumb size for the alternative portfolio layout (number items "
+"horizontally x number items vertically)"
+msgstr ""
+
+#: includes/theme.options.php:1779
+msgid "Show featured image (if selected) before post content on single pages"
+msgstr ""
+
+#: includes/theme.options.php:1787
+msgid "Show area with post title on single pages"
+msgstr ""
+
+#: includes/theme.options.php:1795
+msgid ""
+"Show area with post title on single and blog pages in specific post formats: "
+"links, chat, quote, status"
+msgstr ""
+
+#: includes/theme.options.php:1803
+msgid "Show area with post info on single pages"
+msgstr ""
+
+#: includes/theme.options.php:1811
+msgid "Show text before \"Read more\" tag on single pages"
+msgstr ""
+
+#: includes/theme.options.php:1818
+msgid "Show post author information block on single post page"
+msgstr ""
+
+#: includes/theme.options.php:1826
+msgid "Show tags block on single post page"
+msgstr ""
+
+#: includes/theme.options.php:1834
+msgid "Show related posts block on single post page"
+msgstr ""
+
+#: includes/theme.options.php:1842
+msgid "How many related posts showed on single post page"
+msgstr ""
+
+#: includes/theme.options.php:1855
+msgid ""
+"How many columns used to show related posts on single post page. 1 - use "
+"scrolling to show all related posts"
+msgstr ""
+
+#: includes/theme.options.php:1868
+msgid "Select the desired sorting method for related posts"
+msgstr ""
+
+#: includes/theme.options.php:1879
+msgid "Select the desired ordering method for related posts"
+msgstr ""
+
+#: includes/theme.options.php:1891
+msgid "Show comments block on single post page"
+msgstr ""
+
+#: includes/theme.options.php:1910
+msgid "Select excluded categories, substitute parameters, etc."
+msgstr ""
+
+#: includes/theme.options.php:1915
+msgid "Select categories, which posts are exclude from blog page"
+msgstr ""
+
+#: includes/theme.options.php:1924
+msgid "Select type of the pagination on blog streampages"
+msgstr ""
+
+#: includes/theme.options.php:1938
+msgid "Select counters, displayed near the post title"
+msgstr ""
+
+#: includes/theme.options.php:1948
+msgid ""
+"What category display in announce block (over posts thumb) - original or "
+"nearest parental"
+msgstr ""
+
+#: includes/theme.options.php:1960
+msgid "Show post date after N days (before - show post age)"
+msgstr ""
+
+#: includes/theme.options.php:1981
+msgid "Set up list of reviews criterias. You can override it in any category."
+msgstr ""
+
+#: includes/theme.options.php:1995
+msgid "Maximum level for reviews marks"
+msgstr ""
+
+#: includes/theme.options.php:2007
+msgid "Show rating marks as text or as stars/progress bars."
+msgstr ""
+
+#: includes/theme.options.php:2018
+msgid ""
+"Words to mark criterials levels. Just write the word and press \"Enter\". "
+"Also you can arrange words."
+msgstr ""
+
+#: includes/theme.options.php:2024
+msgid ""
+"What reviews will be displayed first: by author or by visitors. Also this "
+"type of reviews will display under post's title."
+msgstr ""
+
+#: includes/theme.options.php:2035
+msgid "Do you want hide second reviews tab in widgets and single posts?"
+msgstr ""
+
+#: includes/theme.options.php:2043
+msgid "What visitors can vote: all or only registered"
+msgstr ""
+
+#: includes/theme.options.php:2054
+msgid "Add default reviews criterias."
+msgstr ""
+
+#: includes/theme.options.php:2081
+msgid "Set up parameters to show images, galleries, audio and video posts"
+msgstr ""
+
+#: includes/theme.options.php:2087
+msgid ""
+"What dimensions use for uploaded image: Original or \"Retina ready\" (twice "
+"enlarged)"
+msgstr ""
+
+#: includes/theme.options.php:2098
+msgid ""
+"Substitute standard Wordpress gallery with our slider on the single pages"
+msgstr ""
+
+#: includes/theme.options.php:2106
+msgid ""
+"Show slider with gallery instead featured image on blog streampage and in "
+"the related posts section for the gallery posts"
+msgstr ""
+
+#: includes/theme.options.php:2114
+msgid "Maximum images number from gallery into slider"
+msgstr ""
+
+#: includes/theme.options.php:2126
+msgid "Select engine to show popup windows with images and galleries"
+msgstr ""
+
+#: includes/theme.options.php:2133
+msgid "Substitute audio tag with source from soundcloud to embed player"
+msgstr ""
+
+#: includes/theme.options.php:2141
+msgid ""
+"Substitute video tags with embed players or leave video tags unchanged (if "
+"you use third party plugins for the video tags)"
+msgstr ""
+
+#: includes/theme.options.php:2149
+msgid ""
+"Do you want use the Media Element script for all audio and video tags on "
+"your site or leave standard HTML5 behaviour?"
+msgstr ""
+
+#: includes/theme.options.php:2168
+msgid "Social networks list for site footer and Social widget"
+msgstr ""
+
+#: includes/theme.options.php:2173
+msgid "Select icon and write URL to your profile in desired social networks."
+msgstr ""
+
+#: includes/theme.options.php:2183
+msgid ""
+"Add button's code for each social share network.<br>\n"
+"\t\t\t\t\tIn share url you can use next macro:<br>\n"
+"\t\t\t\t\t<b>{url}</b> - share post (page) URL,<br>\n"
+"\t\t\t\t\t<b>{title}</b> - post title,<br>\n"
+"\t\t\t\t\t<b>{image}</b> - post image,<br>\n"
+"\t\t\t\t\t<b>{descr}</b> - post description (if supported)<br>\n"
+"\t\t\t\t\tFor example:<br>\n"
+"\t\t\t\t\t<b>Facebook</b> share string: <em>http://www.facebook.com/sharer."
+"php?u={link}&amp;t={title}</em><br>\n"
+"\t\t\t\t\t<b>Delicious</b> share string: <em>http://delicious.com/save?"
+"url={link}&amp;title={title}&amp;note={descr}</em>"
+msgstr ""
+
+#: includes/theme.options.php:2197
+msgid "Show social share buttons block"
+msgstr ""
+
+#: includes/theme.options.php:2209
+msgid "Show share counters after social buttons"
+msgstr ""
+
+#: includes/theme.options.php:2220
+msgid "Caption for the block with social share buttons"
+msgstr ""
+
+#: includes/theme.options.php:2230
+msgid ""
+"Select icon and write share URL for desired social networks.<br><b>Important!"
+"</b> If you leave text field empty - internal theme link will be used (if "
+"present)."
+msgstr ""
+
+#: includes/theme.options.php:2244
+msgid ""
+"Put to this section Twitter API 1.1 keys.<br>You can take them after "
+"registration your application in <strong>https://apps.twitter.com/</strong>"
+msgstr ""
+
+#: includes/theme.options.php:2249
+msgid "Your login (username) in Twitter"
+msgstr ""
+
+#: includes/theme.options.php:2256
+msgid "Twitter API Consumer key"
+msgstr ""
+
+#: includes/theme.options.php:2263
+msgid "Twitter API Consumer secret"
+msgstr ""
+
+#: includes/theme.options.php:2270
+msgid "Twitter API Token key"
+msgstr ""
+
+#: includes/theme.options.php:2277
+msgid "Twitter API Token secret"
+msgstr ""
+
+#: includes/theme.options.php:2296
+msgid "Company address, phones and e-mail"
+msgstr ""
+
+#: includes/theme.options.php:2301
+msgid "String with contact info in the left side of the site header"
+msgstr ""
+
+#: includes/theme.options.php:2308
+msgid "String with open hours in the site header"
+msgstr ""
+
+#: includes/theme.options.php:2315
+msgid "E-mail for send contact form and user registration data"
+msgstr ""
+
+#: includes/theme.options.php:2322
+msgid "Company country, post code and city"
+msgstr ""
+
+#: includes/theme.options.php:2329
+msgid "Street and house number"
+msgstr ""
+
+#: includes/theme.options.php:2336
+msgid "Phone number"
+msgstr ""
+
+#: includes/theme.options.php:2343
+msgid "Fax number"
+msgstr ""
+
+#: includes/theme.options.php:2350
+msgid ""
+"Maximum length of the messages in the contact form shortcode and in the "
+"comments form"
+msgstr ""
+
+#: includes/theme.options.php:2355
+msgid "Message's maxlength in the contact form shortcode"
+msgstr ""
+
+#: includes/theme.options.php:2364
+msgid "Message's maxlength in the comments form"
+msgstr ""
+
+#: includes/theme.options.php:2373
+msgid ""
+"What function you want to use for sending mail: the built-in Wordpress "
+"wp_mail() or standard PHP mail() function? Attention! Some plugins may not "
+"work with one of them and you always have the ability to switch to "
+"alternative."
+msgstr ""
+
+#: includes/theme.options.php:2378
+msgid "What function you want to use for sending mail?"
+msgstr ""
+
+#: includes/theme.options.php:2403
+msgid "Enable/disable AJAX search and output settings for it"
+msgstr ""
+
+#: includes/theme.options.php:2408
+msgid "Show search field in the top area and side menus"
+msgstr ""
+
+#: includes/theme.options.php:2415
+msgid "Use incremental AJAX search for the search field in top of page"
+msgstr ""
+
+#: includes/theme.options.php:2425
+msgid "The minimum length of the search string"
+msgstr ""
+
+#: includes/theme.options.php:2436
+msgid ""
+"How much time (in milliseconds, 1000 ms = 1 second) must pass after the last "
+"character before the start search"
+msgstr ""
+
+#: includes/theme.options.php:2449
+msgid ""
+"Select post types, what will be include in search results. If not selected - "
+"use all types."
+msgstr ""
+
+#: includes/theme.options.php:2466
+msgid "Number of the posts to show in search results"
+msgstr ""
+
+#: includes/theme.options.php:2478
+msgid "Show post's thumbnail in the search results"
+msgstr ""
+
+#: includes/theme.options.php:2489
+msgid "Show post's publish date in the search results"
+msgstr ""
+
+#: includes/theme.options.php:2500
+msgid "Show post's author in the search results"
+msgstr ""
+
+#: includes/theme.options.php:2511
+msgid "Show post's counters (views, comments, likes) in the search results"
+msgstr ""
+
+#: includes/theme.options.php:2531
+msgid "Basic theme functionality settings"
+msgstr ""
+
+#: includes/theme.options.php:2536
+msgid ""
+"Send E-mail with new registration data to the contact email or to site admin "
+"e-mail (if contact email is empty)"
+msgstr ""
+
+#: includes/theme.options.php:2550
+msgid ""
+"Use javascript for post views count (if site work under the caching plugin) "
+"or increment views count in single page template"
+msgstr ""
+
+#: includes/theme.options.php:2557
+msgid "Allow authors to edit their posts in frontend area)"
+msgstr ""
+
+#: includes/theme.options.php:2564
+msgid ""
+"Show additional filters (on post formats, tags and categories) in admin "
+"panel page \"Posts\". <br>Attention! If you have more than 2.000-3.000 "
+"posts, enabling this option may cause slow load of the \"Posts\" page! If "
+"you encounter such slow down, simply open Appearance - Theme Options - "
+"Service and set \"No\" for this option."
+msgstr ""
+
+#: includes/theme.options.php:2571
+msgid ""
+"Show extra column in categories list, where changed (overriden) theme "
+"options are displayed."
+msgstr ""
+
+#: includes/theme.options.php:2578
+msgid ""
+"Show extra column in posts and pages list, where changed (overriden) theme "
+"options are displayed."
+msgstr ""
+
+#: includes/theme.options.php:2585
+msgid ""
+"Show \"Install Dummy Data\" in the menu \"Appearance\". <b>Attention!</b> "
+"When you install dummy data all content of your site will be replaced!"
+msgstr ""
+
+#: includes/theme.options.php:2592
+msgid ""
+"Web-servers set the time limit for the execution of php-scripts. By default, "
+"this is 30 sec. Therefore, the import process will be split into parts. Upon "
+"completion of each part - the import will resume automatically! The import "
+"process will try to increase this limit to the time, specified in this field."
+msgstr ""
+
+#: includes/theme.options.php:2600
+msgid ""
+"Allow to use Organics Emailer for mass-volume e-mail distribution and "
+"management of mailing lists in \"Appearance - Emailer\""
+msgstr ""
+
+#: includes/theme.options.php:2607
+msgid ""
+"Allow to use \"PO Composer\" for edit language files in this theme (in the "
+"\"Appearance - PO Composer\")"
+msgstr ""
+
+#: includes/theme.options.php:2614
+msgid ""
+"In debug mode we are using unpacked scripts and styles, else - using "
+"minified scripts and styles (if present). <b>Attention!</b> If you have "
+"modified the source code in the js or css files, regardless of this option "
+"will be used latest (modified) version stylesheets and scripts. You can re-"
+"create minified versions of files using on-line services (for example <a "
+"href=\"http://yui.2clics.net/\" target=\"_blank\">http://yui.2clics.net/</"
+"a>) or utility <b>yuicompressor-x.y.z.jar</b>"
+msgstr ""
+
+#: includes/theme.options.php:2622
+msgid ""
+"For example, it recommended after activating the WPML plugin - in the cache "
+"are incorrect data about the structure of categories and your site may "
+"display \"white screen\". After clearing the cache usually the performance "
+"of the site is restored."
+msgstr ""
+
+#: includes/theme.options.php:2627
+msgid "Clear Wordpress cache data"
+msgstr ""
+
+#: includes/theme_core.media.php:520
+msgid "by"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:19
+#: includes/theme_shortcodes_vc.php:25
+msgid "Image"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:20
+msgid "Insert image into your post (page)"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:25
+msgid "URL for image file"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:26
+msgid "Select or upload image or write URL from other site"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:36
+msgid "Image title (if need)"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:41
+msgid "Icon before title"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:42
+#: includes/theme_shortcodes_settings.php:147
+#: includes/theme_shortcodes_vc.php:75 includes/theme_shortcodes_vc.php:462
+msgid "Select icon for the title from Fontello icons set"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:48
+msgid "Float image"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:49
+msgid "Float image to left or right side"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:56
+msgid "Image Shape"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:57
+msgid "Shape of the image: square (rectangle) or round"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:66
+#: includes/theme_shortcodes_vc.php:82 includes/theme_shortcodes_vc.php:496
+#: includes/theme_shortcodes_vc.php:505 includes/theme_shortcodes_vc.php:514
+#: includes/theme_shortcodes_vc.php:523
+msgid "Link"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:67
+#: includes/theme_shortcodes_vc.php:83
+msgid "The link URL from the image"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:87
+#: includes/theme_shortcodes_vc.php:394
+msgid "Button"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:88
+#: includes/theme_shortcodes_vc.php:395
+msgid "Button with link"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:93
+#: includes/theme_shortcodes_vc.php:405
+msgid "Caption"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:94
+#: includes/theme_shortcodes_vc.php:406
+msgid "Button caption"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:99
+#: includes/theme_shortcodes_vc.php:413
+msgid "Button's shape"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:100
+#: includes/theme_shortcodes_vc.php:414
+msgid "Select button's shape"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:110
+#: includes/theme_shortcodes_vc.php:424
+msgid "Button's style"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:111
+#: includes/theme_shortcodes_vc.php:425
+msgid "Select button's style"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:121
+#: includes/theme_shortcodes_vc.php:435
+msgid "Button's color scheme"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:122
+#: includes/theme_shortcodes_vc.php:436
+msgid "Select button's color scheme"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:126
+#: includes/theme_shortcodes_vc.php:439
+msgid "Original"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:127
+#: includes/theme_shortcodes_vc.php:440
+msgid "Dark"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:128
+#: includes/theme_shortcodes_vc.php:441
+msgid "Orange"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:129
+#: includes/theme_shortcodes_vc.php:442
+msgid "Crimson"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:134
+#: includes/theme_shortcodes_vc.php:448
+msgid "Button's size"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:135
+#: includes/theme_shortcodes_vc.php:449
+msgid "Select button's size"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:146
+#: includes/theme_shortcodes_vc.php:461
+msgid "Button's icon"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:153
+#: includes/theme_shortcodes_vc.php:469
+msgid "Button's text color"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:154
+#: includes/theme_shortcodes_vc.php:470
+msgid "Any color for button's caption"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:160
+#: includes/theme_shortcodes_vc.php:477
+msgid "Button's backcolor"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:161
+#: includes/theme_shortcodes_vc.php:478
+msgid "Any color for button's background"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:166
+#: includes/theme_shortcodes_vc.php:485
+msgid "Button's alignment"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:167
+#: includes/theme_shortcodes_vc.php:486
+msgid "Align button to left, center or right"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:174
+#: includes/theme_shortcodes_vc.php:493
+msgid "Link URL"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:175
+msgid "URL for link on button click"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:181
+#: includes/theme_shortcodes_vc.php:502
+msgid "Link target"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:182
+msgid "Target for link on button click"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:190
+#: includes/theme_shortcodes_vc.php:511
+msgid "Open link in popup"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:191
+#: includes/theme_shortcodes_vc.php:512
+msgid "Open link target in popup window"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:200
+#: includes/theme_shortcodes_vc.php:520
+msgid "Rel attribute"
+msgstr ""
+
+#: includes/theme_shortcodes_settings.php:201
+msgid "Rel attribute for button's link (if need)"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:26
+msgid "Insert image"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:27 includes/theme_shortcodes_vc.php:396
+msgid "Content"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:36
+msgid "Select image"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:37
+msgid "Select image from library"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:45
+msgid "Image alignment"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:46
+msgid "Align image to left or right side"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:54
+msgid "Image shape"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:55
+msgid "Shape of the image: square or round"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:66
+msgid "Image's title"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:74
+msgid "Title's icon"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:494
+msgid "URL for the link on button click"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:503
+msgid "Target for the link on button click"
+msgstr ""
+
+#: includes/theme_shortcodes_vc.php:521
+msgid "Rel attribute for the button's link (if need"
+msgstr ""
+
+#: plugins/plugin.woocommerce.php:189
+msgid "Quick View"
+msgstr ""
+
+#: plugins/plugin.woocommerce.php:194
+msgid "Placeholder"
+msgstr ""
+
+#: plugins/type.clients.php:137
+msgid "In this section you can put details for this client"
+msgstr ""
+
+#: plugins/type.clients.php:142
+msgid "Name of the contacts manager"
+msgstr ""
+
+#: plugins/type.clients.php:149
+msgid "Position of the contacts manager"
+msgstr ""
+
+#: plugins/type.clients.php:156
+msgid "Show link to client page"
+msgstr ""
+
+#: plugins/type.clients.php:164
+msgid "URL of the client's site. If empty - use link to this page"
+msgstr ""
+
+#: plugins/type.clients.php:592
+msgid "Insert clients list in your page (post)"
+msgstr ""
+
+#: plugins/type.clients.php:598 plugins/type.clients.php:956
+#: plugins/type.services.php:543 plugins/type.services.php:957
+#: plugins/type.team.php:755 plugins/type.team.php:1184
+#: plugins/type.testimonials.php:519 plugins/type.testimonials.php:901
+msgid "Title for the block"
+msgstr ""
+
+#: plugins/type.clients.php:604 plugins/type.clients.php:966
+#: plugins/type.services.php:549 plugins/type.services.php:967
+#: plugins/type.team.php:761 plugins/type.team.php:1194
+#: plugins/type.testimonials.php:525 plugins/type.testimonials.php:911
+msgid "Subtitle for the block"
+msgstr ""
+
+#: plugins/type.clients.php:610 plugins/type.services.php:555
+#: plugins/type.team.php:767 plugins/type.testimonials.php:531
+msgid "Short description for the block"
+msgstr ""
+
+#: plugins/type.clients.php:616 plugins/type.clients.php:865
+msgid "Select style to display clients list"
+msgstr ""
+
+#: plugins/type.clients.php:623 plugins/type.clients.php:997
+msgid "How many columns use to show clients"
+msgstr ""
+
+#: plugins/type.clients.php:639
+msgid "Use slider to show clients"
+msgstr ""
+
+#: plugins/type.clients.php:646 plugins/type.clients.php:893
+#: plugins/type.services.php:602 plugins/type.services.php:886
+#: plugins/type.team.php:803 plugins/type.team.php:1113
+#: plugins/type.testimonials.php:560 plugins/type.testimonials.php:830
+msgid "Slider controls style and position"
+msgstr ""
+
+#: plugins/type.clients.php:658 plugins/type.clients.php:908
+#: plugins/type.services.php:614 plugins/type.services.php:901
+#: plugins/type.team.php:815 plugins/type.team.php:1128
+#: plugins/type.testimonials.php:572 plugins/type.testimonials.php:845
+msgid "Size of space (in px) between slides"
+msgstr ""
+
+#: plugins/type.clients.php:670 plugins/type.clients.php:922
+#: plugins/type.services.php:626 plugins/type.services.php:915
+#: plugins/type.team.php:827 plugins/type.team.php:1142
+#: plugins/type.testimonials.php:584 plugins/type.testimonials.php:859
+msgid "Slides change interval (in milliseconds: 1000ms = 1s)"
+msgstr ""
+
+#: plugins/type.clients.php:681 plugins/type.clients.php:935
+#: plugins/type.services.php:637 plugins/type.services.php:928
+#: plugins/type.team.php:838 plugins/type.team.php:1155
+#: plugins/type.testimonials.php:595 plugins/type.testimonials.php:872
+msgid "Change whole slider's height (make it equal current slide's height)"
+msgstr ""
+
+#: plugins/type.clients.php:691 plugins/type.team.php:857
+#: plugins/type.team.php:1176
+msgid ""
+"Allow get team members from inner shortcodes (custom) or get it from "
+"specified group (cat)"
+msgstr ""
+
+#: plugins/type.clients.php:699 plugins/type.team.php:865
+msgid ""
+"Select categories (groups) to show team members. If empty - select team "
+"members from any category (group) or from IDs list"
+msgstr ""
+
+#: plugins/type.clients.php:712 plugins/type.clients.php:1007
+#: plugins/type.services.php:677 plugins/type.services.php:1008
+#: plugins/type.team.php:878 plugins/type.team.php:1235
+#: plugins/type.testimonials.php:635 plugins/type.testimonials.php:952
+msgid "How many posts will be displayed? If used IDs - this parameter ignored."
+msgstr ""
+
+#: plugins/type.clients.php:723 plugins/type.clients.php:1020
+#: plugins/type.services.php:688 plugins/type.services.php:1022
+#: plugins/type.team.php:889 plugins/type.team.php:1248
+#: plugins/type.testimonials.php:646 plugins/type.testimonials.php:965
+msgid "Skip posts before select next part."
+msgstr ""
+
+#: plugins/type.clients.php:733 plugins/type.clients.php:1033
+#: plugins/type.services.php:698 plugins/type.services.php:1035
+#: plugins/type.team.php:899 plugins/type.team.php:1261
+#: plugins/type.testimonials.php:656 plugins/type.testimonials.php:978
+msgid "Select desired posts sorting method"
+msgstr ""
+
+#: plugins/type.clients.php:743 plugins/type.clients.php:1046
+#: plugins/type.services.php:708 plugins/type.services.php:1048
+#: plugins/type.team.php:909 plugins/type.team.php:1274
+#: plugins/type.testimonials.php:666 plugins/type.testimonials.php:991
+msgid "Select desired posts order"
+msgstr ""
+
+#: plugins/type.clients.php:754 plugins/type.services.php:719
+#: plugins/type.team.php:920 plugins/type.testimonials.php:677
+#: plugins/type.testimonials.php:1004
+msgid ""
+"Comma separated list of posts ID. If set - parameters above are ignored!"
+msgstr ""
+
+#: plugins/type.clients.php:763 plugins/type.clients.php:1072
+#: plugins/type.services.php:734 plugins/type.services.php:1084
+#: plugins/type.team.php:929 plugins/type.team.php:1300
+msgid "Link URL for the button at the bottom of the block"
+msgstr ""
+
+#: plugins/type.clients.php:769 plugins/type.clients.php:1081
+#: plugins/type.services.php:740 plugins/type.services.php:1093
+#: plugins/type.team.php:935 plugins/type.team.php:1309
+msgid "Caption for the button at the bottom of the block"
+msgstr ""
+
+#: plugins/type.clients.php:787
+msgid "Single client (custom parameters)"
+msgstr ""
+
+#: plugins/type.clients.php:792 plugins/type.clients.php:1115
+msgid "Client's name"
+msgstr ""
+
+#: plugins/type.clients.php:799 plugins/type.clients.php:1124
+msgid "Client's position"
+msgstr ""
+
+#: plugins/type.clients.php:805 plugins/type.clients.php:1133
+msgid "Link on client's personal page"
+msgstr ""
+
+#: plugins/type.clients.php:812
+msgid "Client's image"
+msgstr ""
+
+#: plugins/type.clients.php:819
+msgid "Client's short description"
+msgstr ""
+
+#: plugins/type.clients.php:853
+msgid "Insert clients list"
+msgstr ""
+
+#: plugins/type.clients.php:882 plugins/type.testimonials.php:553
+#: plugins/type.testimonials.php:819
+msgid "Use slider to show testimonials"
+msgstr ""
+
+#: plugins/type.clients.php:948
+msgid ""
+"Allow get clients from inner shortcodes (custom) or get it from specified "
+"group (cat)"
+msgstr ""
+
+#: plugins/type.clients.php:975 plugins/type.services.php:976
+#: plugins/type.team.php:1203 plugins/type.testimonials.php:920
+msgid "Description for the block"
+msgstr ""
+
+#: plugins/type.clients.php:984
+msgid ""
+"Select category to show clients. If empty - select clients from any category "
+"(group) or from IDs list"
+msgstr ""
+
+#: plugins/type.clients.php:1059
+msgid ""
+"Comma separated list of client's ID. If set - parameters above (category, "
+"count, order, etc.)  are ignored!"
+msgstr ""
+
+#: plugins/type.clients.php:1103
+msgid "Client - all data pull out from it account on your site"
+msgstr ""
+
+#: plugins/type.clients.php:1141
+msgid "Clients's image"
+msgstr ""
+
+#: plugins/type.services.php:537
+msgid "Insert services list in your page (post)"
+msgstr ""
+
+#: plugins/type.services.php:561 plugins/type.services.php:846
+msgid "Select style to display services list"
+msgstr ""
+
+#: plugins/type.services.php:568 plugins/type.services.php:855
+msgid "Select type of icons: font icon or image"
+msgstr ""
+
+#: plugins/type.services.php:579 plugins/type.services.php:998
+msgid "How many columns use to show services list"
+msgstr ""
+
+#: plugins/type.services.php:595 plugins/type.services.php:875
+msgid "Use slider to show services"
+msgstr ""
+
+#: plugins/type.services.php:647 plugins/type.services.php:941
+msgid "Alignment of the services block"
+msgstr ""
+
+#: plugins/type.services.php:656
+msgid ""
+"Allow get services items from inner shortcodes (custom) or get it from "
+"specified group (cat)"
+msgstr ""
+
+#: plugins/type.services.php:664
+msgid ""
+"Select categories (groups) to show services list. If empty - select services "
+"from any category (group) or from IDs list"
+msgstr ""
+
+#: plugins/type.services.php:728 plugins/type.services.php:794
+#: plugins/type.services.php:1074 plugins/type.services.php:1170
+msgid "Caption for the Read more link (if empty - link not showed)"
+msgstr ""
+
+#: plugins/type.services.php:758
+msgid "Service item"
+msgstr ""
+
+#: plugins/type.services.php:763 plugins/type.services.php:1135
+msgid "Item's title"
+msgstr ""
+
+#: plugins/type.services.php:770 plugins/type.services.php:1144
+msgid "Select icon for the item from Fontello icons set"
+msgstr ""
+
+#: plugins/type.services.php:777
+msgid "Item's image (if icon not selected)"
+msgstr ""
+
+#: plugins/type.services.php:787
+msgid "Link on service's item page"
+msgstr ""
+
+#: plugins/type.services.php:800
+msgid "Item's short description"
+msgstr ""
+
+#: plugins/type.services.php:834
+msgid "Insert services list"
+msgstr ""
+
+#: plugins/type.services.php:949
+msgid ""
+"Allow get services from inner shortcodes (custom) or get it from specified "
+"group (cat)"
+msgstr ""
+
+#: plugins/type.services.php:985
+msgid ""
+"Select category to show services. If empty - select services from any "
+"category (group) or from IDs list"
+msgstr ""
+
+#: plugins/type.services.php:1061
+msgid ""
+"Comma separated list of service's ID. If set - parameters above (category, "
+"count, order, etc.)  are ignored!"
+msgstr ""
+
+#: plugins/type.services.php:1123
+msgid "Custom services item - all data pull out from shortcode parameters"
+msgstr ""
+
+#: plugins/type.services.php:1153
+msgid "Item's image (if icon is empty)"
+msgstr ""
+
+#: plugins/type.services.php:1161
+msgid "Link on item's page"
+msgstr ""
+
+#: plugins/type.team.php:52
+msgid "Position of the team member"
+msgstr ""
+
+#: plugins/type.team.php:58
+msgid "E-mail of the team member - need to take Gravatar (if registered)"
+msgstr ""
+
+#: plugins/type.team.php:64
+msgid "URL of the team member profile page (if not this page)"
+msgstr ""
+
+#: plugins/type.team.php:70
+msgid "Links to the social profiles of the team member"
+msgstr ""
+
+#: plugins/type.team.php:749
+msgid "Insert team in your page (post)"
+msgstr ""
+
+#: plugins/type.team.php:773 plugins/type.team.php:1085
+msgid "Select style to display team members"
+msgstr ""
+
+#: plugins/type.team.php:780 plugins/type.team.php:1225
+msgid "How many columns use to show team members"
+msgstr ""
+
+#: plugins/type.team.php:796 plugins/type.team.php:1102
+msgid "Use slider to show team members"
+msgstr ""
+
+#: plugins/type.team.php:848 plugins/type.team.php:1168
+msgid "Alignment of the team block"
+msgstr ""
+
+#: plugins/type.team.php:953
+msgid "Team member"
+msgstr ""
+
+#: plugins/type.team.php:958 plugins/type.team.php:1350
+msgid ""
+"Select one of registered users (if present) or put name, position, etc. in "
+"fields below"
+msgstr ""
+
+#: plugins/type.team.php:965 plugins/type.team.php:1359
+msgid ""
+"Select one of team members (if present) or put name, position, etc. in "
+"fields below"
+msgstr ""
+
+#: plugins/type.team.php:972 plugins/type.team.php:1368
+msgid "Link on team member's personal page"
+msgstr ""
+
+#: plugins/type.team.php:979 plugins/type.team.php:1376
+msgid "Team member's name"
+msgstr ""
+
+#: plugins/type.team.php:990 plugins/type.team.php:1385
+msgid "Team member's position"
+msgstr ""
+
+#: plugins/type.team.php:1000 plugins/type.team.php:1394
+msgid "Team member's e-mail"
+msgstr ""
+
+#: plugins/type.team.php:1010 plugins/type.team.php:1402
+msgid "Team member's photo (avatar)"
+msgstr ""
+
+#: plugins/type.team.php:1021 plugins/type.team.php:1410
+msgid ""
+"Team member's socials icons: name=url|name=url... For example: "
+"facebook=http://facebook.com/myaccount|twitter=http://twitter.com/myaccount"
+msgstr ""
+
+#: plugins/type.team.php:1031
+msgid "Team member's short description"
+msgstr ""
+
+#: plugins/type.team.php:1073
+msgid "Insert team members"
+msgstr ""
+
+#: plugins/type.team.php:1212
+msgid ""
+"Select category to show team members. If empty - select team members from "
+"any category (group) or from IDs list"
+msgstr ""
+
+#: plugins/type.team.php:1287
+msgid ""
+"Comma separated list of team members's ID. If set - parameters above "
+"(category, count, order, etc.)  are ignored!"
+msgstr ""
+
+#: plugins/type.team.php:1338
+msgid "Team member - all data pull out from it account on your site"
+msgstr ""
+
+#: plugins/type.testimonials.php:35
+msgid "Name of the testimonial's author"
+msgstr ""
+
+#: plugins/type.testimonials.php:41
+msgid "Position of the testimonial's author"
+msgstr ""
+
+#: plugins/type.testimonials.php:47
+msgid ""
+"E-mail of the testimonial's author - need to take Gravatar (if registered)"
+msgstr ""
+
+#: plugins/type.testimonials.php:53
+msgid "URL of the testimonial source or author profile page"
+msgstr ""
+
+#: plugins/type.testimonials.php:513
+msgid "Insert testimonials into post (page)"
+msgstr ""
+
+#: plugins/type.testimonials.php:537 plugins/type.testimonials.php:810
+msgid "Select style to display testimonials"
+msgstr ""
+
+#: plugins/type.testimonials.php:544 plugins/type.testimonials.php:942
+msgid "How many columns use to show testimonials"
+msgstr ""
+
+#: plugins/type.testimonials.php:605 plugins/type.testimonials.php:885
+msgid "Alignment of the testimonials block"
+msgstr ""
+
+#: plugins/type.testimonials.php:614 plugins/type.testimonials.php:893
+msgid ""
+"Allow get testimonials from inner shortcodes (custom) or get it from "
+"specified group (cat)"
+msgstr ""
+
+#: plugins/type.testimonials.php:622 plugins/type.testimonials.php:929
+msgid ""
+"Select categories (groups) to show testimonials. If empty - select "
+"testimonials from any category (group) or from IDs list"
+msgstr ""
+
+#: plugins/type.testimonials.php:693 plugins/type.testimonials.php:1026
+msgid "Any background color for this section"
+msgstr ""
+
+#: plugins/type.testimonials.php:699
+msgid "Select or upload image or write URL from other site for the background"
+msgstr ""
+
+#: plugins/type.testimonials.php:706 plugins/type.testimonials.php:1044
+msgid "Overlay color opacity (from 0.0 to 1.0)"
+msgstr ""
+
+#: plugins/type.testimonials.php:715
+msgid "Predefined texture style from 1 to 11. 0 - without texture."
+msgstr ""
+
+#: plugins/type.testimonials.php:736
+msgid "Testimonials item (custom parameters)"
+msgstr ""
+
+#: plugins/type.testimonials.php:741 plugins/type.testimonials.php:1088
+msgid "Name of the testimonmials author"
+msgstr ""
+
+#: plugins/type.testimonials.php:747 plugins/type.testimonials.php:1097
+msgid "Link URL to the testimonmials author page"
+msgstr ""
+
+#: plugins/type.testimonials.php:753
+msgid "E-mail of the testimonmials author (to get gravatar)"
+msgstr ""
+
+#: plugins/type.testimonials.php:759 plugins/type.testimonials.php:1113
+msgid ""
+"Select or upload photo of testimonmials author or write URL of photo from "
+"other site"
+msgstr ""
+
+#: plugins/type.testimonials.php:765
+msgid "Current testimonials text"
+msgstr ""
+
+#: plugins/type.testimonials.php:798
+msgid "Insert testimonials slider"
+msgstr ""
+
+#: plugins/type.testimonials.php:1035
+msgid "Select background image from library for this section"
+msgstr ""
+
+#: plugins/type.testimonials.php:1053
+msgid "Texture style from 1 to 11. Empty or 0 - without texture."
+msgstr ""
+
+#: plugins/type.testimonials.php:1076
+msgid "Single testimonials item"
+msgstr ""
+
+#: plugins/type.testimonials.php:1105
+msgid "E-mail of the testimonmials author"
+msgstr ""
+
+#: templates/404.php:42
+msgid "Couldn't find what you're <br/>looking for?"
+msgstr ""
+
+#: templates/404.php:43
+msgid ""
+"Go back, or return to <a target=\"_blank\" href=\"http://themeforest.net/"
+"user/axiomthemes\">http://themeforest.net</a> to choose a new page."
+msgstr ""
+
+#: templates/_parts/counters.php:7
+msgid "Views"
+msgstr ""
+
+#: templates/_parts/counters.php:7
+#, php-format
+msgid "Views - %s"
+msgstr ""
+
+#: templates/_parts/counters.php:13
+#, php-format
+msgid "Comments - %s"
+msgstr ""
+
+#: templates/_parts/counters.php:20
+#, php-format
+msgid "Rating - %s"
+msgstr ""
+
+#: templates/_parts/reviews-block.php:45
+#, php-format
+msgid "Summary rating from <b>%s</b> user's marks."
+msgstr ""
+
+#: templates/_parts/reviews-block.php:48
+msgid ""
+"You can set own marks for this article - just click on stars above and press "
+"\"Accept\"."
+msgstr ""
+
+#: templates/_parts/reviews-block.php:49
+msgid "Thanks for your vote!"
+msgstr ""
+
+#: templates/no-articles.php:32 templates/no-search.php:32
+#, php-format
+msgid ""
+"Go back, or return to <a href=\"%s\">%s</a> home page to choose a new page."
+msgstr ""
+
+#: templates/trx_form/form_2.php:64
+msgid "Message"
+msgstr ""

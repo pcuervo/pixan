@@ -1,0 +1,18 @@
+@charset 'utf-8';
+/*
+Theme Name: Organics
+Theme URI: http://organics.axiomthemes.com/
+Description: Organics - Multipurpose and Multiskin Responsive Wordpress theme
+Author: AxiomThemes
+Author URI: http://axiomthemes.net/
+Template: organics
+Version: 1.0
+Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-background, custom-colors, custom-menu, featured-image-header, featured-images, full-width-template, post-formats, theme-options, threaded-comments, translation-ready
+*/
+
+
+@import url("../organics/style.css");
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
