@@ -16,3 +16,8 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
+
+/*Text*/
+.text-uppercase { text-transform: uppercase; }
+
+h1 {text-transform: uppercase;}
