@@ -23,10 +23,13 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 .text-center { text-align: center; }
 
 /*Type*/
-
 @media (max-width: 479px){ h2 { font-size: 26px!important; } }
 
 @media (max-width: 767px){ blockquote.sc_quote { margin: 0px!important; }}
+
+p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
+
+.widget_area .widget_title { font-family: 'Raleway'; }
 
 /*Margin*/
 .no-margin-bottom { margin-bottom: 0px; }
@@ -94,11 +97,19 @@ input:focus, textarea:focus {
 
 .sc_team_item_avatar_inner { text-align: center; }
 .sc_team_style_team-1 .sc_team_item_avatar img { max-width: 150px; }
+.sc_team_item_position { font-weight:700;  }
 
 /*Page*/
 .page_content_wrap { padding: 0!important; }
 
 /*HEADER*/
+.top_panel_inner_style_4 .top_panel_top,
+.top_panel_inner_style_5 .top_panel_top,
+.top_panel_inner_style_3 .top_panel_top .sidebar_cart,
+.top_panel_inner_style_4 .top_panel_top .sidebar_cart,
+.top_panel_inner_style_4 .top_panel_top a {
+	background-color: #ebffed!important;
+}
 
 .top_panel_style_5 .main-menu_wrapper { border: none!important; }
 
@@ -150,7 +161,6 @@ footer {
 }
 
 footer {
-	text-align: center;
 	font-weight: bold;
 }
 
@@ -161,3 +171,14 @@ footer a:hover { text-decoration: underline; }
 
 footer .widget_area_inner { background-color: transparent!important; }
 
+@media (max-width:767px){
+	footer .columns_wrap>[class*="column-"] { width: 100%!important; }
+	footer aside.widget_number_1,
+	footer aside.widget_number_2,
+	footer aside.widget_number_3 { text-align: center; }
+}
+@media (min-width:768px){
+	footer aside.widget_number_1 { text-align: left!important; margin-left: -15px!important; }
+	footer aside.widget_number_2 { text-align: center!important; }
+	footer aside.widget_number_3 { text-align: right!important; padding-right: 0px!important; }
+}
