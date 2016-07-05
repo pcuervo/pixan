@@ -40,6 +40,9 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .hidden { display: none; }
 
+/*Colum*/
+.columns--5 .vc_col-sm-2 { width: 20%; }
+
 /*Button*/
 .sc_button { font-weight: bold!important; }
 .sc_button.sc_button_style_border {
@@ -131,9 +134,13 @@ input:focus, textarea:focus {
 .top_panel_wrap .logo_main { max-height: 110px!important; }
 header .column-1_6 { width: 10%!important; padding-right: 0px!important; }
 header .column-5_6 { width: 90%!important; }
+
 .top_panel_wrap ul { margin-top: 35px; }
+.top_panel_fixed .top_panel_wrap ul { margin-top: 0px;  }
 
-
+.top_panel_fixed .top_panel_style_4 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 0px!important; }
+.top_panel_fixed .columns_wrap { text-align: center; }
+.top_panel_fixed .column-5_6.menu_main_wrap { padding: 0px; }
 
 /*Logo*/
 
