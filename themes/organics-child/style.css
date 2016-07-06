@@ -19,6 +19,7 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 
 /*Text*/
 .text-uppercase { text-transform: uppercase; }
+.text-inherit { text-transform: inherit!important; }
 
 .text-center { text-align: center; }
 
@@ -72,6 +73,10 @@ button:hover,
 	color: #1E4B24!important;
 }
 
+/*Blockquote */
+
+blockquote.sc_quote p { font-family: 'Merienda'; font-size: 20px; }
+
 /*Form*/
 
 input {
@@ -95,6 +100,8 @@ input:focus, textarea:focus {
 	border: 1px solid rgba(68,177,75, 1)!important;
 }
 
+form p  { font-family: 'Merienda'!important; color: #000; }
+
 /*List*/
 
 .sc_list_item .wpb_content_element { margin-bottom: 10px; }
@@ -109,13 +116,16 @@ input:focus, textarea:focus {
 .page_content_wrap { padding: 0!important; }
 
 /*HEADER*/
+.menu_user_nav > li > a { padding: 0.5em 0; }
 .top_panel_inner_style_4 .top_panel_top,
 .top_panel_inner_style_5 .top_panel_top,
 .top_panel_inner_style_3 .top_panel_top .sidebar_cart,
 .top_panel_inner_style_4 .top_panel_top .sidebar_cart,
 .top_panel_inner_style_4 .top_panel_top a {
-	background-color: #ebffed!important;
+	background-color: #dedede!important;
 }
+
+.top_panel_inner_style_4 .top_panel_top a { color: #1E4B24!important; }
 
 .top_panel_style_5 .main-menu_wrapper { border: none!important; }
 
@@ -141,6 +151,9 @@ header .column-5_6 { width: 90%!important; }
 .top_panel_fixed .top_panel_style_4 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 0px!important; }
 .top_panel_fixed .columns_wrap { text-align: center; }
 .top_panel_fixed .column-5_6.menu_main_wrap { padding: 0px; }
+
+header .sub-menu { top: 20px!important; }
+header .sub-menu a:hover { color: #1E4B24;}
 
 /*Logo*/
 
