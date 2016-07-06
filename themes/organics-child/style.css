@@ -118,6 +118,8 @@ form p  { font-family: 'Merienda'!important; color: #000; }
 
 /*HEADER*/
 
+h1.page_title { font-family: 'Merienda'; }
+
 .menu_user_nav > li > a { padding: 0.1em 0; }
 .menu_user_bookmarks { display: none; }
 .top_panel_top_user_area { height: 3em; }
