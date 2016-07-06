@@ -118,7 +118,7 @@ form p  { font-family: 'Merienda'!important; color: #000; }
 
 /*HEADER*/
 
-h1.page_title { font-family: 'Merienda'; }
+h1.page_title { font-family: 'Merienda', cursive; }
 
 .menu_user_nav > li > a { padding: 0.1em 0; }
 .menu_user_bookmarks { display: none; }
