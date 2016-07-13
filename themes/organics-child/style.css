@@ -50,6 +50,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 /*Colum*/
 .columns--5 .vc_col-sm-2 { width: 20%; }
 
+@media(max-width: 768px){ .columns--5 .vc_col-sm-2 { width: 50%!important; float: left!important; } }
+
 /*Button*/
 .sc_button { font-weight: bold!important; }
 .sc_button.sc_button_style_border {
@@ -239,6 +241,10 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer aside.widget_number_1 { text-align: left!important; margin-left: -15px!important; }
 	footer aside.widget_number_2 { text-align: center!important; }
 	footer aside.widget_number_3 { text-align: right!important; padding-right: 0px!important; }
+
+	footer #text-2.column-1_3,
+	footer #text-4.column-1_3 { width: 20%; }
+	footer #text-3.column-1_3 { width: 60%; }
 }
 
 /*Testimonials*/
@@ -258,3 +264,12 @@ footer .widget_area_inner { background-color: transparent!important; }
 #productos-temporada .post_content h3 a { color: #3f3f3f; font-weight: bold; }
 #productos-temporada .price { color: #a53850; }
 #productos-temporada h3 { text-transform: capitalize; }
+
+@media(max-width: 768px) {
+	#productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; }
+}
+
+/*Canastas home*/
+@media(max-width: 768px){
+	#canastas-home * { text-align: left!important; }
+}
