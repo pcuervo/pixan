@@ -20,8 +20,12 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 /*Text*/
 .text-uppercase { text-transform: uppercase; }
 .text-inherit { text-transform: inherit!important; }
+.text-lowercase { text-transform: lowercase!important; }
+.text-capitalize { text-transform: capitalize;}
 
 .text-center { text-align: center; }
+.text-right--all * { text-align: right; }
+.text-left--all * { text-align: left; }
 
 /*Type*/
 @media (max-width: 479px){ h2 { font-size: 26px!important; } }
@@ -30,7 +34,9 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 
 p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
-.widget_area .widget_title { font-family: 'Raleway'; }
+.font-weight--500 { font-weight: 500; }
+
+
 
 /*Margin*/
 .no-margin-bottom { margin-bottom: 0px; }
@@ -65,7 +71,18 @@ button:hover,
 	color: #fff!important;
 }
 
-.sc_button.sc_button_style_filled { background-color: #1E4B24!important; }
+.sc_button.sc_button_style_filled {
+	background-color: #7fb642!important;
+    border-radius: 20px!important;
+    font-weight: 500!important;
+    letter-spacing: 2px;
+    border: 2px solid #7fb642!important;
+}
+.sc_button.sc_button_style_filled.sc_button_size_medium:hover {
+	border: 2px solid #1E4B24!important;
+	color: #1E4B24!important;
+}
+.sc_button_size_large { padding: 10px 30px!important; }
 
 .sc_button.sc_button_style_filled.sc_button_scheme_original:hover,
 .sc_button.sc_button_style_filled.sc_button_scheme_orange:hover,
@@ -76,7 +93,7 @@ button:hover,
 
 /*Blockquote */
 
-blockquote.sc_quote p { font-family: 'Merienda'; font-size: 20px; }
+blockquote.sc_quote p { font-size: 20px; }
 
 /*Form*/
 
@@ -101,7 +118,7 @@ input:focus, textarea:focus {
 	border: 1px solid rgba(68,177,75, 1)!important;
 }
 
-form p  { font-family: 'Merienda'!important; color: #000; }
+form p  { font-family: 'Raleway'!important; color: #000; }
 
 /*List*/
 
@@ -117,9 +134,6 @@ form p  { font-family: 'Merienda'!important; color: #000; }
 .page_content_wrap { padding: 0!important; }
 
 /*HEADER*/
-
-h1.page_title { font-family: 'Merienda', cursive; }
-
 .menu_user_nav > li > a { padding: 0.1em 0; }
 .menu_user_bookmarks { display: none; }
 .top_panel_top_user_area { height: 3em; }
@@ -199,8 +213,9 @@ footer {
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: cover;
-	background-image: url(../organics-child/images/fondo-footer.jpg);
+	background-image: url(../organics-child/images/acuarela-footer.png);
 	color: #fff;
+	padding-top: 30px;
 }
 
 footer {
@@ -226,8 +241,20 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer aside.widget_number_3 { text-align: right!important; padding-right: 0px!important; }
 }
 
+/*Testimonials*/
+
+.sc_testimonial_author { width: 100%; }
+.sc_testimonials_style_testimonials-4 .sc_testimonial_author_name { text-align: right; font-weight: bold; color: #3f3f3f!important;}
+
 /*Woocomerce*/
 
 .woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
 
 .woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
+
+/*Productos temporada*/
+#productos-temporada .woo_thumb_buttons { display: none; }
+#productos-temporada .post_featured { margin-bottom: 0px; }
+#productos-temporada .post_content h3 a { color: #3f3f3f; font-weight: bold; }
+#productos-temporada .price { color: #a53850; }
+#productos-temporada h3 { text-transform: capitalize; }
