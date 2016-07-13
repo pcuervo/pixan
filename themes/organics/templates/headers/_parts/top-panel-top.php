@@ -23,7 +23,7 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
         <div class="top_panel_top_search"><?php echo organics_sc_search(array('state'=>'closed')); ?></div>
     <?php
     }
-	
+
 		$menu_user = organics_get_nav_menu('menu_user');
 		if (empty($menu_user)) {
 			?>
@@ -133,7 +133,7 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
 					<li><a href="<?php echo get_edit_user_link(); ?>" class="icon icon-cog"><?php esc_html_e('Settings', 'organics'); ?></a></li>
                     </ul>
                 </li>
-			<li class="menu_user_logout"><a href="<?php echo wp_logout_url(home_url()); ?>" class="icon icon-logout"><?php esc_html_e('Logout', 'organics'); ?></a></li>
+			<li class="menu_user_logout"><a href="<?php echo wp_logout_url(home_url()); ?>" class="icon icon-logout"><?php esc_html_e('Salir', 'organics'); ?></a></li>
             <?php
             }
         }
@@ -158,5 +158,5 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
     </ul>
 
 </div>
-	
+
 <?php } ?>

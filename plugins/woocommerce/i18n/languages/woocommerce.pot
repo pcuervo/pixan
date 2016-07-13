@@ -4736,7 +4736,7 @@ msgstr ""
 
 #: templates/cart/cart.php:134
 msgid "Proceed to Checkout &rarr;"
-msgstr ""
+msgstr "Realizar pedido &rarr;"
 
 #: templates/cart/cross-sells.php:38
 msgid "You may be interested in&hellip;"

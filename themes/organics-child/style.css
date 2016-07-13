@@ -93,6 +93,8 @@ button:hover,
 	color: #1E4B24!important;
 }
 
+.widget_area .widget_product_search .search_button:before, .widget_area .widget_search .search_button:before { content: 'Buscar'; }
+
 /*Blockquote */
 
 blockquote.sc_quote p { font-size: 20px; }
@@ -256,12 +258,6 @@ footer .widget_area_inner { background-color: transparent!important; }
 .sc_testimonials_style_testimonials-4 .sc_testimonial_author_name { text-align: right; font-weight: bold; color: #3f3f3f!important;}
 .sc_testimonials_style_testimonials-4 .sc_testimonial_item { min-height: 200px; }
 
-/*Woocomerce*/
-
-.woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
-
-.woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
-
 /*Productos temporada*/
 #productos-temporada .woo_thumb_buttons { display: none; }
 #productos-temporada .post_featured { margin-bottom: 0px; }
@@ -277,3 +273,12 @@ footer .widget_area_inner { background-color: transparent!important; }
 @media(max-width: 768px){
 	#canastas-home * { text-align: left!important; }
 }
+
+
+/*Woocomerce*/
+
+.woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
+.woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
+
+// .post_content + .related_wrap,
+.post_info { display: none; }
