@@ -98,6 +98,8 @@ button:hover,
 
 .woocommerce ul.products li.product .add_to_cart_button, .woocommerce-page ul.products li.product .add_to_cart_button { width: auto!important; }
 
+.woocommerce-account .addresses .title .edit { float: left; }
+
 /*Blockquote */
 
 blockquote.sc_quote p { font-size: 20px; }
@@ -283,5 +285,7 @@ footer .widget_area_inner { background-color: transparent!important; }
 .woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
 .woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
 
-// // .post_content + .related_wrap,
-// .post_info .post_info_item { display: none!important; }
+// .post_content + .related_wrap,
+.post_info .post_info_item,
+li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
+li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
