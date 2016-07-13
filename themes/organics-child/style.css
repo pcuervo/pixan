@@ -163,7 +163,9 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .top_panel_style_5 .main-menu_wrapper { border: none!important; }
 
-.menu_main_nav>li>a { padding: 0.8em 0.4em 0.8em!important; }
+.top_panel_middle .logo { margin-top: 10px!important; margin-bottom: 0px!important; }
+@media (min-width: 1023px){ .menu_main_nav>li>a { padding: 0em 0em 0.8em!important; } }
+
 .menu_main_nav > li > a { color: #1E4B24; }
 
 
@@ -174,8 +176,8 @@ li.menu_user_cart a.top_panel_cart_button,
 .header_mobile .menu_button, .header_mobile .menu_main_cart .top_panel_cart_button .contact_icon { color: #1E4B24; }
 
 /*header new*/
-.top_panel_middle .logo { margin-top: 0px!important; margin-bottom: 10px!important; }
-.top_panel_wrap .logo_main { max-height: 110px!important; }
+
+.top_panel_wrap .logo_main { max-height: 190px!important; }
 header .column-1_6 { width: 10%!important; padding-right: 0px!important; }
 header .column-5_6 { width: 90%!important; }
 
