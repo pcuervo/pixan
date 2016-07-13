@@ -94,6 +94,9 @@ button:hover,
 }
 
 .widget_area .widget_product_search .search_button:before, .widget_area .widget_search .search_button:before { content: 'Buscar'; }
+.widget_area_inner .widget_product_search .search_button { max-width: 29%; }
+
+.woocommerce ul.products li.product .add_to_cart_button, .woocommerce-page ul.products li.product .add_to_cart_button { width: auto!important; }
 
 /*Blockquote */
 
@@ -280,5 +283,5 @@ footer .widget_area_inner { background-color: transparent!important; }
 .woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
 .woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
 
-// .post_content + .related_wrap,
-.post_info { display: none; }
+// // .post_content + .related_wrap,
+// .post_info .post_info_item { display: none!important; }

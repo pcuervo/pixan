@@ -67,7 +67,7 @@ class WC_Gateway_Cheque extends WC_Payment_Gateway {
 				'title'       => __( 'Description', 'woocommerce' ),
 				'type'        => 'textarea',
 				'description' => __( 'Payment method description that the customer will see on your checkout.', 'woocommerce' ),
-				'default'     => __( 'Por favor envia un cheque a nombre de la tienda con la calle, ciudad, estado o provincia y código postal.', 'woocommerce' ),
+				'default'     => __( 'Por favor envía un cheque a nombre de la tienda con la calle, ciudad, estado o provincia y código postal.', 'woocommerce' ),
 				'desc_tip'    => true,
 			),
 			'instructions' => array(

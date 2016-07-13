@@ -186,7 +186,7 @@ if ( !function_exists( 'organics_woocommerce_product_view' ) ) {
                 $gallery = '';
             }
 
-            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Quick View", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
+            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Ver Detalles", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
 
             //echo $product->get_image();
         } else {
