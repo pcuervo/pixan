@@ -26,7 +26,7 @@ return array(
 		'type'        => 'text',
 		'desc_tip'    => true,
 		'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce' ),
-		'default'     => __( 'Pay via PayPal; you can pay with your credit card if you don\'t have a PayPal account.', 'woocommerce' )
+		'default'     => __( 'Pagar a través de PayPal; se puede pagar con su tarjeta de crédito si usted no tiene una cuenta de PayPal.', 'woocommerce' )
 	),
 	'email' => array(
 		'title'       => __( 'PayPal Email', 'woocommerce' ),
