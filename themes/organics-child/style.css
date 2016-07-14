@@ -164,7 +164,9 @@ li.menu_user_cart a.top_panel_cart_button,
 .top_panel_style_5 .main-menu_wrapper { border: none!important; }
 
 .top_panel_middle .logo { margin-top: 10px!important; margin-bottom: 0px!important; }
-@media (min-width: 1023px){ .menu_main_nav>li>a { padding: 0em 0em 0.8em!important; } }
+@media (min-width: 1023px){ .menu_main_nav>li>a { padding: 0.5em 0em 0.5em!important; } }
+
+.top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 0 0.8em!important; }
 
 .menu_main_nav > li > a { color: #1E4B24; }
 
