@@ -43,6 +43,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .no-margin-bottom { margin-bottom: 0px; }
 .margin-bottom--small { margin-bottom: 10px; }
 .margin-bottom { margin-bottom: 15px!important; }
+.margin-bottom--large { margin-bottom: 25px!important; }
 
 /*Display*/
 
@@ -270,6 +271,10 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer #text-4.column-1_3 { width: 20%; }
 	footer #text-3.column-1_3 { width: 60%; }
 }
+
+/*CONTENT*/
+
+.sidebar_show .page_paddings_yes > .content_wrap > .content { margin-top: 0px; }
 
 /*Testimonials*/
 

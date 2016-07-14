@@ -20,7 +20,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1<?php echo (organics_get_theme_option('responsive_layouts') == 'yes' ? ', maximum-scale=1' : ''); ?>">
     <meta name="format-detection" content="telephone=no">
-	
+
 	<?php
 	if (floatval(get_bloginfo('version')) < 4.1) {
 		?><title><?php wp_title( '|', true, 'right' ); ?></title><?php
@@ -29,7 +29,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-    
+
     <?php
 	if ( !function_exists('has_site_icon') || !has_site_icon() ) {
 		$favicon = organics_get_custom_option('favicon');
@@ -43,14 +43,14 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			?><link rel="icon" type="image/x-icon" href="<?php echo esc_url($favicon); ?>" /><?php
 		}
 	}
-	
+
 	wp_head();
 	?>
 </head>
 
 
 <body <?php body_class();?>>
-	
+
 	<?php echo force_balance_tags(organics_get_custom_option('gtm_code')); ?>
 
 	<?php do_action( 'before' ); ?>
@@ -65,7 +65,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			'icon' => "icon-home",
 			'separator' => "yes",
 			'url' => home_url())
-			)); 
+			));
 	if (organics_get_custom_option('menu_toc_top')=='yes')
 		echo trim(organics_sc_anchor(array(
 			'id' => "toc_top",
@@ -73,7 +73,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			'description' => esc_html__('{{Back to top}} - ||scroll to top of the page', 'organics'),
 			'icon' => "icon-double-up",
 			'separator' => "yes")
-			)); 
+			));
 	?>
 
 	<?php if ( !organics_param_is_off(organics_get_custom_option('show_sidebar_outer')) ) { ?>
@@ -153,7 +153,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 				<?php
 				// Content and sidebar wrapper
 				if ($body_style!='fullscreen') organics_open_wrapper('<div class="content_wrap">');
-				
+
 				// Main content wrapper
 				organics_open_wrapper('<div class="content">');
 				?>
