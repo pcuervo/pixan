@@ -24,6 +24,7 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 .text-capitalize { text-transform: capitalize;}
 
 .text-center { text-align: center; }
+.text-justify { text-align: justify; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
@@ -222,6 +223,15 @@ header .sub-menu a:hover { color: #1E4B24;}
 .top_panel_title_inner .breadcrumbs a:hover, .top_panel_title_inner .breadcrumbs .breadcrumbs_item.current { color: #a4e604!important; }
 .top_panel_title.title_present.breadcrumbs_present .breadcrumbs * { font-weight: bold!important }
 
+/*header fijo*/
+.top_panel_fixed ul#menu_main {
+	background: url(images/logo-75x75.png);
+	background-size: 37px 37px;
+	background-position: 0px;
+	background-repeat: no-repeat;
+}
+
+
 /*FOOTER*/
 
 footer {
@@ -293,3 +303,7 @@ footer .widget_area_inner { background-color: transparent!important; }
 .post_info .post_info_item,
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
+
+/*Single product*/
+
+.post_item_single h1.product_title { display: none; }
