@@ -224,6 +224,8 @@ header .sub-menu a:hover { color: #1E4B24;}
 .top_panel_title_inner .breadcrumbs a:hover, .top_panel_title_inner .breadcrumbs .breadcrumbs_item.current { color: #a4e604!important; }
 .top_panel_title.title_present.breadcrumbs_present .breadcrumbs * { font-weight: bold!important }
 
+.woocommerce .top_panel_title_inner .breadcrumbs { display: none; }
+
 /*header fijo*/
 .top_panel_fixed ul#menu_main {
 	background: url(images/logo-75x75.png);
