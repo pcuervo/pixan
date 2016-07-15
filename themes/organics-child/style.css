@@ -37,13 +37,45 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .font-weight--500 { font-weight: 500; }
 
+/*Position*/
 
+.relative { position: relative; }
 
 /*Margin*/
 .no-margin-bottom { margin-bottom: 0px; }
 .margin-bottom--small { margin-bottom: 10px; }
 .margin-bottom { margin-bottom: 15px!important; }
 .margin-bottom--large { margin-bottom: 25px!important; }
+
+/*Padding*/
+@media (max-width:960px) { .no-padding-top-s-and-m { padding-top: 0px!important; } }
+
+
+/*Box model*/
+.max-height--220 { max-height: 220px; }
+.max-height--240 { max-height: 240px; }
+
+@media (min-width:960px) {
+	.min-height--200-l { min-height: 200px; }
+	.min-height--240-l { min-height: 240px; }
+}
+
+.width---100 { width: 100%; }
+
+/*Center*/
+
+@media (min-width:960px) {
+	.center-full-l {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+}
+
 
 /*Display*/
 
@@ -213,7 +245,7 @@ header .sub-menu a:hover { color: #1E4B24;}
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: cover;
-	background-image: url(../organics-child/images/header-pages.png);
+	background-image: url(../organics-child/images/header-new.png);
 	margin-bottom: 50px;
 }
 .top_panel_title .page_title,
@@ -297,6 +329,9 @@ footer .widget_area_inner { background-color: transparent!important; }
 @media(max-width: 768px) {
 	#productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; }
 }
+
+.esg-navigationbutton,
+.minimal-dark .esg-navigationbutton { background: #6dab3c!important; }
 
 /*Canastas home*/
 @media(max-width: 768px){
