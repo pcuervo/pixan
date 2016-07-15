@@ -532,7 +532,7 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 			?>
 
 			<!-- Breadcrumbs woocommerce -->
-			<div class="breadcrumbs [ margin-bottom--large ]">
+			<div class="breadcrumbs [ breadcrumbs-woocommerce ][ margin-bottom--large ]">
 				<?php if (!is_404()) organics_show_breadcrumbs(); ?>
 			</div>
 			<div class="list_products shop_mode_<?php echo !empty($ORGANICS_GLOBALS['shop_mode']) ? $ORGANICS_GLOBALS['shop_mode'] : 'thumbs'; ?>">
