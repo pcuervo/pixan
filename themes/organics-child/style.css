@@ -228,6 +228,22 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .header_mobile .menu_button, .header_mobile .menu_main_cart .top_panel_cart_button .contact_icon { color: #1E4B24; }
 
+/*Dropdown menu*/
+.menu_main_nav li ul.sub-menu {
+	padding: 0px;
+	border: none;
+	background-color: #C6DF97!important;
+}
+.menu_main_nav>li ul.sub-menu li a {
+	padding: 10px 20px!important;
+	color: #1E4B24;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.929em;
+}
+
+
+
 /*header mobile*/
 
 .header_mobile .menu_main_nav > li,
