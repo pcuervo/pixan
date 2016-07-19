@@ -228,7 +228,34 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .header_mobile .menu_button, .header_mobile .menu_main_cart .top_panel_cart_button .contact_icon { color: #1E4B24; }
 
-/*header new*/
+/*header mobile*/
+
+.header_mobile .menu_main_nav > li,
+.header_mobile .search_wrap,
+.header_mobile .login { border-bottom: none; }
+
+.header_mobile .menu_main_nav > li > a {
+	padding: 10px 35px;
+
+}
+.header_mobile .menu_main_nav > li > a,
+.header_mobile .search_wrap,
+.header_mobile .login,
+.header_mobile .search_wrap .search_field,
+.header_mobile .search_wrap .search_field:focus,
+.header_mobile .search_wrap:before,
+.header_mobile .login .popup_link {
+	background-color: #C6DF97!important;
+	color: #1E4B24;
+}
+
+.header_mobile .menu_main_nav li a:hover { color:#80B641; }
+
+.header_mobile ul.sub-menu a { background: #80B641; }
+
+.header_mobile input { border-color:#1E4B24!important; }
+
+.header_mobile .menu_main_nav li.current_page_item a { background-color: #1E4B24!important; }
 
 // .top_panel_wrap .logo_main { max-height: 190px!important; }
 header .column-1_6 { width: 10%!important; padding-right: 0px!important; }
