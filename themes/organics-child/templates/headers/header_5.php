@@ -65,6 +65,12 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                             ?>
                             <a href="#" class="menu_main_responsive_button icon-menu"></a>
                             <nav class="menu_main_nav_area prueba">
+
+								<!-- img logo header fijo -->
+								<a href="<?php echo site_url('/'); ?>" class="[ logo-header-fijo ]">
+									<img src="/pixan/wp-content/uploads/2016/07/logo-small.png" alt="">
+								</a>
+
                                 <?php
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu('menu_main');
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu();
