@@ -86,6 +86,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .hidden { display: none; }
 
+
 /*Colum*/
 .columns--5 .vc_col-sm-2 { width: 20%; }
 
@@ -394,6 +395,10 @@ footer .widget_area_inner { background-color: transparent!important; }
 .sc_testimonials_style_testimonials-4 .sc_testimonial_author_name { text-align: right; font-weight: bold; color: #3f3f3f!important;}
 .sc_testimonials_style_testimonials-4 .sc_testimonial_item { min-height: 200px; }
 
+/*Algunas ideas*/
+
+@media (max-width: 960px){ .isotope_wrap .isotope_item { width: 50% } }
+
 /*Productos temporada*/
 #productos-temporada .woo_thumb_buttons { display: none; }
 #productos-temporada .post_featured { margin-bottom: 0px; }
@@ -410,7 +415,11 @@ footer .widget_area_inner { background-color: transparent!important; }
 
 /*Canastas home*/
 @media(max-width: 768px){
-	#canastas-home * { text-align: left!important; }
+	#canastas-home * {
+		text-align: left!important;
+		float: none;
+		margin-left: 0px;
+	}
 }
 
 
