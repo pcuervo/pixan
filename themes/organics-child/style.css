@@ -230,6 +230,7 @@ li.menu_user_cart a.top_panel_cart_button,
 
 @media (max-width: 639px){ .header_mobile .menu_main_cart{ right: 37px; } }
 
+@media (max-width: 1022px){ header { opacity: 0; } }
 
 /*Dropdown menu*/
 .menu_main_nav li ul.sub-menu {
