@@ -64,7 +64,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                                 echo trim(organics_sc_search(array('class'=>"top_panel_icon", 'state'=>"closed")));
                             ?>
                             <a href="#" class="menu_main_responsive_button icon-menu"></a>
-                            <nav class="menu_main_nav_area prueba">
+                            <nav class="menu_main_nav_area">
                                 <?php
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu('menu_main');
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu();

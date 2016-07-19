@@ -228,6 +228,9 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .header_mobile .menu_button, .header_mobile .menu_main_cart .top_panel_cart_button .contact_icon { color: #1E4B24; }
 
+@media (max-width: 639px){ .header_mobile .menu_main_cart{ right: 37px; } }
+
+
 /*Dropdown menu*/
 .menu_main_nav li ul.sub-menu {
 	padding: 0px;
@@ -415,7 +418,8 @@ footer .widget_area_inner { background-color: transparent!important; }
 .woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
 .woocommerce .shop_mode_list ul.products li.product .description, .woocommerce-page .shop_mode_list ul.products li.product .description { max-height: 6.3em!important; }
 
-// .post_content + .related_wrap,
+@media (max-width:767px) { .mode_buttons { display: none!important; } } /*acomodo productos*/
+
 .post_info .post_info_item,
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }

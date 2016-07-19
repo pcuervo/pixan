@@ -535,7 +535,16 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 			<div class="breadcrumbs [ breadcrumbs-woocommerce ][ margin-bottom--large ]">
 				<?php if (!is_404()) organics_show_breadcrumbs(); ?>
 			</div>
-			<div class="list_products shop_mode_<?php echo !empty($ORGANICS_GLOBALS['shop_mode']) ? $ORGANICS_GLOBALS['shop_mode'] : 'thumbs'; ?>">
+
+			<!-- acomodo canastas -->
+				<?php if (is_product_category('canastas')) { ?>
+					<div class="list_products shop_mode_list">
+				<?php } ?>
+
+				<?php if ( ! is_product_category('canastas')) { ?>
+					<div class="list_products shop_mode_<?php echo !empty($ORGANICS_GLOBALS['shop_mode']) ? $ORGANICS_GLOBALS['shop_mode'] : 'thumbs'; ?>">
+				<?php } ?>
+
 			<?php
 		}
 	}
