@@ -49,6 +49,9 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .margin-bottom { margin-bottom: 15px!important; }
 .margin-bottom--large { margin-bottom: 25px!important; }
 
+.no-margin-right { margin-right: 0px; }
+.margin-right--small { margin-right: 10px; }
+
 /*Padding*/
 @media (max-width:960px) { .no-padding-top-s-and-m { padding-top: 0px!important; } }
 
@@ -331,6 +334,8 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer #text-4.column-1_3 { width: 20%; }
 	footer #text-3.column-1_3 { width: 60%; }
 }
+
+.info-contact .sc_image a:hover:after { content: ''!important; }
 
 /*CONTENT*/
 
