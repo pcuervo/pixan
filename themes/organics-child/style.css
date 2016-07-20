@@ -301,7 +301,8 @@ header .column-5_6 { width: 90%!important; }
 .top_panel_fixed .column-5_6.menu_main_wrap { padding: 0px; }
 
 /*Container logo 100%*/
-.top_panel_inner_style_5 .top_panel_middle>.content_wrap { width: 95%; }
+.top_panel_inner_style_5 .top_panel_middle>.content_wrap { width: 98%; }
+/*.top_panel_inner_style_5 .top_panel_middle .content_wrap { width: 98%; }*/
 .top_panel_wrap .logo_main { max-height: 100%; }
 
 header .sub-menu a:hover { color: #1E4B24;}
@@ -346,13 +347,14 @@ a.logo-header-fijo { display: none; }
 .top_panel_fixed a.logo-header-fijo {
 	float: left;
 	display: block;
-	margin: 11px 0px;
+	margin: 10px 0px;
 }
 .top_panel_fixed .logo-header-fijo img {
 	width: 70px;
 }
 
 .top_panel_fixed .top_panel_style_5 .top_panel_middle .menu_main_wrap { height: auto!important; }
+/*.top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.8em 1.75em!important; }*/
 .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.6em 0.6em!important; }
 
 /*FOOTER*/
@@ -421,9 +423,6 @@ footer .widget_area_inner { background-color: transparent!important; }
 @media(max-width: 768px) {
 	#productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; }
 }
-
-// .esg-navigationbutton,
-// .minimal-dark .esg-navigationbutton { background: #6dab3c!important; }
 
 /*Canastas home*/
 @media(max-width: 768px){
