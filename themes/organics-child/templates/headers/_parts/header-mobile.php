@@ -120,15 +120,15 @@
                         <?php echo trim(organics_sc_socials(array('size'=>'tiny'))); ?>
                     </div>
                     <div class="[ text-center ]">
-                            <a class="[ margin-right--small ]" href="#">
-                                <img style="width: 30px;" src="http://localhost:8888/pixan/wp-content/uploads/2016/06/facebook-pixan1.png" alt="">
-                            </a>
-                            <a class="[ margin-right--small ]" href="#">
-                                <img style="width: 30px;" src="http://localhost:8888/pixan/wp-content/uploads/2016/06/instagram-pixan1.png" alt="">
-                            </a>
-                            <a class="[ margin-right--small ]" href="#">
-                                <img style="width: 30px;" src="http://localhost:8888/pixan/wp-content/uploads/2016/06/twitter-pixan1.png" alt="">
-                            </a>
+                        <a class="[ margin-right--small ]" href="#">
+                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/fcb2.png" alt="">
+                        </a>
+                        <a class="[ margin-right--small ]" href="#">
+                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/insta2.png" alt="">
+                        </a>
+                        <a class="[ margin-right--small ]" href="#">
+                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/twit2.png" alt="">
+                        </a>
                     </div>
 
                 <?php
