@@ -36,6 +36,11 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .font-weight--500 { font-weight: 500; }
 
+.no-text-decoration:hover {  text-decoration: none; }
+
+/*Opacity*/
+.opacity-8:hover { opacity: 0.8; }
+
 /*Position*/
 
 .relative { position: relative; }

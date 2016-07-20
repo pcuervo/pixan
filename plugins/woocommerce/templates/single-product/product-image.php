@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $product;
 ?>
+<!-- Breadcrumbs woocommerce -->
+<div class="breadcrumbs [ breadcrumbs-woocommerce ][ margin-bottom--large ]">
+	<?php if (!is_404()) organics_show_breadcrumbs(); ?>
+</div>
+
 <div class="images">
 	<?php
 		if ( has_post_thumbnail() ) {
