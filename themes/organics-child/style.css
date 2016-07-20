@@ -210,10 +210,12 @@ div.wpcf7-validation-errors { border: 2px solid #A63A51; }
 
 /*HEADER*/
 .menu_user_nav > li > a { padding: 0.1em 0; }
-.menu_user_bookmarks { display: none; }
+.menu_user_bookmarks,
+.menu_user_currency,
+.related_wrap,
+#billing_company_field { display: none; }
 .top_panel_top_user_area { height: 3em; }
 li.menu_user_cart { background-color: transparent;}
-.menu_user_nav > li.menu_user_currency > a { padding: 0.3em 0;}
 
 .top_panel_inner_style_4 .top_panel_top,
 .top_panel_inner_style_5 .top_panel_top,
@@ -479,6 +481,7 @@ div.pp_woocommerce div.ppt { display: none!important; }
 
 /*Review*/
 .woocommerce .star-rating span:before { top: -3px!important; }
+@media(max-width:1279px){ .woocommerce .star-rating span:before { font-size: 13px; } }
 
 /*Cart*/
 

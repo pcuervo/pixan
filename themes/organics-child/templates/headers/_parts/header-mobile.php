@@ -64,7 +64,7 @@
                         // Load Popup engine
                         organics_enqueue_popup();
                         ?>
-                        <div class="login"><a href="#popup_login" class="popup_link popup_login_link icon-user"><?php esc_html_e('Login', 'organics'); ?></a></div>
+                        <div class="login"><a href="<?php echo site_url('/my-account/'); ?>" class="popup_link popup_login_link icon-user"><?php esc_html_e('Login', 'organics'); ?></a></div>
                         <?php
                         // Anyone can register ?
                         if ( (int) get_option('users_can_register') > 0) {
