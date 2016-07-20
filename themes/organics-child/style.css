@@ -477,6 +477,9 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 
 div.pp_woocommerce div.ppt { display: none!important; }
 
-/*Rating*/
-
+/*Review*/
 .woocommerce .star-rating span:before { top: -3px!important; }
+
+/*Cart*/
+
+.woocommerce-page table.cart td.actions .coupon .input-text { width: 12.5em!important; }
