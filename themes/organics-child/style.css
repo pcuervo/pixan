@@ -278,7 +278,6 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .header_mobile .menu_main_nav li.current_page_item a { background-color: #1E4B24!important; }
 
-// .top_panel_wrap .logo_main { max-height: 190px!important; }
 header .column-1_6 { width: 10%!important; padding-right: 0px!important; }
 header .column-5_6 { width: 90%!important; }
 
@@ -288,6 +287,10 @@ header .column-5_6 { width: 90%!important; }
 .top_panel_fixed .top_panel_style_4 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 0px!important; }
 .top_panel_fixed .columns_wrap { text-align: center; }
 .top_panel_fixed .column-5_6.menu_main_wrap { padding: 0px; }
+
+/*Container logo 100%*/
+.top_panel_inner_style_5 .top_panel_middle>.content_wrap { width: 95%; }
+.top_panel_wrap .logo_main { max-height: 100%; }
 
 // header .sub-menu { top: 20px!important; }
 header .sub-menu a:hover { color: #1E4B24;}
