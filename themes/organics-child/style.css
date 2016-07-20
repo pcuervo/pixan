@@ -476,3 +476,7 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 .mfp-container .mfp-counter { color: #4D4D4F; }
 
 div.pp_woocommerce div.ppt { display: none!important; }
+
+/*Rating*/
+
+.woocommerce .star-rating span:before { top: -3px!important; }
