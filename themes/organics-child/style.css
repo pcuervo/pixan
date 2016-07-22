@@ -482,6 +482,7 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 div.pp_woocommerce div.ppt { display: none!important; }
 
 /*Review*/
+li.reviews_tab { display: none!important; }
 .woocommerce .star-rating span:before { top: -3px!important; }
 @media(max-width:1279px){ .woocommerce .star-rating span:before { font-size: 13px; } }
 
