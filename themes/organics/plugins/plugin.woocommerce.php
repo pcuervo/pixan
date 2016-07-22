@@ -55,7 +55,7 @@ if ( !function_exists( 'organics_woocommerce_settings_theme_setup2' ) ) {
 			global $ORGANICS_GLOBALS;
 
 			organics_array_insert_before($ORGANICS_GLOBALS['options'], 'partition_service', array(
-				
+
 				"partition_woocommerce" => array(
 					"title" => esc_html__('WooCommerce', 'organics'),
 					"icon" => "iconadmin-basket",
@@ -65,7 +65,7 @@ if ( !function_exists( 'organics_woocommerce_settings_theme_setup2' ) ) {
 					"title" => esc_html__('WooCommerce products list parameters', 'organics'),
 					"desc" => esc_html__("Select WooCommerce products list's style and crop parameters", 'organics'),
 					"type" => "info"),
-		
+
 				"shop_mode" => array(
 					"title" => esc_html__('Shop list style',  'organics'),
 					"desc" => esc_html__("WooCommerce products list's style: thumbs or list with description", 'organics'),
@@ -76,7 +76,7 @@ if ( !function_exists( 'organics_woocommerce_settings_theme_setup2' ) ) {
 						'list' => esc_html__('List', 'organics')
 					),
 					"type" => "checklist"),
-		
+
 				"show_mode_buttons" => array(
 					"title" => esc_html__('Show style buttons',  'organics'),
 					"desc" => esc_html__("Show buttons to allow visitors change list style", 'organics'),
@@ -100,7 +100,7 @@ if ( !function_exists( 'organics_woocommerce_settings_theme_setup2' ) ) {
 					"std" => "yes",
 					"options" => $ORGANICS_GLOBALS['options_params']['list_yes_no'],
 					"type" => "switch"),
-		
+
 				"show_cart" => array(
 					"title" => esc_html__('Show cart button', 'organics'),
 					"desc" => esc_html__('Show cart button in the user menu', 'organics'),
@@ -118,7 +118,7 @@ if ( !function_exists( 'organics_woocommerce_settings_theme_setup2' ) ) {
 					"std" => "no",
 					"options" => $ORGANICS_GLOBALS['options_params']['list_yes_no'],
 					"type" => "switch")
-				
+
 				)
 			);
 
@@ -258,18 +258,18 @@ if (!function_exists('organics_woocommerce_theme_setup3')) {
 		}
 
 		if (organics_is_woocommerce_page()) {
-			
+
 			remove_action( 'woocommerce_sidebar', 						'woocommerce_get_sidebar', 10 );					// Remove WOOC sidebar
-			
+
 			remove_action( 'woocommerce_before_main_content',			'woocommerce_output_content_wrapper', 10);
 			add_action(    'woocommerce_before_main_content',			'organics_woocommerce_wrapper_start', 10);
-			
-			remove_action( 'woocommerce_after_main_content',			'woocommerce_output_content_wrapper_end', 10);		
+
+			remove_action( 'woocommerce_after_main_content',			'woocommerce_output_content_wrapper_end', 10);
 			add_action(    'woocommerce_after_main_content',			'organics_woocommerce_wrapper_end', 10);
 
 			add_action(    'woocommerce_show_page_title',				'organics_woocommerce_show_page_title', 10);
 
-			remove_action( 'woocommerce_single_product_summary',		'woocommerce_template_single_title', 5);		
+			remove_action( 'woocommerce_single_product_summary',		'woocommerce_template_single_title', 5);
 			add_action(    'woocommerce_single_product_summary',		'organics_woocommerce_show_product_title', 5 );
 
 			add_action(    'woocommerce_before_shop_loop', 				'organics_woocommerce_before_shop_loop', 10 );
@@ -280,7 +280,7 @@ if (!function_exists('organics_woocommerce_theme_setup3')) {
 			add_action(    'woocommerce_product_meta_end',				'organics_woocommerce_show_product_id', 10);
 
 			add_filter(    'woocommerce_output_related_products_args',	'organics_woocommerce_output_related_products_args' );
-			
+
 			add_filter(    'woocommerce_product_thumbnails_columns',	'organics_woocommerce_product_thumbnails_columns' );
 
 			add_filter(    'loop_shop_columns',							'organics_woocommerce_loop_shop_columns' );
@@ -293,7 +293,7 @@ if (!function_exists('organics_woocommerce_theme_setup3')) {
 
 
 
-			
+
 			organics_enqueue_popup();
 		}
 	}
@@ -317,7 +317,7 @@ if ( !function_exists( 'organics_is_woocommerce_page' ) ) {
 			global $ORGANICS_GLOBALS;
 			if (!empty($ORGANICS_GLOBALS['pre_query'])) {
 				$id = isset($ORGANICS_GLOBALS['pre_query']->queried_object_id) ? $ORGANICS_GLOBALS['pre_query']->queried_object_id : 0;
-				$rez = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='product' 
+				$rez = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='product'
 						|| $id==wc_get_page_id('shop')
 						|| $id==wc_get_page_id('cart')
 						|| $id==wc_get_page_id('checkout')
@@ -325,7 +325,7 @@ if ( !function_exists( 'organics_is_woocommerce_page' ) ) {
 						|| $ORGANICS_GLOBALS['pre_query']->is_tax( 'product_cat' )
 						|| $ORGANICS_GLOBALS['pre_query']->is_tax( 'product_tag' )
 						|| $ORGANICS_GLOBALS['pre_query']->is_tax( get_object_taxonomies( 'product' ) );
-						
+
 			} else
 				$rez = is_shop() || is_product() || is_product_category() || is_product_tag() || is_product_taxonomy() || is_cart() || is_checkout() || is_account_page();
 		}
@@ -374,7 +374,7 @@ if ( !function_exists( 'organics_woocommerce_get_blog_type' ) ) {
 	//add_filter('organics_filter_get_blog_type',	'organics_woocommerce_get_blog_type', 9, 2);
 	function organics_woocommerce_get_blog_type($page, $query=null) {
 		if (!empty($page)) return $page;
-		
+
 		if (is_shop()) 					$page = 'woocommerce_shop';
 		else if ($query && $query->get('post_type')=='product' || is_product())		$page = 'woocommerce_product';
 		else if ($query && $query->get('product_tag')!='' || is_product_tag())		$page = 'woocommerce_tag';
@@ -392,7 +392,7 @@ if ( !function_exists( 'organics_woocommerce_get_blog_title' ) ) {
 	//add_filter('organics_filter_get_blog_title',	'organics_woocommerce_get_blog_title', 9, 2);
 	function organics_woocommerce_get_blog_title($title, $page) {
 		if (!empty($title)) return $title;
-		
+
 		if ( organics_strpos($page, 'woocommerce')!==false ) {
 			if ( $page == 'woocommerce_category' ) {
 				$term = get_term_by( 'slug', get_query_var( 'product_cat' ), 'product_cat', OBJECT);
@@ -414,7 +414,7 @@ if ( !function_exists( 'organics_woocommerce_get_blog_title' ) ) {
 				$title = esc_html__( 'Shop', 'organics' );
 			}
 		}
-		
+
 		return $title;
 	}
 }
@@ -428,7 +428,7 @@ if ( !function_exists( 'organics_woocommerce_get_stream_page_title' ) ) {
 			if (($page_id = organics_woocommerce_get_stream_page_id(0, $page)) > 0)
 				$title = organics_get_post_title($page_id);
 			else
-				$title = esc_html__('Shop', 'organics');				
+				$title = esc_html__('Shop', 'organics');
 		}
 		return $title;
 	}
@@ -477,7 +477,7 @@ if ( !function_exists( 'organics_woocommerce_is_taxonomy' ) ) {
 	function organics_woocommerce_is_taxonomy($tax, $query=null) {
 		if (!empty($tax))
 			return $tax;
-		else 
+		else
 			return $query && $query->get('product_cat')!='' || is_product_category() ? 'product_cat' : '';
 	}
 }
@@ -492,7 +492,7 @@ if ( !function_exists( 'organics_woocommerce_list_post_types' ) ) {
 }
 
 
-	
+
 // Enqueue WooCommerce custom styles
 if ( !function_exists( 'organics_woocommerce_frontend_scripts' ) ) {
 	//add_action( 'organics_action_add_styles', 'organics_woocommerce_frontend_scripts' );
@@ -537,7 +537,7 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 
 // After main content
 if ( !function_exists( 'organics_woocommerce_wrapper_end' ) ) {
-	//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);		
+	//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 	//add_action('woocommerce_after_main_content', 'organics_woocommerce_wrapper_end', 10);
 	function organics_woocommerce_wrapper_end() {
 		if (is_product() || is_cart() || is_checkout() || is_account_page()) {
@@ -562,7 +562,7 @@ if ( !function_exists( 'organics_woocommerce_show_page_title' ) ) {
 
 // Check to show product title
 if ( !function_exists( 'organics_woocommerce_show_product_title' ) ) {
-	//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);		
+	//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 	//add_action( 'woocommerce_single_product_summary', 'organics_woocommerce_show_product_title', 5 );
 	function organics_woocommerce_show_product_title() {
 		if (organics_get_custom_option('show_post_title')=='yes' || organics_get_custom_option('show_page_title')=='no') {
