@@ -151,6 +151,8 @@ if ( !function_exists( 'organics_woocommerce_product_cats' ) ) {
         echo '<div class="product_cats">';
         echo(!empty($cats_out) ? $cats_out : '');
         echo '</div>';
+
+
     }
 }
 add_action('woocommerce_after_shop_loop_item_title', 'organics_woocommerce_product_cats', 1);
@@ -638,6 +640,24 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 	//add_action( 'woocommerce_after_shop_loop_item', 'organics_woocommerce_close_item_wrapper', 20 );
 	function organics_woocommerce_close_item_wrapper($cat='') {
 		?>
+
+				<!-- descripción en canastas -->
+				<?php // if (is_product_category('canastas')) { ?>
+					<?php
+
+					// global $post;
+
+					// if ( ! $post->post_excerpt ) {
+					// return;
+					// }
+
+					?>
+
+					<!-- <div itemprop="description">
+					<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+					</div> -->
+				<?php //} ?> <!-- end descripción -->
+
 			</div>
 		</div>
 		<?php

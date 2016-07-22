@@ -424,6 +424,9 @@ footer .widget_area_inner { background-color: transparent!important; }
 	#productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; }
 }
 
+.eg-icon-left-open:before { content: '\e82a'; }
+.eg-icon-right-open:before { content: '\e82b'; }
+
 /*Canastas home*/
 @media(max-width: 768px){
 	#canastas-home * {
@@ -485,3 +488,6 @@ div.pp_woocommerce div.ppt { display: none!important; }
 /*Cart*/
 
 .woocommerce-page table.cart td.actions .coupon .input-text { width: 12.5em!important; }
+
+/*Price*/
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price { margin-bottom: 0.5em!important; }
