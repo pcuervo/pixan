@@ -464,6 +464,16 @@ footer .widget_area_inner { background-color: transparent!important; }
 	}
 }
 
+@media(min-width:768px){
+	.info-products-home { min-height: 340px!important; }
+	.info-products-home a.sc_button { position: absolute; }
+	.info-products-home a.sc_button.button-right { bottom: 15px; right: 15px; }
+	.info-products-home a.sc_button.button-left { bottom: 15px; left: 15px; }
+}
+
+@media(min-width:960px){ .info-products-home { min-height: 265px!important; } }
+@media(min-width:1440px){ .info-products-home { min-height: 240px!important; } }
+
 /*Woocomerce*/
 
 .woocommerce-page ul.product_list_widget li img { width: 2.6875em!important; }
