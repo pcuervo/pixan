@@ -159,74 +159,8 @@ add_action('woocommerce_after_shop_loop_item_title', 'organics_woocommerce_produ
 
 
 
-/* Add Quick View Button and Add to cart Button */
-if ( !function_exists( 'organics_woocommerce_product_view' ) ) {
-    function organics_woocommerce_product_view() {?>
-    <div class="woo_thumb_buttons">
-        <div class="quick_view_images">
 
-	<?php
 
-        global $post, $woocommerce, $product;
-
-        /* Add Quick View Button  */
-		if ( has_post_thumbnail() ) {
-
-            $image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
-            $image_caption 	= get_post( get_post_thumbnail_id() )->post_excerpt;
-            $image_link  	= wp_get_attachment_url( get_post_thumbnail_id() );
-            $image       	= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
-                'title'	=> $image_title,
-                'alt'	=> $image_title
-            ) );
-
-            $attachment_count = count( $product->get_gallery_attachment_ids() );
-
-            if ( $attachment_count > 0 ) {
-                $gallery = '[product-gallery]';
-            } else {
-                $gallery = '';
-            }
-
-            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Ver Detalles", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
-
-            //echo $product->get_image();
-        } else {
-
-            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
-
-            //echo $product->get_image();
-        }
-    ?>
-        </div>
-    <?php
-
-        /*  Add to cart Button  */
-        ?><div class="shortcode_add_to_button"><?php
-        echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-            sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="icon-shopping-cart13 button %s product_type_%s">%s</a>',
-                esc_url( $product->add_to_cart_url() ),
-                esc_attr( $product->id ),
-                esc_attr( $product->get_sku() ),
-                esc_attr( isset( $quantity ) ? $quantity : 1 ),
-                $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-                esc_attr( $product->product_type ),
-                esc_html( $product->add_to_cart_text() )
-            ),
-            $product );
-        ?></div>
-    </div>
-
-	<?php //do_action( 'woocommerce_product_thumbnails' ); ?>
-
-<?php
-    }
-}
-//add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 8);
-add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 10);
-
-//add_action( 'woocommerce_before_subcategory_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
-//add_action( 'woocommerce_before_shop_loop_item_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
 
 
 /* Remove Add to cart Button */
@@ -302,6 +236,75 @@ if (!function_exists('organics_woocommerce_theme_setup3')) {
 }
 
 
+
+/* Add Quick View Button and Add to cart Button */
+if ( !function_exists( 'organics_woocommerce_product_view' ) ) {
+    function organics_woocommerce_product_view() {?>
+    <div class="woo_thumb_buttons">
+        <div class="quick_view_images">
+
+	<?php
+
+        global $post, $woocommerce, $product;
+
+        /* Add Quick View Button  */
+		if ( has_post_thumbnail() ) {
+
+            $image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
+            $image_caption 	= get_post( get_post_thumbnail_id() )->post_excerpt;
+            $image_link  	= wp_get_attachment_url( get_post_thumbnail_id() );
+            $image       	= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+                'title'	=> $image_title,
+                'alt'	=> $image_title
+            ) );
+
+            $attachment_count = count( $product->get_gallery_attachment_ids() );
+
+            if ( $attachment_count > 0 ) {
+                $gallery = '[product-gallery]';
+            } else {
+                $gallery = '';
+            }
+
+            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Ver Detalles", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
+
+            //echo $product->get_image();
+        } else {
+
+            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+
+            //echo $product->get_image();
+        }
+    ?>
+        </div>
+    <?php
+
+        /*  Add to cart Button  */
+        ?><div class="shortcode_add_to_button"><?php
+        echo apply_filters( 'woocommerce_loop_add_to_cart_link',
+            sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="icon-shopping-cart13 button %s product_type_%s">%s</a>',
+                esc_url( $product->add_to_cart_url() ),
+                esc_attr( $product->id ),
+                esc_attr( $product->get_sku() ),
+                esc_attr( isset( $quantity ) ? $quantity : 1 ),
+                $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                esc_attr( $product->product_type ),
+                esc_html( $product->add_to_cart_text() )
+            ),
+            $product );
+        ?></div>
+    </div>
+
+	<?php //do_action( 'woocommerce_product_thumbnails' ); ?>
+
+<?php
+    }
+}
+//add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 8);
+add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 10);
+
+//add_action( 'woocommerce_before_subcategory_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
+//add_action( 'woocommerce_before_shop_loop_item_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
 
 // Check if WooCommerce installed and activated
 if ( !function_exists( 'organics_exists_woocommerce' ) ) {
@@ -641,22 +644,64 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 	function organics_woocommerce_close_item_wrapper($cat='') {
 		?>
 
-				<!-- descripción en canastas -->
-				<?php // if (is_product_category('canastas')) { ?>
-					<?php
+		<div class="woo_thumb_buttons">	<!-- button cart -->
+			<div class="quick_view_images">
 
-					// global $post;
+				<?php
 
-					// if ( ! $post->post_excerpt ) {
-					// return;
-					// }
+			        global $post, $woocommerce, $product;
 
-					?>
+			        /* Add Quick View Button  */
+					if ( has_post_thumbnail() ) {
 
-					<!-- <div itemprop="description">
-					<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
-					</div> -->
-				<?php //} ?> <!-- end descripción -->
+			            $image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
+			            $image_caption 	= get_post( get_post_thumbnail_id() )->post_excerpt;
+			            $image_link  	= wp_get_attachment_url( get_post_thumbnail_id() );
+			            $image       	= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+			                'title'	=> $image_title,
+			                'alt'	=> $image_title
+			            ) );
+
+			            $attachment_count = count( $product->get_gallery_attachment_ids() );
+
+			            if ( $attachment_count > 0 ) {
+			                $gallery = '[product-gallery]';
+			            } else {
+			                $gallery = '';
+			            }
+
+			            // echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Ver Detalles", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
+
+			            //echo $product->get_image();
+			        } else {
+
+			            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+
+			            //echo $product->get_image();
+			        }
+			    ?>
+			        </div>
+			    <?php
+
+			        /*  Add to cart Button  */
+			        ?><div class="shortcode_add_to_button"><?php
+			        echo apply_filters( 'woocommerce_loop_add_to_cart_link',
+			            sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="icon-shopping-cart13 button %s product_type_%s">%s</a>',
+			                esc_url( $product->add_to_cart_url() ),
+			                esc_attr( $product->id ),
+			                esc_attr( $product->get_sku() ),
+			                esc_attr( isset( $quantity ) ? $quantity : 1 ),
+			                $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+			                esc_attr( $product->product_type ),
+			                esc_html( $product->add_to_cart_text() )
+			            ),
+			            $product );
+			        ?></div>
+			    </div><!-- end button cart -->
+
+
+
+
 
 			</div>
 		</div>
@@ -664,6 +709,12 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 		organics_set_global('in_product_item', false);
 	}
 }
+
+
+
+
+//Botón carrito
+add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 10);
 
 // Add excerpt in output for the product in the list mode
 if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
@@ -676,6 +727,13 @@ if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
 		}
 	}
 }
+
+
+
+
+
+
+
 
 // Add excerpt in output for the product in the list mode
 if ( !function_exists( 'organics_woocommerce_after_subcategory_title' ) ) {
