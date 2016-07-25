@@ -560,6 +560,8 @@ li.reviews_tab { display: none!important; }
 
 .price + .woo_thumb_buttons .shortcode_add_to_button a{ margin-left: 0px!important; }
 
+@media(min-width:1136px) and (max-width:1279px){ .price + .woo_thumb_buttons .shortcode_add_to_button a{ padding: 0px 15px!important; } }
+
 /*List*/
 
 .woocommerce .shop_mode_list ul.products li.product .description,
