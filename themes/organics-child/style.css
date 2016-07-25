@@ -570,3 +570,6 @@ li.reviews_tab { display: none!important; }
 }
 
 @media(min-width:767px){.list_products.shop_mode_list .post_content h3 { margin-top: 0px!important; }}
+
+.list_products.shop_mode_list .mode_buttons,
+.list_products.shop_mode_thumbs .mode_buttons { display: none; }

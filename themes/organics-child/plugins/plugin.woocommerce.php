@@ -547,7 +547,7 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 				<?php } ?>
 
 				<?php if ( ! is_product_category('canastas')) { ?>
-					<div class="list_products shop_mode_<?php echo !empty($ORGANICS_GLOBALS['shop_mode']) ? $ORGANICS_GLOBALS['shop_mode'] : 'thumbs'; ?>">
+					<div class="list_products shop_mode_thumbs">
 				<?php } ?>
 
 			<?php
