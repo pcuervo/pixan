@@ -47,6 +47,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 /*Margin*/
 .no-margin-bottom { margin-bottom: 0px; }
+.margin-bottom--xsmall { margin-bottom: 5px; }
 .margin-bottom--small { margin-bottom: 10px; }
 .margin-bottom { margin-bottom: 15px!important; }
 .margin-bottom--large { margin-bottom: 25px!important; }
@@ -103,7 +104,8 @@ input[type="submit"],
 input[type="button"],
 .esg-navigationbutton,
 .scroll_to_top,
-.wpcf7-form input[type="submit"]{
+.wpcf7-form input[type="submit"],
+.vc_btn3{
 	font-size: 14px!important;
 	height: 28px!important;
 	font-weight: 400!important;
@@ -121,7 +123,8 @@ input[type="submit"]:hover,
 input[type="button"]:hover,
 .esg-navigationbutton:hover,
 .scroll_to_top:hover,
-.wpcf7-form input[type="submit"]:hover {
+.wpcf7-form input[type="submit"]:hover,
+.vc_btn3:hover {
 	background-color: #fff!important;
 	border: 1px solid #1F4B24!important;
 	color: #1F4B24!important;
@@ -404,7 +407,7 @@ footer {
 
 footer .columns_wrap { padding: 20px 0px!important; }
 
-footer a { color: #fff!important; font-weight: bold; }
+footer a { color: #fff!important; font-weight: 500; font-size: 14px; }
 footer a:hover { text-decoration: underline; }
 
 footer .widget_area_inner { background-color: transparent!important; }
@@ -414,6 +417,8 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer aside.widget_number_1,
 	footer aside.widget_number_2,
 	footer aside.widget_number_3 { text-align: center; }
+	footer aside.widget_number_1 { margin-bottom: 20px; }
+	footer .columns_wrap { padding: 20px 0px 0px!important; }
 }
 @media (min-width:768px){
 	footer aside.widget_number_1 { text-align: left!important; margin-left: -15px!important; }
@@ -421,8 +426,9 @@ footer .widget_area_inner { background-color: transparent!important; }
 	footer aside.widget_number_3 { text-align: right!important; padding-right: 0px!important; }
 
 	footer #text-2.column-1_3,
-	footer #text-4.column-1_3 { width: 20%; }
-	footer #text-3.column-1_3 { width: 60%; }
+	footer #text-3.column-1_3,
+	footer #text-4.column-1_3 { width: 33%; }
+	footer #text-5.column-1_3 { width: 100%; }
 }
 
 .info-contact .sc_image a:hover:after { content: ''!important; }
