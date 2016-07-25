@@ -644,6 +644,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 	function organics_woocommerce_close_item_wrapper($cat='') {
 		?>
 
+
 		<div class="woo_thumb_buttons">	<!-- button cart -->
 			<div class="quick_view_images">
 
@@ -700,9 +701,6 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			    </div><!-- end button cart -->
 
 
-
-
-
 			</div>
 		</div>
 		<?php
@@ -723,7 +721,7 @@ if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
 		global $ORGANICS_GLOBALS;
 		if ($ORGANICS_GLOBALS['shop_mode'] == 'list') {
 		    $excerpt = apply_filters('the_excerpt', get_the_excerpt());
-			echo '<div class="description">'.trim($excerpt).'</div>';
+			echo '<div class="description prueba">'.trim($excerpt).'</div>';
 		}
 	}
 }
