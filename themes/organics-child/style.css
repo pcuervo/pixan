@@ -145,6 +145,8 @@ input[type="button"]:hover,
 	color: #1F4B24!important;
 }
 
+.widget_area_inner .widget_search .search_button { max-width: 35px; }
+
 	/*Large*/
 .sc_button.sc_button_size_large {
 	height: 56px!important;
@@ -280,6 +282,9 @@ li.menu_user_cart a.top_panel_cart_button,
 	font-weight: 500;
 	line-height: 1.929em;
 }
+
+.menu_main_nav > li > ul.sub-menu { top: 12px!important; }
+.top_panel_fixed .menu_main_nav > li > ul.sub-menu { top: 50px!important; }
 
 /*header mobile*/
 
