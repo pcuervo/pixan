@@ -57,10 +57,16 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .no-margin-left { margin-left: 0px!important; }
 
+@media(min-width:960px){ .margin-top--xlarge-l { margin-top: 70px; } }
+
 /*Padding*/
 @media (max-width:960px) { .no-padding-top-s-and-m { padding-top: 0px!important; } }
 
 /*Box model*/
+.max-height--60,
+.max-height--60 img { max-height: 50px; }
+.max-height--150,
+.max-height--150 img { max-height: 110px; }
 .max-height--220 { max-height: 220px; }
 .max-height--240 { max-height: 240px; }
 
@@ -93,8 +99,17 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .inline-block { display: inline-block!important; }
 
 /*Colum*/
-.columns--5 .vc_col-sm-2 { width: 20%; }
-@media(max-width: 768px){ .columns--5 .vc_col-sm-2 { width: 50%!important; float: left!important; } }
+.columns--5.vc_col-sm-2 { width: 20%; }
+@media(max-width: 768px){ .columns--5.vc_col-sm-2 { width: 50%!important; float: left!important; } }
+
+@media(min-width: 768px) and (max-width: 959px){
+	.columns--12-s.vc_col-sm-4 { width: 100%;}
+	.columns--6-s.vc_col-sm-4 { width: 50%;}
+}
+
+.colonias .vc_col-sm-2 { width: 16.66666667%!important; }
+.colonias .vc_col-sm-4 { width: 33.33333333%!important; }
+.colonias .vc_col-sm-6 { width: 50%!important; }
 
 /*Button*/
 button,
@@ -528,7 +543,8 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 div.pp_woocommerce div.ppt { display: none!important; }
 
 /*Review*/
-li.reviews_tab { display: none!important; }
+li.reviews_tab,
+.woocommerce-Tabs-panel--reviews { display: none!important; }
 .woocommerce .star-rating span:before { top: -3px!important; }
 @media(max-width:1279px){ .woocommerce .star-rating span:before { font-size: 13px; } }
 

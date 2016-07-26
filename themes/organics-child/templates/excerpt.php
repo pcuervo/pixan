@@ -74,7 +74,7 @@ if ( !function_exists( 'organics_template_excerpt_output' ) ) {
 							echo in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status')) ? $post_data['post_excerpt'] : '<p>'.trim(organics_strshort($post_data['post_excerpt'], isset($post_options['descr']) ? $post_options['descr'] : organics_get_custom_option('post_excerpt_maxlength'))).'</p>';
 						}
 					}
-					if (empty($post_options['readmore'])) $post_options['readmore'] = esc_html__('READ MORE', 'organics');
+					if (empty($post_options['readmore'])) $post_options['readmore'] = esc_html__('leer más', 'organics');
 					if (!organics_param_is_off($post_options['readmore']) && !in_array($post_data['post_format'], array('quote', 'link', 'chat', 'aside', 'status'))) {
 						echo trim(organics_sc_button(array('link'=>$post_data['post_link']), $post_options['readmore']));
 					}

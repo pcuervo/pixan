@@ -25,13 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>
 	<?php
-		echo sprintf( esc_attr__( 'Hola %s%s%s (no eres %2$s? %sSign out%s)', 'woocommerce' ), '<strong>', esc_html( $current_user->display_name ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
-	?>
-</p>
-
-<p>
-	<?php
-		echo sprintf( esc_attr__( 'Desde el escritorio puedes ver tus %1$srecent orders%2$s, y editar tus %3$sshipping y billing addresses%2$s and %4$sedit your password and account details%2$s.', 'woocommerce' ), '<a href="' . esc_url( wc_get_endpoint_url( 'orders' ) ) . '">', '</a>', '<a href="' . esc_url( wc_get_endpoint_url( 'edit-address' ) ) . '">', '<a href="' . esc_url( wc_get_endpoint_url( 'edit-account' ) ) . '">' );
+		echo sprintf( esc_attr__( 'Hola %s%s%s (no eres %2$s? %sSalir%s)', 'woocommerce' ), '<strong>', esc_html( $current_user->display_name ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
 	?>
 </p>
 
