@@ -300,11 +300,7 @@ if ( !function_exists( 'organics_woocommerce_product_view' ) ) {
 <?php
     }
 }
-//add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 8);
 add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 10);
-
-//add_action( 'woocommerce_before_subcategory_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
-//add_action( 'woocommerce_before_shop_loop_item_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
 
 // Check if WooCommerce installed and activated
 if ( !function_exists( 'organics_exists_woocommerce' ) ) {
@@ -426,7 +422,6 @@ if ( !function_exists( 'organics_woocommerce_get_blog_title' ) ) {
 
 // Filter to detect stream page title
 if ( !function_exists( 'organics_woocommerce_get_stream_page_title' ) ) {
-	//add_filter('organics_filter_get_stream_page_title',	'organics_woocommerce_get_stream_page_title', 9, 2);
 	function organics_woocommerce_get_stream_page_title($title, $page) {
 		if (!empty($title)) return $title;
 		if (organics_strpos($page, 'woocommerce')!==false) {
@@ -441,7 +436,6 @@ if ( !function_exists( 'organics_woocommerce_get_stream_page_title' ) ) {
 
 // Filter to detect stream page ID
 if ( !function_exists( 'organics_woocommerce_get_stream_page_id' ) ) {
-	//add_filter('organics_filter_get_stream_page_id',	'organics_woocommerce_get_stream_page_id', 9, 2);
 	function organics_woocommerce_get_stream_page_id($id, $page) {
 		if (!empty($id)) return $id;
 		if (organics_strpos($page, 'woocommerce')!==false) {
@@ -507,25 +501,8 @@ if ( !function_exists( 'organics_woocommerce_frontend_scripts' ) ) {
 	}
 }
 
-// Replace standard WooCommerce function
-/*
-if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
-	function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $placeholder_width = 0, $placeholder_height = 0  ) {
-		global $post;
-		if ( has_post_thumbnail() ) {
-			$s = wc_get_image_size( $size );
-			return organics_get_resized_image_tag($post->ID, $s['width'], organics_get_theme_option('crop_product_thumb')=='no' ? null :  $s['height']);
-			//return get_the_post_thumbnail( $post->ID, array($s['width'], $s['height']) );
-		} else if ( wc_placeholder_img_src() )
-			return wc_placeholder_img( $size );
-	}
-}
-*/
-
 // Before main content
 if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
-	//remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-	//add_action('woocommerce_before_main_content', 'organics_woocommerce_wrapper_start', 10);
 	function organics_woocommerce_wrapper_start() {
 		global $ORGANICS_GLOBALS;
 		if (is_product() || is_cart() || is_checkout() || is_account_page()) {
@@ -557,8 +534,6 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 
 // After main content
 if ( !function_exists( 'organics_woocommerce_wrapper_end' ) ) {
-	//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-	//add_action('woocommerce_after_main_content', 'organics_woocommerce_wrapper_end', 10);
 	function organics_woocommerce_wrapper_end() {
 		if (is_product() || is_cart() || is_checkout() || is_account_page()) {
 			?>
@@ -574,7 +549,6 @@ if ( !function_exists( 'organics_woocommerce_wrapper_end' ) ) {
 
 // Check to show page title
 if ( !function_exists( 'organics_woocommerce_show_page_title' ) ) {
-	//add_action('woocommerce_show_page_title', 'organics_woocommerce_show_page_title', 10);
 	function organics_woocommerce_show_page_title($defa=true) {
 		return organics_get_custom_option('show_page_title')=='no';
 	}
@@ -582,8 +556,6 @@ if ( !function_exists( 'organics_woocommerce_show_page_title' ) ) {
 
 // Check to show product title
 if ( !function_exists( 'organics_woocommerce_show_product_title' ) ) {
-	//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-	//add_action( 'woocommerce_single_product_summary', 'organics_woocommerce_show_product_title', 5 );
 	function organics_woocommerce_show_product_title() {
 		if (organics_get_custom_option('show_post_title')=='yes' || organics_get_custom_option('show_page_title')=='no') {
 			wc_get_template( 'single-product/title.php' );
@@ -609,15 +581,12 @@ if ( !function_exists( 'organics_woocommerce_before_shop_loop' ) ) {
 
 // Open thumbs wrapper for categories and products
 if ( !function_exists( 'organics_woocommerce_open_thumb_wrapper' ) ) {
-	//add_action( 'woocommerce_before_subcategory_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
-	//add_action( 'woocommerce_before_shop_loop_item_title', 'organics_woocommerce_open_thumb_wrapper', 9 );
 	function organics_woocommerce_open_thumb_wrapper($cat='') {
 		organics_set_global('in_product_item', true);
 		?>
 		<div class="post_item_wrap">
 			<div class="post_featured">
 				<div class="post_thumb">
-<!--					<a class="hover_icon hover_icon_link" href="--><?php //echo get_permalink(); ?><!--">-->
 		<?php
 
 	}
@@ -625,11 +594,8 @@ if ( !function_exists( 'organics_woocommerce_open_thumb_wrapper' ) ) {
 
 // Open item wrapper for categories and products
 if ( !function_exists( 'organics_woocommerce_open_item_wrapper' ) ) {
-	//add_action( 'woocommerce_before_subcategory_title', 'organics_woocommerce_open_item_wrapper', 20 );
-	//add_action( 'woocommerce_before_shop_loop_item_title', 'organics_woocommerce_open_item_wrapper', 20 );
 	function organics_woocommerce_open_item_wrapper($cat='') {
 		?>
-<!--				</a>-->
 			</div>
 		</div>
 		<div class="post_content">
@@ -639,8 +605,6 @@ if ( !function_exists( 'organics_woocommerce_open_item_wrapper' ) ) {
 
 // Close item wrapper for categories and products
 if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
-	//add_action( 'woocommerce_after_subcategory', 'organics_woocommerce_close_item_wrapper', 20 );
-	//add_action( 'woocommerce_after_shop_loop_item', 'organics_woocommerce_close_item_wrapper', 20 );
 	function organics_woocommerce_close_item_wrapper($cat='') {
 		?>
 
@@ -671,14 +635,10 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			                $gallery = '';
 			            }
 
-			            // echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom sc_button quick_view_button icon-resize-full-1" title="%s">' . esc_html(__("Ver Detalles", "organics")).'</a>', $image_link, $image_caption, $image ), $post->ID );
-
-			            //echo $product->get_image();
 			        } else {
 
 			            echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
 
-			            //echo $product->get_image();
 			        }
 			    ?>
 			        </div>
@@ -714,9 +674,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 //Botón carrito
 add_action('woocommerce_before_shop_loop_item_title', 'organics_woocommerce_product_view', 10);
 
-// Add excerpt in output for the product in the list mode
 if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
-	//add_action( 'woocommerce_after_shop_loop_item_title', 'organics_woocommerce_after_shop_loop_item_title', 7);
 	function organics_woocommerce_after_shop_loop_item_title() {
 		global $ORGANICS_GLOBALS;
 		if ($ORGANICS_GLOBALS['shop_mode'] == 'list') {
@@ -725,13 +683,6 @@ if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
 		}
 	}
 }
-
-
-
-
-
-
-
 
 // Add excerpt in output for the product in the list mode
 if ( !function_exists( 'organics_woocommerce_after_subcategory_title' ) ) {
@@ -833,7 +784,6 @@ if ( !function_exists( 'organics_woocommerce_the_title' ) ) {
 
 // Show pagination links
 if ( !function_exists( 'organics_woocommerce_pagination' ) ) {
-	//add_filter( 'woocommerce_after_shop_loop', 'organics_woocommerce_pagination', 10 );
 	function organics_woocommerce_pagination() {
 		$style = organics_get_custom_option('blog_pagination');
 		organics_show_pagination(array(
@@ -849,8 +799,6 @@ if ( !function_exists( 'organics_woocommerce_pagination' ) ) {
 		);
 	}
 }
-
-
 
 // One-click import support
 //------------------------------------------------------------------------
