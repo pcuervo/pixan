@@ -22,8 +22,24 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
     <meta name="format-detection" content="telephone=no">
 
 	<!-- SEO -->
-	<meta name="keywords" content="fruta, verdura, organico, sustentable, canastas, productos, cálidad">
+	<meta name="keywords" content="fruta, verdura, orgánico, sustentable, canastas, productos, calidad">
     <meta name="description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad.">
+	<!-- Facebook, Twitter metas -->
+	<meta property="og:title" content="Pixan sustentable" />
+	<meta name="twitter:title" content="Pixan sustentable" />
+	<meta property="og:type" content="website" />
+	<meta name="og:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
+	<meta name="og:url" content="<?php echo site_url(); ?>" />
+	<meta property="og:image" content="<?php echo THEMEPATH; ?>images/pixan-share.jpg">
+	<meta property="og:image:width" content="210" />
+	<meta property="og:image:height" content="110" />
+	<meta property="fb:app_id" content="1750075545245803" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
+	<meta name="twitter:image" content="<?php echo THEMEPATH; ?>images/pixan-share.jpg">
+	<!-- Compatibility -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="cleartype" content="on">
 
 	<?php
 	if (floatval(get_bloginfo('version')) < 4.1) {
