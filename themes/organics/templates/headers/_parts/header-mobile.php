@@ -38,18 +38,6 @@
                     ?>
                 </nav>
 				<?php echo trim(organics_sc_search(array()));
-//                if (organics_get_custom_option('show_login')=='yes') {
-//                    if ( is_user_logged_in() ) { ?>
-<!--                        <div class="login"><a href="--><?php //echo wp_logout_url(); ?><!--">--><?php //echo esc_html_e('Logout', 'organics'); ?><!--</a></div>-->
-<!--                    --><?php
-//                    }
-//                    else { ?>
-<!--                        <div class="login"><a href="--><?php //echo home_url('/'); ?><!--wp-login.php">--><?php //echo esc_html_e('Login', 'organics'); ?><!--</a></div>-->
-<!--                    --><?php
-//                    }
-//                }
-
-
 
                 if (organics_get_custom_option('show_login')=='yes') {
                     if ( is_user_logged_in() ) {

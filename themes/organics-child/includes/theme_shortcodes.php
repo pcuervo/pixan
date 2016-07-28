@@ -781,8 +781,8 @@ if (!function_exists('organics_sc_search')) {
 						<div class="search_form_wrap">
 							<form role="search" method="get" class="search_form" action="' . esc_url( home_url( '/' ) ) . '">
 								<button type="submit" class="search_submit icon-search" title="' . ($state=='closed' ? __('Open search', 'organics') : __('Start search', 'organics')) . '"></button>
-								<label class="[ hidden ]" for="s">search</label>
-                                <input type="text" class="search_field" placeholder="' . esc_attr($title) . '" value="' . esc_attr(get_search_query()) . '" id="s" name="s" />
+                                <label class="[ hidden ]" for="s">search</label>
+								<input type="text" class="search_field" placeholder="' . esc_attr($title) . '" value="' . esc_attr(get_search_query()) . '" id="s" name="s" />
 							</form>
 						</div>
 						<div class="search_results widget_area' . ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '') . '"><a class="search_results_close icon-cancel"></a><div class="search_results_content"></div></div>

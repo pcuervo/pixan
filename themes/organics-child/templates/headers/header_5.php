@@ -48,7 +48,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                             if (organics_get_custom_option('show_search')=='yes')
                                 echo trim(organics_sc_search(array('class'=>"top_panel_icon", 'state'=>"closed")));
                             ?>
-                            <a href="#" class="menu_main_responsive_button icon-menu"></a>
+                            <a class="menu_main_responsive_button icon-menu"></a>
                             <nav class="menu_main_nav_area">
 								<!-- img logo header fijo -->
 								<a href="<?php echo site_url('/'); ?>" class="[ logo-header-fijo ]">

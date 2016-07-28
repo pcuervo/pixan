@@ -9,7 +9,7 @@ $cart_summa = strip_tags(WC()->cart->get_cart_subtotal());
 		<span class="cart_items"><?php
 			echo esc_html($cart_items) . ' ' . ($cart_items == 1 ? esc_html__('Item', 'organics') : esc_html__('Items', 'organics'));
 		?></span>
-		- 
+		-
 		<span class="cart_summa"><?php echo trim($cart_summa); ?></span>
 	</span>
 </a>
@@ -17,7 +17,7 @@ $cart_summa = strip_tags(WC()->cart->get_cart_subtotal());
 	<?php
 	do_action( 'before_sidebar' );
 	organics_storage_set('current_sidebar', 'cart');
-	if ( !dynamic_sidebar( 'sidebar-cart' ) ) { 
+	if ( !dynamic_sidebar( 'sidebar-cart' ) ) {
 		the_widget( 'WC_Widget_Cart', 'title=&hide_if_empty=1' );
 	}
 	?>

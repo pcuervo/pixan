@@ -26,7 +26,6 @@
 		</div>
 
 		<div class="side_wrap">
-			<!-- <div class="close"><?php esc_html_e('Close', 'organics'); ?></div> -->
             <div class="close font-size--40">×</div>
 
 
@@ -39,18 +38,6 @@
                     ?>
                 </nav>
 				<?php echo trim(organics_sc_search(array()));
-//                if (organics_get_custom_option('show_login')=='yes') {
-//                    if ( is_user_logged_in() ) { ?>
-<!--                        <div class="login"><a href="--><?php //echo wp_logout_url(); ?><!--">--><?php //echo esc_html_e('Logout', 'organics'); ?><!--</a></div>-->
-<!--                    --><?php
-//                    }
-//                    else { ?>
-<!--                        <div class="login"><a href="--><?php //echo home_url('/'); ?><!--wp-login.php">--><?php //echo esc_html_e('Login', 'organics'); ?><!--</a></div>-->
-<!--                    --><?php
-//                    }
-//                }
-
-
 
                 if (organics_get_custom_option('show_login')=='yes') {
                     if ( is_user_logged_in() ) {
@@ -74,17 +61,6 @@
                         }
                     }
                 }
-
-
-
-
-
-
-
-
-
-
-
                 ?>
 			</div>
 
@@ -120,14 +96,14 @@
                         <?php echo trim(organics_sc_socials(array('size'=>'tiny'))); ?>
                     </div>
                     <div class="[ text-center ]">
-                        <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/fcb2.png" alt="icono facebook">
+                        <a class="[ margin-right--small ]" href="<?php echo site_url('/'); ?>">
+                            <img class="[ width--30 ]" src="<?php echo get_stylesheet_directory_uri(); ?>/images/fcb2.png" alt="icono facebook">
                         </a>
-                        <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/insta2.png" alt="icono instagram">
+                        <a class="[ margin-right--small ]" href="<?php echo site_url('/'); ?>">
+                            <img class="[ width--30 ]" src="<?php echo get_stylesheet_directory_uri(); ?>/images/insta2.png" alt="icono instagram">
                         </a>
-                        <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/twit2.png" alt="icono twitter">
+                        <a class="[ margin-right--small ]" href="<?php echo site_url('/'); ?>">
+                            <img class="[ width--30 ]" src="<?php echo get_stylesheet_directory_uri(); ?>/images/twit2.png" alt="icono twitter">
                         </a>
                     </div>
 

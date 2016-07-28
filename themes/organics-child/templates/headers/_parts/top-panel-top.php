@@ -126,12 +126,6 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
                         if ($user_avatar) {
 						?><span class="user_avatar"><?php echo trim($user_avatar); ?></span><?php
 					}?><span class="user_name"><?php echo trim($current_user->display_name); ?></span></a>
-                    <!-- <ul>
-                        <?php if (current_user_can('publish_posts')) { ?>
-					<li><a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=post" class="icon icon-doc"><?php esc_html_e('New post', 'organics'); ?></a></li>
-                        <?php } ?>
-					<li><a href="<?php echo get_edit_user_link(); ?>" class="icon icon-cog"><?php esc_html_e('Settings', 'organics'); ?></a></li>
-                    </ul> -->
                 </li>
 			<li class="menu_user_logout"><a href="<?php echo wp_logout_url(home_url()); ?>" class="icon icon-logout"><?php esc_html_e('Salir', 'organics'); ?></a></li>
             <?php
