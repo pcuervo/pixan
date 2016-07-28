@@ -36,16 +36,16 @@ if (!function_exists('organics_media_theme_setup')) {
 if ( !function_exists( 'organics_callback_get_attachment_url' ) ) {
 	function organics_callback_get_attachment_url() {
 		global $_REQUEST, $ORGANICS_GLOBALS;
-		
+
 		if ( !wp_verify_nonce( $_REQUEST['nonce'], $ORGANICS_GLOBALS['ajax_url'] ) )
 			die();
-	
+
 		$response = array('error'=>'');
-		
+
 		$id = (int) $_REQUEST['attachment_id'];
-		
+
 		$response['data'] = wp_get_attachment_url($id);
-		
+
 		echo json_encode($response);
 		die();
 	}
@@ -110,13 +110,13 @@ if (!function_exists('organics_build_gallery_tag')) {
 					$numSlide++;
 					if ($gallery_items_in_bg) {
 						$photo_min = organics_get_resized_image_url($photo, $w, $h);
-						$gallery_text .= '<div' 
+						$gallery_text .= '<div'
 							. ' class="'.esc_attr($engine).'-slide"'
 							. ' style="background-image:url(' . esc_url($photo_min) . ');'
 							. (!empty($w) ? 'width:' . esc_attr($w) . (organics_strpos($w, '%')!==false ? '' : 'px').';' : '')
 							. (!empty($h) ? 'height:' . esc_attr($h) . (organics_strpos($h, '%')!==false ? '' : 'px').';' : '')
-							. '">' 
-							. ($zoom ? '<a href="'.esc_url($photo).'"></a>' : ($link ? '<a href="'.esc_url($link).'"></a>' : '')) 
+							. '">'
+							. ($zoom ? '<a href="'.esc_url($photo).'"></a>' : ($link ? '<a href="'.esc_url($link).'"></a>' : ''))
 							. '</div>';
 					} else {
 						$photo_min = organics_get_resized_image_tag($photo, $w, $h);
@@ -126,7 +126,7 @@ if (!function_exists('organics_build_gallery_tag')) {
 							. (!empty($w) ? 'width:' . esc_attr($w) . (organics_strpos($w, '%')!==false ? '' : 'px').';' : '')
 							. (!empty($h) ? 'height:' . esc_attr($h) . (organics_strpos($h, '%')!==false ? '' : 'px').';' : '')
 							. '">'
-							. ($zoom ? '<a href="'. esc_url($photo) . '">'.($photo_min).'</a>' 
+							. ($zoom ? '<a href="'. esc_url($photo) . '">'.($photo_min).'</a>'
 									 : (!empty($link) ? '<a href="'. esc_url($link) . '">'.($photo_min).'</a>' : $photo_min))
 							. '</div>';
 					}
@@ -138,7 +138,7 @@ if (!function_exists('organics_build_gallery_tag')) {
 				$gallery_text .= '<div class="sc_slider_pagination_wrap"></div>';
 			}
 			$gallery_text .= '</div>';
-			
+
 			organics_enqueue_slider($engine);
 			if ($zoom) organics_enqueue_popup();
 		}
@@ -203,7 +203,7 @@ if (!function_exists('organics_substitute_gallery')) {
 					$post_photos = organics_get_post_gallery('', $post_id);
 				$photos = $post_photos;
 			}
-			
+
 			$post_text = organics_substr($post_text, 0, $pos_start) . organics_build_gallery_tag($photos, $w, $h, $zoom) . organics_substr($post_text, $pos_end + 1);
 		}
 		return $post_text;
@@ -263,7 +263,7 @@ if (!function_exists('organics_get_resized_image_url')) {
 			}
 			if ($c === null) $c = true;	//$c = get_option('thumbnail_crop')==1;
 			if ( ! ($new_url = organics_resize_image( $url, $w, $h, $c, true, $u)) ) $new_url = true ? $url : get_the_post_thumbnail($url, array($w, $h));
-		} else 
+		} else
 			$new_url = '';
 		return $new_url;
 	}
@@ -272,51 +272,51 @@ if (!function_exists('organics_get_resized_image_url')) {
 // Resize and/or crop image
 if (!function_exists('organics_resize_image')) {
 	function organics_resize_image( $url, $width = null, $height = null, $crop = null, $single = true, $upscale = false ) {
-	
+
 		// Validate inputs.
 		if ( ! $url || ( ! $width && ! $height ) ) return false;
-	
+
 		// Caipt'n, ready to hook.
 		if ( true === $upscale ) add_filter( 'image_resize_dimensions', 'organics_resize_image_upscale', 10, 6 );
-	
+
 		// Define upload path & dir.
 		$upload_info = wp_upload_dir();
 		$upload_dir = $upload_info['basedir'];
 		$upload_url = $upload_info['baseurl'];
-		
+
 		$http_prefix = "http://";
 		$https_prefix = "https://";
-		
-		/* if the $url scheme differs from $upload_url scheme, make them match 
+
+		/* if the $url scheme differs from $upload_url scheme, make them match
 		   if the schemes differe, images don't show up. */
 		if (!strncmp($url, $https_prefix, strlen($https_prefix))) 		//if url begins with https:// make $upload_url begin with https:// as well
 			$upload_url = str_replace($http_prefix, $https_prefix, $upload_url);
 		else if (!strncmp($url, $http_prefix, strlen($http_prefix))) 	//if url begins with http:// make $upload_url begin with http:// as well
-			$upload_url = str_replace($https_prefix, $http_prefix, $upload_url);		
-		
+			$upload_url = str_replace($https_prefix, $http_prefix, $upload_url);
+
 		// Check if $img_url is local.
 		if ( false === strpos( $url, $upload_url ) ) return false;
-		
+
 		// Clear thumb sizes from image name
 		$url = organics_clear_thumb_sizes($url);
-		
+
 		// Define path of image.
 		$rel_path = str_replace( $upload_url, '', $url );
 		$img_path = ($upload_dir) . ($rel_path);
-	
+
 		// Check if img path exists, and is an image indeed.
 		if ( ! file_exists( $img_path ) or ! getimagesize( $img_path ) ) return false;
-	
+
 		// Get image info.
 		$info = pathinfo( $img_path );
 		$ext = $info['extension'];
 		list( $orig_w, $orig_h ) = getimagesize( $img_path );
-	
+
 		// Get image size after cropping.
 		$dims = image_resize_dimensions( $orig_w, $orig_h, $width, $height, $crop );
 		$dst_w = $dims[4];
 		$dst_h = $dims[5];
-	
+
 		// Return the original image only if it exactly fits the needed measures.
 		if ( ! $dims && ( ( ( null === $height && $orig_w == $width ) xor ( null === $width && $orig_h == $height ) ) xor ( $height == $orig_h && $width == $orig_w ) ) ) {
 			$img_url = $url;
@@ -327,7 +327,7 @@ if (!function_exists('organics_resize_image')) {
 			$suffix = "{$dst_w}x{$dst_h}";
 			$dst_rel_path = str_replace( '.' . ($ext), '', $rel_path );
 			$destfilename = "{$upload_dir}{$dst_rel_path}-{$suffix}.{$ext}";
-	
+
 			if ( ! $dims || ( true == $crop && false == $upscale && ( $dst_w < $width || $dst_h < $height ) ) ) {
 				// Can't resize, so return false saying that the action to do could not be processed as planned.
 				return false;
@@ -338,26 +338,26 @@ if (!function_exists('organics_resize_image')) {
 			}
 			// Else, we resize the image and return the new resized image url.
 			else {
-	
+
 				$editor = wp_get_image_editor( $img_path );
-	
+
 				if ( is_wp_error( $editor ) || is_wp_error( $editor->resize( $width, $height, $crop ) ) )
 					return false;
-	
+
 				$resized_file = $editor->save();
-	
+
 				if ( ! is_wp_error( $resized_file ) ) {
 					$resized_rel_path = str_replace( $upload_dir, '', $resized_file['path'] );
 					$img_url = ($upload_url) . ($resized_rel_path);
 				} else
 					return false;
-	
+
 			}
 		}
-	
+
 		// Okay, leave the ship.
 		if ( true === $upscale ) remove_filter( 'image_resize_dimensions', 'organics_resize_image_upscale' );
-	
+
 		// Return the output.
 		if ( $single ) {
 			// str return.
@@ -370,7 +370,7 @@ if (!function_exists('organics_resize_image')) {
 				2 => $dst_h
 			);
 		}
-	
+
 		return $image;
 	}
 }
@@ -379,28 +379,28 @@ if (!function_exists('organics_resize_image')) {
 if (!function_exists('organics_resize_image_upscale')) {
 	function organics_resize_image_upscale( $default, $orig_w, $orig_h, $dest_w, $dest_h, $crop ) {
 		if ( ! $crop ) return null; // Let the wordpress default function handle this.
-	
+
 		// Here is the point we allow to use larger image size than the original one.
 		$aspect_ratio = $orig_w / $orig_h;
 		$new_w = $dest_w;
 		$new_h = $dest_h;
-	
+
 		if ( ! $new_w ) {
 			$new_w = intval( $new_h * $aspect_ratio );
 		}
-	
+
 		if ( ! $new_h ) {
 			$new_h = intval( $new_w / $aspect_ratio );
 		}
-	
+
 		$size_ratio = max( $new_w / $orig_w, $new_h / $orig_h );
-	
+
 		$crop_w = round( $new_w / $size_ratio );
 		$crop_h = round( $new_h / $size_ratio );
-	
+
 		$s_x = floor( ( $orig_w - $crop_w ) / 2 );
 		$s_y = floor( ( $orig_h - $crop_h ) / 2 );
-	
+
 		return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 	}
 }
@@ -480,7 +480,7 @@ if (!function_exists('organics_substitute_audio')) {
 						. ($tag_h!='' ? 'height:' . esc_attr($tag_h) . 'px;' : '');
 				$pos_end = $pos_end2!==false ? $pos_end2+8 : $pos_end+1;
 				$tag_text = '<div'.($id ? ' id="'.esc_attr($id).'"' : '') . ' class="sc_audio_container' . (!$in_frame && $tag_a ? ' align'.esc_attr($tag_a) : '') . '">'
-					. (organics_strpos($src, 'soundcloud.com') !== false 
+					. (organics_strpos($src, 'soundcloud.com') !== false
 						? '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="'.esc_url('https://w.soundcloud.com/player/?url='.($src)).'"></iframe>'
 						: $tag_text)
 					. '</div>';
@@ -492,7 +492,7 @@ if (!function_exists('organics_substitute_audio')) {
 					. ($tag_text)
 					. organics_substr($post_text, (organics_substr($post_text, $pos_end, 4)=='</p>' ? $pos_end+4 : $pos_end));
 				$pos_start += organics_strlen($tag_text);
-				$pos_start = min($pos_start, organics_strlen($post_text)-2); 
+				$pos_start = min($pos_start, organics_strlen($post_text)-2);
 			}
 		}
 		return $post_text;
@@ -524,7 +524,7 @@ if (!function_exists('organics_get_audio_frame')) {
 					.'</div>';
 		}
 
-		$html = '<div class="sc_audio_player' . ($class ? ' '.esc_attr($class) : '') . ($align ? ' align'.esc_attr($align) : '') . '"' 
+		$html = '<div class="sc_audio_player' . ($class ? ' '.esc_attr($class) : '') . ($align ? ' align'.esc_attr($align) : '') . '"'
 						. ' data-width="'.esc_attr($tag_w).'"'
 						. ' data-height="'.esc_attr($tag_h).'"'
 						. ($anim ? ' data-animation="'.esc_attr($anim).'"' : '')
@@ -543,7 +543,7 @@ if (!function_exists('organics_get_audio_frame')) {
 
 
 
-	
+
 /* Video
 ------------------------------------------------------------------------------------- */
 
@@ -612,7 +612,7 @@ if (!function_exists('organics_substitute_video')) {
 					$video = organics_get_video_frame($video, $tag_image, $tag_s, $tag_s2);
 				}
 				$pos_end = $pos_end2!==false ? $pos_end2+8 : $pos_end+1;
-				$post_text = organics_substr($post_text, 0, (organics_substr($post_text, $pos_start-3, 3)=='<p>' ? $pos_start-3 : $pos_start)) 
+				$post_text = organics_substr($post_text, 0, (organics_substr($post_text, $pos_start-3, 3)=='<p>' ? $pos_start-3 : $pos_start))
 					. ($video)
 					. organics_substr($post_text, (organics_substr($post_text, $pos_end, 4)=='</p>' ? $pos_end+4 : $pos_end));
 			}
@@ -629,14 +629,14 @@ if (!function_exists('organics_get_video_frame')) {
 		$tag_h = organics_get_tag_attrib($video, $tag, 'height');
 		$tag_anim = organics_get_tag_attrib($video, $tag, 'data-animation');
 		$tag_align = organics_get_tag_attrib($video, $tag, 'data-align');
-		$video = '<div class="sc_video_player'.($style2 ? ' sc_video_bordered' : '').($tag_align ? ' align'.esc_attr($tag_align) : '').'"' 
-					. ($style2 ? ' style="' . esc_attr($style2) . '"' : '') 
+		$video = '<div class="sc_video_player'.($style2 ? ' sc_video_bordered' : '').($tag_align ? ' align'.esc_attr($tag_align) : '').'"'
+					. ($style2 ? ' style="' . esc_attr($style2) . '"' : '')
 					. ($tag_anim ? ' data-animation="'.esc_attr($tag_anim).'"' : '')
 					. '>'
-				. '<div class="sc_video_frame' . ($image ? ' sc_video_play_button hover_icon hover_icon_play' : '') . '"' 
+				. '<div class="sc_video_frame' . ($image ? ' sc_video_play_button hover_icon hover_icon_play' : '') . '"'
 					. ' data-width="'.esc_attr($tag_w).'"'
 					. ' data-height="'.esc_attr($tag_h).'"'
-					. ($image ? ' data-video="'.esc_attr($video).'"' : '') 
+					. ($image ? ' data-video="'.esc_attr($video).'"' : '')
 					. ($style ? ' style="' . esc_attr($style) . '"' : '')
 					. '>'
 					. ($image ? (organics_strpos($image, '<img')!==false ? $image : '<img alt="" src="'.esc_url($image).'">') : $video)

@@ -31,7 +31,7 @@ if (!function_exists('organics_clients_theme_setup')) {
 		// Add shortcodes [trx_clients] and [trx_clients_item] in the shortcodes list
 		add_action('organics_action_shortcodes_list',		'organics_clients_reg_shortcodes');
 		add_action('organics_action_shortcodes_list_vc',	'organics_clients_reg_shortcodes_vc');
-		
+
 		if (function_exists('organics_require_data')) {
 			// Prepare type "Clients"
 			organics_require_data( 'post_type', 'clients', array(
@@ -70,7 +70,7 @@ if (!function_exists('organics_clients_theme_setup')) {
 				'rewrite'             => true
 				)
 			);
-			
+
 			// Prepare taxonomy for clients
 			organics_require_data( 'taxonomy', 'clients_group', array(
 				'post_type'			=> array( 'clients' ),
@@ -180,17 +180,17 @@ if ( !function_exists( 'organics_is_clients_page' ) ) {
 		if (!$is) {
 			if (!empty($ORGANICS_GLOBALS['pre_query']))
 				$is = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='clients'
-						|| $ORGANICS_GLOBALS['pre_query']->is_tax('clients_group') 
-						|| ($ORGANICS_GLOBALS['pre_query']->is_page() 
-							&& ($id=organics_get_template_page_id('blog-clients')) > 0 
-							&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id) 
-										? $ORGANICS_GLOBALS['pre_query']->queried_object_id 
+						|| $ORGANICS_GLOBALS['pre_query']->is_tax('clients_group')
+						|| ($ORGANICS_GLOBALS['pre_query']->is_page()
+							&& ($id=organics_get_template_page_id('blog-clients')) > 0
+							&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id)
+										? $ORGANICS_GLOBALS['pre_query']->queried_object_id
 										: 0
 									)
 						);
 			else
-				$is = get_query_var('post_type')=='clients' 
-						|| is_tax('clients_group') 
+				$is = get_query_var('post_type')=='clients'
+						|| is_tax('clients_group')
 						|| (is_page() && ($id=organics_get_template_page_id('blog-clients')) > 0 && $id==get_the_ID());
 		}
 		return $is;
@@ -248,7 +248,7 @@ if ( !function_exists( 'organics_clients_get_stream_page_title' ) ) {
 			if (($page_id = organics_clients_get_stream_page_id(0, $page=='clients' ? 'blog-clients' : $page)) > 0)
 				$title = organics_get_post_title($page_id);
 			else
-				$title = esc_html__('All clients', 'organics');				
+				$title = esc_html__('All clients', 'organics');
 		}
 		return $title;
 	}
@@ -295,7 +295,7 @@ if ( !function_exists( 'organics_clients_is_taxonomy' ) ) {
 	function organics_clients_is_taxonomy($tax, $query=null) {
 		if (!empty($tax))
 			return $tax;
-		else 
+		else
 			return $query && $query->get('clients_group')!='' || is_tax('clients_group') ? 'clients_group' : '';
 	}
 }
@@ -324,7 +324,7 @@ if ( !function_exists( 'organics_clients_query_add_filters' ) ) {
 [/trx_clients]
 */
 if ( !function_exists( 'organics_sc_clients' ) ) {
-	function organics_sc_clients($atts, $content=null){	
+	function organics_sc_clients($atts, $content=null){
 		if (organics_in_shortcode_blogger()) return '';
 		extract(organics_html_decode(shortcode_atts(array(
 			// Individual params
@@ -372,7 +372,7 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 		$css .= ($ms) . ($hs) . ($ws);
 
 		if (organics_param_is_on($slider)) organics_enqueue_slider('swiper');
-	
+
 		$columns = max(1, min(12, $columns));
 		$count = max(1, (int) $count);
 		if (organics_param_is_off($custom) && $count < $columns) $columns = $count;
@@ -384,11 +384,11 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 		$ORGANICS_GLOBALS['sc_clients_slider'] = $slider;
 		$ORGANICS_GLOBALS['sc_clients_css_wh'] = $ws . $hs;
 
-		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '') 
+		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '')
 						. ' class="sc_clients_wrap'
-						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '') 
+						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '')
 						.'">'
-					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '') 
+					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '')
 						. ' class="sc_clients sc_clients_style_'.esc_attr($style)
 							. ' ' . esc_attr(organics_get_template_property($style, 'container_classes'))
 							. ' ' . esc_attr(organics_get_slider_controls_classes($controls))
@@ -405,31 +405,31 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 						. ($columns > 1 ? ' data-slides-per-view="' . esc_attr($columns) . '"' : '')
 						. ($slides_space > 0 ? ' data-slides-space="' . esc_attr($slides_space) . '"' : '')
                         . ($style!='clients-3' ? ' data-slides-min-width="150"' : '')
-						. ($css!='' ? ' style="'.esc_attr($css).'"' : '') 
+						. ($css!='' ? ' style="'.esc_attr($css).'"' : '')
 						. (!organics_param_is_off($animation) ? ' data-animation="'.esc_attr(organics_get_animation_classes($animation)).'"' : '')
 					. '>'
 					. (!empty($subtitle) ? '<h6 class="sc_clients_subtitle sc_item_subtitle">' . trim(organics_strmacros($subtitle)) . '</h6>' : '')
 					. (!empty($title) ? '<h2 class="sc_clients_title sc_item_title">' . trim(organics_strmacros($title)) . '</h2>' : '')
 					. (!empty($description) ? '<div class="sc_clients_descr sc_item_descr">' . trim(organics_strmacros($description)) . '</div>' : '')
-					. (organics_param_is_on($slider) 
-						? '<div class="slides swiper-wrapper">' 
-						: ($columns > 1 
-							? '<div class="sc_columns columns_wrap">' 
+					. (organics_param_is_on($slider)
+						? '<div class="slides swiper-wrapper">'
+						: ($columns > 1
+							? '<div class="sc_columns columns_wrap">'
 							: '')
 						);
-	
+
 		$content = do_shortcode($content);
-	
+
 		if (organics_param_is_on($custom) && $content) {
 			$output .= $content;
 		} else {
 			global $post;
-	
+
 			if (!empty($ids)) {
 				$posts = explode(',', $ids);
 				$count = count($posts);
 			}
-			
+
 			$args = array(
 				'post_type' => 'clients',
 				'post_status' => 'publish',
@@ -437,19 +437,19 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 				'ignore_sticky_posts' => true,
 				'order' => $order=='asc' ? 'asc' : 'desc',
 			);
-		
+
 			if ($offset > 0 && empty($ids)) {
 				$args['offset'] = $offset;
 			}
-		
+
 			$args = organics_query_add_sort_order($args, $orderby, $order);
 			$args = organics_query_add_posts_and_cats($args, $ids, 'clients', $cat, 'clients_group');
 
 			$query = new WP_Query( $args );
-	
+
 			$post_number = 0;
 
-			while ( $query->have_posts() ) { 
+			while ( $query->have_posts() ) {
 				$query->the_post();
 				$post_number++;
 				$args = array(
@@ -482,7 +482,7 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 			}
 			wp_reset_postdata();
 		}
-	
+
 		if (organics_param_is_on($slider)) {
 			$output .= '</div>'
 				. '<div class="sc_slider_controls_wrap"><a class="sc_slider_prev" href="#"></a><a class="sc_slider_next" href="#"></a></div>'
@@ -494,10 +494,10 @@ if ( !function_exists( 'organics_sc_clients' ) ) {
 		$output .= (!empty($link) ? '<div class="sc_clients_button sc_item_button">'.organics_do_shortcode('[trx_button link="'.esc_url($link).'" icon="icon-right"]'.esc_html($link_caption).'[/trx_button]').'</div>' : '')
 				. '</div><!-- /.sc_clients -->'
 			. '</div><!-- /.sc_clients_wrap -->';
-	
+
 		// Add template specific scripts and styles
 		do_action('organics_action_blog_scripts', $style);
-	
+
 		return apply_filters('organics_shortcode_output', $output, 'trx_clients', $atts, $content);
 	}
 	if (function_exists('organics_require_shortcode')) organics_require_shortcode('trx_clients', 'organics_sc_clients');
@@ -519,14 +519,14 @@ if ( !function_exists( 'organics_sc_clients_item' ) ) {
 			"animation" => "",
 			"css" => ""
 		), $atts)));
-	
+
 		global $ORGANICS_GLOBALS;
 		$ORGANICS_GLOBALS['sc_clients_counter']++;
-	
+
 		$id = $id ? $id : ($ORGANICS_GLOBALS['sc_clients_id'] ? $ORGANICS_GLOBALS['sc_clients_id'] . '_' . $ORGANICS_GLOBALS['sc_clients_counter'] : '');
-	
+
 		$descr = trim(chop(do_shortcode($content)));
-	
+
 		$thumb_sizes = organics_get_thumb_sizes(array('layout' => $ORGANICS_GLOBALS['sc_clients_style']));
 
 		if ($image > 0) {
@@ -1095,8 +1095,8 @@ if (!function_exists('organics_clients_reg_shortcodes_vc')) {
 				),
 				'js_view' => 'VcTrxColumnsView'
 			) );
-			
-			
+
+
 		vc_map( array(
 				"base" => "trx_clients_item",
 				"name" => esc_html__("Client", "organics"),
@@ -1150,7 +1150,7 @@ if (!function_exists('organics_clients_reg_shortcodes_vc')) {
 				),
 				'js_view' => 'VcTrxColumnItemView'
 			) );
-			
+
 		class WPBakeryShortCode_Trx_Clients extends ORGANICS_VC_ShortCodeColumns {}
 		class WPBakeryShortCode_Trx_Clients_Item extends ORGANICS_VC_ShortCodeCollection {}
 

@@ -408,7 +408,6 @@ if (!function_exists('organics_sc_testimonials')) {
 
 		if (organics_param_is_on($slider)) {
 			$output .= '</div>'
-				. '<div class="sc_slider_controls_wrap"><a class="sc_slider_prev" href="#"></a><a class="sc_slider_next" href="#"></a></div>'
 				. '<div class="sc_slider_pagination_wrap"></div>';
 		} else if ($columns > 1) {
 			$output .= '</div>';

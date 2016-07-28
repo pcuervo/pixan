@@ -16,7 +16,7 @@ if (!function_exists('organics_team_theme_setup')) {
 
 		// Save data from meta box
 		add_action('save_post',								'organics_team_save_data');
-		
+
 		// Detect current page type, taxonomy and title (for custom post_types use priority < 10 to fire it handles early, than for standard post types)
 		add_filter('organics_filter_get_blog_type',			'organics_team_get_blog_type', 9, 2);
 		add_filter('organics_filter_get_blog_title',		'organics_team_get_blog_title', 9, 2);
@@ -73,7 +73,7 @@ if (!function_exists('organics_team_theme_setup')) {
 					"type" => "social")
 			)
 		);
-		
+
 		if (function_exists('organics_require_data')) {
 			// Prepare type "Team"
 			organics_require_data( 'post_type', 'team', array(
@@ -112,7 +112,7 @@ if (!function_exists('organics_team_theme_setup')) {
 				'rewrite'             => true
 				)
 			);
-			
+
 			// Prepare taxonomy for team
 			organics_require_data( 'taxonomy', 'team_group', array(
 				'post_type'			=> array( 'team' ),
@@ -180,7 +180,7 @@ if (!function_exists('organics_team_show_meta_box')) {
 		<table class="team_area">
 		<?php
 		if (is_array($fields) && count($fields) > 0) {
-			foreach ($fields as $id=>$field) { 
+			foreach ($fields as $id=>$field) {
 				$meta = isset($data[$id]) ? $data[$id] : '';
 				?>
 				<tr class="team_field <?php echo esc_attr($field['class']); ?>" valign="top">
@@ -200,7 +200,7 @@ if (!function_exists('organics_team_show_meta_box')) {
 										$sn = organics_substr($sn, 0, organics_strrpos($sn, '.'));
 										if (($pos=organics_strrpos($sn, '_'))!==false)
 											$sn = organics_substr($sn, 0, $pos);
-									}   
+									}
 									$link = isset($meta[$sn]) ? $meta[$sn] : '';
 									?>
 									<label for="<?php echo esc_attr(($id).'_'.($sn)); ?>"><?php echo esc_attr(organics_strtoproper($sn)); ?></label><br>
@@ -282,12 +282,12 @@ if ( !function_exists( 'organics_is_team_page' ) ) {
 		$is = in_array($ORGANICS_GLOBALS['page_template'], array('blog-team', 'single-team'));
 		if (!$is) {
 			if (!empty($ORGANICS_GLOBALS['pre_query']))
-				$is = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='team' 
-						|| $ORGANICS_GLOBALS['pre_query']->is_tax('team_group') 
-						|| ($ORGANICS_GLOBALS['pre_query']->is_page() 
-								&& ($id=organics_get_template_page_id('blog-team')) > 0 
-								&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id) 
-											? $ORGANICS_GLOBALS['pre_query']->queried_object_id 
+				$is = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='team'
+						|| $ORGANICS_GLOBALS['pre_query']->is_tax('team_group')
+						|| ($ORGANICS_GLOBALS['pre_query']->is_page()
+								&& ($id=organics_get_template_page_id('blog-team')) > 0
+								&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id)
+											? $ORGANICS_GLOBALS['pre_query']->queried_object_id
 											: 0)
 						);
 			else
@@ -348,7 +348,7 @@ if ( !function_exists( 'organics_team_get_stream_page_title' ) ) {
 			if (($page_id = organics_team_get_stream_page_id(0, $page=='team' ? 'blog-team' : $page)) > 0)
 				$title = organics_get_post_title($page_id);
 			else
-				$title = esc_html__('All team', 'organics');				
+				$title = esc_html__('All team', 'organics');
 		}
 		return $title;
 	}
@@ -395,7 +395,7 @@ if ( !function_exists( 'organics_team_is_taxonomy' ) ) {
 	function organics_team_is_taxonomy($tax, $query=null) {
 		if (!empty($tax))
 			return $tax;
-		else 
+		else
 			return $query && $query->get('team_group')!='' || is_tax('team_group') ? 'team_group' : '';
 	}
 }
@@ -425,7 +425,7 @@ if ( !function_exists( 'organics_team_query_add_filters' ) ) {
 [/trx_team]
 */
 if ( !function_exists( 'organics_sc_team' ) ) {
-	function organics_sc_team($atts, $content=null){	
+	function organics_sc_team($atts, $content=null){
 		if (organics_in_shortcode_blogger()) return '';
 		extract(organics_html_decode(shortcode_atts(array(
 			// Individual params
@@ -486,12 +486,12 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 		$ORGANICS_GLOBALS['sc_team_css_wh'] = $ws . $hs;
 
 		if (organics_param_is_on($slider)) organics_enqueue_slider('swiper');
-	
-		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '') 
+
+		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '')
 						. ' class="sc_team_wrap'
-						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '') 
+						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '')
 						.'">'
-					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '') 
+					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '')
 						. ' class="sc_team sc_team_style_'.esc_attr($style)
 							. ' ' . esc_attr(organics_get_template_property($style, 'container_classes'))
 							. ' ' . esc_attr(organics_get_slider_controls_classes($controls))
@@ -503,7 +503,7 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 							. (!empty($class) ? ' '.esc_attr($class) : '')
 							. ($align!='' && $align!='none' ? ' align'.esc_attr($align) : '')
 						.'"'
-						. ($css!='' ? ' style="'.esc_attr($css).'"' : '') 
+						. ($css!='' ? ' style="'.esc_attr($css).'"' : '')
 						. (!empty($width) && organics_strpos($width, '%')===false ? ' data-old-width="' . esc_attr($width) . '"' : '')
 						. (!empty($height) && organics_strpos($height, '%')===false ? ' data-old-height="' . esc_attr($height) . '"' : '')
 						. ((int) $interval > 0 ? ' data-interval="'.esc_attr($interval).'"' : '')
@@ -515,25 +515,25 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 					. (!empty($subtitle) ? '<h6 class="sc_team_subtitle sc_item_subtitle">' . trim(organics_strmacros($subtitle)) . '</h6>' : '')
 					. (!empty($title) ? '<h2 class="sc_team_title sc_item_title">' . trim(organics_strmacros($title)) . '</h2>' : '')
 					. (!empty($description) ? '<div class="sc_team_descr sc_item_descr">' . trim(organics_strmacros($description)) . '</div>' : '')
-					. (organics_param_is_on($slider) 
-						? '<div class="slides swiper-wrapper">' 
+					. (organics_param_is_on($slider)
+						? '<div class="slides swiper-wrapper">'
 						: ($columns > 1 // && organics_get_template_property($style, 'need_columns')
-							? '<div class="sc_columns columns_wrap">' 
+							? '<div class="sc_columns columns_wrap">'
 							: '')
 						);
-	
+
 		$content = do_shortcode($content);
-	
+
 		if (organics_param_is_on($custom) && $content) {
 			$output .= $content;
 		} else {
 			global $post;
-	
+
 			if (!empty($ids)) {
 				$posts = explode(',', $ids);
 				$count = count($posts);
 			}
-			
+
 			$args = array(
 				'post_type' => 'team',
 				'post_status' => 'publish',
@@ -541,18 +541,18 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 				'ignore_sticky_posts' => true,
 				'order' => $order=='asc' ? 'asc' : 'desc',
 			);
-		
+
 			if ($offset > 0 && empty($ids)) {
 				$args['offset'] = $offset;
 			}
-		
+
 			$args = organics_query_add_sort_order($args, $orderby, $order);
 			$args = organics_query_add_posts_and_cats($args, $ids, 'team', $cat, 'team_group');
 			$query = new WP_Query( $args );
-	
+
 			$post_number = 0;
-				
-			while ( $query->have_posts() ) { 
+
+			while ( $query->have_posts() ) {
 				$query->the_post();
 				$post_number++;
 				$args = array(
@@ -591,7 +591,7 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 					if (!empty($soc_str))
 						$args['socials'] = organics_do_shortcode('[trx_socials size="tiny" shape="round" socials="'.esc_attr($soc_str).'"][/trx_socials]');
 				}
-	
+
 				$output .= organics_show_post_layout($args, $post_data);
 			}
 			wp_reset_postdata();
@@ -608,10 +608,10 @@ if ( !function_exists( 'organics_sc_team' ) ) {
 		$output .= (!empty($link) ? '<div class="sc_team_button sc_item_button">'.organics_do_shortcode('[trx_button link="'.esc_url($link).'" icon="icon-right"]'.esc_html($link_caption).'[/trx_button]').'</div>' : '')
 					. '</div><!-- /.sc_team -->'
 				. '</div><!-- /.sc_team_wrap -->';
-	
+
 		// Add template specific scripts and styles
 		do_action('organics_action_blog_scripts', $style);
-	
+
 		return apply_filters('organics_shortcode_output', $output, 'trx_team', $atts, $content);
 	}
 	if (function_exists('organics_require_shortcode')) organics_require_shortcode('trx_team', 'organics_sc_team');
@@ -637,18 +637,18 @@ if ( !function_exists( 'organics_sc_team_item' ) ) {
 			"animation" => "",
 			"css" => ""
 		), $atts)));
-	
+
 		global $ORGANICS_GLOBALS;
 		$ORGANICS_GLOBALS['sc_team_counter']++;
-	
+
 		$id = $id ? $id : ($ORGANICS_GLOBALS['sc_team_id'] ? $ORGANICS_GLOBALS['sc_team_id'] . '_' . $ORGANICS_GLOBALS['sc_team_counter'] : '');
-	
+
 		$descr = trim(chop(do_shortcode($content)));
-	
+
 		$thumb_sizes = organics_get_thumb_sizes(array('layout' => $ORGANICS_GLOBALS['sc_team_style']));
-	
+
 		if (!empty($socials)) $socials = organics_do_shortcode('[trx_socials size="tiny" shape="round" socials="'.esc_attr($socials).'"][/trx_socials]');
-	
+
 		if (!empty($user) && $user!='none' && ($user_obj = get_user_by('login', $user)) != false) {
 			$meta = get_user_meta($user_obj->ID);
 			if (empty($email))		$email = $user_obj->data->user_email;
@@ -657,7 +657,7 @@ if ( !function_exists( 'organics_sc_team_item' ) ) {
 			if (empty($descr))		$descr = isset($meta['description'][0]) ? $meta['description'][0] : '';
 			if (empty($socials))	$socials = organics_show_user_socials(array('author_id'=>$user_obj->ID, 'echo'=>false));
 		}
-	
+
 		if (!empty($member) && $member!='none' && ($member_obj = (intval($member) > 0 ? get_post($member, OBJECT) : get_page_by_title($member, OBJECT, 'team'))) != null) {
 			if (empty($name))		$name = $member_obj->post_title;
 			if (empty($descr))		$descr = $member_obj->post_excerpt;
@@ -1330,8 +1330,8 @@ if (!function_exists('organics_team_reg_shortcodes_vc')) {
 				',
 				'js_view' => 'VcTrxColumnsView'
 			) );
-			
-			
+
+
 		vc_map( array(
 				"base" => "trx_team_item",
 				"name" => esc_html__("Team member", "organics"),
@@ -1419,7 +1419,7 @@ if (!function_exists('organics_team_reg_shortcodes_vc')) {
 				),
 				'js_view' => 'VcTrxColumnItemView'
 			) );
-			
+
 		class WPBakeryShortCode_Trx_Team extends ORGANICS_VC_ShortCodeColumns {}
 		class WPBakeryShortCode_Trx_Team_Item extends ORGANICS_VC_ShortCodeCollection {}
 

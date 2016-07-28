@@ -10,7 +10,7 @@
 if (!function_exists('organics_services_theme_setup')) {
 	add_action( 'organics_action_before_init_theme', 'organics_services_theme_setup' );
 	function organics_services_theme_setup() {
-		
+
 		// Detect current page type, taxonomy and title (for custom post_types use priority < 10 to fire it handles early, than for standard post types)
 		add_filter('organics_filter_get_blog_type',			'organics_services_get_blog_type', 9, 2);
 		add_filter('organics_filter_get_blog_title',		'organics_services_get_blog_title', 9, 2);
@@ -31,7 +31,7 @@ if (!function_exists('organics_services_theme_setup')) {
 		// Add shortcodes [trx_services] and [trx_services_item]
 		add_action('organics_action_shortcodes_list',		'organics_services_reg_shortcodes');
 		add_action('organics_action_shortcodes_list_vc',	'organics_services_reg_shortcodes_vc');
-		
+
 		if (function_exists('organics_require_data')) {
 			// Prepare type "Team"
 			organics_require_data( 'post_type', 'services', array(
@@ -70,7 +70,7 @@ if (!function_exists('organics_services_theme_setup')) {
 				'rewrite'             => true
 				)
 			);
-			
+
 			// Prepare taxonomy for team
 			organics_require_data( 'taxonomy', 'services_group', array(
 				'post_type'			=> array( 'services' ),
@@ -123,17 +123,17 @@ if ( !function_exists( 'organics_is_services_page' ) ) {
 		$is = in_array($ORGANICS_GLOBALS['page_template'], array('blog-services', 'single-service'));
 		if (!$is) {
 			if (!empty($ORGANICS_GLOBALS['pre_query']))
-				$is = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='services' 
-						|| $ORGANICS_GLOBALS['pre_query']->is_tax('services_group') 
-						|| ($ORGANICS_GLOBALS['pre_query']->is_page() 
-								&& ($id=organics_get_template_page_id('blog-services')) > 0 
-								&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id) 
-											? $ORGANICS_GLOBALS['pre_query']->queried_object_id 
+				$is = $ORGANICS_GLOBALS['pre_query']->get('post_type')=='services'
+						|| $ORGANICS_GLOBALS['pre_query']->is_tax('services_group')
+						|| ($ORGANICS_GLOBALS['pre_query']->is_page()
+								&& ($id=organics_get_template_page_id('blog-services')) > 0
+								&& $id==(isset($ORGANICS_GLOBALS['pre_query']->queried_object_id)
+											? $ORGANICS_GLOBALS['pre_query']->queried_object_id
 											: 0)
 						);
 			else
-				$is = get_query_var('post_type')=='services' 
-						|| is_tax('services_group') 
+				$is = get_query_var('post_type')=='services'
+						|| is_tax('services_group')
 						|| (is_page() && ($id=organics_get_template_page_id('blog-services')) > 0 && $id==get_the_ID());
 		}
 		return $is;
@@ -190,7 +190,7 @@ if ( !function_exists( 'organics_services_get_stream_page_title' ) ) {
 			if (($page_id = organics_services_get_stream_page_id(0, $page=='services' ? 'blog-services' : $page)) > 0)
 				$title = organics_get_post_title($page_id);
 			else
-				$title = esc_html__('All services', 'organics');				
+				$title = esc_html__('All services', 'organics');
 		}
 		return $title;
 	}
@@ -237,7 +237,7 @@ if ( !function_exists( 'organics_services_is_taxonomy' ) ) {
 	function organics_services_is_taxonomy($tax, $query=null) {
 		if (!empty($tax))
 			return $tax;
-		else 
+		else
 			return $query && $query->get('services_group')!='' || is_tax('services_group') ? 'services_group' : '';
 	}
 }
@@ -266,7 +266,7 @@ if ( !function_exists( 'organics_services_query_add_filters' ) ) {
 [/trx_services]
 */
 if ( !function_exists( 'organics_sc_services' ) ) {
-	function organics_sc_services($atts, $content=null){	
+	function organics_sc_services($atts, $content=null){
 		if (organics_in_shortcode_blogger()) return '';
 		extract(organics_html_decode(shortcode_atts(array(
 			// Individual params
@@ -305,12 +305,12 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 			"left" => "",
 			"right" => ""
 		), $atts)));
-	
+
 		if (empty($id)) $id = "sc_services_".str_replace('.', '', mt_rand());
 		if (empty($width)) $width = "100%";
 		if (!empty($height) && organics_param_is_on($autoheight)) $autoheight = "no";
 		if (empty($interval)) $interval = mt_rand(5000, 10000);
-		
+
 		$ms = organics_get_css_position_from_values($top, $right, $bottom, $left);
 		$ws = organics_get_css_position_from_values('', '', '', '', $width);
 		$hs = organics_get_css_position_from_values('', '', '', '', '', $height);
@@ -330,12 +330,12 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 		$ORGANICS_GLOBALS['sc_services_slider'] = $slider;
 		$ORGANICS_GLOBALS['sc_services_css_wh'] = $ws . $hs;
 		$ORGANICS_GLOBALS['sc_services_readmore'] = $readmore;
-		
-		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '') 
+
+		$output = '<div' . ($id ? ' id="'.esc_attr($id).'_wrap"' : '')
 						. ' class="sc_services_wrap'
-						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '') 
+						. ($scheme && !organics_param_is_off($scheme) && !organics_param_is_inherit($scheme) ? ' scheme_'.esc_attr($scheme) : '')
 						.'">'
-					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '') 
+					. '<div' . ($id ? ' id="'.esc_attr($id).'"' : '')
 						. ' class="sc_services'
 							. ' sc_services_style_'.esc_attr($style)
 							. ' sc_services_type_'.esc_attr($type)
@@ -349,7 +349,7 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 							. (!empty($class) ? ' '.esc_attr($class) : '')
 							. ($align!='' && $align!='none' ? ' align'.esc_attr($align) : '')
 							. '"'
-						. ($css!='' ? ' style="'.esc_attr($css).'"' : '') 
+						. ($css!='' ? ' style="'.esc_attr($css).'"' : '')
 						. (!empty($width) && organics_strpos($width, '%')===false ? ' data-old-width="' . esc_attr($width) . '"' : '')
 						. (!empty($height) && organics_strpos($height, '%')===false ? ' data-old-height="' . esc_attr($height) . '"' : '')
 						. ((int) $interval > 0 ? ' data-interval="'.esc_attr($interval).'"' : '')
@@ -367,19 +367,19 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 							? '<div class="sc_columns columns_wrap">'
 							: '')
 						);
-	
+
 		$content = do_shortcode($content);
-	
+
 		if (organics_param_is_on($custom) && $content) {
 			$output .= $content;
 		} else {
 			global $post;
-	
+
 			if (!empty($ids)) {
 				$posts = explode(',', $ids);
 				$count = count($posts);
 			}
-			
+
 			$args = array(
 				'post_type' => 'services',
 				'post_status' => 'publish',
@@ -388,18 +388,18 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 				'order' => $order=='asc' ? 'asc' : 'desc',
 				'readmore' => $readmore
 			);
-		
+
 			if ($offset > 0 && empty($ids)) {
 				$args['offset'] = $offset;
 			}
-		
+
 			$args = organics_query_add_sort_order($args, $orderby, $order);
 			$args = organics_query_add_posts_and_cats($args, $ids, 'services', $cat, 'services_group');
 			$query = new WP_Query( $args );
-	
+
 			$post_number = 0;
-				
-			while ( $query->have_posts() ) { 
+
+			while ( $query->have_posts() ) {
 				$query->the_post();
 				$post_number++;
 				$args = array(
@@ -425,7 +425,7 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 			}
 			wp_reset_postdata();
 		}
-	
+
 		if (organics_param_is_on($slider)) {
 			$output .= '</div>'
 				. '<div class="sc_slider_controls_wrap"><a class="sc_slider_prev" href="#"></a><a class="sc_slider_next" href="#"></a></div>'
@@ -437,10 +437,10 @@ if ( !function_exists( 'organics_sc_services' ) ) {
 		$output .=  (!empty($link) ? '<div class="sc_services_button sc_item_button">'.organics_do_shortcode('[trx_button link="'.esc_url($link).'" icon="icon-right"]'.esc_html($link_caption).'[/trx_button]').'</div>' : '')
 					. '</div><!-- /.sc_services -->'
 				. '</div><!-- /.sc_services_wrap -->';
-	
+
 		// Add template specific scripts and styles
 		do_action('organics_action_blog_scripts', $style);
-	
+
 		return apply_filters('organics_shortcode_output', $output, 'trx_services', $atts, $content);
 	}
 	if (function_exists('organics_require_shortcode')) organics_require_shortcode('trx_services', 'organics_sc_services');
@@ -463,7 +463,7 @@ if ( !function_exists( 'organics_sc_services_item' ) ) {
 			"animation" => "",
 			"css" => ""
 		), $atts)));
-	
+
 		global $ORGANICS_GLOBALS;
 		$ORGANICS_GLOBALS['sc_services_counter']++;
 
@@ -484,7 +484,7 @@ if ( !function_exists( 'organics_sc_services_item' ) ) {
 			$thumb_sizes = organics_get_thumb_sizes(array('layout' => $ORGANICS_GLOBALS['sc_services_style']));
 			$image = organics_get_resized_image_tag($image, $thumb_sizes['w'], $thumb_sizes['h']);
 		}
-	
+
 		$post_data = array(
 			'post_title' => $title,
 			'post_excerpt' => $descr,
@@ -1115,8 +1115,8 @@ if (!function_exists('organics_services_reg_shortcodes_vc')) {
 				',
 				'js_view' => 'VcTrxColumnsView'
 			) );
-			
-			
+
+
 		vc_map( array(
 				"base" => "trx_services_item",
 				"name" => esc_html__("Services item", "organics"),
@@ -1179,7 +1179,7 @@ if (!function_exists('organics_services_reg_shortcodes_vc')) {
 				),
 				'js_view' => 'VcTrxColumnItemView'
 			) );
-			
+
 		class WPBakeryShortCode_Trx_Services extends ORGANICS_VC_ShortCodeColumns {}
 		class WPBakeryShortCode_Trx_Services_Item extends ORGANICS_VC_ShortCodeCollection {}
 
