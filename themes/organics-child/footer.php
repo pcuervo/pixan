@@ -139,7 +139,7 @@ if (organics_get_custom_option('show_theme_customizer')=='yes') {
 }
 ?>
 
-<a class="scroll_to_top icon-up" title="<?php esc_attr_e('Scroll to top', 'organics'); ?>"></a>
+<span class="scroll_to_top icon-up" title="<?php esc_attr_e('Scroll to top', 'organics'); ?>"></span>
 
 <div class="custom_html_section">
     <?php echo force_balance_tags(organics_get_custom_option('custom_code')); ?>
