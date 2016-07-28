@@ -1,12 +1,15 @@
 <?php
-if ( !function_exists( 'organics_show_logos' ) ) {
-	function organics_show_logos() {
+if ( !function_exists( 'organics_show_logo' ) ) {
+	function organics_show_logo() {
 		global $ORGANICS_GLOBALS;
 		?>
 		<div class="logo">
 			<a href="<?php echo esc_url(home_url()); ?>"><?php
 				echo !empty($ORGANICS_GLOBALS['logo'])
-					? '<img src="'.esc_url($ORGANICS_GLOBALS['logo']).'" class="logo_main" alt="">'
+					? '<img src="'.esc_url($ORGANICS_GLOBALS['logo']).'" class="logo_main" alt="logo pixan para header">'
+					: '';
+				echo !empty($ORGANICS_GLOBALS['logo_fixed'])
+					? '<img src="'.esc_url($ORGANICS_GLOBALS['logo_fixed']).'" class="logo_fixed" alt="logo pixan para header">'
 					: '';
 				echo ($ORGANICS_GLOBALS['logo_text']
 					? '<div class="logo_text">'.($ORGANICS_GLOBALS['logo_text']).'</div>'
@@ -19,5 +22,5 @@ if ( !function_exists( 'organics_show_logos' ) ) {
 	<?php
 	}
 }
-organics_show_logos();
+organics_show_logo();
 ?>

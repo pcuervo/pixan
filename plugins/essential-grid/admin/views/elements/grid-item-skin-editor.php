@@ -929,11 +929,6 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 													<input class="input-settings-small element-setting eg-tooltip-wrap" title="<?php _e('Bottom', EG_TEXTDOMAIN); ?>" type="text" name="element-padding[]" value="0" />
 													<input class="input-settings-small element-setting eg-tooltip-wrap" title="<?php _e('Left', EG_TEXTDOMAIN); ?>" type="text" name="element-padding[]" value="0" /> px
 												</p>
-												<!-- <p>
-													<label><?php _e('Height', EG_TEXTDOMAIN); ?></label>
-													<span id="element-height" class="slider-settings"></span>
-													<input class="input-settings-small element-setting" type="text" name="element-height" value="0" /> px
-												</p>-->
 												<div class="drop-to-stylechange eg-tooltip-wrap" title="<?php _e('Drop Element from Available Layers here to overwrite Styling of Current Element', EG_TEXTDOMAIN); ?>"><?php _e("Drop for<br>Style<br>Change", EG_TEXTDOMAIN); ?></div>
 											</div>
 											<!--

@@ -730,7 +730,7 @@ if (!function_exists('organics_sc_image')) {
             . ($css!='' ? ' style="'.esc_attr($css).'"' : '')
             . '>'
             . (trim($link) ? '<a href="'.esc_url($link).'">' .(trim($title) || trim($icon) ? '<figcaption><span'.($icon ? ' class="'.esc_attr($icon).'"' : '').'>' : '') : '')
-            . '<img src="'.esc_url($src).'" alt="" />'
+            . '<img src="'.esc_url($src).'" />'
             . (trim($link) ? '</span> ' . ($title) . '</figcaption>' . '</a>' : '')
             . ((trim(!$link) && trim($title)) || ((trim(!$link) && trim($icon))) ? '<figcaption><span'.($icon ? ' class="'.esc_attr($icon).'"' : '').'></span> ' . ($title) . '</figcaption>' : '')
             . '</figure>');

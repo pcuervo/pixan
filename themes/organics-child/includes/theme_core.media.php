@@ -216,7 +216,7 @@ if (!function_exists('organics_get_resized_image_tag')) {
 		else if ((int) $post > 0) 	$alt = organics_get_post_title( $post );
 		else						$alt = basename($post);
 		$url = organics_get_resized_image_url($post, $w ? $w*$mult : $w, $h ? $h*$mult : $h, $c, $u, $find_thumb);
-		return $url!='' ? ('<img class="wp-post-image"' . ($w ? ' width="'.esc_attr($w).'"' : '') . ($h ? ' height="' . esc_attr($h) . '"' : '') . ' alt="imagen de post ' . esc_attr($alt) . '" src="' . esc_url($url) . '"' . ($itemprop ? ' itemprop="image"' : '') . '>') : '';
+		return $url!='' ? ('<img class="wp-post-image"' . ($w ? ' width="'.esc_attr($w).'"' : '') . ($h ? ' height="' . esc_attr($h) . '"' : '') . ' alt="' . esc_attr($alt) . '" src="' . esc_url($url) . '"' . ($itemprop ? ' itemprop="image"' : '') . '>') : '';
 	}
 }
 

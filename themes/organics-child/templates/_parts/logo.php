@@ -6,7 +6,7 @@ if ( !function_exists( 'organics_show_logos' ) ) {
 		<div class="logo">
 			<a href="<?php echo esc_url(home_url()); ?>"><?php
 				echo !empty($ORGANICS_GLOBALS['logo'])
-					? '<img src="'.esc_url($ORGANICS_GLOBALS['logo']).'" class="logo_main" alt="">'
+					? '<img src="'.esc_url($ORGANICS_GLOBALS['logo']).'" class="logo_main" alt="logo pixan para header">'
 					: '';
 				echo ($ORGANICS_GLOBALS['logo_text']
 					? '<div class="logo_text">'.($ORGANICS_GLOBALS['logo_text']).'</div>'

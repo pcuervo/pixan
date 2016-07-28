@@ -30,7 +30,7 @@ if ( !function_exists( 'organics_template_single_team_output' ) ) {
 		$show_title = organics_get_custom_option('show_post_title')=='yes';
 		$title_tag = organics_get_custom_option('show_page_title')=='yes' ? 'h3' : 'h1';
 
-		organics_open_wrapper('<article class="' 
+		organics_open_wrapper('<article class="'
 				. join(' ', get_post_class('itemscope'
 					. ' post_item post_item_single_team'
 					. ' post_featured_' . esc_attr($post_options['post_class'])
@@ -42,7 +42,7 @@ if ( !function_exists( 'organics_template_single_team_output' ) ) {
 		if ($show_title && $post_options['location'] == 'center' && organics_get_custom_option('show_page_title')=='no') {
 			?>
             <<?php echo esc_html($title_tag); ?> itemprop="headline" class="post_title entry-title"><span class="post_icon <?php echo esc_attr($post_data['post_icon']); ?>"></span><?php echo ($post_data['post_title']); ?></<?php echo esc_html($title_tag); ?>>
-			<?php 
+			<?php
 		}
 
 		if (!$post_data['post_protected'] && (
@@ -60,26 +60,26 @@ if ( !function_exists( 'organics_template_single_team_output' ) ) {
 				<div class="post_thumb" data-image="<?php echo esc_url($post_data['post_attachment']); ?>" data-title="<?php echo esc_attr($post_data['post_title']); ?>">
 					<a class="hover_icon hover_icon_view" href="<?php echo esc_url($post_data['post_attachment']); ?>" title="<?php echo esc_attr($post_data['post_title']); ?>"><?php echo ($post_data['post_thumb']); ?></a>
 				</div>
-				<?php 
+				<?php
 			}
 			?>
 			</section>
 			<?php
 		}
-			
-		
+
+
 		if ($show_title && $post_options['location'] != 'center' && organics_get_custom_option('show_page_title')=='no') {
 			?>
 			<<?php echo esc_html($title_tag); ?> itemprop="name" class="post_title entry-title"><span class="post_icon <?php echo esc_attr($post_data['post_icon']); ?>"></span><?php echo ($post_data['post_title']); ?></<?php echo esc_html($title_tag); ?>>
-			<?php 
+			<?php
 		}
 
 		organics_open_wrapper('<section class="post_content'.(!$post_data['post_protected'] && $post_data['post_edit_enable'] ? ' '.esc_attr('post_content_editor_present') : '').'" itemprop="articleBody">');
-			
+
 		// Post content
-		if ($post_data['post_protected']) { 
+		if ($post_data['post_protected']) {
 			echo ($post_data['post_excerpt']);
-			echo get_the_password_form(); 
+			echo get_the_password_form();
 		} else {
 			echo trim(organics_gap_wrapper(organics_reviews_wrapper($post_data['post_content'])));
 			require organics_get_file_dir('templates/_parts/single-pagination.php');
@@ -88,16 +88,16 @@ if ( !function_exists( 'organics_template_single_team_output' ) ) {
 				<div class="post_info post_info_bottom">
 					<span class="post_info_item post_info_tags"><?php esc_html_e('Tags:', 'organics'); ?> <?php echo join(', ', $post_data['post_terms'][$post_data['post_taxonomy_tags']]->terms_links); ?></span>
 				</div>
-				<?php 
+				<?php
 			}
-		} 
-			
+		}
+
 		if (!$post_data['post_protected'] && $post_data['post_edit_enable']) {
 			require organics_get_file_dir('templates/_parts/editor-area.php');
 		}
 
 		organics_close_wrapper();	// .post_content
-			
+
 		if (!$post_data['post_protected']) {
 			require organics_get_file_dir('templates/_parts/share.php');
 		}

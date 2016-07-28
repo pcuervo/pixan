@@ -25,7 +25,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share.png" alt="logo redondo sobre caja">
 	<meta property="og:image:width" content="210" />
 	<meta property="og:image:height" content="110" />
-	<meta property="fb:app_id" content="1750075545245803" />
+	<meta property="fb:app_id" content="" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@pixan" />
 	<meta name="twitter:title" content="Pixan sustentable" />
@@ -34,6 +34,9 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<!-- Compatibility -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="cleartype" content="on">
+	<!-- Sitemap Google Verify -->
+	<meta name="google-site-verification" content="4Bt7KHVG0kzwetxi_LnrYR8QUCkKFdSNGA4PU2hpaDs" />
+
 	<?php
 	if (floatval(get_bloginfo('version')) < 4.1) {
 		?><title><?php wp_title( '|', true, 'right' ); ?></title><?php

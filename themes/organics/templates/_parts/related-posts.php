@@ -5,7 +5,7 @@ $need_dummy = true;
 if (organics_get_custom_option("show_post_related") == 'yes') {
 
 	if (empty($body_style)) $body_style = organics_get_custom_option('body_style');
-	
+
 	$sidebar_present = !organics_param_is_off(organics_get_custom_option('show_sidebar_main'));
 
 	if ($body_style!='fullscreen' && !$sidebar_present) {
@@ -14,14 +14,14 @@ if (organics_get_custom_option("show_post_related") == 'yes') {
 
 	$need_wrap = $body_style=='fullscreen' || !$sidebar_present;
 
-	$args = array( 
+	$args = array(
 		'posts_per_page' => organics_get_custom_option('post_related_count'),
-		'post_type' => $post_data['post_type'], 
+		'post_type' => $post_data['post_type'],
 		'post_status' => current_user_can('read_private_pages') && current_user_can('read_private_posts') ? array('publish', 'private') : 'publish',
 		'ignore_sticky_posts' => true,
-		'post__not_in' => array($post_data['post_id']) 
+		'post__not_in' => array($post_data['post_id'])
 	);
-	
+
 	if (!empty($post_data['post_terms'][$post_data['post_taxonomy']]->terms_ids))
 		$args = organics_query_add_posts_and_cats($args, '', $post_data['post_type'], $post_data['post_terms'][$post_data['post_taxonomy']]->terms_ids, $post_data['post_taxonomy']);
 	$args = organics_query_add_sort_order($args, organics_get_custom_option('post_related_sort'), organics_get_custom_option('post_related_order'));
@@ -56,7 +56,7 @@ if (organics_get_custom_option("show_post_related") == 'yes') {
 		<section class="related_wrap<?php echo ($columns>1 ? '' : ' scroll_wrap') . esc_attr(organics_get_template_property('related', 'container_classes')); ?>">
 
 			<?php if ($need_wrap) organics_open_wrapper('<div class="content_wrap">'); ?>
-			
+
 			<h2 class="section_title"><?php echo apply_filters('organics_filter_related_posts_title', esc_html__('Related Posts', 'organics'), $post_data['post_type']); ?></h2>
 
 			<?php if ($columns < 2) { ?>
@@ -91,7 +91,7 @@ if (organics_get_custom_option("show_post_related") == 'yes') {
 						}
 					}
 					?>
-					
+
 			<?php if ($columns < 2) { ?>
 						</div>
 				   </div>
@@ -113,7 +113,7 @@ if (organics_get_custom_option("show_post_related") == 'yes') {
 
 if ($need_dummy) {
 	?>
-	<section class="related_wrap related_wrap_empty"></section>
+	<section class="related_wrap related_wrap_empty pueba"></section>
 	<?php
 }
 ?>

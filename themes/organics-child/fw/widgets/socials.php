@@ -64,7 +64,7 @@ class organics_widget_socials extends WP_Widget {
 					<div class="logo">
 						<a href="<?php echo esc_url(home_url()); ?>"><?php
 							echo !empty($logo_image)
-								? '<img src="'.esc_url($logo_image).'" class="logo_main" alt="">'
+								? '<img src="'.esc_url($logo_image).'" class="logo_main" alt="logo pixan para header">'
 								: '';
 							echo ($logo_text
 								? '<div class="logo_text">'.($logo_text).'</div>'
@@ -145,7 +145,7 @@ class organics_widget_socials extends WP_Widget {
 			echo trim(organics_show_custom_field($this->get_field_id( 'logo_media' ), array('type'=>'mediamanager', 'media_field_id'=>$this->get_field_id( 'logo_image' )), null));
 			if ($logo_image) {
 			?>
-	            <br /><br /><img src="<?php echo esc_url($logo_image); ?>" style="max-width:220px;" alt="" />
+	            <br /><br /><img src="<?php echo esc_url($logo_image); ?>" style="max-width:220px;" alt="logo pixan para header" />
 			<?php
 			}
 			?>

@@ -51,7 +51,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                             <nav class="menu_main_nav_area">
 								<!-- img logo header fijo -->
 								<a href="<?php echo site_url('/'); ?>" class="[ logo-header-fijo ]">
-									<img src="/pixan/wp-content/uploads/2016/07/logo-small.png" alt="logo small">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-small.png" alt="logo de pixan pequeño">
 								</a>
                                 <?php
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu('menu_main');
