@@ -1114,16 +1114,7 @@ if (!function_exists('organics_testimonials_reg_shortcodes_vc')) {
 						"value" => "",
 						"type" => "attach_image"
 					),
-					/*
-					array(
-						"param_name" => "content",
-						"heading" => esc_html__("Testimonials text", "organics"),
-						"description" => wp_kses( __("Current testimonials text", "organics"), $ORGANICS_GLOBALS['allowed_tags'] ),
-						"class" => "",
-						"value" => "",
-						"type" => "textarea_html"
-					),
-					*/
+
 					$ORGANICS_GLOBALS['vc_params']['id'],
 					$ORGANICS_GLOBALS['vc_params']['class'],
 					$ORGANICS_GLOBALS['vc_params']['css']

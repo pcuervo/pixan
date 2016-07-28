@@ -737,8 +737,8 @@ class Vc_Base {
 	 * @access public
 	 */
 	public function addIEMinimalSupport() {
-		echo '<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="' . vc_asset_url( 'css/vc_lte_ie9.min.css' ) . '" media="screen"><![endif]-->';
-		echo '<!--[if IE  8]><link rel="stylesheet" type="text/css" href="' . vc_asset_url( 'css/vc-ie8.min.css' ) . '" media="screen"><![endif]-->';
+		echo '';
+		echo '';
 	}
 
 	/**

@@ -133,7 +133,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 													require_once organics_get_file_dir('templates/headers/_parts/register.php');
 												}?></li>
 										<?php } ?>
-								                <li class="menu_user_login"><a href="<?php echo site_url('/my-account/'); ?>" class="popup_link popup_login_link icon-user189"><!-- <?php esc_html_e('Login', 'organics'); ?> --></a><?php
+								                <li class="menu_user_login"><a href="<?php echo site_url('/my-account/'); ?>" class="popup_link popup_login_link icon-user189"></a><?php
 								                    if (organics_get_theme_option('show_login')=='yes') {
 													require_once organics_get_file_dir('templates/headers/_parts/login.php');
 								                    }?></li>
