@@ -27,7 +27,7 @@
 
 		<div class="side_wrap">
 			<!-- <div class="close"><?php esc_html_e('Close', 'organics'); ?></div> -->
-            <div class="close" style="font-size: 40px;">×</div>
+            <div class="close font-size--40">×</div>
 
 
 			<div class="panel_top">
@@ -116,18 +116,18 @@
                 <?php
                 if (organics_get_custom_option('show_socials')=='yes') {
                     ?>
-                    <div class="contact_socials" style="display: none;">
+                    <div class="contact_socials hidden">
                         <?php echo trim(organics_sc_socials(array('size'=>'tiny'))); ?>
                     </div>
                     <div class="[ text-center ]">
                         <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/fcb2.png" alt="">
+                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/fcb2.png" alt="icono facebook">
                         </a>
                         <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/insta2.png" alt="">
+                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/insta2.png" alt="icono instagram">
                         </a>
                         <a class="[ margin-right--small ]" href="#">
-                            <img class="[ width--30 ]" src="http://localhost:8888/pixan/wp-content/uploads/2016/07/twit2.png" alt="">
+                            <img class="[ width--30 ]" src="http://pcuervo.com/pixan/wp-content/uploads/2016/07/twit2.png" alt="icono twitter">
                         </a>
                     </div>
 

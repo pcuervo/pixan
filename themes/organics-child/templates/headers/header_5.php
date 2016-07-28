@@ -1,12 +1,5 @@
 <?php
-
-// Disable direct call
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-
-
-/* Theme setup section
--------------------------------------------------------------------- */
-
 if ( !function_exists( 'organics_template_header_5_theme_setup' ) ) {
 	add_action( 'organics_action_before_init_theme', 'organics_template_header_5_theme_setup', 1 );
 	function organics_template_header_5_theme_setup() {
@@ -18,13 +11,9 @@ if ( !function_exists( 'organics_template_header_5_theme_setup' ) ) {
 			));
 	}
 }
-
-// Template output
 if ( !function_exists( 'organics_template_header_5_output' ) ) {
 	function organics_template_header_5_output($post_options, $post_data) {
 		global $ORGANICS_GLOBALS;
-
-		// WP custom header
 		$header_css = '';
 		if ($post_options['position'] != 'over') {
 			$header_image = get_header_image();
@@ -33,12 +22,9 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 				: '';
 		}
 		?>
-
 		<div class="top_panel_fixed_wrap"></div>
-
 		<header class="top_panel_wrap top_panel_style_5 scheme_<?php echo esc_attr($post_options['scheme']); ?>">
 			<div class="top_panel_wrap_inner top_panel_inner_style_5 top_panel_position_<?php echo esc_attr(organics_get_custom_option('top_panel_position')); ?>">
-
 			<?php if (organics_get_custom_option('show_top_panel_top')=='yes') { ?>
 				<div class="top_panel_top">
 					<div class="content_wrap clearfix">
@@ -49,7 +35,6 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 					</div>
 				</div>
 			<?php } ?>
-
 			<div class="top_panel_middle" <?php echo trim($header_css); ?>>
 				<div class="content_wrap">
 					<div class="contact_logo">
@@ -65,29 +50,23 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                             ?>
                             <a href="#" class="menu_main_responsive_button icon-menu"></a>
                             <nav class="menu_main_nav_area">
-
 								<!-- img logo header fijo -->
 								<a href="<?php echo site_url('/'); ?>" class="[ logo-header-fijo ]">
-									<img src="/pixan/wp-content/uploads/2016/07/logo-small.png" alt="">
+									<img src="/pixan/wp-content/uploads/2016/07/logo-small.png" alt="logo small">
 								</a>
-
                                 <?php
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu('menu_main');
                                 if (empty($ORGANICS_GLOBALS['menu_main'])) $ORGANICS_GLOBALS['menu_main'] = organics_get_nav_menu();
                                 echo ($ORGANICS_GLOBALS['menu_main']);
                                 ?>
-
 								<!-- User en header fijo -->
-
 								<div class="top_panel_top_user_area">
 								    <?php
-
 								    if (in_array('search', $top_panel_top_components) && organics_get_custom_option('show_search')=='yes') {
 								        ?>
 								        <div class="top_panel_top_search"><?php echo organics_sc_search(array('state'=>'closed')); ?></div>
 								    <?php
 								    }
-
 										$menu_user = organics_get_nav_menu('menu_user');
 										if (empty($menu_user)) {
 											?>
@@ -99,7 +78,6 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 											if ($pos!==false) $menu = organics_substr($menu, 0, $pos+3) . ' class="menu_user_nav"' . organics_substr($menu, $pos+3);
 											echo str_replace('class=""', '', $menu);
 										}
-
 								        if (in_array('language', $top_panel_top_components) && organics_get_custom_option('show_languages')=='yes' && function_exists('icl_get_languages')) {
 								            $languages = icl_get_languages('skip_missing=1');
 								            if (!empty($languages) && is_array($languages)) {
@@ -124,9 +102,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 								            <?php
 								            }
 								        }
-
 								        if (in_array('bookmarks', $top_panel_top_components) && organics_get_custom_option('show_bookmarks')=='yes') {
-								            // Load core messages
 								            organics_enqueue_messages();
 								            ?>
 										<li class="menu_user_bookmarks"><a href="#" class="bookmarks_show icon-star" title="<?php esc_attr_e('Show bookmarks', 'organics'); ?>"><?php esc_html_e('Bookmarks', 'organics'); ?></a>
@@ -147,14 +123,10 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 								            </li>
 								        <?php
 								        }
-
 								        if (in_array('login', $top_panel_top_components) && organics_get_custom_option('show_login')=='yes') {
 								            if ( !is_user_logged_in() ) {
-								                // Load core messages
 								                organics_enqueue_messages();
-								                // Load Popup engine
 								                organics_enqueue_popup();
-										// Anyone can register ?
 										if ( (int) get_option('users_can_register') > 0) {
 								                ?>
 								                <li class="menu_user_register"><a href="#popup_registration" class="popup_link popup_register_link icon-pencil8"><?php esc_html_e('Register', 'organics'); ?></a><?php
@@ -178,11 +150,9 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 														?><span class="user_avatar"><?php echo trim($user_avatar); ?></span><?php
 													}?></a>
 								                </li>
-											<!-- <li class="menu_user_logout [ no-margin-left ]"><a href="<?php echo wp_logout_url(home_url()); ?>" class="icon icon-logout"><?php esc_html_e('Salir', 'organics'); ?></a></li> -->
 								            <?php
 								            }
 								        }
-
 								        if (in_array('socials', $top_panel_top_components) && organics_get_custom_option('show_socials')=='yes') {
 								            ?>
 								            <div class="top_panel_top_socials">
@@ -190,13 +160,9 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 								            </div>
 								        <?php
 								        }
-
 								        ?>
-
 								    </ul>
-
 								</div>
-
                             </nav>
                             <?php
                             if (function_exists('organics_exists_woocommerce') && organics_exists_woocommerce() && (organics_is_woocommerce_page() && organics_get_custom_option('show_cart')=='shop' || organics_get_custom_option('show_cart')=='always') && !(is_checkout() || is_cart() || defined('WOOCOMMERCE_CHECKOUT') || defined('WOOCOMMERCE_CART'))) {
@@ -211,15 +177,11 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                     </div>
                 </div>
 			</div>
-
 			</div>
-
 		</header>
-
 		<?php
 	}
 }
-
 	$header_mobile = organics_get_global('header_mobile');
 	$header_mobile['header_5'] = array(
 				 'open_hours' => true,

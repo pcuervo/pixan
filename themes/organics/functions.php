@@ -24,7 +24,7 @@ if ( !function_exists( 'organics_theme_setup' ) ) {
 
 		// Set options for importer
 		add_filter( 'organics_filter_importer_options',		'organics_importer_set_options' );
-		
+
 		// Add theme specified classes into the body
 		add_filter( 'body_class', 'organics_body_classes' );
 
@@ -42,11 +42,11 @@ if ( !function_exists('organics_body_classes') ) {
 		$classes[] = 'body_' . (organics_get_custom_option('body_filled')=='yes' ? 'filled' : 'transparent');
 		$classes[] = 'theme_skin_' . trim(organics_get_custom_option('theme_skin'));
 		$classes[] = 'article_style_' . trim(organics_get_custom_option('article_style'));
-		
+
 		$blog_style = organics_get_custom_option(is_singular() && !organics_storage_get('blog_streampage') ? 'single_style' : 'blog_style');
 		$classes[] = 'layout_' . trim($blog_style);
 		$classes[] = 'template_' . trim(organics_get_template_name($blog_style));
-		
+
 		$body_scheme = organics_get_custom_option('body_scheme');
 		if (empty($body_scheme)  || organics_is_inherit_option($body_scheme)) $body_scheme = 'original';
 		$classes[] = 'scheme_' . $body_scheme;
@@ -55,7 +55,7 @@ if ( !function_exists('organics_body_classes') ) {
 		if (!organics_param_is_off($top_panel_position)) {
 			$classes[] = 'top_panel_show';
 			$classes[] = 'top_panel_' . trim($top_panel_position);
-		} else 
+		} else
 			$classes[] = 'top_panel_hide';
 		$classes[] = organics_get_sidebar_class();
 

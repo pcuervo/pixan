@@ -9,11 +9,7 @@ Template: organics
 Version: 1.0
 Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-background, custom-colors, custom-menu, featured-image-header, featured-images, full-width-template, post-formats, theme-options, threaded-comments, translation-ready
 */
-
-
 @import url("../organics/style.css");
-
-
 /* =Theme customization starts here
 -------------------------------------------------------------- */
 
@@ -38,6 +34,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .no-text-decoration:hover {  text-decoration: none; }
 
+.font-size--40 { font-size: 40px; }
+
 /*Opacity*/
 .opacity-8:hover { opacity: 0.8; }
 
@@ -56,6 +54,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .margin-right--small { margin-right: 10px!important; }
 
 .no-margin-left { margin-left: 0px!important; }
+.margin-left--xsmall { margin-left: 5px!important; }
 
 @media(min-width:960px){ .margin-top--xlarge-l { margin-top: 70px; } }
 
@@ -407,7 +406,6 @@ a.logo-header-fijo,
 @media(min-width: 1136px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.6em 0.4em!important; } }
 @media(min-width: 1280px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.6em 0.7em!important; } }
 @media(min-width: 1440px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.6em 1.5em!important; } }
-
 
 /*FOOTER*/
 
