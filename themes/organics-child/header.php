@@ -36,7 +36,6 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta http-equiv="cleartype" content="on">
 	<!-- Sitemap Google Verify -->
 	<meta name="google-site-verification" content="4Bt7KHVG0kzwetxi_LnrYR8QUCkKFdSNGA4PU2hpaDs" />
-
 	<?php
 	if (floatval(get_bloginfo('version')) < 4.1) {
 		?><title><?php wp_title( '|', true, 'right' ); ?></title><?php
