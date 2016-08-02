@@ -22,7 +22,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<!-- Facebook, Twitter metas -->
 	<meta property="og:title" content="Pixan Sustentable">
 	<meta name="og:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
-	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share.png" alt="logo redondo sobre caja">
+	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share1.png" alt="logo redondo sobre caja">
 	<meta property="og:image:width" content="210" />
 	<meta property="og:image:height" content="110" />
 	<meta property="fb:app_id" content="1071626012912021" />
@@ -30,7 +30,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta name="twitter:site" content="@pixan" />
 	<meta name="twitter:title" content="Pixan sustentable" />
 	<meta name="twitter:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
-	<meta name="twitter:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share.png" alt="logo redondo sobre caja" />
+	<meta name="twitter:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share1.png" alt="logo redondo sobre caja" />
 	<!-- Compatibility -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="cleartype" content="on">
