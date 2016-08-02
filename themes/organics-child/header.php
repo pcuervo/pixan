@@ -25,7 +25,7 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share.png" alt="logo redondo sobre caja">
 	<meta property="og:image:width" content="210" />
 	<meta property="og:image:height" content="110" />
-	<meta property="fb:app_id" content="" />
+	<meta property="fb:app_id" content="1071626012912021" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@pixan" />
 	<meta name="twitter:title" content="Pixan sustentable" />
