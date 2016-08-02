@@ -152,7 +152,6 @@ if ( !function_exists( 'organics_woocommerce_product_cats' ) ) {
         echo(!empty($cats_out) ? $cats_out : '');
         echo '</div>';
 
-
     }
 }
 add_action('woocommerce_after_shop_loop_item_title', 'organics_woocommerce_product_cats', 1);
@@ -679,7 +678,7 @@ if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
 		global $ORGANICS_GLOBALS;
 		if ($ORGANICS_GLOBALS['shop_mode'] == 'list') {
 		    $excerpt = apply_filters('the_excerpt', get_the_excerpt());
-			echo '<div class="description prueba">'.trim($excerpt).'</div>';
+			echo '<div class="description prueba1">'.trim($excerpt).'</div>';
 		}
 	}
 }

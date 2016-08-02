@@ -374,7 +374,7 @@ class Vc_Vendor_Woocommerce implements Vc_Vendor_Interface {
 				 * If the product isn’t showing, make sure it isn’t set to Hidden in the Catalog Visibility.
 				 */
 				$settings = array(
-					'name' => __( 'Add to cart', 'js_composer' ),
+					'name' => __( 'Añadir al carrito', 'js_composer' ),
 					'base' => 'add_to_cart',
 					'icon' => 'icon-wpb-woocommerce',
 					'category' => __( 'WooCommerce', 'js_composer' ),

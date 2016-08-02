@@ -522,8 +522,8 @@ footer #text-5.column-1_3 { text-align: center; }
 @media (max-width:767px) { .mode_buttons { display: none!important; } } /*acomodo productos*/
 
 .post_info .post_info_item,
-li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
-li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads { display: none!important; }
+li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
+.woocommerce-Tabs-panel.woocommerce-Tabs-panel--description h2 { display: none!important; }
 
 /*Single product*/
 
@@ -619,3 +619,7 @@ li.reviews_tab,
 }
 
 .single-product .related.products .quick_view_images { display: none!important; }
+
+/*Canastas*/
+
+.list_products.shop_mode_list .post_content .description { display: block!important; }
