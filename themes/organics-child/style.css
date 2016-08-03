@@ -15,8 +15,8 @@ Tags: light, responsive-layout, flexible-header, accessibility-ready, custom-bac
 
 /*Text*/
 .text-uppercase,
-h1,
-.post_content h3 { text-transform: uppercase; }
+.post_content h3,
+h1 { text-transform: uppercase; }
 .text-inherit { text-transform: inherit!important; }
 .text-lowercase { text-transform: lowercase!important; }
 .text-capitalize { text-transform: capitalize;}
@@ -40,7 +40,6 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .opacity-8:hover { opacity: 0.8; }
 
 /*Position*/
-
 .relative { position: relative; }
 
 /*Margin*/
@@ -97,7 +96,6 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 }
 
 /*Display*/
-
 .hidden { display: none; }
 .inline-block { display: inline-block!important; }
 
@@ -221,11 +219,9 @@ div.wpcf7-validation-errors { border: 2px solid #A63A51; }
 .ajax-loader { width: 20px; }
 
 /*List*/
-
 .sc_list_item .wpb_content_element { margin-bottom: 10px; }
 
 /*Team*/
-
 .sc_team_item_avatar_inner { text-align: center; }
 .sc_team_style_team-1 .sc_team_item_avatar img { max-width: 150px; }
 .sc_team_item_position { font-weight:700;  }
@@ -295,10 +291,7 @@ li.menu_user_cart a.top_panel_cart_button,
 .header_mobile .search_wrap,
 .header_mobile .login { border-bottom: none; }
 
-.header_mobile .menu_main_nav > li > a {
-	padding: 10px 35px;
-
-}
+.header_mobile .menu_main_nav > li > a { padding: 10px 35px; }
 .header_mobile .menu_main_nav > li > a,
 .header_mobile .search_wrap,
 .header_mobile .login,
@@ -330,7 +323,6 @@ header .column-5_6 { width: 90%!important; }
 
 /*Container logo 100%*/
 .top_panel_inner_style_5 .top_panel_middle>.content_wrap { width: 98%; }
-/*.top_panel_inner_style_5 .top_panel_middle .content_wrap { width: 98%; }*/
 .top_panel_wrap .logo_main { max-height: 100%; }
 
 header .sub-menu a:hover { color: #1E4B24;}
@@ -426,10 +418,6 @@ footer {
 	padding-bottom: 10px;
 }
 
-footer {
-	font-weight: bold;
-}
-
 footer .columns_wrap { padding: 20px 0px 0px!important; }
 
 footer a { color: #fff!important; font-weight: 500; font-size: 14px; }
@@ -451,7 +439,6 @@ footer #text-5.column-1_3 { text-align: center; }
 	footer aside.widget_number_1 { text-align: left!important; margin-left: -15px!important; }
 	footer aside.widget_number_2 { text-align: center!important; }
 	footer aside.widget_number_3 { text-align: right!important; padding-right: 0px!important; }
-
 	footer #text-2.column-1_3,
 	footer #text-3.column-1_3,
 	footer #text-4.column-1_3 { width: 33%; }
@@ -485,9 +472,7 @@ footer #text-5.column-1_3 { text-align: center; }
 #productos-temporada .price { color: #a53850; }
 #productos-temporada h3 { text-transform: capitalize; }
 
-@media(max-width: 768px) {
-	#productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; }
-}
+@media(max-width: 768px) { productos-temporada .woocommerce[class*=columns-] ul.products li.product { width: 100%!important; } }
 
 .eg-icon-left-open:before { content: '\e82a'; }
 .eg-icon-right-open:before { content: '\e82b'; }
@@ -501,10 +486,7 @@ footer #text-5.column-1_3 { text-align: center; }
 	}
 }
 
-@media(min-width:768px){
-	.info-products-home { min-height: 340px!important; }
-
-}
+@media(min-width:768px){ .info-products-home { min-height: 340px!important; } }
 
 @media(min-width:960px){ .info-products-home {
 	min-height: 265px!important; }
@@ -598,9 +580,7 @@ li.reviews_tab,
 /*List*/
 
 .woocommerce .shop_mode_list ul.products li.product .description,
-.woocommerce-page .shop_mode_list ul.products li.product .description {
-	margin-bottom: 0!important;
-}
+.woocommerce-page .shop_mode_list ul.products li.product .description { margin-bottom: 0!important; }
 
 @media(min-width:767px){.list_products.shop_mode_list .post_content h3 { margin-top: 0px!important; }}
 
