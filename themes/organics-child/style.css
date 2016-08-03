@@ -430,7 +430,7 @@ footer {
 	font-weight: bold;
 }
 
-footer .columns_wrap { padding: 20px 0px!important; }
+footer .columns_wrap { padding: 20px 0px 0px!important; }
 
 footer a { color: #fff!important; font-weight: 500; font-size: 14px; }
 footer a:hover { text-decoration: underline; }
@@ -444,8 +444,8 @@ footer #text-5.column-1_3 { text-align: center; }
 	footer aside.widget_number_1,
 	footer aside.widget_number_2,
 	footer aside.widget_number_3 { text-align: center; }
-	footer aside.widget_number_1 { margin-bottom: 20px; }
 	footer .columns_wrap { padding: 20px 0px 0px!important; }
+	footer .margin-bottom--small { margin-bottom: 0px!important; }
 }
 @media (min-width:768px){
 	footer aside.widget_number_1 { text-align: left!important; margin-left: -15px!important; }
