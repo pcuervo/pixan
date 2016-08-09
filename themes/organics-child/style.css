@@ -81,6 +81,11 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 @media (min-width:960px) {
 	.min-height--200-l { min-height: 200px; }
 	.min-height--240-l { min-height: 240px; }
+	.margin-top--xlarge-l { margin-top: 75px; }
+}
+
+@media (min-width:1440px) {
+	.margin-top--xlarge-l { margin-top: 90px; }
 }
 
 .width---100 { width: 100%; }
