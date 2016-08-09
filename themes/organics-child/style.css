@@ -26,6 +26,9 @@ h1 { text-transform: uppercase; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
+/*Background*/
+#row-bg.vc_row.background-top-center { background-position: top center!important; }
+
 /*Type*/
 @media (max-width: 479px){ h2 { font-size: 26px!important; } }
 p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
@@ -51,9 +54,11 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .no-margin-right { margin-right: 0px; }
 .margin-right--small { margin-right: 10px!important; }
+.margin-right--large { margin-right: 20px; }
 
 .no-margin-left { margin-left: 0px!important; }
 .margin-left--xsmall { margin-left: 5px!important; }
+.margin-left--large { margin-left: 25px; }
 
 @media(min-width:960px){ .margin-top--xlarge-l { margin-top: 70px; } }
 
@@ -77,14 +82,17 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .max-height--240 { max-height: 240px; }
 
 .width--30		{ width: 30px; }
+.width--80		{ width: 80px; }
 
 @media (min-width:960px) {
 	.min-height--200-l { min-height: 200px; }
 	.min-height--240-l { min-height: 240px; }
+	.margin-top--large-l { margin-top: 40px; }
 	.margin-top--xlarge-l { margin-top: 75px; }
 }
 
 @media (min-width:1440px) {
+	.margin-top--large-l { margin-top: 45px; }
 	.margin-top--xlarge-l { margin-top: 90px; }
 }
 
@@ -107,6 +115,9 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 /*Display*/
 .hidden { display: none; }
 .inline-block { display: inline-block!important; }
+
+.float-left { float: left; }
+.float-right { float: right; }
 
 /*Colum*/
 .columns--5.vc_col-sm-2 { width: 20%; }
@@ -614,8 +625,3 @@ li.reviews_tab,
 /*Canastas*/
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
-
-
-// .top_panel_fixed  { display: none!important; }
-
-// header { margin-top: 0px!important; }
