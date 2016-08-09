@@ -64,6 +64,10 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 @media (min-width:567px) and (max-width:767px) { .col-6-sm { width: 50%!important; float: left; } }
 @media ( max-width: 959px) { .col-12-sm { width: 100%!important; } }
 
+
+@media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
+.woocommerce-account .sidebar { display: none!important; }
+
 /*Box model*/
 .max-height--60,
 .max-height--60 img { max-height: 50px; }
