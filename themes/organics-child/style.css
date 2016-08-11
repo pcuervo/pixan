@@ -168,7 +168,8 @@ input[type="button"]:hover,
 
 .widget_area_inner .widget_search .search_button { max-width: 35px; }
 
-@media (min-width: 960px ){.button-login { height: 56px!important; margin-bottom: 30px!important; }}
+@media (min-width: 960px ) and (max-width:1439px){.button-login { height: 56px!important; }}
+.button-login { margin-bottom: 30px!important; }
 
 	/*Large*/
 .sc_button.sc_button_size_large {
