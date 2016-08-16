@@ -1,0 +1,19 @@
+[16-Aug-2016 22:29:33 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'px_create_new_customer_coupon' not found or invalid function name in /Users/micho/Documents/cuervo/sitios/pixan/wp-includes/plugin.php on line 524
+[16-Aug-2016 22:29:48 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'px_create_new_customer_coupon' not found or invalid function name in /Users/micho/Documents/cuervo/sitios/pixan/wp-includes/plugin.php on line 524
+[16-Aug-2016 22:29:49 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'px_create_new_customer_coupon' not found or invalid function name in /Users/micho/Documents/cuervo/sitios/pixan/wp-includes/plugin.php on line 524
+[16-Aug-2016 22:31:33 UTC] PHP Notice:  Undefined property: stdClass::$homepage in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 991
+[16-Aug-2016 22:31:33 UTC] PHP Notice:  Undefined property: stdClass::$post in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1002
+[16-Aug-2016 22:31:33 UTC] PHP Notice:  Undefined property: stdClass::$page in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1031
+[16-Aug-2016 22:31:33 UTC] PHP Notice:  Undefined property: stdClass::$category in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1063
+[16-Aug-2016 22:32:33 UTC] PHP Notice:  Undefined property: stdClass::$homepage in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 991
+[16-Aug-2016 22:32:33 UTC] PHP Notice:  Undefined property: stdClass::$post in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1002
+[16-Aug-2016 22:32:33 UTC] PHP Notice:  Undefined property: stdClass::$page in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1031
+[16-Aug-2016 22:32:33 UTC] PHP Notice:  Undefined property: stdClass::$category in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1063
+[16-Aug-2016 22:34:31 UTC] PHP Notice:  Undefined property: stdClass::$homepage in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 991
+[16-Aug-2016 22:34:31 UTC] PHP Notice:  Undefined property: stdClass::$post in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1002
+[16-Aug-2016 22:34:31 UTC] PHP Notice:  Undefined property: stdClass::$page in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1031
+[16-Aug-2016 22:34:31 UTC] PHP Notice:  Undefined property: stdClass::$category in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1063
+[16-Aug-2016 22:38:32 UTC] PHP Notice:  Undefined property: stdClass::$homepage in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 991
+[16-Aug-2016 22:38:32 UTC] PHP Notice:  Undefined property: stdClass::$post in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1002
+[16-Aug-2016 22:38:32 UTC] PHP Notice:  Undefined property: stdClass::$page in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1031
+[16-Aug-2016 22:38:32 UTC] PHP Notice:  Undefined property: stdClass::$category in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1063

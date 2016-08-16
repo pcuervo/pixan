@@ -8,8 +8,3 @@ function px_woocommerce_functions() {
 	locate_template( array( 'includes/px_woocommerce_hooks.php' ), TRUE, TRUE );
 }
 add_action( 'after_setup_theme', 'px_woocommerce_functions' );
-
-
-
-
-

@@ -14,14 +14,6 @@ function px_add_basket_on_first_order(){
 }
 
 /**
- * Adds basket product to order if the user has 
- * never bought anything before. 
- */
-function px_add_basket_to_order(){
-	
-}
-
-/**
  * Show free shipping for orders above $500 and show
  * flat rate shipping on orders below $500.
  *
@@ -41,6 +33,42 @@ function px_free_shipping_above_500( $rates ) {
 
 	unset( $rates['flat_rate:1'] );
 	return $rates;
+}
+
+/**
+ * Apply coupon "bienvenido" to new users.
+ */
+function px_apply_new_customer_coupon(){
+	if( WC()->cart->has_discount('bienvenido') ) return;
+	WC()->cart->add_discount( 'bienvenido' );
+}
+
+/**
+ * Create coupon "bienvenido"
+ */
+function px_create_new_customer_coupon(){
+	$coupon_code = 'bienvenido'; 
+	$amount = '50';
+	$discount_type = 'fixed_cart';
+
+	$coupon = array(
+	    'post_title' 	=> $coupon_code,
+	    'post_content' 	=> '',
+	    'post_status' 	=> 'publish',
+	    'post_author' 	=> 1,
+	    'post_type'     => 'shop_coupon'
+	);    
+	$new_coupon_id = wp_insert_post( $coupon );
+
+	update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
+	update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
+	update_post_meta( $new_coupon_id, 'individual_use', 'yes' );
+	update_post_meta( $new_coupon_id, 'product_ids', '' );
+	update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
+	update_post_meta( $new_coupon_id, 'usage_limit', '1' );
+	update_post_meta( $new_coupon_id, 'expiry_date', '' );
+	update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
+	update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
 }
 
 /*=====  End of #GENERAL FUNCTIONS  ======*/
@@ -96,5 +124,3 @@ function show_metabox_unidad_medida( $post ){
 
 
 /*=====  End of #METABOXES  ======*/
-
-
