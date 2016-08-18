@@ -1,3 +1,20 @@
+$ = jQuery.noConflict();
+$(document).ready(function(){
+    if(document.getElementById("coordenadas").value != '') {
+      pintarMapa();
+    }
+    else {
+      initMap();
+    }
+
+    $('#clearPolygon').click(function(e){
+        e.preventDefault();
+        document.getElementById("coordenadas").value = '';
+        zona.setMap(null);
+    })
+});
+
+
 function initMap() {
     console.log('iniciando mapa...');
   var mapOptions = {
@@ -107,16 +124,5 @@ function pintarMapa() {
     
 }
 
-function resetMap() {
-  document.getElementById("coordenadas").value = '';
-  zona.setMap(null);
-  
-}
 
-if(document.getElementById("coordenadas").value != '') {
-  pintarMapa();
-}
-else {
-  initMap();
-}
-  
+

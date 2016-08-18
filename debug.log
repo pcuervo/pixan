@@ -1,0 +1,4 @@
+[18-Aug-2016 22:02:12 UTC] PHP Notice:  Undefined property: stdClass::$homepage in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 991
+[18-Aug-2016 22:02:12 UTC] PHP Notice:  Undefined property: stdClass::$post in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1002
+[18-Aug-2016 22:02:12 UTC] PHP Notice:  Undefined property: stdClass::$page in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1031
+[18-Aug-2016 22:02:12 UTC] PHP Notice:  Undefined property: stdClass::$category in /Users/micho/Documents/cuervo/sitios/pixan/wp-content/plugins/wp-fastest-cache/wpFastestCache.php on line 1063

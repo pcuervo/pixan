@@ -105,7 +105,7 @@ class Jetpack_RelatedPosts {
 	}
 
 	/**
-	 * Load related posts assets if it's a elegiable frontend page or execute search and return JSON if it's an endpoint request.
+	 * Load related posts assets if it's a elegiable front end page or execute search and return JSON if it's an endpoint request.
 	 *
 	 * @global $_GET
 	 * @action wp
@@ -178,7 +178,7 @@ class Jetpack_RelatedPosts {
 		if ( $options['show_headline'] ) {
 			$headline = sprintf(
 				'<h3 class="jp-relatedposts-headline"><em>%s</em></h3>',
-				esc_html__( 'Relacionados', 'jetpack' )
+				esc_html__( 'Related', 'jetpack' )
 			);
 		} else {
 			$headline = '';
@@ -231,7 +231,7 @@ EOT;
 	 */
 	public function get_options() {
 		if ( null === $this->_options ) {
-			$this->_options = Jetpack_Options::get_option( 'relatedposts' );
+			$this->_options = Jetpack_Options::get_option( 'relatedposts', array() );
 			if ( ! is_array( $this->_options ) )
 				$this->_options = array();
 			if ( ! isset( $this->_options['enabled'] ) )

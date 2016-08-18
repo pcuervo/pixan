@@ -172,7 +172,7 @@ class Sharing_Admin {
 			echo '<div class="updated"><p>'.__( 'Settings have been saved', 'jetpack' ).'</p></div>';
 
 		if( ! isset( $global['sharing_label'] ) ) {
-			$global['sharing_label'] = __( 'Compartir en:', 'jetpack' );
+			$global['sharing_label'] = __( 'Share this:', 'jetpack' );
 		}
 ?>
 
@@ -265,7 +265,7 @@ class Sharing_Admin {
 						<h2<?php if ( count( $enabled['all'] ) > 0 ) echo ' style="display: none"'; ?>><?php _e( 'Sharing is off. Add services above to enable.', 'jetpack' ); ?></h2>
 						<div class="sharedaddy sd-sharing-enabled">
 							<?php if ( count( $enabled['all'] ) > 0 ) : ?>
-							<h3 class="sd-title">Compartir en:</h3>
+							<h3 class="sd-title"><?php echo esc_html( $global['sharing_label'] ); ?></h3>
 							<?php endif; ?>
 							<div class="sd-content">
 								<ul class="preview">
