@@ -1,4 +1,8 @@
 <?php
+/**
+ * The Header for our theme.
+ */
+
 // Theme init - don't remove next row! Load custom options
 organics_core_init_theme();
 $theme_skin = organics_esc(organics_get_custom_option('theme_skin'));
@@ -16,33 +20,16 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1<?php echo (organics_get_theme_option('responsive_layouts') == 'yes' ? ', maximum-scale=1' : ''); ?>">
     <meta name="format-detection" content="telephone=no">
-	<!-- SEO -->
-	<meta name="keywords" content="fruta, verdura, orgánico, sustentable, canastas, productos, calidad">
-    <meta name="description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad.">
-	<!-- Facebook, Twitter metas -->
-	<meta property="og:title" content="Pixan Sustentable">
-	<meta name="og:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
-	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share1.png" alt="logo redondo sobre caja">
-	<meta property="og:image:width" content="210" />
-	<meta property="og:image:height" content="110" />
-	<meta property="fb:app_id" content="1071626012912021" />
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@pixan" />
-	<meta name="twitter:title" content="Pixan sustentable" />
-	<meta name="twitter:description" content="Pixan es un espacio incluyente, que da empleo y capacitación a la gente local y con capacidades diferentes, generando productos de alta calidad." />
-	<meta name="twitter:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/pixan-share1.png" alt="logo redondo sobre caja" />
-	<!-- Compatibility -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="cleartype" content="on">
-	<!-- Sitemap Google Verify -->
-	<meta name="google-site-verification" content="4Bt7KHVG0kzwetxi_LnrYR8QUCkKFdSNGA4PU2hpaDs" />
+
 	<?php
 	if (floatval(get_bloginfo('version')) < 4.1) {
 		?><title><?php wp_title( '|', true, 'right' ); ?></title><?php
 	}
 	?>
+
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
     <?php
 	if ( !function_exists('has_site_icon') || !has_site_icon() ) {
 		$favicon = organics_get_custom_option('favicon');
@@ -56,13 +43,20 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			?><link rel="icon" type="image/x-icon" href="<?php echo esc_url($favicon); ?>" /><?php
 		}
 	}
+
 	wp_head();
 	?>
 </head>
+
+
 <body <?php body_class();?>>
+
 	<?php echo force_balance_tags(organics_get_custom_option('gtm_code')); ?>
+
 	<?php do_action( 'before' ); ?>
+
 	<?php
+	// Add TOC items 'Home' and "To top"
 	if (organics_get_custom_option('menu_toc_home')=='yes')
 		echo trim(organics_sc_anchor(array(
 			'id' => "toc_home",
@@ -81,10 +75,13 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			'separator' => "yes")
 			));
 	?>
+
 	<?php if ( !organics_param_is_off(organics_get_custom_option('show_sidebar_outer')) ) { ?>
 	<div class="outer_wrap">
 	<?php } ?>
+
 	<?php // require_once organics_get_file_dir('sidebar_outer.php'); ?>
+
 	<?php
 		$class = $style = '';
 		if ($body_style=='boxed' || organics_get_custom_option('bg_image_load')=='always') {
@@ -92,10 +89,13 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 				$class = 'bg_image_'.($img);
 			else if (($img = (int) organics_get_custom_option('bg_pattern', 0)) > 0)
 				$class = 'bg_pattern_'.($img);
+
+            /* If using bg color and bg image */
             else if (organics_get_custom_option('bg_custom')=='yes') {
                 if ( (($img = organics_get_custom_option('bg_image_custom')) != '') && (($img_bg_color = organics_get_custom_option('bg_color', '')) != '') )
                     $style = 'background: url(' . esc_url($img) . ') ' . str_replace('_', ' ', organics_get_custom_option('bg_image_custom_position')) . ' no-repeat;' . 'background-color: ' . ($img_bg_color) . ';';
             }
+
             else if (($img = organics_get_custom_option('bg_color', '')) != '')
 				$style = 'background-color: '.($img).';';
 			else if (organics_get_custom_option('bg_custom')=='yes') {
@@ -112,12 +112,18 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 			}
 		}
 	?>
+
 	<div class="body_wrap<?php echo ($class ? ' '.esc_attr($class) : ''); ?>"<?php echo ($style ? ' style="'.esc_attr($style).'"' : ''); ?>>
+
 		<?php
+		// Video bg
 		require_once organics_get_file_dir('templates/headers/_parts/video_bg.php');
 		?>
+
 		<div class="page_wrap">
+
 			<?php
+			// Top panel 'Above' or 'Over'
 			if (in_array($top_panel_position, array('above', 'over'))) {
 				organics_show_post_layout(array(
 					'layout' => $top_panel_style,
@@ -125,8 +131,11 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 					'scheme' => $top_panel_scheme
 					), false);
 			}
+			// Mobile Menu
 			require_once organics_get_file_dir('templates/headers/_parts/header-mobile.php');
+			// Slider
 			require_once organics_get_file_dir('templates/headers/_parts/slider.php');
+			// Top panel 'Below'
 			if ($top_panel_position == 'below') {
 				organics_show_post_layout(array(
 					'layout' => $top_panel_style,
@@ -134,10 +143,17 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 					'scheme' => $top_panel_scheme
 					), false);
 			}
+
+			// Top of page section: page title and breadcrumbs
 			require_once organics_get_file_dir('templates/headers/_parts/breadcrumbs.php');
 			?>
+
 			<div class="page_content_wrap page_paddings_<?php echo esc_attr(organics_get_custom_option('body_paddings')); ?>">
+
 				<?php
+				// Content and sidebar wrapper
 				if ($body_style!='fullscreen') organics_open_wrapper('<div class="content_wrap">');
+
+				// Main content wrapper
 				organics_open_wrapper('<div class="content">');
 				?>

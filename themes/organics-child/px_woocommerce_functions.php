@@ -2,14 +2,8 @@
 
 // CUSTOM METABOXES //////////////////////////////////////////////////////////////////
 
-// PRUEBA DE PLUGIN
-
-
-
 function meta_box_unidad_medida(){
-
 	add_meta_box( 'meta-box-unidad_medida', 'Información Adicional', 'show_metabox_unidad_medida', 'product');
-	
 }
 
 function show_metabox_unidad_medida($post){
@@ -19,7 +13,7 @@ function show_metabox_unidad_medida($post){
 
 	$s1 = ''; $s2 = ''; $s3 = ''; $s4 = '';
 	$ss1 = ''; $ss2 = '';
-	wp_nonce_field(__FILE__, '_unidad_medida_nonce');
+	wp_nonce_field(__FILE__, '_area_entrega_nonce');
 
 	if($unit == 'Unidad') { $s1 = 'checked="checked"'; }
 	if($unit == 'Kilos') { $s2 = 'checked="checked"'; }
@@ -28,6 +22,7 @@ function show_metabox_unidad_medida($post){
 	if($temperatura == 'Congelado') { $ss1 = 'checked="checked"'; }
 	if($temperatura == 'Fresco') { $ss2 = 'checked="checked"'; }
 
+	
 	//echo '<div style="width:40%; text-align:left; float:left;">';
 	echo '<h4>Unidad de Medida:</h4>';
     echo '<input type="radio" name="unidadmedida" id="unidad" value="Unidad" '.$s1.' /><label for="unidad">Unidad</label>';
@@ -54,6 +49,9 @@ add_action('save_post', function($post_id){
 	}
 
 });
+
+
+
 
 
 ?>
