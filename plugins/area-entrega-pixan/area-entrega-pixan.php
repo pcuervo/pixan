@@ -3,9 +3,8 @@
  * @package AreaEntregaPixan
  */
 /*
-Plugin Name: Área de entrega Pixan
-Description: Agregar opción de dibujar mapas a PostType area-entrega y restringir pedidos a un área 
-dependiendo de la dirección de envío del usuario.
+Plugin Name: Checkout de Área de entrega Pixan
+Description: Agregar input en checkout para introducir la direcccion y validar si se encuentra o no en una de las Areas de entrega definidas previamente
 Version: 1.0.0
 Author: Jonás Graterol
 Author URI: http://pcuervo.com
@@ -71,7 +70,7 @@ class Area_Entrega_Pixan {
 	private function includes() {
 		if( is_admin() ){
 			require_once( AREA_ENTREGA_PIXAN_PLUGIN_DIR . 'classes/area-entrega-pixan-settings.php' );
-			return;
+			//return;
 		}
 
 		require_once( AREA_ENTREGA_PIXAN_PLUGIN_DIR . 'classes/area-entrega-pixan-checkout.php' );
@@ -83,7 +82,9 @@ class Area_Entrega_Pixan {
 	private function init() {
 		if( is_admin() ){
 			Area_Entrega_Pixan_Settings::get();
+			//return;
 		}
+		Area_Entrega_Checkout_Pixan_Settings::get();
 	}
 
 }// Area_Entrega_Pixan

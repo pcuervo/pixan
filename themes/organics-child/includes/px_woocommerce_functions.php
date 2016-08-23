@@ -47,6 +47,7 @@ function px_apply_new_customer_coupon(){
  * Create coupon "bienvenido"
  */
 function px_create_new_customer_coupon(){
+	return;
 	$coupon_code = 'bienvenido'; 
 	$amount = '50';
 	$discount_type = 'fixed_cart';
@@ -103,12 +104,12 @@ function px_get_num_orders(){
 =            #METABOXES            =
 ==================================*/
 
-function meta_box_unidad_medida(){
-	add_meta_box( 'meta-box-unidad_medida', 'Unidad Medida', 'show_metabox_unidad_medida', 'unidades');
+function meta_box_product(){
+	add_meta_box( 'meta-box-product', 'Unidad Medida', 'show_metabox_product', 'product');
 }
 
-function show_metabox_unidad_medida( $post ){
-	wp_nonce_field(__FILE__, '_unidad_medida_nonce');
+function show_metabox_product( $post ){
+	wp_nonce_field(__FILE__, '_product_nonce');
 
 	echo "<label for='tiempo_preparacion' class='label-paquetes'>Tiempo de preparación: </label>";
 	echo "<input type='text' class='widefat' id='tiempo_preparacion' name='tiempo_preparacion' value='$tiempo_preparacion'/>";
