@@ -72,22 +72,16 @@ class Area_Entrega_Pixan_Settings {
 	}
 
 	/**
-	 * Update custom taxonomies
-	 */
-	public function update_custom_taxonomies() {
-		if( 'maestros' == get_post_type() OR 'modulos' == get_post_type() OR 'lecciones' == get_post_type() ){
-			$this->insert_custom_taxonomy_term( get_post_type() );
-		}
-	}
-
-	/**
 	 * Add javascript and style files
 	 */
 	public function enqueue_and_localize_admin_scripts(){
-		wp_enqueue_style( 'admin_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_styles.css' );
-		wp_enqueue_script( 'geo-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&libraries=drawing');
-		wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api' ));	
-		wp_enqueue_script( 'geo-map-script', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa.js', array('geo-map-api', 'geo-map-gmaps', 'jquery'));	
+		if( 'area-entrega' == get_post_type() )
+		{
+			wp_enqueue_style( 'admin_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_styles.css' );
+			wp_enqueue_script( 'geo-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&libraries=drawing');
+			wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api' ));	
+			wp_enqueue_script( 'geo-map-script', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa.js', array('geo-map-api', 'geo-map-gmaps', 'jquery'));	
+		}
 	}
 
 
