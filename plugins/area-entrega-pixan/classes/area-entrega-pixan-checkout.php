@@ -38,9 +38,11 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_area_entrega_checkout' ) );
 		add_action( 'woocommerce_after_checkout_billing_form', array( $this, 'show_google_map_checkout' ) );
 		add_filter( 'woocommerce_checkout_fields' , array( $this, 'manage_checkout_fields') );
+		add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta');
 		//add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		//add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 	}
+
 
 	/**
 	 * Register all custom post types needed for "Administrador de Cursos"
@@ -94,7 +96,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	public function show_google_map_checkout(){
 		//$coordenadas = get_post_meta($post->ID, '_coordenadas', true);
 		//wp_nonce_field(__FILE__, '_coordenadas_nonce');
-			    
+		
 	    //Select area-entrega post type
 	    $query_args = array(
 			'post_type'      => 'area-entrega',
@@ -105,26 +107,26 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 	    $posts = new WP_Query( $query_args );
 
-	 	echo '<select id="area_entrega" name="area_entrega" style="display:none;" class="input-text" >';
+	 	echo '<select id="area_entrega" style="display:none;" name="area_entrega" class="input-text" >';
 	 		echo '<option></option>';
 		if ( $posts->have_posts() ) {
 			while ( $posts->have_posts() ) {
 				$posts->the_post();
 				$meta = get_post_meta($posts->post->ID);
 				$dias = '';
-				if(isset($meta['dia1'])) { $dias .= $meta['dia1'][0].', '; }
-				if(isset($meta['dia2'])) { $dias .= $meta['dia2'][0].', '; }
-				if(isset($meta['dia3'])) { $dias .= $meta['dia3'][0].', '; }
-				if(isset($meta['dia4'])) { $dias .= $meta['dia4'][0].', '; }
-				if(isset($meta['dia5'])) { $dias .= $meta['dia5'][0].', '; }
-				if(isset($meta['dia6'])) { $dias .= $meta['dia6'][0].', '; }
-				if(isset($meta['dia7'])) { $dias .= $meta['dia7'][0].', '; }
+				if(isset($meta['_dia1'])) { $dias .= $meta['_dia1'][0].', '; }
+				if(isset($meta['_dia2'])) { $dias .= $meta['_dia2'][0].', '; }
+				if(isset($meta['_dia3'])) { $dias .= $meta['_dia3'][0].', '; }
+				if(isset($meta['_dia4'])) { $dias .= $meta['_dia4'][0].', '; }
+				if(isset($meta['_dia5'])) { $dias .= $meta['_dia5'][0].', '; }
+				if(isset($meta['_dia6'])) { $dias .= $meta['_dia6'][0].', '; }
+				if(isset($meta['_dia7'])) { $dias .= $meta['_dia7'][0].', '; }
 				$dias = substr($dias, 0, -2);
-				echo '<option class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-hora="'.$meta['hora'][0].', '.'" data-coor="'.$meta['coordenadas'][0].'">'.get_the_title().'</option>';
+				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'">'.get_the_title().'</option>';
 			}
 		}
 		
-		echo '</select><small style="color:red; display:none;" id="areaInfo">Tu dirección no esta en ninguna de nuestras zonas de entrega, por favor selecciona uno de nuestros puntos de recolección</small><br />';
+		echo '</select><small style="color:red; display:none;" id="areaInfo">Tu dirección no esta en ninguna de nuestras zonas de entrega, por favor intentalo de nuevo luego.</small><br />';
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
@@ -146,7 +148,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			while ( $posts->have_posts() ) {
 				$posts->the_post();
 				$meta = get_post_meta($posts->post->ID);
-				echo '<option class="punto_r" id="pr_'.$posts->post->ID.'" data-lat="'.$meta['latitud_punto'][0].'" data-long="'.$meta['longitud_punto'][0].'" data-responsable="'.$meta['nombre_responsable'][0].' '.$meta['apellido_responsable'][0].'" data-tel="'.$meta['telefono_responsable'][0].'" data-ubicacion="'.$meta['ubicacion_punto'][0].' ('.$meta['entre_punto'][0].')">'.get_the_title().'</option>';
+				echo '<option value="'.$posts->post->ID.'" class="punto_r" id="pr_'.$posts->post->ID.'" data-lat="'.$meta['latitud_punto'][0].'" data-long="'.$meta['longitud_punto'][0].'" data-responsable="'.$meta['nombre_responsable'][0].' '.$meta['apellido_responsable'][0].'" data-tel="'.$meta['telefono_responsable'][0].'" data-ubicacion="'.$meta['ubicacion_punto'][0].' ('.$meta['entre_punto'][0].')">'.get_the_title().'</option>';
 			}
 		}
 		echo '</select>';
@@ -159,8 +161,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 			</div>';
 
-		echo '<form class="form-inline margin-bottom-10" action="#">
-				<div class="input-group">
+		echo '<div class="input-group">
 					<input type="text" class="form-control" id="gmap_geocoding_address" placeholder="Ingresa la dirección de envio...">
 					<!--
 					<span class="input-group-btn">
@@ -169,12 +170,10 @@ class Area_Entrega_Checkout_Pixan_Settings {
 					-->
 					<strong id="searchErrorText">Por favor ingresa una información mas especifica.</strong>
 				</div>
-			</form>
 			<div id="gmap_geocoding" class="gmaps">
 			</div>';
 
 	}// meta_box_info_maestro
-
 
 	/**
 	* Display extra inputs for checkout page
@@ -185,37 +184,37 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		$fields['billing']['billing_address_1'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide '),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_address_2'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_city'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_country'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_state'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_postcode'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 
@@ -224,7 +223,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 										        'label'     => __('Direccion Formateada', 'woocommerce'),
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 
@@ -232,14 +231,28 @@ class Area_Entrega_Checkout_Pixan_Settings {
 										        'label'     => __('Latitud', 'woocommerce'),
 											    'required'  => true,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_long'] = array(
 										        'label'     => __('Longitud', 'woocommerce'),
 											    'required'  => true,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide'),
+											    'class'     => array('form-row-wide hide'),
+											    'clear'     => true
+										     );
+		$fields['billing']['billing_area_entrega'] = array(
+										        'label'     => __('Area Entrega', 'woocommerce'),
+											    'required'  => true,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide'),
+											    'clear'     => true
+										     );
+		$fields['billing']['billing_puntos_recoleccion'] = array(
+										        'label'     => __('Puntos', 'woocommerce'),
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
 		return $fields;
@@ -254,38 +267,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	/**
 	 * Register the post type "Área de Entrega"
 	 */
-	/*
-	private function register_post_type_area_entrega_checkout() {
-		register_post_type( 'area-entrega',
-			array(
-				'labels' => array(
-					'name'			=> 'Área de Entrega',
-					'singular_name' => 'area',
-					'add_new'		=> 'Agregar area',
-					'add_new_item'	=> 'Nueva area',
-					'edit_item'		=> 'Editar area',
-					'new_item'		=> 'Nuevo area',
-					'not_found'		=> 'No se encontraron areas de pago',
-					'not_found_in_trash' => 'No se encontraron areas en la papelera',
-					'menu_name'		=> 'Áreas de Entrega',
-				),
-				'description' => 'Manejo de areas de entrega para delivery',
-				'public' => true,
-				'show_in_nav_menus' => true,
-				'supports' => array('title',),
-				'show_ui' => true,
-				'show_in_menu' => true,
-				
-				'menu_position' => 3,
-				'has_archive' => false,
-				'query_var' => 'area-entrega',
-				'rewrite' => array('slug' => 'area'),
-				'capability_type' => 'post',
-				'map_meta_cap' => true
-			)
-		);
-	}// register_post_type_area_entrega_checkout
-	*/
+	
 
 	/******************************************
 	* META BOX CALLBACKS
@@ -305,5 +287,29 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	private function save_meta_boxes_area_entrega_checkout( $post_id ){
 		
 	}// save_meta_boxes_area_entrega_checkout
+
+	/**
+	 * Update the order meta with field value
+	 **/
+	
+	function my_custom_checkout_field_update_order_meta( $order_id ) {
+		//if ($_POST['billing_area_entrega']) update_post_meta( $order_id, 'billing_area_entrega', $_POST['billing_area_entrega']);
+		//if ($_POST['billing_puntos_recoleccion']) update_post_meta( $order_id, 'billing_puntos_recoleccion', $_POST['billing_puntos_recoleccion']);
+		//if ($_POST['billing_lat']) update_post_meta( $order_id, 'billing_lat', $_POST['billing_lat']);
+		//if ($_POST['billing_long']) update_post_meta( $order_id, 'billing_long', $_POST['billing_long']);
+		//if ($_POST['billing_formated_address']) update_post_meta( $order_id, 'billing_formated_address', $_POST['billing_formated_address']);
+
+		/*
+		if ( isset($_POST['_dia1']) and check_admin_referer(__FILE__, '_dia1_nonce') ){
+			update_post_meta($post_id, '_dia1', $_POST['_dia1']);
+		}
+		if ( isset($_POST['_dia2']) and check_admin_referer(__FILE__, '_dia2_nonce') ){
+			update_post_meta($post_id, '_dia2', $_POST['_dia2']);
+		}
+		if ( isset($_POST['_dia3']) and check_admin_referer(__FILE__, '_dia3_nonce') ){
+			update_post_meta($post_id, '_dia3', $_POST['_dia3']);
+		}
+		*/
+	}
 
 }// Area_Entrega_Checkout_Pixan_Settings

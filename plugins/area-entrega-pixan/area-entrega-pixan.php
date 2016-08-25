@@ -70,6 +70,7 @@ class Area_Entrega_Pixan {
 	private function includes() {
 		if( is_admin() ){
 			require_once( AREA_ENTREGA_PIXAN_PLUGIN_DIR . 'classes/area-entrega-pixan-settings.php' );
+			require_once( AREA_ENTREGA_PIXAN_PLUGIN_DIR . 'classes/ordenes-dia-pixan.php' );
 			//return;
 		}
 
@@ -82,6 +83,7 @@ class Area_Entrega_Pixan {
 	private function init() {
 		if( is_admin() ){
 			Area_Entrega_Pixan_Settings::get();
+			Ordenes_Dia_Pixan::get();
 			//return;
 		}
 		Area_Entrega_Checkout_Pixan_Settings::get();

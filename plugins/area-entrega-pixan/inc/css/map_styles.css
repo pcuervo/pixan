@@ -21,7 +21,7 @@ h3 {
   height: 300px;
 }
 
-#gmap_routes_instructions {
+#gmap_routes_instructions, #gmap_admin_orders_instructions {
   margin-top: 10px;
   margin-bottom: 0px;
 }

@@ -78,9 +78,9 @@ class Area_Entrega_Pixan_Settings {
 		if( 'area-entrega' == get_post_type() )
 		{
 			wp_enqueue_style( 'admin_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_styles.css' );
-			wp_enqueue_script( 'geo-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&libraries=drawing');
-			wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api' ));	
-			wp_enqueue_script( 'geo-map-script', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa.js', array('geo-map-api', 'geo-map-gmaps', 'jquery'));	
+			//wp_enqueue_script( 'geo-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&libraries=drawing');
+			wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('map-admin-orders-api' ));	
+			wp_enqueue_script( 'geo-map-script', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa.js', array('map-admin-orders-api', 'geo-map-gmaps', 'jquery'));	
 		}
 	}
 
@@ -160,13 +160,13 @@ class Area_Entrega_Pixan_Settings {
 		if($dia6 == 'Sabado') { $d6 = 'checked="checked"'; }
 		if($dia7 == 'Domingo') { $d7 = 'checked="checked"'; }
 
-		echo 'Lunes <input type="checkbox" id="dia1" name="_dia1" value="Lunes" '.$d1.' />';
-		echo 'Martes <input type="checkbox" id="dia2" name="_dia2" value="Martes" '.$d2.' />';
-		echo 'Miercoles <input type="checkbox" id="dia3" name="_dia3" value="Miercoles" '.$d3.' />';
-		echo 'Jueves <input type="checkbox" id="dia4" name="_dia4" value="Jueves" '.$d4.' />';
-		echo 'Viernes <input type="checkbox" id="dia5" name="_dia5" value="Viernes" '.$d5.' />';
-		echo 'Sabado <input type="checkbox" id="dia6" name="_dia6" value="Sabado" '.$d6.' />';
-		echo 'Domingo <input type="checkbox" id="dia7" name="_dia7" value="Domingo" '.$d7.' />';
+		echo 'Lunes <input type="checkbox" id="_dia1" name="_dia1" value="Lunes" '.$d1.' />';
+		echo 'Martes <input type="checkbox" id="_dia2" name="_dia2" value="Martes" '.$d2.' />';
+		echo 'Miercoles <input type="checkbox" id="_dia3" name="_dia3" value="Miercoles" '.$d3.' />';
+		echo 'Jueves <input type="checkbox" id="_dia4" name="_dia4" value="Jueves" '.$d4.' />';
+		echo 'Viernes <input type="checkbox" id="_dia5" name="_dia5" value="Viernes" '.$d5.' />';
+		echo 'Sabado <input type="checkbox" id="_dia6" name="_dia6" value="Sabado" '.$d6.' />';
+		echo 'Domingo <input type="checkbox" id="_dia7" name="_dia7" value="Domingo" '.$d7.' />';
 		echo '<br />';
 		echo '<input style="width:45%;"" type="text" id="hora" name="_hora" value="'.$hora.'" placeholder="Rango de horario de entrega (De 1pm a 4pm)" />';
 	}// meta_box_info_maestro
