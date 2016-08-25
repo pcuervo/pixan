@@ -10,6 +10,7 @@ $(document).ready(function(){
         resetInfo();
         $(".area_e").removeAttr('selected', false);
         //console.log('LAT-'+$("#puntos_recoleccion option:selected").data('lat'));
+        $("#billing_puntos_recoleccion").val($("#puntos_recoleccion").val());
         $("#billing_lat").val($("#puntos_recoleccion option:selected").data('lat'));
         $("#billing_long").val($("#puntos_recoleccion option:selected").data('long'));
         $("#nombrePunto").html($("#puntos_recoleccion option:selected").html());
@@ -19,6 +20,8 @@ $(document).ready(function(){
     });
 
     $("#area_entrega").change(function() {
+        console.log($("#area_entrega").val());
+        $("#billing_area_entrega").val($("#area_entrega").val());
         $("#lblNombrePunto").html($("#area_entrega option:selected").html());
         $("#lblDiasEntrega").html($("#area_entrega option:selected").data('dias'));
         $("#lblHorarioEntrega").html($("#area_entrega option:selected").data('hora'));
@@ -158,6 +161,8 @@ var mapGeocoding = function () {
                                 var opti = zonaarray[i].indexID.split('-');
                                 $(".punto_r").removeAttr('selected', false);
                                 $("#"+opti[1]).attr('selected', true);
+                                //console.log('-->'+$("#area_entrega").val());
+                                $("#billing_area_entrega").val($("#area_entrega").val());
                                 $("#lblNombrePunto").html($("#"+opti[1]).html());
                                 $("#lblDiasEntrega").html($("#"+opti[1]).data('dias'));
                                 $("#lblHorarioEntrega").html($("#"+opti[1]).data('hora'));
@@ -169,7 +174,7 @@ var mapGeocoding = function () {
                             else {
                                 $(".area_e").removeAttr('selected', false);
                                 $("#divInfoAreaEntrega").slideUp();
-                                $("#puntos_recoleccion, #areaInfo, #divInfoPunto").slideDown();
+                                $("#areaInfo, #divInfoPunto").slideDown();
                                 limpiarLabels();
                             }
                         }
@@ -179,7 +184,7 @@ var mapGeocoding = function () {
                         $(".punto_r").removeAttr('selected', false);
                         $(".area_e").removeAttr('selected', false);
                         $("#divInfoAreaEntrega").slideUp();
-                        $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();
+                        $("#divInfoPunto, #areaInfo").slideUp();
                         limpiarLabels();
                     }
                 }
