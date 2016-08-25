@@ -294,6 +294,9 @@ li.menu_user_cart a.top_panel_cart_button,
 
 @media (max-width: 1022px){ header { opacity: 0; } }
 
+/*Cart*/
+.top_panel_wrap .top_panel_top .sidebar_cart { top: 0px!important; }
+
 /*Dropdown menu*/
 .menu_main_nav li ul.sub-menu {
 	padding: 0px;
