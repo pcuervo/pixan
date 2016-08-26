@@ -85,7 +85,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .max-height--240 { max-height: 240px; }
 
 .width--30		{ width: 30px; }
-.width--80		{ width: 80px; }
+.width--80		{ width: 85px; }
 
 @media (min-width:960px) {
 	.min-height--200-l { min-height: 200px; }
