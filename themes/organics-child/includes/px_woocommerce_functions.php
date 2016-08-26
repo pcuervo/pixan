@@ -103,25 +103,42 @@ function px_get_num_orders(){
 /*==================================
 =            #METABOXES            =
 ==================================*/
+function show_metabox_producto($post){
+	
+	$tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true);
+	$temperatura = get_post_meta($post->ID, 'temperatura', true);
+	
+	wp_nonce_field(__FILE__, '_unidadmedida');
+	wp_nonce_field(__FILE__, '_temperatura');
 
-function meta_box_product(){
-	add_meta_box( 'meta-box-product', 'Unidad Medida', 'show_metabox_product', 'product');
+	echo '<h5>Tipo de Unidad</h5>';
+	echo 'Kilo <input type="radio" name="unidadmedida" id="radio_kilo" value="Kilo" ';checked( $tipo_unidad, 'Kilo' ); echo ' />';
+	echo 'Pieza <input type="radio" name="unidadmedida" id="radio_pieza" value="Pieza" ';checked( $tipo_unidad, 'Pieza' ); echo ' />';
+	echo 'Manojo <input type="radio" name="unidadmedida" id="radio_manojo" value="Manojo" ';checked( $tipo_unidad, 'Manojo' ); echo ' />';
+	echo 'Caja <input type="radio" name="unidadmedida" id="radio_caja" value="Caja" ';checked( $tipo_unidad, 'Caja' ); echo ' />';
+	echo 'Canasta <input type="radio" name="unidadmedida" id="radio_canasta" value="Canasta" ';checked( $tipo_unidad, 'Canasta' ); echo ' />';
+
+	echo '<h5>Temperatura</h5>';
+	echo 'Fresco <input type="radio" name="temperatura" id="radio_fresco" value="Fresco" ';checked( $temperatura, 'Fresco' ); echo ' />';
+	echo 'Congelado <input type="radio" name="temperatura" id="radio_congelado" value="Congelado" ';checked( $temperatura, 'Congelado' ); echo ' />';
+
 }
 
-function show_metabox_product( $post ){
-	wp_nonce_field(__FILE__, '_product_nonce');
+function meta_box_producto(){
+	global $post;
+	add_meta_box( 'meta-box-producto', 'Información Adicional', 'show_metabox_producto', 'product');
+};
 
-	echo "<label for='tiempo_preparacion' class='label-paquetes'>Tiempo de preparación: </label>";
-	echo "<input type='text' class='widefat' id='tiempo_preparacion' name='tiempo_preparacion' value='$tiempo_preparacion'/>";
-
-	echo "<br><br><label for='numero_personas' class='label-paquetes'>Número de personas: </label>";
-	echo "<input type='text' class='widefat' id='numero_personas' name='numero_personas' value='$numero_personas'/>";
-
-	echo "<br><br><label for='nivel_de_preparacion' class='label-paquetes'>Nivel de preparación: </label>";
-	echo "<input type='text' class='widefat' id='nivel_de_preparacion' name='nivel_de_preparacion' value='$nivel_de_preparacion'/>";
-
-	echo "<br><br><label for='pasos_preparacion' class='label-paquetes'>Pasos para preparar: </label>";
-}
-
+/**
+* Save the metaboxes for post type "Puntos de Recolección"
+* */
+add_action( 'save_post', function ( $post_id ){
+	if ( isset($_POST['unidadmedida']) and check_admin_referer(__FILE__, '_unidadmedida') ){
+		update_post_meta($post_id, 'unidadmedida', $_POST['unidadmedida']);
+	}
+	if ( isset($_POST['temperatura']) and check_admin_referer(__FILE__, '_temperatura') ){
+		update_post_meta($post_id, 'temperatura', $_POST['temperatura']);
+	}
+});// save_meta_boxes_puntos_recoleccion
 
 /*=====  End of #METABOXES  ======*/

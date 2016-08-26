@@ -6688,3 +6688,136 @@
 [25-Aug-2016 00:26:32 UTC] PHP   8. Area_Entrega_Pixan::get() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php(25) : runtime-created function:1
 [25-Aug-2016 00:26:32 UTC] PHP   9. Area_Entrega_Pixan->__construct() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:39
 [25-Aug-2016 00:26:32 UTC] PHP  10. Area_Entrega_Pixan->includes() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:49
+[25-Aug-2016 19:43:19 UTC] PHP Notice:  Undefined property: stdClass::$homepage in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 991
+[25-Aug-2016 19:43:19 UTC] PHP Stack trace:
+[25-Aug-2016 19:43:19 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-Aug-2016 19:43:20 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[25-Aug-2016 19:43:20 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP Notice:  Undefined property: stdClass::$post in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1002
+[25-Aug-2016 19:43:20 UTC] PHP Stack trace:
+[25-Aug-2016 19:43:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-Aug-2016 19:43:20 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[25-Aug-2016 19:43:20 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP Notice:  Undefined property: stdClass::$page in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1031
+[25-Aug-2016 19:43:20 UTC] PHP Stack trace:
+[25-Aug-2016 19:43:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-Aug-2016 19:43:20 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[25-Aug-2016 19:43:20 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP Notice:  Undefined property: stdClass::$category in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1063
+[25-Aug-2016 19:43:20 UTC] PHP Stack trace:
+[25-Aug-2016 19:43:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-Aug-2016 19:43:20 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[25-Aug-2016 19:43:20 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-Aug-2016 19:43:20 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 00:11:40 UTC] PHP Notice:  Undefined variable: tiempo_preparacion in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 115
+[26-Aug-2016 00:11:40 UTC] PHP Stack trace:
+[26-Aug-2016 00:11:40 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:11:40 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:11:40 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:717
+[26-Aug-2016 00:11:40 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:11:40 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:11:40 UTC] PHP Notice:  Undefined variable: numero_personas in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 118
+[26-Aug-2016 00:11:40 UTC] PHP Stack trace:
+[26-Aug-2016 00:11:40 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:11:40 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:11:40 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:717
+[26-Aug-2016 00:11:40 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:11:40 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:11:40 UTC] PHP Notice:  Undefined variable: nivel_de_preparacion in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 121
+[26-Aug-2016 00:11:40 UTC] PHP Stack trace:
+[26-Aug-2016 00:11:40 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:11:40 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:11:40 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:717
+[26-Aug-2016 00:11:40 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:11:40 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP Notice:  Undefined variable: tiempo_preparacion in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 115
+[26-Aug-2016 00:24:43 UTC] PHP Stack trace:
+[26-Aug-2016 00:24:43 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:24:43 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:24:43 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:693
+[26-Aug-2016 00:24:43 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP Notice:  Undefined variable: numero_personas in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 118
+[26-Aug-2016 00:24:43 UTC] PHP Stack trace:
+[26-Aug-2016 00:24:43 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:24:43 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:24:43 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:693
+[26-Aug-2016 00:24:43 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP Notice:  Undefined variable: nivel_de_preparacion in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 121
+[26-Aug-2016 00:24:43 UTC] PHP Stack trace:
+[26-Aug-2016 00:24:43 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:24:43 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:24:43 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:693
+[26-Aug-2016 00:24:43 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:24:43 UTC] PHP   5. show_metabox_product() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[26-Aug-2016 00:33:15 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'meta_box_product' not found or invalid function name in C:\wamp\www\pixan\wp-includes\plugin.php on line 525
+[26-Aug-2016 00:33:16 UTC] PHP Stack trace:
+[26-Aug-2016 00:33:16 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:33:16 UTC] PHP   2. include() C:\wamp\www\pixan\wp-admin\post.php:173
+[26-Aug-2016 00:33:16 UTC] PHP   3. do_action() C:\wamp\www\pixan\wp-admin\edit-form-advanced.php:323
+[26-Aug-2016 00:33:16 UTC] PHP   4. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[26-Aug-2016 00:36:50 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 136
+[26-Aug-2016 00:36:50 UTC] PHP Stack trace:
+[26-Aug-2016 00:36:50 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[26-Aug-2016 00:36:50 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[26-Aug-2016 00:36:50 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[26-Aug-2016 00:36:50 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[26-Aug-2016 00:36:50 UTC] PHP   5. include() C:\wamp\www\pixan\wp-settings.php:369
+[26-Aug-2016 00:36:50 UTC] PHP   6. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[26-Aug-2016 00:36:50 UTC] PHP   7. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:90
+[26-Aug-2016 00:36:51 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 136
+[26-Aug-2016 00:36:51 UTC] PHP Stack trace:
+[26-Aug-2016 00:36:51 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\post.php:0
+[26-Aug-2016 00:36:51 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\post.php:12
+[26-Aug-2016 00:36:51 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[26-Aug-2016 00:36:51 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[26-Aug-2016 00:36:51 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[26-Aug-2016 00:36:51 UTC] PHP   6. include() C:\wamp\www\pixan\wp-settings.php:369
+[26-Aug-2016 00:36:51 UTC] PHP   7. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[26-Aug-2016 00:36:51 UTC] PHP   8. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:90
+[26-Aug-2016 00:36:52 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 136
+[26-Aug-2016 00:36:52 UTC] PHP Stack trace:
+[26-Aug-2016 00:36:52 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[26-Aug-2016 00:36:52 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[26-Aug-2016 00:36:52 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[26-Aug-2016 00:36:52 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[26-Aug-2016 00:36:52 UTC] PHP   5. include() C:\wamp\www\pixan\wp-settings.php:369
+[26-Aug-2016 00:36:52 UTC] PHP   6. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[26-Aug-2016 00:36:52 UTC] PHP   7. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:90
+[26-Aug-2016 01:08:23 UTC] PHP Parse error:  syntax error, unexpected '.' in C:\wamp\www\pixan\wp-content\themes\organics-child\includes\px_woocommerce_functions.php on line 133
+[26-Aug-2016 01:08:23 UTC] PHP Stack trace:
+[26-Aug-2016 01:08:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[26-Aug-2016 01:08:23 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[26-Aug-2016 01:08:23 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[26-Aug-2016 01:08:23 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[26-Aug-2016 01:08:23 UTC] PHP   5. include() C:\wamp\www\pixan\wp-settings.php:369
+[26-Aug-2016 01:08:23 UTC] PHP   6. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[26-Aug-2016 01:08:23 UTC] PHP   7. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:90
+[26-Aug-2016 01:30:57 UTC] PHP Notice:  Undefined property: stdClass::$homepage in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 991
+[26-Aug-2016 01:30:57 UTC] PHP Stack trace:
+[26-Aug-2016 01:30:57 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[26-Aug-2016 01:30:57 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[26-Aug-2016 01:30:57 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP Notice:  Undefined property: stdClass::$post in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1002
+[26-Aug-2016 01:30:57 UTC] PHP Stack trace:
+[26-Aug-2016 01:30:57 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[26-Aug-2016 01:30:57 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[26-Aug-2016 01:30:57 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP Notice:  Undefined property: stdClass::$page in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1031
+[26-Aug-2016 01:30:57 UTC] PHP Stack trace:
+[26-Aug-2016 01:30:57 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[26-Aug-2016 01:30:57 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[26-Aug-2016 01:30:57 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP Notice:  Undefined property: stdClass::$category in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1063
+[26-Aug-2016 01:30:57 UTC] PHP Stack trace:
+[26-Aug-2016 01:30:57 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[26-Aug-2016 01:30:57 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:117
+[26-Aug-2016 01:30:57 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[26-Aug-2016 01:30:57 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
