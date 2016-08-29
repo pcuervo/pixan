@@ -9,7 +9,7 @@ class Sharing_Service {
 	public $default_sharing_label = '';
 
 	public function __construct() {
-		$this->default_sharing_label = __( 'Compartir en:', 'jetpack' );
+		$this->default_sharing_label = __( 'Share this:', 'jetpack' );
 	}
 
 	/**
@@ -682,7 +682,7 @@ function sharing_display( $text = '', $echo = false ) {
 			// Wrapper
 			$sharing_content .= '<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-' . $global['button_style'] . ' sd-sharing">';
 			if ( $global['sharing_label'] != '' )
-				$sharing_content .= '<h3 class="sd-title">Compartir en:</h3>';
+				$sharing_content .= '<h3 class="sd-title">' . $global['sharing_label'] . '</h3>';
 			$sharing_content .= '<div class="sd-content"><ul>';
 
 			// Visible items
