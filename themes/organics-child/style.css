@@ -74,7 +74,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 
 @media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
-.woocommerce-account .sidebar { display: none!important; }
+/*.woocommerce-account .sidebar { display: none!important; } 		hide in my-accoun(?)*/
 
 /*Box model*/
 .max-height--60,
