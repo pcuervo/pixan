@@ -140,7 +140,8 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
         <?php
         }
 
-        if (in_array('cart', $top_panel_top_components) && function_exists('organics_exists_woocommerce') && organics_exists_woocommerce() && (organics_is_woocommerce_page() && organics_get_custom_option('show_cart')=='shop' || organics_get_custom_option('show_cart')=='always') && !(is_checkout() || is_cart() || defined('WOOCOMMERCE_CHECKOUT') || defined('WOOCOMMERCE_CART'))) {
+        if (in_array('cart', $top_panel_top_components) && function_exists('organics_exists_woocommerce') && organics_exists_woocommerce() && (organics_is_woocommerce_page() && organics_get_custom_option('show_cart')=='shop' || organics_get_custom_option('show_cart')=='always')) {
+        //if (in_array('cart', $top_panel_top_components) && function_exists('organics_exists_woocommerce') && organics_exists_woocommerce() && (organics_is_woocommerce_page() && organics_get_custom_option('show_cart')=='shop' || organics_get_custom_option('show_cart')=='always') && !(is_checkout() || is_cart() || defined('WOOCOMMERCE_CHECKOUT') || defined('WOOCOMMERCE_CART'))) {
             ?>
             <li class="menu_user_cart">
                 <?php require_once organics_get_file_dir('templates/headers/_parts/contact-info-cart.php'); ?>
