@@ -588,14 +588,14 @@ class WC_Countries {
 			),
 			'state' => array(
 				'type'         => 'state',
-				'label'        => __( 'State / County', 'woocommerce' ),
+				'label'        => __( 'Estado', 'woocommerce' ),
 				'required'     => true,
 				'class'        => array( 'form-row-first', 'address-field' ),
 				'validate'     => array( 'state' ),
 				'autocomplete' => 'address-level1',
 			),
 			'postcode' => array(
-				'label'        => __( 'Postcode / ZIP', 'woocommerce' ),
+				'label'        => __( 'Código postal', 'woocommerce' ),
 				'required'     => true,
 				'class'        => array( 'form-row-last', 'address-field' ),
 				'clear'        => true,
