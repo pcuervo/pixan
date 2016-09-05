@@ -107,6 +107,7 @@ function show_metabox_producto($post){
 	
 	$tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true);
 	$temperatura = get_post_meta($post->ID, 'temperatura', true);
+	$meta = get_post_meta($post->ID);
 	
 	wp_nonce_field(__FILE__, '_unidadmedida');
 	wp_nonce_field(__FILE__, '_temperatura');
