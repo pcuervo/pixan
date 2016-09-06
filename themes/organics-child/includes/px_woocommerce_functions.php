@@ -1,5 +1,53 @@
 <?php
 
+function my_superawesome_function() {
+	
+
+$current_user = wp_get_current_user();
+$customer_id = $current_user->ID;
+
+// $args = array(
+// 'numberposts' => -1,
+// 'meta_key' => '_customer_user',
+// 'meta_value'	=> $customer_id,
+// 'post_type' => 'shop_order',
+// 'post_status' => 'publish'
+// );
+// $customer_orders = get_posts($args);
+$customer_orders = get_posts( array(
+    'numberposts' => -1,
+    'meta_key'    => '_customer_user',
+    'meta_value'  => get_current_user_id(),
+    'post_type'   => wc_get_order_types(),
+    'post_status' => array_keys( wc_get_order_statuses() ),
+) );
+
+//var_dump( $customer_orders );
+if ($customer_orders) :
+	error_log('nigga has orders');
+foreach ($customer_orders as $customer_order) :
+$order = new WC_Order();
+
+$order->populate( $customer_order );
+
+// Get the coupon array
+$couponR = $order->order_custom_fields['coupons'];
+
+foreach ($couponR as $singleCoupon) {
+echo $singleCoupon.'
+';
+}
+
+endforeach;
+
+else :
+//no Coupon then...
+endif;
+
+}
+//add_action('woocommerce_init', 'my_superawesome_function');
+
+
 /*==========================================
 =            #GENERAL FUNCTIONS            =
 ==========================================*/
