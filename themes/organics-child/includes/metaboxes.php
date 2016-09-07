@@ -80,4 +80,6 @@ add_action( 'save_post', function ( $post_id ){
 	
 });// save_meta_boxes_puntos_recoleccion
 
+
+
 ?>

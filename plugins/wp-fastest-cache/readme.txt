@@ -3,8 +3,8 @@ Contributors: emrevona
 Donate link: http://profiles.wordpress.org/emrevona/
 Tags: cache, performance, wp-cache, total cache, super cache
 Requires at least: 3.3
-Tested up to: 4.5
-Stable tag: 4.5
+Tested up to: 4.6
+Stable tag: 4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,22 +81,36 @@ Wpfc does not support Wordpress Multisite yet.
 == Screenshots ==
 
 1. Performance Comparison
-2. Without Cache
-3. With Cache
-4. Main Settings Page
-5. Preload
-6. New Post
-7. Delete Cache
-8. All cached files are deleted at the determinated time
-9. Block caching for post and pages (TinyMCE)
-10. Clean cached files via admin toolbar easily
-11. Exclude Page
-12. CDN
-13. Enter CDN Information
-14. File Types
-15. Specify Sources
+2. Other Performance Comparison
+3. Without Cache
+4. With Cache
+5. Main Settings Page
+6. Preload
+7. New Post
+8. Update Cache
+9. Delete Cache
+10. All cached files are deleted at the determinated time
+11. Block caching for post and pages (TinyMCE)
+12. Clean cached files via admin toolbar easily
+13. Exclude Page
+14. CDN
+15. Enter CDN Information
+16. File Types
+17. Specify Sources
 
 == Changelog ==
+
+= 0.8.6.1 =
+* <strong>[FEATURE]</strong>  exclude css sources
+* to fix Non-trailing Slash problem
+* to add specify source option for cdn integration
+* new interface of cdn tab
+* <strong>[FEATURE]</strong> to add Photon
+* <strong>[FEATURE]</strong> Multiple CDN
+* <strong>[FEATURE]</strong>  exclude js sources
+* to improve Combine JS feature
+* <strong>[FEATURE]</strong> Compatible with WpResidence theme
+* <strong>[FEATURE]</strong> to call preload manually
 
 = 0.8.6.0 =
 * to fix the problem about replacing url after minify css
@@ -633,6 +647,9 @@ Yes, it is compatible with WP-PostRatings.
 
 = Is this plugin compatible with AdRotate? =
 No, it is NOT compatible with AdRotate.
+
+= Is this plugin compatible with WP Hide & Security Enhancer? =
+No, it is NOT compatible with WP Hide & Security Enhancer.
 
 = Is this plugin compatible with WP-PostViews? =
 Yes, it is compatible with WP-PostViews. The current post views appear on the admin panel. The visitors cannot see the current post views. The developer of WP-PostViews needs to fix this issue.
