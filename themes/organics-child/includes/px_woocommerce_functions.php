@@ -47,7 +47,6 @@ function px_apply_new_customer_coupon(){
  * Create coupon "bienvenido"
  */
 function px_create_new_customer_coupon(){
-	return;
 	$coupon_code = 'bienvenido'; 
 	$amount = '50';
 	$discount_type = 'fixed_cart';
