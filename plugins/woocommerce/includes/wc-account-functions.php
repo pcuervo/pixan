@@ -90,7 +90,7 @@ function wc_get_account_menu_items() {
 		'orders'          => __( 'Orders', 'woocommerce' ),
 		'downloads'       => __( 'Downloads', 'woocommerce' ),
 		'edit-address'    => __( 'Addresses', 'woocommerce' ),
-		'payment-methods' => __( 'Payment Methods', 'woocommerce' ),
+		'payment-methods' => __( 'Metodos de Pago', 'woocommerce' ),
 		'edit-account'    => __( 'Account Details', 'woocommerce' ),
 		'customer-logout' => __( 'Logout', 'woocommerce' ),
 	);

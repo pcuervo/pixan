@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="no_subscriptions">
 			<?php
 			// translators: placeholders are opening and closing link tags to take to the shop page
-			printf( esc_html__( 'You have no active subscriptions. Find your first subscription in the %sstore%s.', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
+			printf( esc_html__( 'No tiene suscripciones activas. Realice su primera suscripción en la %stienda%s.', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
 			?>
 		</p>
 
