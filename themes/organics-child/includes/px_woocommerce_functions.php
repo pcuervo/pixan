@@ -1,53 +1,5 @@
 <?php
 
-function my_superawesome_function() {
-	
-
-$current_user = wp_get_current_user();
-$customer_id = $current_user->ID;
-
-// $args = array(
-// 'numberposts' => -1,
-// 'meta_key' => '_customer_user',
-// 'meta_value'	=> $customer_id,
-// 'post_type' => 'shop_order',
-// 'post_status' => 'publish'
-// );
-// $customer_orders = get_posts($args);
-$customer_orders = get_posts( array(
-    'numberposts' => -1,
-    'meta_key'    => '_customer_user',
-    'meta_value'  => get_current_user_id(),
-    'post_type'   => wc_get_order_types(),
-    'post_status' => array_keys( wc_get_order_statuses() ),
-) );
-
-//var_dump( $customer_orders );
-if ($customer_orders) :
-	error_log('nigga has orders');
-foreach ($customer_orders as $customer_order) :
-$order = new WC_Order();
-
-$order->populate( $customer_order );
-
-// Get the coupon array
-$couponR = $order->order_custom_fields['coupons'];
-
-foreach ($couponR as $singleCoupon) {
-echo $singleCoupon.'
-';
-}
-
-endforeach;
-
-else :
-//no Coupon then...
-endif;
-
-}
-//add_action('woocommerce_init', 'my_superawesome_function');
-
-
 /*==========================================
 =            #GENERAL FUNCTIONS            =
 ==========================================*/
@@ -87,7 +39,7 @@ function px_free_shipping_above_500( $rates ) {
  * Apply coupon "bienvenido" to new users.
  */
 function px_apply_new_customer_coupon(){
-	if( WC()->cart->has_discount('bienvenido') ) return;
+	if( WC()->cart->has_discount('bienvenido') || px_has_used_coupon( 'bienvenido' ) ) return;
 	WC()->cart->add_discount( 'bienvenido' );
 }
 
@@ -118,6 +70,44 @@ function px_create_new_customer_coupon(){
 	update_post_meta( $new_coupon_id, 'expiry_date', '' );
 	update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
 	update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
+}
+
+/**
+ * Check if user has applied a coupon before
+ *
+ * @param string $coupon_name
+ * @return boolean
+ */
+function px_has_used_coupon( $coupon_name ) {
+	// Exlude orders that have been cancelled or failed
+	$valid_order_statuses = array_diff( array_keys( wc_get_order_statuses() ), array( 'wc-cancelled', 'wc-failed' ));
+	$customer_orders = get_posts( array(
+	    'numberposts' => -1,
+	    'meta_key'    => '_customer_user',
+	    'meta_value'  => get_current_user_id(),
+	    'post_type'   => array('shop_order'),
+	    'post_status' => $valid_order_statuses,
+	) );
+	if( ! $customer_orders ) return 0;
+
+	foreach ( $customer_orders as $customer_order ) {
+		$order = new WC_Order( $customer_order->ID );
+		if( px_order_has_coupon( $order, $coupon_name ) ) return 1;
+	}
+	return 0;
+}
+
+/**
+ * Check if an order has a coupon
+ *
+ * @param WC_Order $order
+ * @param string $coupon_name
+ * @return boolean
+ */
+function px_order_has_coupon( WC_Order $order, $coupon_name ) {
+	if( ! $order->get_used_coupons() ) return 0;
+
+	if( in_array( $coupon_name, $order->get_used_coupons() ) ) return 1;
 }
 
 /*=====  End of #GENERAL FUNCTIONS  ======*/
