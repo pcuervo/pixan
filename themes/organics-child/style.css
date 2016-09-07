@@ -71,7 +71,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 
 @media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
-.woocommerce-account .sidebar { display: none!important; }
+/*.woocommerce-account .sidebar { display: none!important; } 		hide in my-accoun(?)*/
 
 /*Box model*/
 .max-height--60,
@@ -82,7 +82,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .max-height--240 { max-height: 240px; }
 
 .width--30		{ width: 30px; }
-.width--80		{ width: 80px; }
+.width--80		{ width: 85px; }
 
 @media (min-width:960px) {
 	.min-height--200-l { min-height: 200px; }
@@ -290,6 +290,11 @@ li.menu_user_cart a.top_panel_cart_button,
 @media (max-width: 639px){ .header_mobile .menu_main_cart{ right: 37px; } }
 
 @media (max-width: 1022px){ header { opacity: 0; } }
+
+/*Cart*/
+.top_panel_wrap .top_panel_top .sidebar_cart { top: 0px!important; }
+
+.sidebar_cart .mini_cart_item { background-color: #fff!important; }
 
 /*Dropdown menu*/
 .menu_main_nav li ul.sub-menu {
@@ -607,6 +612,9 @@ li.reviews_tab,
 .price + .woo_thumb_buttons .shortcode_add_to_button a{ margin-left: 0px!important; }
 
 @media(min-width:1136px) and (max-width:1279px){ .price + .woo_thumb_buttons .shortcode_add_to_button a{ padding: 0px 15px!important; } }
+
+/*Checkout*/
+.woocommerce form .form-row .input-checkbox { display: inline-block!important; width: 30px; }
 
 /*List*/
 

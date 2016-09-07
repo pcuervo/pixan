@@ -13,7 +13,13 @@ $cart_summa = strip_tags(WC()->cart->get_cart_subtotal());
 		<span class="cart_summa"><?php echo trim($cart_summa); ?></span>
 	</span>
 </a>
-<ul class="widget_area sidebar_cart sidebar"><li>
+<?php if ( is_page('carrito') || is_page('checkout') ) { ?>
+	<ul class="widget_area sidebar_cart sidebar [ hidden ]">
+<?php } ?>
+<?php if ( !is_page('carrito') || !is_page('checkout')  ) { ?>
+	<ul class="widget_area sidebar_cart sidebar">
+<?php } ?>
+<li>
 	<?php
 	do_action( 'before_sidebar' );
 	organics_storage_set('current_sidebar', 'cart');
