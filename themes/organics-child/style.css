@@ -585,6 +585,10 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
+.price .from, .price .subscription-details,
+.product_list_widget .from, .product_list_widget .subscription-details,
+.woocommerce-variation-price { display: none; }
+
 	/*modal lista*/
 #dialog span { color: #80B500!important; }
 

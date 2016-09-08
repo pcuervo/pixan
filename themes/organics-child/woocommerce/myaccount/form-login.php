@@ -62,6 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?></a>
 			</p>
 
+			<?php do_action('facebook_login_button');?>
 			<p class="[ text-center ]"><?php echo do_shortcode('[htheme_signup_slug"]'); ?></p>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
