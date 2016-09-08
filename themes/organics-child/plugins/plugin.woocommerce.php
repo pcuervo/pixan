@@ -518,11 +518,11 @@ if ( !function_exists( 'organics_woocommerce_wrapper_start' ) ) {
 			</div>
 
 			<!-- acomodo canastas -->
-				<?php if (is_product_category('canastas')) { ?>
+				<?php if (is_product_category( array ('programar-canasta-recurrente','comprar-solo-una-vez'))) { ?>
 					<div class="list_products shop_mode_list">
 				<?php } ?>
 
-				<?php if ( ! is_product_category('canastas')) { ?>
+				<?php if (!is_product_category( array ('programar-canasta-recurrente','comprar-solo-una-vez'))) { ?>
 					<div class="list_products shop_mode_thumbs">
 				<?php } ?>
 
