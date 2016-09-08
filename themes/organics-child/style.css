@@ -26,6 +26,10 @@ h1 { text-transform: uppercase; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
+.font-weight--500 { font-weight: 500!important; }
+
+.color-red { color: #b33451; }
+
 /*Background*/
 #row-bg.vc_row.background-top-center { background-position: top center!important; }
 
@@ -173,6 +177,9 @@ input[type="button"]:hover,
 
 @media (min-width: 960px ) and (max-width:1439px){.button-login { height: 56px!important; }}
 .button-login { margin-bottom: 30px!important; }
+
+.ui-button { color: #fff!important; }
+.ui-button:hover { color: #1F4B24!important; }
 
 	/*Large*/
 .sc_button.sc_button_size_large {
@@ -673,3 +680,4 @@ li.reviews_tab,
 
 /*Cuenta*/
 .woocommerce-account
+
