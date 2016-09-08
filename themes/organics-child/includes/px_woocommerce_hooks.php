@@ -8,7 +8,7 @@ add_action( 'woocommerce_cart_calculate_fees', 'px_add_basket_on_first_order' );
 /**
  * Create coupon for new customers
  */
-add_action( 'woocommerce_init', 'px_create_new_customer_coupon' );
+//add_action( 'woocommerce_init', 'px_create_new_customer_coupon' );
 
 /**
  * On first order, apply coupon to cart.
