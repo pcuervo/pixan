@@ -21,6 +21,7 @@ $sidebar_name = organics_get_custom_option('sidebar_footer');
 if (!organics_param_is_off($footer_show) && is_active_sidebar($sidebar_name)) {
 	organics_storage_set('current_sidebar', 'footer');
     ?>
+
     <footer class="footer_wrap widget_area scheme_<?php echo esc_attr(organics_get_custom_option('sidebar_footer_scheme')); ?>">
         <div class="footer_wrap_inner widget_area_inner">
             <div class="content_wrap">
@@ -75,6 +76,7 @@ if (organics_get_custom_option('show_contacts_in_footer')=='yes') {
     $fax = organics_get_theme_option('contact_fax');
     if (!empty($address_1) || !empty($address_2) || !empty($phone) || !empty($fax)) {
         ?>
+
         <footer class="contacts_wrap scheme_<?php echo esc_attr(organics_get_custom_option('contacts_scheme')); ?>">
             <div class="contacts_wrap_inner">
                 <div class="content_wrap">

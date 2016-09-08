@@ -189,13 +189,13 @@ function _wc_get_orders_generate_customer_meta_query( $values, $relation = 'or' 
  */
 function wc_get_order_statuses() {
 	$order_statuses = array(
-		'wc-pending'    => _x( 'Pending Payment', 'Order status', 'woocommerce' ),
-		'wc-processing' => _x( 'Processing', 'Order status', 'woocommerce' ),
-		'wc-on-hold'    => _x( 'On Hold', 'Order status', 'woocommerce' ),
-		'wc-completed'  => _x( 'Completed', 'Order status', 'woocommerce' ),
-		'wc-cancelled'  => _x( 'Cancelled', 'Order status', 'woocommerce' ),
-		'wc-refunded'   => _x( 'Refunded', 'Order status', 'woocommerce' ),
-		'wc-failed'     => _x( 'Failed', 'Order status', 'woocommerce' ),
+		'wc-pending'    => _x( 'Pendiente de pago', 'Order status', 'woocommerce' ),
+		'wc-processing' => _x( 'Procesada', 'Order status', 'woocommerce' ),
+		'wc-on-hold'    => _x( 'En espera', 'Order status', 'woocommerce' ),
+		'wc-completed'  => _x( 'Completada', 'Order status', 'woocommerce' ),
+		'wc-cancelled'  => _x( 'Cancelada', 'Order status', 'woocommerce' ),
+		'wc-refunded'   => _x( 'Reintegrada', 'Order status', 'woocommerce' ),
+		'wc-failed'     => _x( 'Fallida', 'Order status', 'woocommerce' ),
 	);
 	return apply_filters( 'wc_order_statuses', $order_statuses );
 }

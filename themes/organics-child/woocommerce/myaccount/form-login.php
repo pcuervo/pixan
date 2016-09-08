@@ -62,6 +62,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?></a>
 			</p>
 
+			<?php do_action('facebook_login_button');?>
+
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>
@@ -105,12 +107,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'woocommerce' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
 
 			<?php do_action( 'woocommerce_register_form' ); ?>
-			<?php do_action( 'register_form' ); ?>
 
-			<p class="woocomerce-FormRow form-row">
+			<p class="woocomerce-FormRow form-row [ margin-bottom--large ]">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Crear cuenta', 'woocommerce' ); ?>" />
 			</p>
+
+			<?php do_action( 'register_form' ); ?>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 

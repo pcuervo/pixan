@@ -35,7 +35,7 @@ class Product_List_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
-		
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 		//add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_area_entrega' ) );
 		//add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
@@ -43,9 +43,9 @@ class Product_List_Settings {
 		add_action('woocommerce_after_cart_table', array( $this, 'add_list_to_list_button'));
 		add_action('woocommerce_after_add_to_cart_button', array( $this, 'add_product_to_list_button'));
 		//add_action('woocommerce_after_my_account', array( $this, 'show_user_lists'));
-		add_action( 'wp_ajax_add_products_to_a_list', array( $this, 'add_products_to_a_list') ); 
+		add_action( 'wp_ajax_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
 		add_action( 'wp_ajax_nopriv_my_action_name', array( $this, 'add_products_to_a_list') );
-		
+
 		// Insering your new tab/page into the My Account page.
 		add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
 		add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this,'show_user_lists') );
@@ -55,7 +55,7 @@ class Product_List_Settings {
 	}
 
 
-	
+
 
 	/**
 	 * Register all custom post types needed for "Administrador de Cursos"
@@ -68,42 +68,42 @@ class Product_List_Settings {
 	 * Register all custom post types needed for "Administrador de Cursos"
 	 */
 	public function register_custom_taxonomies() {
-		
+
 	}
 
 	/**
 	 * Register all meta boxes needed for custom post types.
 	 */
 	public function add_meta_boxes_area_entrega() {
-		
+
 	}
 
 	/**
 	 * Save metaboxes
 	 */
 	public function save_meta_boxes( $post_id ) {
-		
+
 	}
 
 	/**
 	 * Add javascript and style files
 	 */
 	public function enqueue_and_localize_scripts(){
-		
+
 		//wp_enqueue_style( 'admin_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_styles.css' );
 		//wp_enqueue_script( 'geo-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&libraries=drawing');
-		//wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('map-admin-lists-api' ));	
+		//wp_enqueue_script( 'geo-map-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('map-admin-lists-api' ));
 		wp_enqueue_script( 'jquery' );
 		wp_register_script( 'jquery-ui', 'https://code.jquery.com/ui/1.12.0/jquery-ui.js', array( 'jquery' ) );
 		wp_enqueue_script( 'jquery-ui', array('jquery' ) );
-		
+
 		wp_register_style( 'jquery-ui-style', '//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css', true);
 		//wp_register_style('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
   		wp_enqueue_script( 'jquery-ui-dialog', array('jquery-ui' ) );
-  		wp_enqueue_style( 'jquery-ui-style' ); 
-		wp_enqueue_script( 'product-list', PRODUCT_LIST_URL . 'inc/js/product-list.js', array('jquery-ui'));	
-		
-		
+  		wp_enqueue_style( 'jquery-ui-style' );
+		wp_enqueue_script( 'product-list', PRODUCT_LIST_URL . 'inc/js/product-list.js', array('jquery-ui'));
+
+
 	}
 
 
@@ -111,7 +111,7 @@ class Product_List_Settings {
 	* CUSTOM POST TYPES
 	******************************************/
 
-	
+
 	/******************************************
 	* META BOX CALLBACKS
 	******************************************/
@@ -136,7 +136,7 @@ class Product_List_Settings {
 	 * Endpoint HTML content.
 	 */
 	public function endpoint_content() {
-		//wc_get_template( 'myaccount/navigation.php' ); 
+		//wc_get_template( 'myaccount/navigation.php' );
 	?>
 
 		<div class="woocommerce-MyAccount-content">
@@ -161,7 +161,7 @@ class Product_List_Settings {
 			$listas = $this->get_list(get_current_user_id());
 			if (count($listas[0]) > 0) {
 				echo '<select id="add_product_list" name="add_product_list" >';
-				foreach ( $listas as $list ) 
+				foreach ( $listas as $list )
 				{
 					echo '<option value="'.$list->id.'">'.$list->nombre.'</option>';
 				}
@@ -277,6 +277,7 @@ class Product_List_Settings {
 
 	function add_product_to_list_button() {
 		echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
+		echo '<div class="clearfix"></div>';
 		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
 		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
 		$this->show_dialog();
@@ -325,7 +326,7 @@ class Product_List_Settings {
 
 					$listas = $this->get_list(get_current_user_id());
 					if (count($listas[0]) > 0) {
-						foreach ( $listas as $list ) 
+						foreach ( $listas as $list )
 						{
 							echo '<tr class="list" data-listid="'.$list->id.'">
 								<td class="list-name" data-title="Pedido">
@@ -347,7 +348,7 @@ class Product_List_Settings {
 					else {
 						echo '<tr class="list" style="background-color: pink; text-align:center;"><td colspan="4">Aún no tienes ninguna lista.</td></tr>';
 					}
-						
+
 					echo '<tr class="list">
 							<form id="formAddLista" action="my-account" type="post" >
 								<td class="list-name" colspan="2">
@@ -362,7 +363,7 @@ class Product_List_Settings {
 									</select>
 								</td>
 								<td class="list-actions" data-title="&nbsp;">
-									<button type="submit" class="button view">Crear</button>	
+									<button type="submit" class="button view">Crear</button>
 								</td>
 							</form>
 						</tr>
@@ -373,7 +374,7 @@ class Product_List_Settings {
 	}
 
 	public function show_list_detail( $list_id ) {
-		$_pf = new WC_Product_Factory();  
+		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 
 		echo '<h3>'.$this->get_list_name($list_id).'</h3>';
@@ -388,11 +389,11 @@ class Product_List_Settings {
 				</tr>
 			</thead>
 			<tbody>';
-			
-			
+
+
 			if (count($detalle[0]) > 0) {
-				
-				foreach ( $detalle as $det ) 
+
+				foreach ( $detalle as $det )
 				{
 					$_product = $_pf->get_product($det->product_id);
 					echo '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
@@ -405,13 +406,13 @@ class Product_List_Settings {
 				}
 			}
 			else {
-				echo '<td colspan="5" style="color:pink;">Esta lista esta vacia.</td>';
+				echo '<td colspan="5">Esta lista esta vacia.</td>';
 			}
-			
+
 			echo '</tbody>';
 		echo '</table>';
 
-		echo '<a href="my-account?loadCart='.$list_id.'" class="button alt">Agregar los articulos de esta lista a mi carrito</a>';
+		echo '<a href="my-account?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
 	}
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
@@ -465,7 +466,7 @@ class Product_List_Settings {
 	/**
 	* Save the metaboxes for post type "Lista de Productos"
 	**/
-	
+
 	/**
 	* Add listo to user account
 	* @param int $user_id, $nombre, $recurrencia
@@ -578,7 +579,7 @@ class Product_List_Settings {
 
 	public function add_products_to_a_list() {
 		global $wpdb;
-		$resp = "OK"; 
+		$resp = "OK";
 		$list_id = $_POST['list_id'];
 		if ( $list_id == 0 ) {
 			$list_id = $this->add_list( "Mi Lista", 15 );
@@ -605,8 +606,8 @@ class Product_List_Settings {
 	public function add_product_list_to_cart( $list_id ) {
 		$detalle = $this->get_list_detail($list_id);
 		if (count($detalle[0]) > 0) {
-				
-			foreach ( $detalle as $det ) 
+
+			foreach ( $detalle as $det )
 			{
 				WC()->cart->add_to_cart( $det->product_id, $det->cantidad );
 			}
