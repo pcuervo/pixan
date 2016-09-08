@@ -29,6 +29,7 @@ class Area_Entrega_Pixan {
 	const AREA_ENTREGA_PIXAN_VERSION = '1.0.0';
 
 	private static $instance = null;
+	public static $endpoint = 'mapa-ruta-pedidos';
 
 	/**
 	 * Get singleton instance of class
@@ -78,9 +79,20 @@ class Area_Entrega_Pixan {
 	}
 
 	/**
+	 * Register new endpoint to use inside My Account page.
+	 *
+	 * @see https://developer.wordpress.org/reference/functions/add_rewrite_endpoint/
+	 */
+	public function add_endpoints() {
+		add_rewrite_endpoint( self::$endpoint, EP_ROOT | EP_PAGES );
+		//flush_rewrite_rules();
+	}
+
+	/**
 	 * Initialize class
 	 */
 	private function init() {
+		add_action( 'init', array( $this, 'add_endpoints' ) );
 		if( is_admin() ){
 			Area_Entrega_Pixan_Settings::get();
 			Ordenes_Dia_Pixan::get();

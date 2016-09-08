@@ -37,6 +37,13 @@ class Ordenes_Dia_Pixan {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
 		add_action( 'wp_dashboard_setup', array( $this , 'add_dashboard_widgets_map' ) );
 		add_action( 'admin_menu', array( $this , 'my_plugin_menu' ) );
+		add_action ('wp_head' , array( $this , 'show_map_to_delivery'));
+		add_action( 'rest_api_init', function () {
+			register_rest_route( 'ordenes_dia_delivery/v1', 'mapa-ruta-pedidos', array(
+				'methods' => 'GET',
+				'callback' => array( $this , 'show_map_orders'),
+			) );
+		} );
 	}
 
 
@@ -47,6 +54,12 @@ class Ordenes_Dia_Pixan {
 		//$this->register_post_type_area_entrega_checkout();
 	}
 
+	public function show_map_to_delivery() {
+		echo get_site_url();
+		if(true) {
+			$this->show_map_orders();
+		}
+	}
 
 	/**
 	 * Register all custom post types needed for "Administrador de Cursos"
@@ -115,9 +128,10 @@ class Ordenes_Dia_Pixan {
 		}
 		//var_dump($id_areas);
 
-		echo '<div id="gmap_admin_orders" class="gmaps"></div>
-				<input type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
-				<ol id="gmap_admin_orders_instructions"></ol>';
+		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
+				<input style="width:45%;" type="button" id="btnImprimir" class="btn blue" value="Imprimir"/>
+				<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>
+				<ol id="gmap_admin_orders_instructions"></ol></div>';
 		$customer_orders = get_posts( array(
 		    'numberposts' => -1,
 		    'meta_key'    => '_billing_area_entrega',
@@ -126,7 +140,7 @@ class Ordenes_Dia_Pixan {
 		    'post_status' => array_keys( wc_get_order_statuses() ),
 		) );
 
-		echo '<select id="listado_ordenes">';
+		echo '<select style="display:none;" id="listado_ordenes">';
 		echo '<option></option>';
 		for($i = 0; $i < count($customer_orders); $i++)
 		{
@@ -157,10 +171,11 @@ class Ordenes_Dia_Pixan {
 		}
 		//var_dump($id_areas);
 
-		echo '<input type="text" class="datepicker" id="fechaPedido" name="fechaPedido" />';
-		echo '<div id="gmap_admin_orders" class="gmaps" style="height: 400px;"></div>
-				<input type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
-				<ol id="gmap_admin_orders_instructions"></ol>';
+		echo '<input type="hidden" class="datepicker" id="fechaPedido" name="fechaPedido" />
+				<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
+						<input style="width:45%;" type="button" id="btnImprimir" class="btn blue" value="Imprimir"/>';
+		echo '<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>
+				<ol id="gmap_admin_orders_instructions"></ol></div>';
 		$customer_orders = get_posts( array(
 		    'numberposts' => -1,
 		    'meta_key'    => '_billing_area_entrega',
@@ -169,7 +184,7 @@ class Ordenes_Dia_Pixan {
 		    'post_status' => array_keys( wc_get_order_statuses() ),
 		) );
 
-		echo '<select id="listado_ordenes">';
+		echo '<select style="display:none;" id="listado_ordenes">';
 		echo '<option></option>';
 		for($i = 0; $i < count($customer_orders); $i++)
 		{
