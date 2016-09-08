@@ -173,6 +173,7 @@ class Product_List_Settings {
 
 	function add_product_to_list_button() {
 		echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
+		echo '<div class="clearfix"></div>';
 		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
 		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
 		$this->show_dialog();

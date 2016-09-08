@@ -63,7 +63,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 
 			<?php do_action('facebook_login_button');?>
-			<p class="[ text-center ]"><?php echo do_shortcode('[htheme_signup_slug"]'); ?></p>
+			<p class="[ text-center ]"><?php echo do_shortcode('[htheme_signup_slug]'); ?></p>
+			<p class="[ text-center ]"><?php echo do_shortcode(['htheme_signup_slug']); ?></p>
+
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
