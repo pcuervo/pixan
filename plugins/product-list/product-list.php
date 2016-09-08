@@ -74,6 +74,8 @@ class Product_List {
 		$product_list->create_product_list_detail_table();
 		add_option( 'product_list_version', Product_List::PRODUCT_LIST_VERSION );
 
+		wp_schedule_event( time(), 'hourly', 'my_cron_event' );
+
 	}
 
 	/**
@@ -84,6 +86,9 @@ class Product_List {
 		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}product_list" );
 		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}product_list_detail" );
 		delete_option( 'product_list_version' );
+
+		wp_clear_scheduled_hook('my_cron_event');
+
 	}
 
 	/**

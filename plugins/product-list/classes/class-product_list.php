@@ -49,6 +49,9 @@ class Product_List_Settings {
 		// Insering your new tab/page into the My Account page.
 		add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
 		add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this,'show_user_lists') );
+
+		//ACTION TO SEND MAIL REMINDERS OF RECURRENT LIST's
+		add_action( 'my_cron_event',  array( $this, 'send_mail_reminders') );
 	}
 
 
@@ -171,6 +174,107 @@ class Product_List_Settings {
 		echo '</div>';
 	}
 
+	public function send_mail_reminders() {
+		$listas = $this->get_all_lists();
+		if (count($listas[0]) > 0) {
+			foreach ( $listas as $list ) 
+			{
+				$ahora = explode( ' ', current_time( 'mysql' ));
+				$ahora = date('d/m/Y', strtotime($ahora[0]));
+				$ultimo_recordatorio = explode( ' ', $list->fecha);
+				$ultimo_recordatorio = date('d/m/Y', strtotime($ultimo_recordatorio[0]));
+				$dif = $this->calcular_cant_dias_entre_fechas($ultimo_recordatorio, $ahora);
+				
+				if($dif >= $list->recurrencia) {
+					$this->send_mail($list->id, $list->user_id);
+				}
+			}
+		}
+	}
+
+	public function send_mail($idlista, $idusuario) {
+		global $wpdb;
+		$ud = get_userdata( $idusuario );
+		echo 'Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email.'<br />';
+		
+		$subject = 'Pixan - Recordatorio de tu lista';
+		//$headers = array('Content-Type: text/html; charset=UTF-8');
+		$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
+		$message = '<html><body>';
+		$message .= $this->show_list_detail_to_email($idlista);
+		$message .= '</body></html>';
+
+		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
+
+		//SEND EMAIL CONFIRMATION
+		$resp = wp_mail( "jonasgraterol@gmail.com", $subject, $message, $headers );
+
+		$wpdb->update( 
+			$wpdb->prefix . 'product_list', 
+			array( 'fecha' => current_time( 'mysql' )), 
+			array( 'id' => $idlista ), 
+			array( '%s' ), 
+			array( '%d' ) 
+		);
+	}
+
+	//CALCULA LA CANTIDAD DE DIAS ENTRE 2 FECHAS CON FORMATO dd/mm/aaaa 
+	public function calcular_cant_dias_entre_fechas($fechaL,$fechaS)
+	{
+		$dia1 = substr($fechaL, 0, 2);
+		$mes1 = substr($fechaL, 3, 2);
+		$anno1 = substr($fechaL, 6, 4);
+		
+		$dia2 = substr($fechaS, 0, 2);
+		$mes2 = substr($fechaS, 3, 2);
+		$anno2 = substr($fechaS, 6, 4);
+		
+		$timestamp1 = mktime(0,0,0,$mes1,$dia1,$anno1);
+		$timestamp2 = mktime(0,0,0,$mes2,$dia2,$anno2);
+		
+		$segundos_diferencia = $timestamp1 - $timestamp2;
+		
+		$dias_diferencia = $segundos_diferencia / (60 * 60 * 24);
+		
+		$dias_diferencia = abs($dias_diferencia);
+		
+		$dias_diferencia = floor($dias_diferencia);
+		
+		if ($timestamp1 > $timestamp2)
+		{
+			$dias_diferencia = $dias_diferencia*-1;
+		}	
+		
+		return $dias_diferencia;
+	}
+
+	//CALCULA LA DIFERENCIA ENTRE 2 FECHAS EN CUALQUIER FORMATO RETORNANDO EN FORMATO TIMESTAMP
+	public function compara_fechas($fecha1,$fecha2)
+	{
+	    if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
+		{
+			list($dia1,$mes1,$año1)=explode("/",$fecha1);
+		}	
+	        
+		if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
+	    {
+			list($dia1,$mes1,$año1)=explode("-",$fecha1);
+	    }
+		if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
+	    {
+			list($dia2,$mes2,$año2)=explode("/",$fecha2);
+	    }    
+		if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
+	    {
+			list($dia2,$mes2,$año2)=explode("-",$fecha2);
+		}
+					
+        $dif1 = mktime(0,0,0,$mes1,$dia1,$año1); 
+		$dif2 = mktime(0,0,0, $mes2,$dia2,$año2);
+		$dif = $dif1 - $dif2;
+        return ($dif);                         
+	}
+
 	function add_product_to_list_button() {
 		echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
 		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
@@ -183,9 +287,11 @@ class Product_List_Settings {
 		//var_dump($_GET);
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
+			header("Location: ".SITEURL."my-account/product-list");
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
+			header("Location: ".SITEURL."my-account/product-list");
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -197,6 +303,11 @@ class Product_List_Settings {
 		else if( isset($_GET['detalle']) ){
 			$this->show_list_detail($_GET['detalle']);
 		}
+		//TESTING CRON DELETE THIS ELSE IF SENTENCE
+		else if ( isset($_GET['cron']) ){
+			$this->send_mail_reminders();
+		}
+		//END TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else {
 
 			echo '<h4>Mis listas</h4>';
@@ -258,6 +369,7 @@ class Product_List_Settings {
 						</tbody>
 					</table>';
 		}
+
 	}
 
 	public function show_list_detail( $list_id ) {
@@ -302,7 +414,49 @@ class Product_List_Settings {
 		echo '<a href="my-account?loadCart='.$list_id.'" class="button alt">Agregar los articulos de esta lista a mi carrito</a>';
 	}
 
-	
+	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
+	public function show_list_detail_to_email( $list_id ) {
+		$_pf = new WC_Product_Factory();  
+		$detalle = $this->get_list_detail($list_id);
+		$msj = '';
+		$msj .= '<h3>'.$this->get_list_name($list_id).'</h3>';
+		$msj .= '<table class="shop_table shop_table_responsive cart" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="">&nbsp;</th>
+					<th class="">&nbsp;</th>
+					<th class="list-name">Producto</th>
+					<th class="">Precio</th>
+					<th class="">Cantidad</th>
+				</tr>
+			</thead>
+			<tbody>';
+			
+			
+			if (count($detalle[0]) > 0) {
+				
+				foreach ( $detalle as $det ) 
+				{
+					$_product = $_pf->get_product($det->product_id);
+					$msj .= '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
+						$msj .= '<td><a href="my-account?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.'" class="remove" title="Eliminar de mi Lista" >X</a></td>';
+						$msj .= '<td>'.$_product->get_image().'</td>';
+						$msj .= '<td>'.$_product->get_title().'</td>';
+						$msj .= '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td>'.$det->cantidad.'</td>';
+					$msj .= '</tr>';
+				}
+			}
+			else {
+				$msj .= '<td colspan="5" style="color:pink;">Esta lista esta vacia.</td>';
+			}
+			
+			$msj .= '</tbody>';
+		$msj .= '</table>';
+
+		$msj .= '<a href="'.SITEURL.'my-account/product-list" class="button alt">Ver mi lista</a>';
+		return $msj;
+	}
 
 	/******************************************
 	* SAVE META BOXES
@@ -324,7 +478,7 @@ class Product_List_Settings {
 				'user_id'		=> get_current_user_id(),
 				'nombre'		=> $nombre,
 				'recurrencia' 	=> $recurrencia,
-				'fecha'			=> 'NOW()',
+				'fecha'			=> current_time( 'mysql' ),
 			);
 			$wpdb->insert(
 				$wpdb->prefix . 'product_list',
@@ -362,6 +516,14 @@ class Product_List_Settings {
 		$list_results = $wpdb->get_results(
 			"SELECT * FROM " . $wpdb->prefix . "product_list WHERE user_id = " . $user_id
 			);
+		if( empty( $list_results ) ) return 0;
+
+		return $list_results;
+	}
+
+	public static function get_all_lists(){
+		global $wpdb;
+		$list_results = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "product_list ");
 		if( empty( $list_results ) ) return 0;
 
 		return $list_results;
