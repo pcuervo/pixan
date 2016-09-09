@@ -1,0 +1,37 @@
+[08-Sep-2016 23:28:11 UTC] init plugin
+[08-Sep-2016 23:28:15 UTC] init plugin
+[08-Sep-2016 23:28:17 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 446
+[08-Sep-2016 23:28:17 UTC] PHP Stack trace:
+[08-Sep-2016 23:28:17 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[08-Sep-2016 23:28:17 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[08-Sep-2016 23:28:17 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[08-Sep-2016 23:28:17 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[08-Sep-2016 23:28:17 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:189
+[08-Sep-2016 23:28:17 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:204
+[08-Sep-2016 23:35:12 UTC] init plugin
+[08-Sep-2016 23:35:14 UTC] init plugin
+[08-Sep-2016 23:35:48 UTC] init plugin
+[08-Sep-2016 23:35:56 UTC] init plugin
+[08-Sep-2016 23:36:04 UTC] init plugin
+[08-Sep-2016 23:36:17 UTC] init plugin
+[08-Sep-2016 23:37:12 UTC] init plugin
+[08-Sep-2016 23:38:07 UTC] init plugin
+[08-Sep-2016 23:39:13 UTC] init plugin
+[08-Sep-2016 23:39:48 UTC] init plugin
+[08-Sep-2016 23:39:51 UTC] init plugin
+[08-Sep-2016 23:40:03 UTC] init plugin
+[08-Sep-2016 23:41:10 UTC] init plugin
+[08-Sep-2016 23:42:10 UTC] init plugin
+[08-Sep-2016 23:42:45 UTC] init plugin
+[08-Sep-2016 23:43:10 UTC] init plugin
+[08-Sep-2016 23:44:12 UTC] init plugin
+[08-Sep-2016 23:45:11 UTC] init plugin
+[08-Sep-2016 23:47:11 UTC] init plugin
+[08-Sep-2016 23:49:12 UTC] init plugin
+[09-Sep-2016 18:26:27 UTC] init plugin
+[09-Sep-2016 18:26:27 UTC] init plugin
+[09-Sep-2016 18:26:30 UTC] init plugin
+[09-Sep-2016 18:26:42 UTC] init plugin
+[09-Sep-2016 18:26:42 UTC] init plugin
+[09-Sep-2016 18:26:42 UTC] init plugin
+[09-Sep-2016 18:26:58 UTC] init plugin

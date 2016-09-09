@@ -207,7 +207,7 @@ class Product_List_Settings {
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 		//SEND EMAIL CONFIRMATION
-		$resp = wp_mail( "jonasgraterol@gmail.com", $subject, $message, $headers );
+		$resp = wp_mail( $ud->user_email, $subject, $message, $headers );
 
 		$wpdb->update( 
 			$wpdb->prefix . 'product_list', 
