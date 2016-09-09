@@ -124,7 +124,7 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
                         $user_avatar = '';
                         if ($current_user->user_email) $user_avatar = get_avatar($current_user->user_email, 16*min(2, max(1, organics_get_theme_option("retina_ready"))));
                         if ($user_avatar) {
-						?><span class="user_avatar"><?php echo trim($user_avatar); ?></span><?php
+						?><span class="user_avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/user.png" alt="imagen usuario"></span><?php
 					}?><span class="user_name"><?php echo trim($current_user->display_name); ?></span></a>
                 </li>
 			<li class="menu_user_logout"><a href="<?php echo wp_logout_url(home_url()); ?>" class="icon icon-logout"><?php esc_html_e('Salir', 'organics'); ?></a></li>
