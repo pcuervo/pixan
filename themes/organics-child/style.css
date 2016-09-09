@@ -303,6 +303,9 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .header_mobile .menu_main_nav li.link-canastas a:hover { color: #1E4B24!important; cursor: copy!important }
 
+.user_avatar { border: none!important; }
+.user_name { vertical-align: middle; }
+
 /*Cart*/
 .top_panel_wrap .top_panel_top .sidebar_cart { top: 0px!important; }
 

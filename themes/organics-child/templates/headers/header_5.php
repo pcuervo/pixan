@@ -146,7 +146,7 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 								                        $user_avatar = '';
 								                        if ($current_user->user_email) $user_avatar = get_avatar($current_user->user_email, 16*min(2, max(1, organics_get_theme_option("retina_ready"))));
 								                        if ($user_avatar) {
-														?><span class="user_avatar"><?php echo trim($user_avatar); ?></span><?php
+														?><span class="user_avatar"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/user.png" alt="imagen usuario"></span><?php
 													}?></a>
 								                </li>
 								            <?php
