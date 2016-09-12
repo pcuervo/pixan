@@ -26,18 +26,16 @@ h1 { text-transform: uppercase; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
-.font-weight--500 { font-weight: 500!important; }
-
 .color-red { color: #b33451; }
 
-/*Background*/
+/*Background image*/
 #row-bg.vc_row.background-top-center { background-position: top center!important; }
 
 /*Type*/
 @media (max-width: 479px){ h2 { font-size: 26px!important; } }
 p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
-.font-weight--500 { font-weight: 500; }
+.font-weight--500 { font-weight: 500!important; }
 
 .no-text-decoration:hover {  text-decoration: none; }
 
@@ -75,7 +73,6 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 /*Grid*/
 @media (min-width:567px) and (max-width:767px) { .col-6-sm { width: 50%!important; float: left; } }
 @media ( max-width: 959px) { .col-12-sm { width: 100%!important; } }
-
 
 @media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
 .woocommerce-account .sidebar { display: none!important; }
@@ -203,7 +200,6 @@ input[type="button"]:hover,
 .widget_area_inner .widget_product_search .search_button { max-width: 36%; margin-top: 7px;}
 @media(min-width:1440px){ .widget_area_inner .widget_product_search .search_field { max-width: 63%; } }
 
-
 	/*Input submit*/
 input[type="submit"]{ width: auto!important; }
 
@@ -290,7 +286,6 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .menu_main_nav > li > a { color: #1E4B24; }
 
-
 .header_mobile .logo_fixed { max-height: 115px; }
 
 @media (max-width: 639px){ .header_mobile .menu_button { right: 0px; } }
@@ -347,11 +342,8 @@ li.menu_user_cart a.top_panel_cart_button,
 }
 
 .header_mobile .menu_main_nav li a:hover { color:#80B641; }
-
 .header_mobile ul.sub-menu a { background: #80B641; }
-
 .header_mobile input { border-color:#1E4B24!important; }
-
 .header_mobile .menu_main_nav li.current_page_item a { background-color: #1E4B24!important; }
 
 @media ( min-width:640px ){
@@ -447,7 +439,6 @@ a.logo-header-fijo,
 .top_panel_fixed .top_panel_style_5 .top_panel_middle .menu_main_wrap { height: auto!important; }
 .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 0.9em!important; }
 .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav>li>a { font-size: 12px!important; }
-
 
 @media(min-width: 1024px){
 	.top_panel_fixed a.logo-header-fijo { width: 8%; }
@@ -696,7 +687,3 @@ li.reviews_tab,
 /*Canastas*/
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
-
-/*Cuenta*/
-.woocommerce-account
-
