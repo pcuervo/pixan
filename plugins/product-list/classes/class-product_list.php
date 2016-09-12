@@ -198,8 +198,8 @@ class Product_List_Settings {
 		echo 'Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email.'<br />';
 
 		$subject = 'Pixan - Recordatorio de tu lista';
-		//$headers = array('Content-Type: text/html; charset=UTF-8');
-		$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
+		$headers = array('Content-Type: text/html; charset=UTF-8');
+		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
 		$message = '<html><body>';
 		$message .= $this->show_list_detail_to_email($idlista);
 		$message .= '</body></html>';
@@ -209,12 +209,13 @@ class Product_List_Settings {
 		//SEND EMAIL CONFIRMATION
 		$resp = wp_mail( $ud->user_email, $subject, $message, $headers );
 
-		$wpdb->update(
-			$wpdb->prefix . 'product_list',
-			array( 'fecha' => current_time( 'mysql' )),
-			array( 'id' => $idlista ),
-			array( '%s' ),
-			array( '%d' )
+
+		$wpdb->update( 
+			$wpdb->prefix . 'product_list', 
+			array( 'fecha' => current_time( 'mysql' )), 
+			array( 'id' => $idlista ), 
+			array( '%s' ), 
+			array( '%d' ) 
 		);
 	}
 
@@ -428,7 +429,6 @@ class Product_List_Settings {
 			<thead>
 				<tr style"margin:20px 0">
 					<th class="">&nbsp;</th>
-					<th class="">&nbsp;</th>
 					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="list-name">Producto</th>
 					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="">Precio</th>
 					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="">Cantidad</th>
@@ -441,9 +441,9 @@ class Product_List_Settings {
 
 				foreach ( $detalle as $det )
 				{
+
 					$_product = $_pf->get_product($det->product_id);
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
-						$msj .= '<td style="padding-right: 15px;"><a href="my-account?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.'" class="remove" style="text-decoration: none; color: red;" title="Eliminar de mi Lista" >X</a></td>';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
 						$msj .= '<td style="font-size:14px; color: #1E4B24; padding-right: 15px;">'.$_product->get_title().'</td>';
 						$msj .= '<td style="font-size: 14px; padding-right: 15px;">'.WC()->cart->get_product_price( $_product ).'</td>';
@@ -469,7 +469,7 @@ class Product_List_Settings {
 				$msj .= '<img style="width: 80px;" src="http://pcuervo.com/pixan/wp-content/themes/organics-child/images/logo-small.png" class="Logo redondo pixan">';
 			$msj .= '</a>';
 		$msj .= '</div>';
-
+		//echo $msj;
 		return $msj;
 	}
 
