@@ -426,7 +426,7 @@ class Product_List_Settings {
 		$msj .= '</a>';
 		$msj .= '<p style="margin-bottom: 20px;font-size: 16px;line-height: 30px;color: #222222;">Hola nombre-de-usuario, ya esta lista tu canasta recurrencia de productos Pixan, sólo haz click en <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">ver mi lista</a> para finalizar tu compra.</p>';
 		$msj .= '<h3 style="margin-bottom:30px; text-align: center; background-color: #80B500; color: #fff; padding: 10px; font-size: 22px; letter-spacing: 2px; font-weight:500;">'.$this->get_list_name($list_id).'</h3>';
-		$msj .= '<table style="width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
+		$msj .= '<table style="border-bottom: 2px solid #80B500; width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
 			<thead>
 				<tr style"margin:20px 0">
 					<th class="">&nbsp;</th>
