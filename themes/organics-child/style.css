@@ -687,3 +687,7 @@ li.reviews_tab,
 /*Canastas*/
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
+
+/**/
+form.checkout .variation { text-align: right; }
+form.checkout .variation-Recurrencia { float: none!important; }

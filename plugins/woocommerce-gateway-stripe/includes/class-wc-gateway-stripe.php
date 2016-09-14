@@ -58,7 +58,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		$this->logging                = 'yes' === $this->get_option( 'logging' );
 
 		if ( $this->stripe_checkout ) {
-			$this->order_button_text = __( 'Continue to payment', 'woocommerce-gateway-stripe' );
+			$this->order_button_text = __( 'Pagar', 'woocommerce-gateway-stripe' );
 		}
 
 		if ( $this->testmode ) {
