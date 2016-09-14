@@ -210,12 +210,12 @@ class Product_List_Settings {
 		$resp = wp_mail( $ud->user_email, $subject, $message, $headers );
 
 
-		$wpdb->update( 
-			$wpdb->prefix . 'product_list', 
-			array( 'fecha' => current_time( 'mysql' )), 
-			array( 'id' => $idlista ), 
-			array( '%s' ), 
-			array( '%d' ) 
+		$wpdb->update(
+			$wpdb->prefix . 'product_list',
+			array( 'fecha' => current_time( 'mysql' )),
+			array( 'id' => $idlista ),
+			array( '%s' ),
+			array( '%d' )
 		);
 	}
 
@@ -421,17 +421,19 @@ class Product_List_Settings {
 		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 		$msj = '';
-		$msj .= '<a href="http://pcuervo.com/pixan/" style="display: block;">';
-			$msj .= '<img style="width:100%;" src="http://pcuervo.com/pixan/wp-content/themes/organics-child/images/header.png" alt="logo pixan"/>';
+		$msj .= '<a href="'.SITEURL.'" style="display: block; margin-bottom:30px;">';
+			$msj .= '<img style="width:100%;" src="'.SITEURL.'wp-content/themes/organics-child/images/header.png" alt="logo pixan"/>';
 		$msj .= '</a>';
-		$msj .= '<h3 style="margin-bottom:30px; text-align: center; background-color: #80B500; color: #fff; padding: 10px;">'.$this->get_list_name($list_id).'</h3>';
-		$msj .= '<table style="width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
+		$msj .= '<p style="margin-bottom: 20px;font-size: 16px;line-height: 30px;color: #222222;">Hola nombre-de-usuario, ya esta lista tu canasta recurrencia de productos Pixan, sólo haz click en <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">ver mi lista</a> para finalizar tu compra.</p>';
+		$msj .= '<h3 style="margin-bottom:30px; text-align: center; background-color: #80B500; color: #fff; padding: 10px; font-size: 22px; letter-spacing: 2px; font-weight:500;">'.$this->get_list_name($list_id).'</h3>';
+		$msj .= '<table style="border-bottom: 2px solid #80B500; width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
 			<thead>
 				<tr style"margin:20px 0">
 					<th class="">&nbsp;</th>
-					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="list-name">Producto</th>
-					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="">Precio</th>
-					<th style="font-size: 14px; padding-right: 15px; color:#1E4B24;" class="">Cantidad</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="list-name">Producto</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Precio</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Cantidad</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Unidad de medida</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -445,9 +447,10 @@ class Product_List_Settings {
 					$_product = $_pf->get_product($det->product_id);
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
-						$msj .= '<td style="font-size:14px; color: #1E4B24; padding-right: 15px;">'.$_product->get_title().'</td>';
-						$msj .= '<td style="font-size: 14px; padding-right: 15px;">'.WC()->cart->get_product_price( $_product ).'</td>';
-						$msj .= '<td style="font-size: 14px; padding-right: 15px;">'.$det->cantidad.'</td>';
+						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">Unidad</td>';
 					$msj .= '</tr>';
 				}
 			}
@@ -458,15 +461,15 @@ class Product_List_Settings {
 			$msj .= '</tbody>';
 		$msj .= '</table>';
 		$msj .= '<div style="text-align: center; margin-bottom:50px">';
-			$msj .= '<a href="'.SITEURL.'my-account/product-list" style="float: right; background-color: #80B500; cursor: pointer; color: #fff; text-decoration: none; padding: 6px 20px; line-height: 28px; text-transform: uppercase; border-radius: 5px;" class="button alt">Ver mi lista</a>';
+			$msj .= '<a href="'.SITEURL.'my-account/product-list" style="background-color: #80B500; cursor: pointer; color: #fff; font-weight:400; font-size:14px; letter-spacing:1px; text-decoration: none; padding: 6px 20px; line-height: 28px; text-transform: uppercase; border-radius: 5px;" class="button alt">Ver mi lista</a>';
 		$msj .= '</div>';
 		$msj .= '<div style="text-align: center;">';
-			$msj .= '<p>Si deseas modificar o eliminar el recordatorio tu lista da clic <a style="color: #1E4B24;" href="http://pcuervo.com/pixan/my-account/product-list/">aquí</a></p>';
+			$msj .= '<p style="font-size:16px; color: #222222;">Si deseas modificar o eliminar el recordatorio de tu lista da clic <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">aquí</a></p>';
 			$msj .= '<h4>';
-				$msj .= '<a style=" color:#80b500; text-decoration: none;" href="http://pcuervo.com/pixan/">Visita Pixan Sustentable</a>';
+				$msj .= '<a style="font-size:16px; color:#80b500; text-decoration: none;" href="'.SITEURL.'">Visita Pixan Sustentable</a>';
 			$msj .= '</h4>';
-			$msj .= '<a href="http://pcuervo.com/pixan/">';
-				$msj .= '<img style="width: 80px;" src="http://pcuervo.com/pixan/wp-content/themes/organics-child/images/logo-small.png" class="Logo redondo pixan">';
+			$msj .= '<a href="'.SITEURL.'">';
+				$msj .= '<img style="width: 80px;" src="'.SITEURL.'wp-content/themes/organics-child/images/logo-small.png" class="Logo redondo pixan">';
 			$msj .= '</a>';
 		$msj .= '</div>';
 		//echo $msj;

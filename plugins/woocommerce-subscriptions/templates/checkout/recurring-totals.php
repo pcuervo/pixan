@@ -16,7 +16,7 @@ $display_th = true;
 ?>
 
 			<tr class="recurring-totals">
-				<th colspan="2"><?php esc_html_e( 'Recurring Totals', 'woocommerce-subscriptions' ); ?></th>
+				<th colspan="2"><?php esc_html_e( 'Total recurrente', 'woocommerce-subscriptions' ); ?></th>
 			</tr>
 
 			<?php foreach ( $recurring_carts as $recurring_cart_key => $recurring_cart ) : ?>
@@ -102,7 +102,7 @@ $display_th = true;
 			<?php endif; ?>
 			<tr class="order-total recurring-total">
 				<?php if ( $display_th ) : $display_th = false; ?>
-				<th rowspan="<?php echo esc_attr( $carts_with_multiple_payments ); ?>"><?php esc_html_e( 'Recurring Total', 'woocommerce-subscriptions' ); ?></th>
+				<th rowspan="<?php echo esc_attr( $carts_with_multiple_payments ); ?>"><?php esc_html_e( 'Total recurrente', 'woocommerce-subscriptions' ); ?></th>
 				<?php endif; ?>
 				<td><?php wcs_cart_totals_order_total_html( $recurring_cart ); ?></td>
 			</tr>
