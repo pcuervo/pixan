@@ -102,6 +102,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .width---100 { width: 100%; }
 
+.margin-top { margin-top: 25px!important; }
+
 /*Center*/
 
 @media (min-width:960px) {
@@ -688,10 +690,10 @@ li.reviews_tab,
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
 
-.product-type-variable-subscription .add_to_list_dialog,
-.product-type-variable-subscription a.addToList { display: none; }
+.product_cat-comprar-solo-una-vez .add_to_list_dialog,
+.product_cat-comprar-solo-una-vez a.addToList { display: none; }
 
-.product-type-variable-subscription .single_add_to_cart_button { margin-top: 17px!important; }
+.product_cat-comprar-solo-una-vez .single_add_to_cart_button { margin-top: 17px!important; }
 
 /**/
 form.checkout .variation { text-align: right; }

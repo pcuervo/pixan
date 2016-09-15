@@ -22,9 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<thead>
 		<tr>
-			<th class="subscription-id order-number"><span class="nobr"><?php esc_html_e( 'Subscription', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="subscription-status order-status"><span class="nobr"><?php esc_html_e( 'Status', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="subscription-next-payment order-date"><span class="nobr"><?php echo esc_html_x( 'Next Payment', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="subscription-id order-number"><span class="nobr"><?php esc_html_e( 'Suscripción', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="subscription-status order-status"><span class="nobr"><?php esc_html_e( 'Estatus', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="subscription-next-payment order-date"><span class="nobr"><?php echo esc_html_x( 'Próximo pago', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
 			<th class="subscription-total order-total"><span class="nobr"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
 			<th class="subscription-actions order-actions">&nbsp;</th>
 		</tr>
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td class="subscription-status order-status" style="text-align:left; white-space:nowrap;" data-title="<?php esc_attr_e( 'Status', 'woocommerce-subscriptions' ); ?>">
 				<?php echo esc_attr( wcs_get_subscription_status_name( $subscription->get_status() ) ); ?>
 			</td>
-			<td class="subscription-next-payment order-date" data-title="<?php echo esc_attr_x( 'Next Payment', 'table heading', 'woocommerce-subscriptions' ); ?>">
+			<td class="subscription-next-payment order-date" data-title="<?php echo esc_attr_x( 'Próximo pago', 'table heading', 'woocommerce-subscriptions' ); ?>">
 				<?php echo esc_attr( $subscription->get_date_to_display( 'next_payment' ) ); ?>
 				<?php if ( ! $subscription->is_manual() && $subscription->has_status( 'active' ) && $subscription->get_time( 'next_payment' ) > 0 ) : ?>
 					<?php
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo wp_kses_post( $subscription->get_formatted_order_total() ); ?>
 			</td>
 			<td class="subscription-actions order-actions">
-				<a href="<?php echo esc_url( $subscription->get_view_order_url() ) ?>" class="button view"><?php echo esc_html_x( 'View', 'view a subscription', 'woocommerce-subscriptions' ); ?></a>
+				<a href="<?php echo esc_url( $subscription->get_view_order_url() ) ?>" class="button view"><?php echo esc_html_x( 'Ver', 'view a subscription', 'woocommerce-subscriptions' ); ?></a>
 				<?php do_action( 'woocommerce_my_subscriptions_actions', $subscription ); ?>
 			</td>
 		</tr>

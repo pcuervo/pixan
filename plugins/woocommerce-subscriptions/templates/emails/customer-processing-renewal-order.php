@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_email_order_meta', $order, false, false ); ?>
 
-<h2><?php esc_html_e( 'Customer details', 'woocommerce-subscriptions' ); ?></h2>
+<h2><?php esc_html_e( 'Información del cliente', 'woocommerce-subscriptions' ); ?></h2>
 
 <?php if ( $order->billing_email ) : ?>
 	<p>

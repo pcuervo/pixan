@@ -86,19 +86,19 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			wp_enqueue_style( 'map_checkout_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_checkout_styles.css' );
 			wp_enqueue_script( 'geo-map-api2', 'https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA');
 			wp_enqueue_script( 'google-function-autocomplete', AREA_ENTREGA_PIXAN_PLUGIN_URL.'inc/js/google-autocomplete.js', array('geo-map-api2'), '1.0', true );
-			wp_enqueue_script( 'geo-map-gmaps2', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api2' ));	
+			wp_enqueue_script( 'geo-map-gmaps2', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api2' ));
 			wp_enqueue_script( 'geo-map-script-geocoding', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa_geocoding.js', array('geo-map-api2', 'geo-map-gmaps2', 'jquery'));
 		}
-			
+
 	}
 
 	/**
 	* Display map meta_boxes for post type "AreaEntrega"
-	* 
+	*
 	**/
 
 	public function show_my_extra_fields($user) {
-		
+
 		echo '<h3>Area de entrea</h3>';
 		//Select area-entrega post type
 	    $query_args = array(
@@ -120,10 +120,10 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				echo '<option value="'.$posts->post->ID.'" id="ae_'.$posts->post->ID.'" '.$sel.'>'.get_the_title().'</option>';
 			}
 		}
-		
+
 		echo '</select>';
-		
-		
+
+
 	}
 
 	public function update_extra_fields($user_id) {
@@ -133,7 +133,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	public function show_google_map_checkout(){
 		//$coordenadas = get_post_meta($post->ID, '_coordenadas', true);
 		//wp_nonce_field(__FILE__, '_coordenadas_nonce');
-		
+
 	    //Select area-entrega post type
 	    $query_args = array(
 			'post_type'      => 'area-entrega',
@@ -162,8 +162,8 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'">'.get_the_title().'</option>';
 			}
 		}
-		
-		echo '</select><small style="color:red; display:none;" id="areaInfo">Tu dirección no esta en ninguna de nuestras zonas de entrega, por favor intentalo de nuevo luego.</small><br />';
+
+		echo '</select><small style="color:red; display:none;" id="areaInfo">Todavía no entregamos en tu zona, estamos trabajando para incrementar nuestra cobertura, regresa pronto.</small><br />';
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
@@ -295,7 +295,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		return $fields;
 
 	}// set_timeframe_required
-	
+
 
 	/******************************************
 	* CUSTOM POST TYPES
@@ -304,14 +304,14 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	/**
 	 * Register the post type "Área de Entrega"
 	 */
-	
+
 
 	/******************************************
 	* META BOX CALLBACKS
 	******************************************/
 
 
-	
+
 
 
 	/******************************************
@@ -322,15 +322,15 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	* Save the metaboxes for post type "Área de Entrega"
 	**/
 	private function save_meta_boxes_area_entrega_checkout( $post_id ){
-		
+
 	}// save_meta_boxes_area_entrega_checkout
 
 	/**
 	 * Update the order meta with field value
 	 **/
-	
+
 	public function my_custom_checkout_field_update_order_meta( $order_id ) {
-		
+
 		//if ($_POST['billing_area_entrega']) update_post_meta( $order_id, 'billing_area_entrega', $_POST['billing_area_entrega']);
 		//if ($_POST['billing_puntos_recoleccion']) update_post_meta( $order_id, 'billing_puntos_recoleccion', $_POST['billing_puntos_recoleccion']);
 		//if ($_POST['billing_lat']) update_post_meta( $order_id, 'billing_lat', $_POST['billing_lat']);

@@ -29,18 +29,18 @@ wc_print_notices();
 
 <table class="shop_table subscription_details">
 	<tr>
-		<td><?php esc_html_e( 'Status', 'woocommerce-subscriptions' ); ?></td>
+		<td><?php esc_html_e( 'Estatus', 'woocommerce-subscriptions' ); ?></td>
 		<td><?php echo esc_html( wcs_get_subscription_status_name( $subscription->get_status() ) ); ?></td>
 	</tr>
 	<tr>
-		<td><?php echo esc_html_x( 'Start Date', 'table heading',  'woocommerce-subscriptions' ); ?></td>
+		<td><?php echo esc_html_x( 'Activa', 'table heading',  'woocommerce-subscriptions' ); ?></td>
 		<td><?php echo esc_html( $subscription->get_date_to_display( 'start' ) ); ?></td>
 	</tr>
 	<?php foreach ( array(
-		'last_payment' => _x( 'Last Payment Date', 'admin subscription table header', 'woocommerce-subscriptions' ),
-		'next_payment' => _x( 'Next Payment Date', 'admin subscription table header', 'woocommerce-subscriptions' ),
-		'end'          => _x( 'End Date', 'table heading', 'woocommerce-subscriptions' ),
-		'trial end'    => _x( 'Trial End Date', 'admin subscription table header', 'woocommerce-subscriptions' ),
+		'last_payment' => _x( 'Fecha del último pago', 'admin subscription table header', 'woocommerce-subscriptions' ),
+		'next_payment' => _x( 'Fecha del próximo pago', 'admin subscription table header', 'woocommerce-subscriptions' ),
+		'end'          => _x( 'Fecha final', 'table heading', 'woocommerce-subscriptions' ),
+		'trial end'    => _x( 'Fecha de finalización', 'admin subscription table header', 'woocommerce-subscriptions' ),
 		) as $date_type => $date_title ) : ?>
 		<?php $date = $subscription->get_date( $date_type ); ?>
 		<?php if ( ! empty( $date ) ) : ?>
@@ -53,7 +53,7 @@ wc_print_notices();
 	<?php $actions = wcs_get_all_user_actions_for_subscription( $subscription, get_current_user_id() ); ?>
 	<?php if ( ! empty( $actions ) ) : ?>
 		<tr>
-			<td><?php esc_html_e( 'Actions', 'woocommerce-subscriptions' ); ?></td>
+			<td><?php esc_html_e( 'Acciones', 'woocommerce-subscriptions' ); ?></td>
 			<td>
 				<?php foreach ( $actions as $key => $action ) : ?>
 					<a href="<?php echo esc_url( $action['url'] ); ?>" class="button <?php echo sanitize_html_class( $key ) ?>"><?php echo esc_html( $action['name'] ); ?></a>
@@ -64,7 +64,7 @@ wc_print_notices();
 </table>
 <?php if ( $notes = $subscription->get_customer_order_notes() ) :
 	?>
-	<h2><?php esc_html_e( 'Subscription Updates', 'woocommerce-subscriptions' ); ?></h2>
+	<h2><?php esc_html_e( 'Actualización de suscripción', 'woocommerce-subscriptions' ); ?></h2>
 	<ol class="commentlist notes">
 		<?php foreach ( $notes as $note ) : ?>
 		<li class="comment note">
@@ -83,14 +83,14 @@ wc_print_notices();
 	</ol>
 <?php endif; ?>
 <?php $allow_remove_item = wcs_can_items_be_removed( $subscription ); ?>
-<h2><?php esc_html_e( 'Subscription Totals', 'woocommerce-subscriptions' ); ?></h2>
+<h2><?php esc_html_e( 'Total Suscripciones ', 'woocommerce-subscriptions' ); ?></h2>
 <table class="shop_table order_details">
 	<thead>
 		<tr>
 			<?php if ( $allow_remove_item ) : ?>
 			<th class="product-remove" style="width: 3em;">&nbsp;</th>
 			<?php endif; ?>
-			<th class="product-name"><?php echo esc_html_x( 'Product', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
+			<th class="product-name"><?php echo esc_html_x( 'Produco', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
 			<th class="product-total"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></th>
 		</tr>
 	</thead>
@@ -238,7 +238,7 @@ wc_print_notices();
 <?php do_action( 'woocommerce_subscription_details_after_subscription_table', $subscription ); ?>
 
 <header>
-	<h2><?php esc_html_e( 'Customer details', 'woocommerce-subscriptions' ); ?></h2>
+	<h2><?php esc_html_e( 'Información del cliente', 'woocommerce-subscriptions' ); ?></h2>
 </header>
 <table class="shop_table shop_table_responsive customer_details">
 	<?php
@@ -266,7 +266,7 @@ wc_print_notices();
 <?php endif; ?>
 
 		<header class="title">
-			<h3><?php esc_html_e( 'Billing Address', 'woocommerce-subscriptions' ); ?></h3>
+			<h3><?php esc_html_e( 'Datos de facturación', 'woocommerce-subscriptions' ); ?></h3>
 		</header>
 		<address>
 			<?php
