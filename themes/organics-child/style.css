@@ -593,8 +593,8 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
-.price .from, .price .subscription-details,
-.product_list_widget .from, .product_list_widget .subscription-details,
+.price .from, /*.price .subscription-details,*/
+.product_list_widget .from, /*.product_list_widget .subscription-details,*/
 .woocommerce-variation-price { display: none; }
 
 	/*modal lista*/
