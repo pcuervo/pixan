@@ -657,7 +657,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			            ),
 			            $product );
 			        ?></div>
-			        <div class="[ text-center ]">
+			        <div class="[ text-center ][ button-list ]">
 			        	<a href="#" class="button alt addToList">Agregar a mi Lista</a>
 			        </div>
 			    </div><!-- end button cart -->

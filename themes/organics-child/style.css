@@ -180,6 +180,8 @@ input[type="button"]:hover,
 .ui-button { color: #fff!important; }
 .ui-button:hover { color: #1F4B24!important; }
 
+.button-list a { margin: 5px 0 0!important; }
+
 	/*Large*/
 .sc_button.sc_button_size_large {
 	height: 56px!important;
