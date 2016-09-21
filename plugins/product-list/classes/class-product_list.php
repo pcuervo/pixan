@@ -44,7 +44,7 @@ class Product_List_Settings {
 		add_action('woocommerce_after_add_to_cart_button', array( $this, 'add_product_to_list_button'));
 		//add_action('woocommerce_after_my_account', array( $this, 'show_user_lists'));
 		add_action( 'wp_ajax_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
-		add_action( 'wp_ajax_nopriv_my_action_name', array( $this, 'add_products_to_a_list') );
+		add_action( 'wp_ajax_nopriv_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
 
 		// Insering your new tab/page into the My Account page.
 		add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
