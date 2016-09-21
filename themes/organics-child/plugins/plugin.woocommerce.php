@@ -644,7 +644,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			    <?php
 
 			        /*  Add to cart Button  */
-			        ?><div class="shortcode_add_to_button"><?php
+			        ?><div class="shortcode_add_to_button [ text-center ]"><?php
 			        echo apply_filters( 'woocommerce_loop_add_to_cart_link',
 			            sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="icon-shopping-cart13 button %s product_type_%s">Añadir al carrito</a>',
 			                esc_url( $product->add_to_cart_url() ),
@@ -657,6 +657,9 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			            ),
 			            $product );
 			        ?></div>
+			        <div class="[ text-center ][ button-list ]">
+			        	<a href="#" class="button alt addToList">Agregar a mi Lista</a>
+			        </div>
 			    </div><!-- end button cart -->
 
 

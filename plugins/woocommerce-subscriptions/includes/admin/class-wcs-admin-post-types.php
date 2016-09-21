@@ -313,16 +313,16 @@ class WCS_Admin_Post_Types {
 
 		$columns = array(
 			'cb'                => '<input type="checkbox" />',
-			'status'            => __( 'Status', 'woocommerce-subscriptions' ),
-			'order_title'       => __( 'Subscription', 'woocommerce-subscriptions' ),
+			'status'            => __( 'Estatus', 'woocommerce-subscriptions' ),
+			'order_title'       => __( 'Suscripción', 'woocommerce-subscriptions' ),
 			'order_items'       => __( 'Items', 'woocommerce-subscriptions' ),
 			'recurring_total'   => __( 'Total', 'woocommerce-subscriptions' ),
-			'start_date'        => __( 'Start Date', 'woocommerce-subscriptions' ),
-			'trial_end_date'    => __( 'Trial End', 'woocommerce-subscriptions' ),
-			'next_payment_date' => __( 'Next Payment', 'woocommerce-subscriptions' ),
-			'last_payment_date' => __( 'Last Payment', 'woocommerce-subscriptions' ),
-			'end_date'          => __( 'End Date', 'woocommerce-subscriptions' ),
-			'orders'            => _x( 'Orders', 'number of orders linked to a subscription', 'woocommerce-subscriptions' ),
+			'start_date'        => __( 'Fecha de inicio', 'woocommerce-subscriptions' ),
+			'trial_end_date'    => __( 'Pago final', 'woocommerce-subscriptions' ),
+			'next_payment_date' => __( 'Siguiente pago', 'woocommerce-subscriptions' ),
+			'last_payment_date' => __( 'Próximo pago', 'woocommerce-subscriptions' ),
+			'end_date'          => __( 'Último pago', 'woocommerce-subscriptions' ),
+			'orders'            => _x( 'Ordenes', 'number of orders linked to a subscription', 'woocommerce-subscriptions' ),
 		);
 
 		return $columns;

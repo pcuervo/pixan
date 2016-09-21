@@ -204,13 +204,13 @@ class WC_Subscriptions_Change_Payment_Gateway {
 
 				if ( $subscription->get_time( 'next_payment' ) > 0 ) {
 					// translators: placeholder is next payment's date
-					$next_payment_string = sprintf( __( ' Next payment is due %s.', 'woocommerce-subscriptions' ), $subscription->get_date_to_display( 'next_payment' ) );
+					$next_payment_string = sprintf( __( ' El próximo pago es en %s.', 'woocommerce-subscriptions' ), $subscription->get_date_to_display( 'next_payment' ) );
 				} else {
 					$next_payment_string = '';
 				}
 
 				// translators: placeholder is either empty or "Next payment is due..."
-				WC_Subscriptions::add_notice( sprintf( __( 'Choose a new payment method.%s', 'woocommerce-subscriptions' ), $next_payment_string ), 'notice' );
+				WC_Subscriptions::add_notice( sprintf( __( 'Selecciona un nuevo método de pago.%s', 'woocommerce-subscriptions' ), $next_payment_string ), 'notice' );
 				WC_Subscriptions::print_notices();
 
 				if ( $subscription->order_key == $_GET['key'] ) {
@@ -256,7 +256,7 @@ class WC_Subscriptions_Change_Payment_Gateway {
 
 			$actions['change_payment_method'] = array(
 				'url'  => wp_nonce_url( add_query_arg( array( 'change_payment_method' => $subscription->id ), $subscription->get_checkout_payment_url() ) ),
-				'name' => _x( 'Change Payment', 'label on button, imperative', 'woocommerce-subscriptions' ),
+				'name' => _x( 'Cambiar pago', 'label on button, imperative', 'woocommerce-subscriptions' ),
 			);
 
 		}
@@ -325,7 +325,7 @@ class WC_Subscriptions_Change_Payment_Gateway {
 
 					// Redirect to success/confirmation/payment page
 					if ( 'success' == $result['result'] ) {
-						WC_Subscriptions::add_notice( __( 'Payment method updated.', 'woocommerce-subscriptions' ), 'success' );
+						WC_Subscriptions::add_notice( __( 'Método de pago actualizado.', 'woocommerce-subscriptions' ), 'success' );
 						wp_redirect( $result['redirect'] );
 						exit;
 					}
@@ -498,7 +498,7 @@ class WC_Subscriptions_Change_Payment_Gateway {
 	public static function change_payment_method_page_title( $title ) {
 
 		if ( is_main_query() && in_the_loop() && is_page() && is_checkout_pay_page() && self::$is_request_to_change_payment ) {
-			$title = _x( 'Change Payment Method', 'the page title of the change payment method form', 'woocommerce-subscriptions' );
+			$title = _x( 'Cambiar método de pago', 'the page title of the change payment method form', 'woocommerce-subscriptions' );
 		}
 
 		return $title;

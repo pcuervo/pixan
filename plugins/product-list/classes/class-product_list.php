@@ -44,7 +44,7 @@ class Product_List_Settings {
 		add_action('woocommerce_after_add_to_cart_button', array( $this, 'add_product_to_list_button'));
 		//add_action('woocommerce_after_my_account', array( $this, 'show_user_lists'));
 		add_action( 'wp_ajax_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
-		add_action( 'wp_ajax_nopriv_my_action_name', array( $this, 'add_products_to_a_list') );
+		add_action( 'wp_ajax_nopriv_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
 
 		// Insering your new tab/page into the My Account page.
 		add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
@@ -177,14 +177,14 @@ class Product_List_Settings {
 	public function send_mail_reminders() {
 		$listas = $this->get_all_lists();
 		if (count($listas[0]) > 0) {
-			foreach ( $listas as $list ) 
+			foreach ( $listas as $list )
 			{
 				$ahora = explode( ' ', current_time( 'mysql' ));
 				$ahora = date('d/m/Y', strtotime($ahora[0]));
 				$ultimo_recordatorio = explode( ' ', $list->fecha);
 				$ultimo_recordatorio = date('d/m/Y', strtotime($ultimo_recordatorio[0]));
 				$dif = $this->calcular_cant_dias_entre_fechas($ultimo_recordatorio, $ahora);
-				
+
 				if($dif >= $list->recurrencia) {
 					$this->send_mail($list->id, $list->user_id);
 				}
@@ -196,10 +196,10 @@ class Product_List_Settings {
 		global $wpdb;
 		$ud = get_userdata( $idusuario );
 		echo 'Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email.'<br />';
-		
+
 		$subject = 'Pixan - Recordatorio de tu lista';
-		//$headers = array('Content-Type: text/html; charset=UTF-8');
-		$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
+		$headers = array('Content-Type: text/html; charset=UTF-8');
+		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
 		$message = '<html><body>';
 		$message .= $this->show_list_detail_to_email($idlista);
 		$message .= '</body></html>';
@@ -207,44 +207,45 @@ class Product_List_Settings {
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 		//SEND EMAIL CONFIRMATION
-		$resp = wp_mail( "jonasgraterol@gmail.com", $subject, $message, $headers );
+		$resp = wp_mail( $ud->user_email, $subject, $message, $headers );
 
-		$wpdb->update( 
-			$wpdb->prefix . 'product_list', 
-			array( 'fecha' => current_time( 'mysql' )), 
-			array( 'id' => $idlista ), 
-			array( '%s' ), 
-			array( '%d' ) 
+
+		$wpdb->update(
+			$wpdb->prefix . 'product_list',
+			array( 'fecha' => current_time( 'mysql' )),
+			array( 'id' => $idlista ),
+			array( '%s' ),
+			array( '%d' )
 		);
 	}
 
-	//CALCULA LA CANTIDAD DE DIAS ENTRE 2 FECHAS CON FORMATO dd/mm/aaaa 
+	//CALCULA LA CANTIDAD DE DIAS ENTRE 2 FECHAS CON FORMATO dd/mm/aaaa
 	public function calcular_cant_dias_entre_fechas($fechaL,$fechaS)
 	{
 		$dia1 = substr($fechaL, 0, 2);
 		$mes1 = substr($fechaL, 3, 2);
 		$anno1 = substr($fechaL, 6, 4);
-		
+
 		$dia2 = substr($fechaS, 0, 2);
 		$mes2 = substr($fechaS, 3, 2);
 		$anno2 = substr($fechaS, 6, 4);
-		
+
 		$timestamp1 = mktime(0,0,0,$mes1,$dia1,$anno1);
 		$timestamp2 = mktime(0,0,0,$mes2,$dia2,$anno2);
-		
+
 		$segundos_diferencia = $timestamp1 - $timestamp2;
-		
+
 		$dias_diferencia = $segundos_diferencia / (60 * 60 * 24);
-		
+
 		$dias_diferencia = abs($dias_diferencia);
-		
+
 		$dias_diferencia = floor($dias_diferencia);
-		
+
 		if ($timestamp1 > $timestamp2)
 		{
 			$dias_diferencia = $dias_diferencia*-1;
-		}	
-		
+		}
+
 		return $dias_diferencia;
 	}
 
@@ -254,8 +255,8 @@ class Product_List_Settings {
 	    if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
 		{
 			list($dia1,$mes1,$año1)=explode("/",$fecha1);
-		}	
-	        
+		}
+
 		if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
 	    {
 			list($dia1,$mes1,$año1)=explode("-",$fecha1);
@@ -263,16 +264,16 @@ class Product_List_Settings {
 		if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
 	    {
 			list($dia2,$mes2,$año2)=explode("/",$fecha2);
-	    }    
+	    }
 		if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
 	    {
 			list($dia2,$mes2,$año2)=explode("-",$fecha2);
 		}
-					
-        $dif1 = mktime(0,0,0,$mes1,$dia1,$año1); 
+
+        $dif1 = mktime(0,0,0,$mes1,$dia1,$año1);
 		$dif2 = mktime(0,0,0, $mes2,$dia2,$año2);
 		$dif = $dif1 - $dif2;
-        return ($dif);                         
+        return ($dif);
 	}
 
 	function add_product_to_list_button() {
@@ -288,11 +289,15 @@ class Product_List_Settings {
 		//var_dump($_GET);
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
-			header("Location: ".SITEURL."my-account/product-list");
+			//header("Location: ".SITEURL."my-account/product-list");
+			wp_redirect(SITEURL."my-account/product-list");
+			exit;
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
-			header("Location: ".SITEURL."my-account/product-list");
+			//header("Location: ".SITEURL."my-account/product-list");
+			wp_redirect(SITEURL."my-account/product-list");
+			exit;
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -417,45 +422,61 @@ class Product_List_Settings {
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
 	public function show_list_detail_to_email( $list_id ) {
-		$_pf = new WC_Product_Factory();  
+		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 		$msj = '';
-		$msj .= '<h3>'.$this->get_list_name($list_id).'</h3>';
-		$msj .= '<table class="shop_table shop_table_responsive cart" cellspacing="0">
+		$msj .= '<a href="'.SITEURL.'" style="display: block; margin-bottom:30px;">';
+			$msj .= '<img style="width:100%;" src="'.SITEURL.'wp-content/themes/organics-child/images/header.png" alt="logo pixan"/>';
+		$msj .= '</a>';
+		$msj .= '<p style="margin-bottom: 20px;font-size: 16px;line-height: 30px;color: #222222;">Hola nombre-de-usuario, ya esta lista tu canasta recurrencia de productos Pixan, sólo haz click en <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">ver mi lista</a> para finalizar tu compra.</p>';
+		$msj .= '<h3 style="margin-bottom:30px; text-align: center; background-color: #80B500; color: #fff; padding: 10px; font-size: 22px; letter-spacing: 2px; font-weight:500;">'.$this->get_list_name($list_id).'</h3>';
+		$msj .= '<table style="border-bottom: 2px solid #80B500; width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
 			<thead>
-				<tr>
+				<tr style"margin:20px 0">
 					<th class="">&nbsp;</th>
-					<th class="">&nbsp;</th>
-					<th class="list-name">Producto</th>
-					<th class="">Precio</th>
-					<th class="">Cantidad</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="list-name">Producto</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Precio</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Cantidad</th>
+					<th style="font-size: 16px; padding-right: 15px; color:#1E4B24; text-align:center;" class="">Unidad de medida</th>
 				</tr>
 			</thead>
 			<tbody>';
-			
-			
+
+
 			if (count($detalle[0]) > 0) {
-				
-				foreach ( $detalle as $det ) 
+
+				foreach ( $detalle as $det )
 				{
+
 					$_product = $_pf->get_product($det->product_id);
-					$msj .= '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
-						$msj .= '<td><a href="my-account?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.'" class="remove" title="Eliminar de mi Lista" >X</a></td>';
-						$msj .= '<td>'.$_product->get_image().'</td>';
-						$msj .= '<td>'.$_product->get_title().'</td>';
-						$msj .= '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
-						$msj .= '<td>'.$det->cantidad.'</td>';
+					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
+						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
+						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">Unidad</td>';
 					$msj .= '</tr>';
 				}
 			}
 			else {
 				$msj .= '<td colspan="5" style="color:pink;">Esta lista esta vacia.</td>';
 			}
-			
+
 			$msj .= '</tbody>';
 		$msj .= '</table>';
-
-		$msj .= '<a href="'.SITEURL.'my-account/product-list" class="button alt">Ver mi lista</a>';
+		$msj .= '<div style="text-align: center; margin-bottom:50px">';
+			$msj .= '<a href="'.SITEURL.'my-account/product-list" style="background-color: #80B500; cursor: pointer; color: #fff; font-weight:400; font-size:14px; letter-spacing:1px; text-decoration: none; padding: 6px 20px; line-height: 28px; text-transform: uppercase; border-radius: 5px;" class="button alt">Ver mi lista</a>';
+		$msj .= '</div>';
+		$msj .= '<div style="text-align: center;">';
+			$msj .= '<p style="font-size:16px; color: #222222;">Si deseas modificar o eliminar el recordatorio de tu lista da clic <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">aquí</a></p>';
+			$msj .= '<h4>';
+				$msj .= '<a style="font-size:16px; color:#80b500; text-decoration: none;" href="'.SITEURL.'">Visita Pixan Sustentable</a>';
+			$msj .= '</h4>';
+			$msj .= '<a href="'.SITEURL.'">';
+				$msj .= '<img style="width: 80px;" src="'.SITEURL.'wp-content/themes/organics-child/images/logo-small.png" class="Logo redondo pixan">';
+			$msj .= '</a>';
+		$msj .= '</div>';
+		//echo $msj;
 		return $msj;
 	}
 

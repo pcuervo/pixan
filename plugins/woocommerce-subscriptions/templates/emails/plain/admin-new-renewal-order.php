@@ -47,7 +47,7 @@ echo "\n****************************************************\n\n";
 
 do_action( 'woocommerce_email_after_order_table', $order, true, true );
 
-echo __( 'Customer details', 'woocommerce-subscriptions' ) . "\n";
+echo __( 'Información del cliente', 'woocommerce-subscriptions' ) . "\n";
 
 if ( $order->billing_email ) {
 	// translators: placeholder is customer's billing email

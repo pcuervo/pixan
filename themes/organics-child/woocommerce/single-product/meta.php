@@ -41,7 +41,8 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 	<?php echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', $tag_count, 'woocommerce' ) . ' ', '</span>' ); ?>
 
 	<!-- unidad de medida -->
-	<span class="tagged_as [ margin-bottom ]">Unidad de medida: <span class="[ color-red font-weight--500 ]"><!-- 1 Kilo --></span></span>
+	<?php $tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true); ?>
+	<span class="tagged_as [ margin-bottom ]">Unidad de medida: <span class="[ color-red font-weight--500 ]"><?php echo $tipo_unidad; ?></span></span>
 
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 

@@ -201,13 +201,13 @@ function wcs_create_subscription( $args = array() ) {
 function wcs_get_subscription_statuses() {
 
 	$subscription_statuses = array(
-		'wc-pending'        => _x( 'Pending', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-active'         => _x( 'Active', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-on-hold'        => _x( 'On hold', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-cancelled'      => _x( 'Cancelled', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-pending'        => _x( 'Pendiente', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-active'         => _x( 'Activa', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-on-hold'        => _x( 'En espera', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-cancelled'      => _x( 'Cancelada', 'Subscription status', 'woocommerce-subscriptions' ),
 		'wc-switched'       => _x( 'Switched', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-expired'        => _x( 'Expired', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-pending-cancel' => _x( 'Pending Cancellation', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-expired'        => _x( 'Caducada', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-pending-cancel' => _x( 'Cancelación en proceso', 'Subscription status', 'woocommerce-subscriptions' ),
 	);
 
 	return apply_filters( 'wcs_subscription_statuses', $subscription_statuses );
@@ -250,8 +250,8 @@ function wcs_get_address_type_to_display( $address_type ) {
 	}
 
 	$address_types = apply_filters( 'woocommerce_subscription_address_types', array(
-		'shipping' => __( 'Shipping Address', 'woocommerce-subscriptions' ),
-		'billing' => __( 'Billing Address', 'woocommerce-subscriptions' ),
+		'shipping' => __( 'Dirección de compra', 'woocommerce-subscriptions' ),
+		'billing' => __( 'Datos de facturación', 'woocommerce-subscriptions' ),
 	) );
 
 	// if we can't find the address type, return the raw key
@@ -269,11 +269,11 @@ function wcs_get_address_type_to_display( $address_type ) {
 function wcs_get_subscription_date_types() {
 
 	$dates = array(
-		'start'        => _x( 'Start Date', 'table heading', 'woocommerce-subscriptions' ),
-		'trial_end'    => _x( 'Trial End', 'table heading', 'woocommerce-subscriptions' ),
-		'next_payment' => _x( 'Next Payment', 'table heading', 'woocommerce-subscriptions' ),
-		'last_payment' => _x( 'Last Payment', 'table heading', 'woocommerce-subscriptions' ),
-		'end'          => _x( 'End Date', 'table heading', 'woocommerce-subscriptions' ),
+		'start'        => _x( 'Fecha de Inicio', 'table heading', 'woocommerce-subscriptions' ),
+		'trial_end'    => _x( 'Pago final', 'table heading', 'woocommerce-subscriptions' ),
+		'next_payment' => _x( 'Próximo pago', 'table heading', 'woocommerce-subscriptions' ),
+		'last_payment' => _x( 'Último pago', 'table heading', 'woocommerce-subscriptions' ),
+		'end'          => _x( 'Fin', 'table heading', 'woocommerce-subscriptions' ),
 	);
 
 	return apply_filters( 'woocommerce_subscription_dates', $dates );

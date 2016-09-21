@@ -26,18 +26,16 @@ h1 { text-transform: uppercase; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
-.font-weight--500 { font-weight: 500!important; }
-
 .color-red { color: #b33451; }
 
-/*Background*/
+/*Background image*/
 #row-bg.vc_row.background-top-center { background-position: top center!important; }
 
 /*Type*/
 @media (max-width: 479px){ h2 { font-size: 26px!important; } }
 p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
-.font-weight--500 { font-weight: 500; }
+.font-weight--500 { font-weight: 500!important; }
 
 .no-text-decoration:hover {  text-decoration: none; }
 
@@ -76,7 +74,6 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 @media (min-width:567px) and (max-width:767px) { .col-6-sm { width: 50%!important; float: left; } }
 @media ( max-width: 959px) { .col-12-sm { width: 100%!important; } }
 
-
 @media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
 .woocommerce-account .sidebar { display: none!important; }
 
@@ -104,6 +101,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 }
 
 .width---100 { width: 100%; }
+
+.margin-top { margin-top: 25px!important; }
 
 /*Center*/
 
@@ -181,6 +180,8 @@ input[type="button"]:hover,
 .ui-button { color: #fff!important; }
 .ui-button:hover { color: #1F4B24!important; }
 
+.button-list a { margin: 5px 0 0!important; }
+
 	/*Large*/
 .sc_button.sc_button_size_large {
 	height: 56px!important;
@@ -202,7 +203,6 @@ input[type="button"]:hover,
 .widget_area_inner a:hover, .widget_area_inner button:hover:before{ color: #1F4B24!important; }
 .widget_area_inner .widget_product_search .search_button { max-width: 36%; margin-top: 7px;}
 @media(min-width:1440px){ .widget_area_inner .widget_product_search .search_field { max-width: 63%; } }
-
 
 	/*Input submit*/
 input[type="submit"]{ width: auto!important; }
@@ -290,7 +290,6 @@ li.menu_user_cart a.top_panel_cart_button,
 
 .menu_main_nav > li > a { color: #1E4B24; }
 
-
 .header_mobile .logo_fixed { max-height: 115px; }
 
 @media (max-width: 639px){ .header_mobile .menu_button { right: 0px; } }
@@ -302,6 +301,9 @@ li.menu_user_cart a.top_panel_cart_button,
 @media (max-width: 1022px){ header { opacity: 0; } }
 
 .header_mobile .menu_main_nav li.link-canastas a:hover { color: #1E4B24!important; cursor: copy!important }
+
+.user_avatar { border: none!important; }
+.user_name { vertical-align: middle; }
 
 /*Cart*/
 .top_panel_wrap .top_panel_top .sidebar_cart { top: 0px!important; }
@@ -344,11 +346,8 @@ li.menu_user_cart a.top_panel_cart_button,
 }
 
 .header_mobile .menu_main_nav li a:hover { color:#80B641; }
-
 .header_mobile ul.sub-menu a { background: #80B641; }
-
 .header_mobile input { border-color:#1E4B24!important; }
-
 .header_mobile .menu_main_nav li.current_page_item a { background-color: #1E4B24!important; }
 
 @media ( min-width:640px ){
@@ -444,7 +443,6 @@ a.logo-header-fijo,
 .top_panel_fixed .top_panel_style_5 .top_panel_middle .menu_main_wrap { height: auto!important; }
 .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 0.9em!important; }
 .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav>li>a { font-size: 12px!important; }
-
 
 @media(min-width: 1024px){
 	.top_panel_fixed a.logo-header-fijo { width: 8%; }
@@ -597,9 +595,15 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
-.price .from, .price .subscription-details,
-.product_list_widget .from, .product_list_widget .subscription-details,
-.woocommerce-variation-price { display: none; }
+/*Desde /time */
+.sidebar .price .from, /*.price .subscription-details,*/
+.sidebar .product_list_widget .from,
+.sidebar .product_list_widget .subscription-details,
+.woocommerce-variation-price,
+.summary.entry-summary .price .from,
+.summary.entry-summary .subscription-details,
+.related.products .price .from,
+.related.products .subscription-details { display: none; }
 
 	/*modal lista*/
 #dialog span { color: #80B500!important; }
@@ -694,6 +698,11 @@ li.reviews_tab,
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
 
-/*Cuenta*/
-.woocommerce-account
+.product_cat-programar-canasta-recurrente .add_to_list_dialog,
+.product_cat-programar-canasta-recurrente a.addToList { display: none; }
 
+.product_cat-programar-canasta-recurrente .single_add_to_cart_button { margin-top: 17px!important; }
+
+/**/
+form.checkout .variation { text-align: right; }
+form.checkout .variation-Recurrencia { float: none!important; }

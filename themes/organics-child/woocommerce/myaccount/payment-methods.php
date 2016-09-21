@@ -69,7 +69,7 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 
 <?php else : ?>
 
-	<p class="woocommerce-Message woocommerce-Message--info woocommerce-info"><?php esc_html_e( 'No se han guardado metodos de pago.', 'woocommerce' ); ?></p>
+	<p class="woocommerce-Message woocommerce-Message--info woocommerce-info"><?php esc_html_e( 'No se han guardado métodos de pago.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>
 
