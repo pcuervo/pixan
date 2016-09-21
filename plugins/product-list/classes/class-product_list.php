@@ -289,11 +289,15 @@ class Product_List_Settings {
 		//var_dump($_GET);
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
-			header("Location: ".SITEURL."my-account/product-list");
+			//header("Location: ".SITEURL."my-account/product-list");
+			wp_redirect(SITEURL."my-account/product-list");
+			exit;
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
-			header("Location: ".SITEURL."my-account/product-list");
+			//header("Location: ".SITEURL."my-account/product-list");
+			wp_redirect(SITEURL."my-account/product-list");
+			exit;
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
