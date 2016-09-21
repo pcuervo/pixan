@@ -593,9 +593,15 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
-.price .from, /*.price .subscription-details,*/
-.product_list_widget .from, /*.product_list_widget .subscription-details,*/
-.woocommerce-variation-price { display: none; }
+/*Desde /time */
+.sidebar .price .from, /*.price .subscription-details,*/
+.sidebar .product_list_widget .from,
+.sidebar .product_list_widget .subscription-details,
+.woocommerce-variation-price,
+.summary.entry-summary .price .from,
+.summary.entry-summary .subscription-details,
+.related.products .price .from,
+.related.products .subscription-details { display: none; }
 
 	/*modal lista*/
 #dialog span { color: #80B500!important; }
@@ -690,10 +696,10 @@ li.reviews_tab,
 
 .list_products.shop_mode_list .post_content .description { display: block!important; }
 
-.product_cat-comprar-solo-una-vez .add_to_list_dialog,
-.product_cat-comprar-solo-una-vez a.addToList { display: none; }
+.product_cat-programar-canasta-recurrente .add_to_list_dialog,
+.product_cat-programar-canasta-recurrente a.addToList { display: none; }
 
-.product_cat-comprar-solo-una-vez .single_add_to_cart_button { margin-top: 17px!important; }
+.product_cat-programar-canasta-recurrente .single_add_to_cart_button { margin-top: 17px!important; }
 
 /**/
 form.checkout .variation { text-align: right; }

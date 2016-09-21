@@ -27,7 +27,7 @@ function wcs_get_subscription_period_strings( $number = 1, $period = '' ) {
 	$translated_periods = apply_filters( 'woocommerce_subscription_periods',
 		array(
 			// translators: placeholder is number of days. (e.g. "Bill this every day / 4 days")
-			'day'   => sprintf( _nx( 'dia',   '%s days',   $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
+			'day'   => sprintf( _nx( 'day',   '%s days',   $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
 			// translators: placeholder is number of weeks. (e.g. "Bill this every week / 4 weeks")
 			'week'  => sprintf( _nx( 'week',  '%s weeks',  $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
 			// translators: placeholder is number of months. (e.g. "Bill this every month / 4 months")
