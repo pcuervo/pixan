@@ -47,3 +47,440 @@
 [21-Sep-2016 22:49:07 UTC] init plugin
 [21-Sep-2016 22:49:34 UTC] init plugin
 [21-Sep-2016 22:49:36 UTC] init plugin
+[21-Sep-2016 22:52:25 UTC] init plugin
+[21-Sep-2016 22:52:26 UTC] init plugin
+[21-Sep-2016 23:12:44 UTC] init plugin
+[21-Sep-2016 23:12:54 UTC] init plugin
+[21-Sep-2016 23:12:54 UTC] init plugin
+[21-Sep-2016 23:13:08 UTC] init plugin
+[21-Sep-2016 23:13:10 UTC] init plugin
+[21-Sep-2016 23:13:38 UTC] init plugin
+[21-Sep-2016 23:13:46 UTC] init plugin
+[21-Sep-2016 23:13:54 UTC] init plugin
+[21-Sep-2016 23:15:33 UTC] init plugin
+[21-Sep-2016 23:15:40 UTC] init plugin
+[21-Sep-2016 23:15:55 UTC] init plugin
+[21-Sep-2016 23:15:58 UTC] init plugin
+[21-Sep-2016 23:16:08 UTC] init plugin
+[21-Sep-2016 23:16:20 UTC] init plugin
+[21-Sep-2016 23:17:15 UTC] init plugin
+[21-Sep-2016 23:17:28 UTC] init plugin
+[21-Sep-2016 23:17:37 UTC] init plugin
+[21-Sep-2016 23:17:43 UTC] init plugin
+[21-Sep-2016 23:17:49 UTC] init plugin
+[21-Sep-2016 23:18:26 UTC] init plugin
+[21-Sep-2016 23:18:36 UTC] init plugin
+[22-Sep-2016 00:43:20 UTC] init plugin
+[22-Sep-2016 00:43:34 UTC] init plugin
+[22-Sep-2016 00:43:35 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3658
+[22-Sep-2016 00:43:35 UTC] PHP Stack trace:
+[22-Sep-2016 00:43:35 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 00:43:35 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 00:43:35 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 00:43:35 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 00:43:35 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:189
+[22-Sep-2016 00:43:35 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:204
+[22-Sep-2016 00:43:35 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:432
+[22-Sep-2016 00:43:35 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[22-Sep-2016 00:43:35 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3658
+[22-Sep-2016 00:43:35 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 463
+[22-Sep-2016 00:43:35 UTC] PHP Stack trace:
+[22-Sep-2016 00:43:35 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 00:43:35 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 00:43:35 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 00:43:35 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 00:43:35 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:189
+[22-Sep-2016 00:43:35 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:204
+[22-Sep-2016 00:43:42 UTC] init plugin
+[22-Sep-2016 00:43:55 UTC] init plugin
+[22-Sep-2016 00:44:03 UTC] init plugin
+[22-Sep-2016 00:44:44 UTC] init plugin
+[22-Sep-2016 00:44:45 UTC] init plugin
+[22-Sep-2016 00:44:51 UTC] init plugin
+[22-Sep-2016 00:53:56 UTC] init plugin
+[22-Sep-2016 00:53:57 UTC] Error Unknown column 'Nueva' in 'where clause' de la base de datos de WordPress para la consulta SELECT nombre FROM px_product_list WHERE nombre = Nueva AND user_id = 3 realizada por require('C:\wamp\www\pixan\wp-blog-header.php'), require_once('C:\wamp\www\pixan\wp-includes\template-loader.php'), include('C:\wamp\www\pixan\wp-content\themes\organics\page.php'), get_template_part, locate_template, load_template, require('C:\wamp\www\pixan\wp-content\themes\organics\single.php'), organics_show_post_layout, organics_get_post_data, apply_filters('the_content'), call_user_func_array, do_shortcode, preg_replace_callback, do_shortcode_tag, call_user_func, WC_Shortcodes::my_account, WC_Shortcodes::shortcode_wrapper, call_user_func, WC_Shortcode_My_Account::output, WC_Shortcode_My_Account::my_account, wc_get_template, include('C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\myaccount\my-account.php'), do_action('woocommerce_account_content'), call_user_func_array, woocommerce_account_content, do_action('woocommerce_account_product-list_endpoint'), call_user_func_array, Product_List_Settings->show_user_lists, Product_List_Settings->add_list
+[22-Sep-2016 00:54:19 UTC] init plugin
+[22-Sep-2016 00:54:21 UTC] Error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Nueva'' AND user_id = 3' at line 1 de la base de datos de WordPress para la consulta SELECT nombre FROM px_product_list WHERE nombre = 'Nueva'' AND user_id = 3 realizada por require('C:\wamp\www\pixan\wp-blog-header.php'), require_once('C:\wamp\www\pixan\wp-includes\template-loader.php'), include('C:\wamp\www\pixan\wp-content\themes\organics\page.php'), get_template_part, locate_template, load_template, require('C:\wamp\www\pixan\wp-content\themes\organics\single.php'), organics_show_post_layout, organics_get_post_data, apply_filters('the_content'), call_user_func_array, do_shortcode, preg_replace_callback, do_shortcode_tag, call_user_func, WC_Shortcodes::my_account, WC_Shortcodes::shortcode_wrapper, call_user_func, WC_Shortcode_My_Account::output, WC_Shortcode_My_Account::my_account, wc_get_template, include('C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\myaccount\my-account.php'), do_action('woocommerce_account_content'), call_user_func_array, woocommerce_account_content, do_action('woocommerce_account_product-list_endpoint'), call_user_func_array, Product_List_Settings->show_user_lists, Product_List_Settings->add_list
+[22-Sep-2016 00:54:55 UTC] init plugin
+[22-Sep-2016 00:54:59 UTC] init plugin
+[22-Sep-2016 00:55:03 UTC] init plugin
+[22-Sep-2016 00:55:07 UTC] init plugin
+[22-Sep-2016 00:55:11 UTC] init plugin
+[22-Sep-2016 00:55:16 UTC] init plugin
+[22-Sep-2016 00:55:24 UTC] init plugin
+[22-Sep-2016 00:55:30 UTC] init plugin
+[22-Sep-2016 00:55:36 UTC] init plugin
+[22-Sep-2016 00:55:50 UTC] init plugin
+[22-Sep-2016 00:57:36 UTC] init plugin
+[22-Sep-2016 00:57:45 UTC] init plugin
+[22-Sep-2016 00:59:00 UTC] init plugin
+[22-Sep-2016 00:59:11 UTC] init plugin
+[22-Sep-2016 00:59:19 UTC] init plugin
+[22-Sep-2016 00:59:51 UTC] init plugin
+[22-Sep-2016 00:59:55 UTC] init plugin
+[22-Sep-2016 01:01:49 UTC] init plugin
+[22-Sep-2016 01:01:58 UTC] init plugin
+[22-Sep-2016 01:02:11 UTC] init plugin
+[22-Sep-2016 01:02:16 UTC] init plugin
+[22-Sep-2016 01:02:22 UTC] init plugin
+[22-Sep-2016 01:02:29 UTC] init plugin
+[22-Sep-2016 01:12:52 UTC] init plugin
+[22-Sep-2016 01:12:52 UTC] init plugin
+[22-Sep-2016 01:12:54 UTC] init plugin
+[22-Sep-2016 01:13:12 UTC] init plugin
+[22-Sep-2016 01:13:21 UTC] init plugin
+[22-Sep-2016 01:13:29 UTC] init plugin
+[22-Sep-2016 01:13:46 UTC] init plugin
+[22-Sep-2016 01:13:50 UTC] init plugin
+[22-Sep-2016 01:13:55 UTC] init plugin
+[22-Sep-2016 01:14:00 UTC] init plugin
+[22-Sep-2016 01:14:01 UTC] Error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\"' at line 1 de la base de datos de WordPress para la consulta SELECT * FROM px_product_list_detail WHERE product_list_id = 11\" realizada por require('C:\wamp\www\pixan\wp-blog-header.php'), require_once('C:\wamp\www\pixan\wp-includes\template-loader.php'), include('C:\wamp\www\pixan\wp-content\themes\organics\page.php'), get_template_part, locate_template, load_template, require('C:\wamp\www\pixan\wp-content\themes\organics\single.php'), organics_show_post_layout, organics_get_post_data, apply_filters('the_content'), call_user_func_array, do_shortcode, preg_replace_callback, do_shortcode_tag, call_user_func, WC_Shortcodes::my_account, WC_Shortcodes::shortcode_wrapper, call_user_func, WC_Shortcode_My_Account::output, WC_Shortcode_My_Account::my_account, wc_get_template, include('C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\myaccount\my-account.php'), do_action('woocommerce_account_content'), call_user_func_array, woocommerce_account_content, do_action('woocommerce_account_product-list_endpoint'), call_user_func_array, Product_List_Settings->show_user_lists, Product_List_Settings->add_product_list_to_cart, Product_List_Settings::get_list_detail
+[22-Sep-2016 01:14:01 UTC] PHP Warning:  Cannot modify header information - headers already sent in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 659
+[22-Sep-2016 01:14:01 UTC] PHP Stack trace:
+[22-Sep-2016 01:14:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[22-Sep-2016 01:14:01 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[22-Sep-2016 01:14:01 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:19
+[22-Sep-2016 01:14:01 UTC] PHP   4. include() C:\wamp\www\pixan\wp-includes\template-loader.php:75
+[22-Sep-2016 01:14:01 UTC] PHP   5. get_template_part() C:\wamp\www\pixan\wp-content\themes\organics\page.php:5
+[22-Sep-2016 01:14:01 UTC] PHP   6. locate_template() C:\wamp\www\pixan\wp-includes\general-template.php:167
+[22-Sep-2016 01:14:01 UTC] PHP   7. load_template() C:\wamp\www\pixan\wp-includes\template.php:531
+[22-Sep-2016 01:14:01 UTC] PHP   8. require() C:\wamp\www\pixan\wp-includes\template.php:574
+[22-Sep-2016 01:14:01 UTC] PHP   9. organics_show_post_layout() C:\wamp\www\pixan\wp-content\themes\organics\single.php:24
+[22-Sep-2016 01:14:01 UTC] PHP  10. organics_get_post_data() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1320
+[22-Sep-2016 01:14:01 UTC] PHP  11. apply_filters() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1408
+[22-Sep-2016 01:14:01 UTC] PHP  12. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:235
+[22-Sep-2016 01:14:01 UTC] PHP  13. do_shortcode() C:\wamp\www\pixan\wp-includes\plugin.php:235
+[22-Sep-2016 01:14:01 UTC] PHP  14. preg_replace_callback() C:\wamp\www\pixan\wp-includes\shortcodes.php:223
+[22-Sep-2016 01:14:01 UTC] PHP  15. do_shortcode_tag() C:\wamp\www\pixan\wp-includes\shortcodes.php:223
+[22-Sep-2016 01:14:01 UTC] PHP  16. call_user_func() C:\wamp\www\pixan\wp-includes\shortcodes.php:326
+[22-Sep-2016 01:14:01 UTC] PHP  17. WC_Shortcodes::my_account() C:\wamp\www\pixan\wp-includes\shortcodes.php:326
+[22-Sep-2016 01:14:01 UTC] PHP  18. WC_Shortcodes::shortcode_wrapper() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:158
+[22-Sep-2016 01:14:01 UTC] PHP  19. call_user_func() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:71
+[22-Sep-2016 01:14:01 UTC] PHP  20. WC_Shortcode_My_Account::output() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:71
+[22-Sep-2016 01:14:01 UTC] PHP  21. WC_Shortcode_My_Account::my_account() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php:57
+[22-Sep-2016 01:14:01 UTC] PHP  22. wc_get_template() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php:101
+[22-Sep-2016 01:14:01 UTC] PHP  23. include() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-core-functions.php:203
+[22-Sep-2016 01:14:01 UTC] PHP  24. do_action() C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\myaccount\my-account.php:37
+[22-Sep-2016 01:14:01 UTC] PHP  25. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:14:01 UTC] PHP  26. woocommerce_account_content() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:14:01 UTC] PHP  27. do_action() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-template-functions.php:2121
+[22-Sep-2016 01:14:01 UTC] PHP  28. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:14:01 UTC] PHP  29. Product_List_Settings->show_user_lists() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:14:01 UTC] PHP  30. Product_List_Settings->add_product_list_to_cart() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:309
+[22-Sep-2016 01:14:01 UTC] PHP  31. header() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:659
+[22-Sep-2016 01:15:07 UTC] init plugin
+[22-Sep-2016 01:15:13 UTC] init plugin
+[22-Sep-2016 01:15:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 659
+[22-Sep-2016 01:15:14 UTC] PHP Stack trace:
+[22-Sep-2016 01:15:14 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[22-Sep-2016 01:15:14 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[22-Sep-2016 01:15:14 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:19
+[22-Sep-2016 01:15:14 UTC] PHP   4. include() C:\wamp\www\pixan\wp-includes\template-loader.php:75
+[22-Sep-2016 01:15:14 UTC] PHP   5. get_template_part() C:\wamp\www\pixan\wp-content\themes\organics\page.php:5
+[22-Sep-2016 01:15:14 UTC] PHP   6. locate_template() C:\wamp\www\pixan\wp-includes\general-template.php:167
+[22-Sep-2016 01:15:14 UTC] PHP   7. load_template() C:\wamp\www\pixan\wp-includes\template.php:531
+[22-Sep-2016 01:15:14 UTC] PHP   8. require() C:\wamp\www\pixan\wp-includes\template.php:574
+[22-Sep-2016 01:15:14 UTC] PHP   9. organics_show_post_layout() C:\wamp\www\pixan\wp-content\themes\organics\single.php:24
+[22-Sep-2016 01:15:14 UTC] PHP  10. organics_get_post_data() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1320
+[22-Sep-2016 01:15:14 UTC] PHP  11. apply_filters() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1408
+[22-Sep-2016 01:15:14 UTC] PHP  12. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:235
+[22-Sep-2016 01:15:14 UTC] PHP  13. do_shortcode() C:\wamp\www\pixan\wp-includes\plugin.php:235
+[22-Sep-2016 01:15:14 UTC] PHP  14. preg_replace_callback() C:\wamp\www\pixan\wp-includes\shortcodes.php:223
+[22-Sep-2016 01:15:14 UTC] PHP  15. do_shortcode_tag() C:\wamp\www\pixan\wp-includes\shortcodes.php:223
+[22-Sep-2016 01:15:14 UTC] PHP  16. call_user_func() C:\wamp\www\pixan\wp-includes\shortcodes.php:326
+[22-Sep-2016 01:15:14 UTC] PHP  17. WC_Shortcodes::my_account() C:\wamp\www\pixan\wp-includes\shortcodes.php:326
+[22-Sep-2016 01:15:14 UTC] PHP  18. WC_Shortcodes::shortcode_wrapper() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:158
+[22-Sep-2016 01:15:14 UTC] PHP  19. call_user_func() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:71
+[22-Sep-2016 01:15:14 UTC] PHP  20. WC_Shortcode_My_Account::output() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php:71
+[22-Sep-2016 01:15:14 UTC] PHP  21. WC_Shortcode_My_Account::my_account() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php:57
+[22-Sep-2016 01:15:14 UTC] PHP  22. wc_get_template() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php:101
+[22-Sep-2016 01:15:14 UTC] PHP  23. include() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-core-functions.php:203
+[22-Sep-2016 01:15:14 UTC] PHP  24. do_action() C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\myaccount\my-account.php:37
+[22-Sep-2016 01:15:14 UTC] PHP  25. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:15:14 UTC] PHP  26. woocommerce_account_content() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:15:14 UTC] PHP  27. do_action() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-template-functions.php:2121
+[22-Sep-2016 01:15:14 UTC] PHP  28. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:15:14 UTC] PHP  29. Product_List_Settings->show_user_lists() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 01:15:14 UTC] PHP  30. Product_List_Settings->add_product_list_to_cart() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:309
+[22-Sep-2016 01:15:14 UTC] PHP  31. header() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:659
+[22-Sep-2016 01:15:16 UTC] init plugin
+[22-Sep-2016 01:36:19 UTC] init plugin
+[22-Sep-2016 01:36:21 UTC] init plugin
+[22-Sep-2016 01:36:22 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3658
+[22-Sep-2016 01:36:22 UTC] PHP Stack trace:
+[22-Sep-2016 01:36:22 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 01:36:22 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 01:36:22 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 01:36:22 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 01:36:22 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:189
+[22-Sep-2016 01:36:22 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:204
+[22-Sep-2016 01:36:22 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:440
+[22-Sep-2016 01:36:22 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[22-Sep-2016 01:36:22 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3658
+[22-Sep-2016 01:36:22 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 471
+[22-Sep-2016 01:36:22 UTC] PHP Stack trace:
+[22-Sep-2016 01:36:22 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 01:36:22 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 01:36:22 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 01:36:22 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 01:36:22 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:189
+[22-Sep-2016 01:36:22 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:204
+[22-Sep-2016 01:36:25 UTC] init plugin
+[22-Sep-2016 01:36:40 UTC] init plugin
+[22-Sep-2016 01:36:41 UTC] init plugin
+[22-Sep-2016 01:37:15 UTC] init plugin
+[22-Sep-2016 01:37:22 UTC] init plugin
+[22-Sep-2016 01:37:23 UTC] init plugin
+[22-Sep-2016 01:37:26 UTC] init plugin
+[22-Sep-2016 01:37:32 UTC] init plugin
+[22-Sep-2016 01:37:39 UTC] init plugin
+[22-Sep-2016 01:37:41 UTC] init plugin
+[22-Sep-2016 01:37:59 UTC] init plugin
+[22-Sep-2016 01:38:01 UTC] init plugin
+[22-Sep-2016 01:38:13 UTC] init plugin
+[22-Sep-2016 01:38:28 UTC] init plugin
+[22-Sep-2016 01:38:30 UTC] init plugin
+[22-Sep-2016 01:38:33 UTC] init plugin
+[22-Sep-2016 01:38:49 UTC] init plugin
+[22-Sep-2016 01:38:51 UTC] init plugin
+[22-Sep-2016 01:38:54 UTC] init plugin
+[22-Sep-2016 01:39:12 UTC] init plugin
+[22-Sep-2016 01:39:12 UTC] init plugin
+[22-Sep-2016 01:39:14 UTC] init plugin
+[22-Sep-2016 01:39:21 UTC] init plugin
+[22-Sep-2016 01:39:32 UTC] init plugin
+[22-Sep-2016 02:00:35 UTC] init plugin
+[22-Sep-2016 02:00:41 UTC] init plugin
+[22-Sep-2016 02:01:24 UTC] init plugin
+[22-Sep-2016 02:05:31 UTC] init plugin
+[22-Sep-2016 02:06:18 UTC] init plugin
+[22-Sep-2016 02:08:59 UTC] init plugin
+[22-Sep-2016 02:09:12 UTC] init plugin
+[22-Sep-2016 02:09:35 UTC] init plugin
+[22-Sep-2016 02:12:10 UTC] init plugin
+[22-Sep-2016 02:12:10 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in C:\wamp\www\pixan\wp-content\themes\organics-child\plugins\plugin.woocommerce.php on line 691
+[22-Sep-2016 02:12:10 UTC] PHP Stack trace:
+[22-Sep-2016 02:12:10 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[22-Sep-2016 02:12:10 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[22-Sep-2016 02:12:10 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:13
+[22-Sep-2016 02:12:10 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[22-Sep-2016 02:12:10 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[22-Sep-2016 02:12:10 UTC] PHP   6. include() C:\wamp\www\pixan\wp-settings.php:369
+[22-Sep-2016 02:12:10 UTC] PHP   7. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[22-Sep-2016 02:12:10 UTC] PHP   8. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:96
+[22-Sep-2016 02:12:22 UTC] init plugin
+[22-Sep-2016 02:12:24 UTC] PHP Fatal error:  Using $this when not in object context in C:\wamp\www\pixan\wp-content\themes\organics-child\plugins\plugin.woocommerce.php on line 671
+[22-Sep-2016 02:12:24 UTC] PHP Stack trace:
+[22-Sep-2016 02:12:24 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[22-Sep-2016 02:12:24 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[22-Sep-2016 02:12:24 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:19
+[22-Sep-2016 02:12:24 UTC] PHP   4. include() C:\wamp\www\pixan\wp-includes\template-loader.php:75
+[22-Sep-2016 02:12:24 UTC] PHP   5. wc_get_template() C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\taxonomy-product_cat.php:22
+[22-Sep-2016 02:12:24 UTC] PHP   6. include() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-core-functions.php:203
+[22-Sep-2016 02:12:24 UTC] PHP   7. wc_get_template_part() C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\archive-product.php:69
+[22-Sep-2016 02:12:24 UTC] PHP   8. load_template() C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-core-functions.php:173
+[22-Sep-2016 02:12:24 UTC] PHP   9. require() C:\wamp\www\pixan\wp-includes\template.php:574
+[22-Sep-2016 02:12:24 UTC] PHP  10. do_action() C:\wamp\www\pixan\wp-content\plugins\woocommerce\templates\content-product.php:68
+[22-Sep-2016 02:12:24 UTC] PHP  11. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:12:24 UTC] PHP  12. organics_woocommerce_close_item_wrapper() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:12:56 UTC] init plugin
+[22-Sep-2016 02:17:41 UTC] init plugin
+[22-Sep-2016 02:17:57 UTC] init plugin
+[22-Sep-2016 02:18:00 UTC] init plugin
+[22-Sep-2016 02:18:09 UTC] init plugin
+[22-Sep-2016 02:19:53 UTC] init plugin
+[22-Sep-2016 02:20:15 UTC] init plugin
+[22-Sep-2016 02:20:44 UTC] init plugin
+[22-Sep-2016 02:22:31 UTC] init plugin
+[22-Sep-2016 02:22:32 UTC] init plugin
+[22-Sep-2016 02:22:35 UTC] init plugin
+[22-Sep-2016 02:23:51 UTC] init plugin
+[22-Sep-2016 02:26:19 UTC] init plugin
+[22-Sep-2016 02:26:28 UTC] init plugin
+[22-Sep-2016 02:26:30 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 637
+[22-Sep-2016 02:26:30 UTC] PHP Stack trace:
+[22-Sep-2016 02:26:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:26:30 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:26:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:26:30 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:26:44 UTC] init plugin
+[22-Sep-2016 02:26:57 UTC] init plugin
+[22-Sep-2016 02:26:58 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 637
+[22-Sep-2016 02:26:58 UTC] PHP Stack trace:
+[22-Sep-2016 02:26:58 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:26:58 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:26:58 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:26:58 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:33:56 UTC] init plugin
+[22-Sep-2016 02:33:58 UTC] init plugin
+[22-Sep-2016 02:33:59 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3658
+[22-Sep-2016 02:33:59 UTC] PHP Stack trace:
+[22-Sep-2016 02:33:59 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 02:33:59 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 02:33:59 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 02:33:59 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 02:33:59 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:196
+[22-Sep-2016 02:33:59 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:211
+[22-Sep-2016 02:33:59 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:447
+[22-Sep-2016 02:33:59 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[22-Sep-2016 02:33:59 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3658
+[22-Sep-2016 02:33:59 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 478
+[22-Sep-2016 02:33:59 UTC] PHP Stack trace:
+[22-Sep-2016 02:33:59 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 02:33:59 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 02:33:59 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 02:33:59 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 02:33:59 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:196
+[22-Sep-2016 02:33:59 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:211
+[22-Sep-2016 02:34:10 UTC] init plugin
+[22-Sep-2016 02:34:11 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:34:11 UTC] PHP Stack trace:
+[22-Sep-2016 02:34:11 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:34:11 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:34:11 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:34:11 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:34:38 UTC] init plugin
+[22-Sep-2016 02:34:48 UTC] init plugin
+[22-Sep-2016 02:34:50 UTC] init plugin
+[22-Sep-2016 02:34:53 UTC] init plugin
+[22-Sep-2016 02:34:55 UTC] init plugin
+[22-Sep-2016 02:34:57 UTC] init plugin
+[22-Sep-2016 02:35:01 UTC] init plugin
+[22-Sep-2016 02:43:44 UTC] init plugin
+[22-Sep-2016 02:43:47 UTC] init plugin
+[22-Sep-2016 02:43:48 UTC] init plugin
+[22-Sep-2016 02:43:52 UTC] init plugin
+[22-Sep-2016 02:44:13 UTC] init plugin
+[22-Sep-2016 02:44:42 UTC] init plugin
+[22-Sep-2016 02:44:50 UTC] init plugin
+[22-Sep-2016 02:45:20 UTC] init plugin
+[22-Sep-2016 02:45:26 UTC] init plugin
+[22-Sep-2016 02:45:36 UTC] init plugin
+[22-Sep-2016 02:45:45 UTC] init plugin
+[22-Sep-2016 02:45:46 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:45:46 UTC] PHP Stack trace:
+[22-Sep-2016 02:45:46 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:45:46 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:45:46 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:45:46 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:50:48 UTC] init plugin
+[22-Sep-2016 02:50:52 UTC] init plugin
+[22-Sep-2016 02:50:56 UTC] init plugin
+[22-Sep-2016 02:50:57 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:50:57 UTC] PHP Stack trace:
+[22-Sep-2016 02:50:57 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:50:57 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:50:57 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:50:57 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:03 UTC] init plugin
+[22-Sep-2016 02:51:04 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:51:04 UTC] PHP Stack trace:
+[22-Sep-2016 02:51:04 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:51:04 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:51:04 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:04 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:21 UTC] init plugin
+[22-Sep-2016 02:51:29 UTC] init plugin
+[22-Sep-2016 02:51:31 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:51:31 UTC] PHP Stack trace:
+[22-Sep-2016 02:51:31 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:51:31 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:51:31 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:31 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:36 UTC] init plugin
+[22-Sep-2016 02:51:37 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:51:37 UTC] PHP Stack trace:
+[22-Sep-2016 02:51:37 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:51:37 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:51:37 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:37 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:51:42 UTC] init plugin
+[22-Sep-2016 02:51:47 UTC] init plugin
+[22-Sep-2016 02:51:52 UTC] init plugin
+[22-Sep-2016 02:57:47 UTC] init plugin
+[22-Sep-2016 02:57:49 UTC] init plugin
+[22-Sep-2016 02:58:03 UTC] init plugin
+[22-Sep-2016 02:58:04 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 02:58:04 UTC] PHP Stack trace:
+[22-Sep-2016 02:58:05 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 02:58:05 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 02:58:05 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:58:05 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 02:58:09 UTC] init plugin
+[22-Sep-2016 02:58:14 UTC] init plugin
+[22-Sep-2016 02:58:18 UTC] init plugin
+[22-Sep-2016 03:00:26 UTC] init plugin
+[22-Sep-2016 03:00:50 UTC] init plugin
+[22-Sep-2016 03:01:13 UTC] init plugin
+[22-Sep-2016 03:01:22 UTC] init plugin
+[22-Sep-2016 03:01:23 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 640
+[22-Sep-2016 03:01:23 UTC] PHP Stack trace:
+[22-Sep-2016 03:01:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 03:01:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 03:01:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 03:01:23 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 03:08:14 UTC] init plugin
+[22-Sep-2016 03:08:29 UTC] init plugin
+[22-Sep-2016 03:08:37 UTC] init plugin
+[22-Sep-2016 03:08:42 UTC] init plugin
+[22-Sep-2016 03:15:30 UTC] init plugin
+[22-Sep-2016 03:15:42 UTC] init plugin
+[22-Sep-2016 03:15:44 UTC] PHP Notice:  Undefined index: ids in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 635
+[22-Sep-2016 03:15:44 UTC] PHP Stack trace:
+[22-Sep-2016 03:15:44 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[22-Sep-2016 03:15:44 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[22-Sep-2016 03:15:44 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 03:15:44 UTC] PHP   4. Product_List_Settings->add_products_to_a_list() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[22-Sep-2016 03:23:21 UTC] init plugin
+[22-Sep-2016 03:23:42 UTC] init plugin
+[22-Sep-2016 03:23:53 UTC] init plugin
+[22-Sep-2016 03:24:04 UTC] init plugin
+[22-Sep-2016 03:26:09 UTC] init plugin
+[22-Sep-2016 03:26:16 UTC] init plugin
+[22-Sep-2016 03:26:24 UTC] init plugin
+[22-Sep-2016 03:26:30 UTC] init plugin
+[22-Sep-2016 03:26:35 UTC] init plugin
+[22-Sep-2016 03:26:43 UTC] init plugin
+[22-Sep-2016 03:26:48 UTC] init plugin
+[22-Sep-2016 03:30:12 UTC] init plugin
+[22-Sep-2016 03:30:14 UTC] init plugin
+[22-Sep-2016 03:30:15 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3658
+[22-Sep-2016 03:30:15 UTC] PHP Stack trace:
+[22-Sep-2016 03:30:15 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 03:30:15 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 03:30:15 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 03:30:15 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 03:30:15 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:196
+[22-Sep-2016 03:30:15 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:211
+[22-Sep-2016 03:30:15 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:442
+[22-Sep-2016 03:30:15 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[22-Sep-2016 03:30:15 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3658
+[22-Sep-2016 03:30:15 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 473
+[22-Sep-2016 03:30:15 UTC] PHP Stack trace:
+[22-Sep-2016 03:30:15 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[22-Sep-2016 03:30:15 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[22-Sep-2016 03:30:15 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 03:30:15 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[22-Sep-2016 03:30:15 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:196
+[22-Sep-2016 03:30:15 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:211
+[22-Sep-2016 03:30:19 UTC] init plugin
+[22-Sep-2016 03:30:33 UTC] init plugin
+[22-Sep-2016 03:30:33 UTC] init plugin
+[22-Sep-2016 03:30:35 UTC] init plugin
+[22-Sep-2016 03:30:43 UTC] init plugin
+[22-Sep-2016 03:30:55 UTC] init plugin
+[22-Sep-2016 03:31:00 UTC] init plugin
+[22-Sep-2016 03:31:05 UTC] init plugin
+[22-Sep-2016 03:31:09 UTC] init plugin
+[22-Sep-2016 03:31:14 UTC] init plugin
+[22-Sep-2016 03:31:22 UTC] init plugin
+[22-Sep-2016 03:31:24 UTC] init plugin
+[22-Sep-2016 03:31:44 UTC] init plugin
+[22-Sep-2016 03:31:54 UTC] init plugin
+[22-Sep-2016 03:31:56 UTC] init plugin
+[22-Sep-2016 03:32:03 UTC] init plugin
+[22-Sep-2016 03:32:17 UTC] init plugin
+[22-Sep-2016 03:32:19 UTC] init plugin
+[22-Sep-2016 03:32:21 UTC] init plugin
+[22-Sep-2016 03:32:24 UTC] init plugin
+[22-Sep-2016 03:32:26 UTC] init plugin

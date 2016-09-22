@@ -11,6 +11,7 @@ function addToCart(p_id) {
 */
 
 $(document).ready(function(){
+    
     $( ".add_to_list_dialog" ).dialog({
       autoOpen: false,
       resizable: false,
@@ -23,6 +24,12 @@ $(document).ready(function(){
           id : 'btnContinuar',
           text: 'Continuar',
           click : function() {
+            //RESET ARRAYS
+            ids = [];
+            cant = [];
+            $("#btnContinuar").hide();
+            $("#dialogLoader").show();
+            $("#dialogDefaultText").hide();
             $('.cart_item').each(function() {
               ids.push($(this).find('.remove').data('product_id'));
               cant.push($(this).find('.qty').val());
@@ -33,21 +40,26 @@ $(document).ready(function(){
               ids.push($("input[name=add-to-cart]").val());
               cant.push(1);
             }
+            
             $.post($("#rutaAjax").val(), {action: 'add_products_to_a_list', list_id: $("#add_product_list").val(), ids: ids, cant: cant }, 
               function(data) {
+                
                 if(data == "OK") {
                   var exitoText = '<div class="" style="background-color:#C8E6C9;">Articulos agregados con exito a tu lista.</div>';
                   $("#btnContinuar").hide();
-                  $("#dialog").html(exitoText);
+                  $("#dialogMsj").show();
+                  
+                  $("#dialogMsj").html(exitoText);
                   $("#btnCerrar").html('Listo');
                 } 
                 else {
                   var errorText = '<div class="" style="background-color:#F8BBD0;">Ocurrio un error, por favor intentalo nuevamente.</div>';
-                  $("#dialog").html(errorText);
+                  $("#dialogMsj").html(errorText);
                 }
             })
             .always(function(data){ 
                console.log('Always -> ['+data+']');
+               $("#dialogLoader").hide();
             })
             .fail(function(xhr, status, error) {
                 console.log('FAIL');
@@ -60,6 +72,11 @@ $(document).ready(function(){
         "Cancelar": {
           click: function() {
             $( this ).dialog( "close" );
+            $("#dialogMsj").hide();
+            $("#dialogDefaultText").show();
+            $("#btnContinuar").show();
+            $("#btnCerrar").html('Cerrar');
+           
           }, 
           id: 'btnCerrar',
           text: 'Cancelar'
@@ -68,7 +85,8 @@ $(document).ready(function(){
     });
     $( ".addToList" ).on( "click", function(e) {
       e.preventDefault();
-      $( ".add_to_list_dialog" ).dialog( "open" );
+      $("input[name=add-to-cart]").val($(this).data("product-id"));
+      $(".add_to_list_dialog").dialog( "open" );
     });
 
     /*
