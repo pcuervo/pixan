@@ -330,6 +330,30 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	 **/
 
 	public function my_custom_checkout_field_update_order_meta( $order_id ) {
+		//global $post, $the_order;
+		$tempe = array();
+		$t = '';
+
+		if ( empty( $the_order ) || $the_order->id != $order_id ) {
+			$the_order = wc_get_order( $order_id );
+		}
+
+		foreach ( $the_order->get_items() as $item ) {
+			//echo $item;
+			$product        = apply_filters( 'woocommerce_order_item_product', $the_order->get_product_from_item( $item ), $item );
+			//var_dump($product->id);
+			/* Get the post meta. */
+			$temperatura = get_post_meta( $product->id , 'temperatura', true );
+			//echo '['.$temperatura.']';
+			if ( !empty( $temperatura ) && !in_array($temperatura, $tempe)) { array_push($tempe, $temperatura); }
+		}
+		for ($i = 0; $i<count($tempe); $i++) {
+			$t .= $tempe[$i].'<br />';
+			//update_post_meta( $order_id, '_temperatura_'.$tempe[$i], $tempe[$i]);
+		}
+		//echo $t;
+		update_post_meta( $order_id, '_temperaturas_orden', $t);
+		
 
 		//if ($_POST['billing_area_entrega']) update_post_meta( $order_id, 'billing_area_entrega', $_POST['billing_area_entrega']);
 		//if ($_POST['billing_puntos_recoleccion']) update_post_meta( $order_id, 'billing_puntos_recoleccion', $_POST['billing_puntos_recoleccion']);

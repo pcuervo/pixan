@@ -103,7 +103,6 @@ class Product_List {
 	 * Initialize class
 	 */
 	private function init() {
-		error_log('init plugin');
 		Product_List_Settings::get();
 	}
 
