@@ -226,6 +226,27 @@ class Product_List_Settings {
 		);
 	}
 
+	public function update_list_detail($idlista) {
+		global $wpdb;
+
+		$detalle = $this->get_list_detail($idlista);
+		
+		if (count($detalle[0]) > 0) {
+			foreach ( $detalle as $det )
+			{
+				$wpdb->update(
+					$wpdb->prefix . 'product_list_detail',
+					array( 'cantidad' => $_GET['cant_'.$det->product_id] ),
+					array( 'product_list_id' => $idlista, 'product_id' => $det->product_id ),
+					array( '%d' ),
+					array( '%d', '%d' )
+				);
+			}
+		}
+		
+		$this->show_list_detail($idlista);
+	}
+
 	//CALCULA LA CANTIDAD DE DIAS ENTRE 2 FECHAS CON FORMATO dd/mm/aaaa
 	public function calcular_cant_dias_entre_fechas($fechaL,$fechaS)
 	{
@@ -312,6 +333,9 @@ class Product_List_Settings {
 		}
 		else if( isset($_GET['detalle']) ){
 			$this->show_list_detail($_GET['detalle']);
+		}
+		else if( isset($_GET['actualizar']) ){
+			$this->update_list_detail($_GET['actualizar']);
 		}
 		//TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else if ( isset($_GET['cron']) ){
@@ -409,21 +433,28 @@ class Product_List_Settings {
 			</thead>
 			<tbody>';
 
-
+		echo '<form id="formUpdateList" action="'.SITEURL.'my-account/product-list/" type="post" >';
 			if (count($detalle[0]) > 0) {
-
+				$prod_ids = '';
+				$cant_ids = '';
 				foreach ( $detalle as $det )
 				{
 					$_product = $_pf->get_product($det->product_id);
 					$urladdtocart .= '&quantity['.$det->product_id.']='.$det->cantidad;
+
+					$prod_ids .= $det->product_id.',';
+					$cant_ids .= $det->cantidad.',';
+
 					echo '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
 						echo '<td><a href='.SITEURL.'my-account/product-list/?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.' class="remove" title="Eliminar de mi Lista" >X</a></td>';
 						echo '<td>'.$_product->get_image().'</td>';
 						echo '<td>'.$_product->get_title().'</td>';
 						echo '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
-						echo '<td>'.$det->cantidad.'</td>';
+						echo '<td><input size="1" style="text-align: center;" id="cant_'.$det->product_id.'" name="cant_'.$det->product_id.'" value="'.$det->cantidad.'" /></td>';
 					echo '</tr>';
 				}
+				$prod_ids = substr($prod_ids, 0, -1);
+				$cant_ids = substr($cant_ids, 0, -1);
 			}
 			else {
 				echo '<td colspan="5">Esta lista esta vacia.</td>';
@@ -431,9 +462,13 @@ class Product_List_Settings {
 
 			echo '</tbody>';
 		echo '</table>';
-
-		echo '<a href="'.SITEURL.'my-account/product-list/?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
-		echo '<a href="'.SITEURL.'?'.$urladdtocart.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
+		
+		echo '<input type="hidden" id="actualizar" name="actualizar" value="'.$list_id.'" />';
+		echo '<button style="float:right;" type="submit" class="button view">Actualizar Cantidades</button>';
+		//echo '<a href="'.SITEURL.'my-account/product-list/?actualizar='.$list_id.'&prods='.$prod_ids.'&cants='.$cant_ids.'" class="[ float-right ] button alt">Actualizar Cantidades</a>';
+		echo '</form>';
+		echo '<a  href="'.SITEURL.'my-account/product-list/?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
+		
 	}
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
@@ -659,8 +694,11 @@ class Product_List_Settings {
 				WC()->cart->add_to_cart( $det->product_id, $det->cantidad );
 			}
 		}
-		
-		header("Location: ".SITEURL."cart");
+		echo '<div class="woocommerce-Message woocommerce-Message--info woocommerce-success" >';
+		echo 'Hemos agregado los productos de tu lista a tu carrito.';
+		echo '</div>';
+		echo '<a href="'.SITEURL.'cart" class="[ float-right ] button alt">Ver Carrito</a>';
+		//header("Location: ".SITEURL."cart");
 	}
 
 }// Product_List_Settings

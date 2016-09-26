@@ -144,7 +144,7 @@ function show_metabox_producto($post){
 	
 	$tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true);
 	$temperatura = get_post_meta($post->ID, 'temperatura', true);
-	$meta = get_post_meta($post->ID);
+	$vigencia = get_post_meta($post->ID, 'vigencia', true);
 	
 	wp_nonce_field(__FILE__, '_unidadmedida');
 	wp_nonce_field(__FILE__, '_temperatura');
@@ -159,7 +159,11 @@ function show_metabox_producto($post){
 	echo '<h5>Temperatura</h5>';
 	echo 'Fresco <input type="radio" name="temperatura" id="radio_fresco" value="Fresco" ';checked( $temperatura, 'Fresco' ); echo ' />';
 	echo 'Congelado <input type="radio" name="temperatura" id="radio_congelado" value="Congelado" ';checked( $temperatura, 'Congelado' ); echo ' />';
+	echo '<h5>Vigencia</h5>';
+	echo '<input type="date" id="vigencia" name="vigencia" value="'.$vigencia.'" class="example-datepicker" />';
 
+	//$meta = get_post_meta($post->ID);
+	//var_dump($meta);
 }
 
 function meta_box_producto(){
