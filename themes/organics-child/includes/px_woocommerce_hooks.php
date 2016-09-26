@@ -24,3 +24,4 @@ add_filter( 'woocommerce_package_rates', 'px_free_shipping_above_500', 100 );
  * Add metaboxes for products
  */
 add_action('add_meta_boxes', 'meta_box_producto');
+
