@@ -289,15 +289,17 @@ class Product_List_Settings {
 		//var_dump($_GET);
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
+			$this->print_user_list();
 			//header("Location: ".SITEURL."my-account/product-list");
-			wp_redirect(SITEURL."my-account/product-list");
-			exit;
+			//wp_redirect(SITEURL."my-account/product-list");
+			//exit;
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
+			$this->print_user_list();
 			//header("Location: ".SITEURL."my-account/product-list");
-			wp_redirect(SITEURL."my-account/product-list");
-			exit;
+			//wp_redirect(SITEURL."my-account/product-list");
+			//exit;
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -315,67 +317,71 @@ class Product_List_Settings {
 		}
 		//END TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else {
-
-			echo '<h4>Mis listas</h4>';
-			echo '<table class="woocommerce-MyAccount-lists shop_table shop_table_responsive my_account_lists account-lists-table">
-					<thead>
-						<tr>
-								<th class="list-name"><span class="nobr">Nombre</span></th>
-								<th class="list-date" ><span class="nobr">Productos</span></th>
-								<th class="list-status"><span class="nobr">Recurrencia</span></th>
-								<th class="list-actions"><span class="nobr">&nbsp;</span></th>
-						</tr>
-					</thead>
-
-					<tbody>';
-
-					$listas = $this->get_list(get_current_user_id());
-					if (count($listas[0]) > 0) {
-						foreach ( $listas as $list )
-						{
-							echo '<tr class="list" data-listid="'.$list->id.'">
-								<td class="list-name" data-title="Pedido">
-									<a href="#">'.$list->nombre.'</a>
-								</td>
-								<td style="text-align: center;" data-title="Cantidad">
-									<span>'.$this->count_products( $list->id ).'</span>
-								</td>
-								<td data-title="Recurrencia">
-									Cada <span>'.$list->recurrencia.'</span> dias.
-								</td>
-								<td class="list-actions" data-title="&nbsp;">
-									<a href="my-account?detalle='.$list->id.'" class="button view">Ver</a>
-									<a href="my-account?eliminar='.$list->id.'" title="Eliminar" class="button view red">X</a>
-								</td>
-							</tr>';
-						}
-					}
-					else {
-						echo '<tr class="list" style="background-color: pink; text-align:center;"><td colspan="4">Aún no tienes ninguna lista.</td></tr>';
-					}
-
-					echo '<tr class="list">
-							<form id="formAddLista" action="my-account" type="post" >
-								<td class="list-name" colspan="2">
-									<input id="lista_nombre" name="lista_nombre" />
-								</td>
-								<td class="list-total" data-title="Total">
-									<select id="recurrencia" name="recurrencia" >
-										<option></option>
-										<option value="8">Semanal</option>
-										<option value="15">Quincenal</option>
-										<option value="30">Mensual</option>
-									</select>
-								</td>
-								<td class="list-actions" data-title="&nbsp;">
-									<button type="submit" class="button view">Crear</button>
-								</td>
-							</form>
-						</tr>
-						</tbody>
-					</table>';
+			$this->print_user_list();
+			
 		}
 
+	}
+
+	public function print_user_list() {
+		echo '<h4>Mis listas</h4>';
+		echo '<table class="woocommerce-MyAccount-lists shop_table shop_table_responsive my_account_lists account-lists-table">
+				<thead>
+					<tr>
+							<th class="list-name"><span class="nobr">Nombre</span></th>
+							<th class="list-date" ><span class="nobr">Productos</span></th>
+							<th class="list-status"><span class="nobr">Recurrencia</span></th>
+							<th class="list-actions"><span class="nobr">&nbsp;</span></th>
+					</tr>
+				</thead>
+
+				<tbody>';
+
+				$listas = $this->get_list(get_current_user_id());
+				if (count($listas[0]) > 0) {
+					foreach ( $listas as $list )
+					{
+						echo '<tr class="list" data-listid="'.$list->id.'">
+							<td class="list-name" data-title="Pedido">
+								<a href="#">'.$list->nombre.'</a>
+							</td>
+							<td style="text-align: center;" data-title="Cantidad">
+								<span>'.$this->count_products( $list->id ).'</span>
+							</td>
+							<td data-title="Recurrencia">
+								Cada <span>'.$list->recurrencia.'</span> dias.
+							</td>
+							<td class="list-actions" data-title="&nbsp;">
+								<a href="my-account?detalle='.$list->id.'" class="button view">Ver</a>
+								<a href="my-account?eliminar='.$list->id.'" title="Eliminar" class="button view red">X</a>
+							</td>
+						</tr>';
+					}
+				}
+				else {
+					echo '<tr class="list" style="background-color: pink; text-align:center;"><td colspan="4">Aún no tienes ninguna lista.</td></tr>';
+				}
+
+				echo '<tr class="list">
+						<form id="formAddLista" action="my-account" type="post" >
+							<td class="list-name" colspan="2">
+								<input id="lista_nombre" name="lista_nombre" />
+							</td>
+							<td class="list-total" data-title="Total">
+								<select id="recurrencia" name="recurrencia" >
+									<option></option>
+									<option value="8">Semanal</option>
+									<option value="15">Quincenal</option>
+									<option value="30">Mensual</option>
+								</select>
+							</td>
+							<td class="list-actions" data-title="&nbsp;">
+								<button type="submit" class="button view">Crear</button>
+							</td>
+						</form>
+					</tr>
+					</tbody>
+				</table>';
 	}
 
 	public function show_list_detail( $list_id ) {
