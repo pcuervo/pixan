@@ -1,0 +1,67 @@
+[27-Sep-2016 23:36:03 UTC] PHP Notice:  Undefined property: stdClass::$homepage in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1077
+[27-Sep-2016 23:36:03 UTC] PHP Stack trace:
+[27-Sep-2016 23:36:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[27-Sep-2016 23:36:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[27-Sep-2016 23:36:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP Notice:  Undefined property: stdClass::$post in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1088
+[27-Sep-2016 23:36:03 UTC] PHP Stack trace:
+[27-Sep-2016 23:36:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[27-Sep-2016 23:36:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[27-Sep-2016 23:36:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP Notice:  Undefined property: stdClass::$page in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1117
+[27-Sep-2016 23:36:03 UTC] PHP Stack trace:
+[27-Sep-2016 23:36:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[27-Sep-2016 23:36:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[27-Sep-2016 23:36:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP Notice:  Undefined property: stdClass::$category in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1149
+[27-Sep-2016 23:36:03 UTC] PHP Stack trace:
+[27-Sep-2016 23:36:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[27-Sep-2016 23:36:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[27-Sep-2016 23:36:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[27-Sep-2016 23:36:03 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP Notice:  Undefined property: stdClass::$homepage in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1077
+[28-Sep-2016 00:09:30 UTC] PHP Stack trace:
+[28-Sep-2016 00:09:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:09:30 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:09:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP Notice:  Undefined property: stdClass::$post in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1088
+[28-Sep-2016 00:09:30 UTC] PHP Stack trace:
+[28-Sep-2016 00:09:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:09:30 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:09:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP Notice:  Undefined property: stdClass::$page in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1117
+[28-Sep-2016 00:09:30 UTC] PHP Stack trace:
+[28-Sep-2016 00:09:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:09:30 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:09:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP Notice:  Undefined property: stdClass::$category in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1149
+[28-Sep-2016 00:09:30 UTC] PHP Stack trace:
+[28-Sep-2016 00:09:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:09:30 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:09:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:09:30 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:28:40 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3658
+[28-Sep-2016 00:28:40 UTC] PHP Stack trace:
+[28-Sep-2016 00:28:40 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:28:40 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:28:40 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:28:40 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:28:40 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[28-Sep-2016 00:28:40 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[28-Sep-2016 00:28:40 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
+[28-Sep-2016 00:28:40 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[28-Sep-2016 00:28:40 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3658
+[28-Sep-2016 00:28:40 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[28-Sep-2016 00:28:40 UTC] PHP Stack trace:
+[28-Sep-2016 00:28:40 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[28-Sep-2016 00:28:40 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[28-Sep-2016 00:28:40 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:28:40 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[28-Sep-2016 00:28:40 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[28-Sep-2016 00:28:40 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213

@@ -153,14 +153,16 @@ class Product_List_Settings {
 	}
 
 	function add_list_to_list_button() {
-		echo '<a href="#" class="button alt addToList">Agregar este pedido a mi Lista</a>';
-		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
-		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
-		$this->show_dialog();
+		if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) {
+			echo '<a href="#" class="button alt addToList">Agregar este pedido a mi Lista</a>';
+			echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
+			echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
+			$this->show_dialog();
+		}
 	}
 
 	function show_dialog() {
-		echo '<div id="dialog" class="add_to_list_dialog" title="Seleccionar Lista">
+		echo '<div style="display:none;" id="dialog" class="add_to_list_dialog" title="Seleccionar Lista">
 				<div id="dialogLoader" style="display:none;"><img src="'.PRODUCT_LIST_URL.'inc/img/loader.gif" alt="Cargando..." /></div>
 				<div id="dialogMsj"></div>
 				<div id="dialogDefaultText">
@@ -305,11 +307,13 @@ class Product_List_Settings {
 	}
 
 	function add_product_to_list_button() {
-		echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
-		echo '<div class="clearfix"></div>';
-		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
-		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
-		$this->show_dialog();
+		if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) {
+			echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
+			echo '<div class="clearfix"></div>';
+			echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
+			echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
+			$this->show_dialog();
+		}
 	}
 
 	function show_user_lists() {

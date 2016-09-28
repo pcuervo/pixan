@@ -659,10 +659,12 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			            ),
 			            $product );
 			        ?></div>
-			        <div class="[ text-center ][ button-list ]">
-			        	<a href="#" class="button alt addToList" data-product-id="<?php echo $product->id; ?>">Agregar a mi Lista</a>
-			        	
-			        </div>
+			        <?php 
+			        	if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) { ?>
+					        <div class="[ text-center ][ button-list ]">
+					        	<a href="#" class="button alt addToList" data-product-id="<?php echo $product->id; ?>">Agregar a mi Lista</a>
+					        </div>
+					<?php } ?>
 			    </div><!-- end button cart -->
 
 

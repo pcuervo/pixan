@@ -194,6 +194,7 @@ function MY_COLUMNS_FUNCTION($columns){
     //all of your columns will be added before the actions column
     //$new_columns['temperatura'] = 'Tempreratura';
     $new_columns['_temperaturas_orden'] = 'Tempreraturas';
+    $new_columns['_billing_regalo'] = 'Regalo';
     //stop editing
 
     $new_columns['order_actions'] = $columns['order_actions'];
@@ -300,7 +301,15 @@ function my_manage_shop_order_columns( $column, $post_id ) {
 			/* If no _temperaturas_orden is found, output a default message. */
 			if ( !empty( $_temperaturas_orden ) ) { echo $_temperaturas_orden; }
 			//else { echo 'NADA'; }
-			break;			
+			break;	
+		case '_billing_regalo' :
+			/* Get the post meta. */
+			$_billing_regalo = get_post_meta( $post_id, '_billing_regalo', true );
+
+			/* If no _billing_regalo is found, output a default message. */
+			if ( !empty( $_billing_regalo ) && $_billing_regalo == '1' ) { echo '<strong style="color:#CDDC39;">SI</strong>'; }
+			else { echo 'NO'; }
+			break;		
 		/* Just break out of the switch statement for everything else. */
 		default :
 			break;
