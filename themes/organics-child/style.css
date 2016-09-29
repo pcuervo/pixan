@@ -182,6 +182,9 @@ input[type="button"]:hover,
 
 .button-list a { margin: 5px 0 0!important; }
 
+.archive .shop_mode_list .shortcode_add_to_button,
+.archive .shop_mode_list .button-list { text-align: left!important }
+
 	/*Large*/
 .sc_button.sc_button_size_large {
 	height: 56px!important;

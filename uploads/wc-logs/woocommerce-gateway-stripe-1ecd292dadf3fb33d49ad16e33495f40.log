@@ -8,3 +8,49 @@
     [limit] => 100
 )
 
+09-29-2016 @ 00:59:16 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+09-29-2016 @ 00:59:24 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+09-29-2016 @ 01:01:16 - Info: Begin processing payment for order 1070 for the amount of 500
+09-29-2016 @ 01:01:16 - charges request: Array
+(
+    [currency] => mxn
+    [amount] => 50000
+    [description] => Pixan Sustentable - Order 1070
+    [capture] => true
+    [expand[]] => balance_transaction
+    [customer] => cus_9CAA1DbCgndPHl
+    [source] => card_18tlqSHtulYPV1nKp74yA6N7
+)
+
+09-29-2016 @ 01:01:17 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+09-29-2016 @ 01:01:19 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+09-29-2016 @ 01:02:07 - Info: Begin processing payment for order 1070 for the amount of 500
+09-29-2016 @ 01:02:07 - charges request: Array
+(
+    [currency] => mxn
+    [amount] => 50000
+    [description] => Pixan Sustentable - Order 1070
+    [capture] => true
+    [expand[]] => balance_transaction
+    [customer] => cus_9CAA1DbCgndPHl
+    [source] => card_18tlqSHtulYPV1nKp74yA6N7
+)
+
+09-29-2016 @ 01:02:13 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+09-29-2016 @ 01:02:15 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
