@@ -50,7 +50,6 @@ function px_create_new_customer_coupon(){
 	$welcome_coupon = new WC_Coupon( 'bienvenido' );
 	if ( $welcome_coupon->exists ) return;
 
-	error_log('no existe...');
 	$coupon_code = 'bienvenido'; 
 	$amount = '50';
 	$discount_type = 'fixed_cart';
