@@ -144,7 +144,7 @@ function show_metabox_producto($post){
 	
 	$tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true);
 	$temperatura = get_post_meta($post->ID, 'temperatura', true);
-	$meta = get_post_meta($post->ID);
+	$vigencia = get_post_meta($post->ID, 'vigencia', true);
 	
 	wp_nonce_field(__FILE__, '_unidadmedida');
 	wp_nonce_field(__FILE__, '_temperatura');
@@ -159,7 +159,11 @@ function show_metabox_producto($post){
 	echo '<h5>Temperatura</h5>';
 	echo 'Fresco <input type="radio" name="temperatura" id="radio_fresco" value="Fresco" ';checked( $temperatura, 'Fresco' ); echo ' />';
 	echo 'Congelado <input type="radio" name="temperatura" id="radio_congelado" value="Congelado" ';checked( $temperatura, 'Congelado' ); echo ' />';
+	echo '<h5>Vigencia</h5>';
+	echo '<input type="date" id="vigencia" name="vigencia" value="'.$vigencia.'" class="example-datepicker" />';
 
+	//$meta = get_post_meta($post->ID);
+	//var_dump($meta);
 }
 
 function meta_box_producto(){
@@ -178,5 +182,139 @@ add_action( 'save_post', function ( $post_id ){
 		update_post_meta($post_id, 'temperatura', $_POST['temperatura']);
 	}
 });// save_meta_boxes_puntos_recoleccion
+
+
+//MODIFY ORDERS LIST FILTERS
+add_filter( 'manage_edit-shop_order_columns', 'MY_COLUMNS_FUNCTION' );
+function MY_COLUMNS_FUNCTION($columns){
+    $new_columns = (is_array($columns)) ? $columns : array();
+    unset( $new_columns['order_actions'] );
+
+    //edit this for you column(s)
+    //all of your columns will be added before the actions column
+    //$new_columns['temperatura'] = 'Tempreratura';
+    $new_columns['_temperaturas_orden'] = 'Tempreraturas';
+    $new_columns['_billing_regalo'] = 'Regalo';
+    //stop editing
+
+    $new_columns['order_actions'] = $columns['order_actions'];
+    return $new_columns;
+}
+
+add_action( 'restrict_manage_posts' , 'modify_orders_filters'  );
+
+function modify_orders_filters()
+{
+    // Only apply the filter to our specific post type
+    global $wpdb;
+	
+    global $typenow;
+    if( $typenow == 'shop_order' )
+    {
+    	
+    	$temperaturas = $wpdb->get_results(
+		"SELECT distinct(meta_value) FROM " . $wpdb->prefix . "postmeta WHERE meta_key = 'temperatura'"
+		);
+		if (count($temperaturas[0]) > 0) {
+			echo '<select id="_temperaturas_orden" name="_temperaturas_orden" data-parsley-error-message="Todas las temperaturas" >';
+	 		echo '<option class="" value="" selected>Todas las temperaturas</option>';
+			foreach ( $temperaturas as $temperatura )
+			{
+				if(isset($_GET['_temperaturas_orden'])) { $selected = $temperatura->meta_value == $_GET['_temperaturas_orden'] ? ' selected ' : ''; }
+				else { $selected = ''; }
+				echo '<option value="'.$temperatura->meta_value.'" '.$selected.'>'.$temperatura->meta_value.'</option>';
+			}
+			echo '</select>';
+		}
+		//BOTON PARA IMPRIMIR
+    	echo '<a href="#" class="button" id="btnImprimir">IMPRIMIR</a>';
+    }
+}
+
+add_filter( 'parse_query', 'modify_filter_orders' );
+
+function modify_filter_orders( $query )
+{
+    global $typenow;
+    global $pagenow;
+    
+    /*
+    if( isset($_GET['temperatura']) && $_GET['temperatura'] != '') {
+	    if( $pagenow == 'edit.php' && $typenow == 'shop_order' && $_GET['temperatura'] )
+	    {
+	    	//echo '****************'.$_GET['temperatura'];
+	        $query->query_vars[ 'meta_key' ] = 'temperatura';
+	        $query->query_vars[ 'meta_value' ] = $_GET['temperatura'];
+	    }
+	}
+	*/
+	if( isset($_GET['_temperaturas_orden']) && $_GET['_temperaturas_orden'] != '') {
+	    if( $pagenow == 'edit.php' && $typenow == 'shop_order' && $_GET['_temperaturas_orden'] )
+	    {
+	    	//echo '****************'.$_GET['_temperaturas_orden'];
+	        $query->query_vars[ 'meta_key' ] = '_temperaturas_orden';
+	        $query->query_vars[ 'meta_value' ] = $_GET['_temperaturas_orden'];
+	        $query->query_vars[ 'meta_compare' ] = 'LIKE';
+	    }
+	}
+		
+	//var_dump($query);
+}
+
+add_action( 'manage_shop_order_posts_custom_column', 'my_manage_shop_order_columns', 10, 2 );
+
+function my_manage_shop_order_columns( $column, $post_id ) {
+	global $post, $the_order;
+	$tempe = array();
+	$t = '';
+
+	if ( empty( $the_order ) || $the_order->id != $post_id ) {
+		$the_order = wc_get_order( $post_id );
+	}
+
+	//var_dump($the_order);
+
+	switch( $column ) {
+
+		/* If displaying the '_ciudad_meta' column. */
+		/*
+		case 'temperatura' :
+			foreach ( $the_order->get_items() as $item ) {
+				//echo $item;
+				$product        = apply_filters( 'woocommerce_order_item_product', $the_order->get_product_from_item( $item ), $item );
+				//var_dump($product->id);
+				/* Get the post meta. * /
+				$temperatura = get_post_meta( $product->id , 'temperatura', true );
+				//echo '['.$temperatura.']';
+				if ( !empty( $temperatura ) && !in_array($temperatura, $tempe)) { array_push($tempe, $temperatura); }
+			}
+			for ($i = 0; $i<count($tempe); $i++) {
+				$t .= $tempe[$i].'<br />';
+			}
+			echo $t;
+			break;
+		*/
+		case '_temperaturas_orden' :
+			/* Get the post meta. */
+			$_temperaturas_orden = get_post_meta( $post_id, '_temperaturas_orden', true );
+
+			/* If no _temperaturas_orden is found, output a default message. */
+			if ( !empty( $_temperaturas_orden ) ) { echo $_temperaturas_orden; }
+			//else { echo 'NADA'; }
+			break;	
+		case '_billing_regalo' :
+			/* Get the post meta. */
+			$_billing_regalo = get_post_meta( $post_id, '_billing_regalo', true );
+
+			/* If no _billing_regalo is found, output a default message. */
+			if ( !empty( $_billing_regalo ) && $_billing_regalo == '1' ) { echo '<strong style="color:#CDDC39;">SI</strong>'; }
+			else { echo 'NO'; }
+			break;		
+		/* Just break out of the switch statement for everything else. */
+		default :
+			break;
+	}
+}
+
 
 /*=====  End of #METABOXES  ======*/

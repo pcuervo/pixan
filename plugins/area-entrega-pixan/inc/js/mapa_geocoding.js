@@ -24,6 +24,7 @@ $(document).ready(function(){
         $("#billing_area_entrega").val($("#area_entrega").val());
         $("#lblNombrePunto").html($("#area_entrega option:selected").html());
         $("#lblDiasEntrega").html($("#area_entrega option:selected").data('dias'));
+        $("#lblDiaTuEntrega").html($("#area_entrega option:selected").data('proxdia'));
         $("#lblHorarioEntrega").html($("#area_entrega option:selected").data('hora'));
     });
     
@@ -44,7 +45,7 @@ var resetInfo = function() {
 var limpiarLabels = function() {
     //setMapOnAll(null);
     //markers = [];
-    $("#lblNombrePunto, #lblDiasEntrega, #lblHorarioEntrega, #nombrePunto, #responsable, #telefono, #ubicacion").html('');
+    $("#lblNombrePunto, #lblDiasEntrega, #lblDiaTuEntrega, #lblHorarioEntrega, #nombrePunto, #responsable, #telefono, #ubicacion").html('');
 }
 
 var mapGeocoding = function () {
@@ -165,6 +166,7 @@ var mapGeocoding = function () {
                                 $("#billing_area_entrega").val($("#area_entrega").val());
                                 $("#lblNombrePunto").html($("#"+opti[1]).html());
                                 $("#lblDiasEntrega").html($("#"+opti[1]).data('dias'));
+                                $("#lblDiaTuEntrega").html($("#"+opti[1]).data('proxdia'));
                                 $("#lblHorarioEntrega").html($("#"+opti[1]).data('hora'));
                                 $("#divInfoAreaEntrega").slideDown();
                                 $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();

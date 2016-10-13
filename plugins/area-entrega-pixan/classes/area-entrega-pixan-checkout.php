@@ -41,7 +41,9 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		add_action('woocommerce_checkout_update_order_meta', array( $this, 'my_custom_checkout_field_update_order_meta'));
 		add_action('woocommerce_checkout_update_user_meta', array( $this, 'my_custom_checkout_field_update_user_meta'));
 		add_action('show_user_profile', array( $this, 'show_my_extra_fields' ));
+		add_action( 'edit_user_profile', array( $this, 'show_my_extra_fields' ) );
 		add_action('personal_options_update', array( $this, 'update_extra_fields'));
+		add_action( 'edit_user_profile_update', array( $this, 'update_extra_fields') );
 		//add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		//add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 	}
@@ -123,16 +125,45 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 		echo '</select>';
 
+		$fn = get_the_author_meta('_fecha_nacimiento', $user->ID);
+		echo '<h3>Fecha de Nacimiento</h3>';
+		echo '<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="'.$fn.'" />';
+
 
 	}
 
 	public function update_extra_fields($user_id) {
 		update_user_meta($user_id, 'area_entrega', $_POST['area_entrega']);
+		update_user_meta($user_id, '_fecha_nacimiento', $_POST['_fecha_nacimiento']);
 	}
 
 	public function show_google_map_checkout(){
 		//$coordenadas = get_post_meta($post->ID, '_coordenadas', true);
 		//wp_nonce_field(__FILE__, '_coordenadas_nonce');
+
+		$semana = array(
+					'Lunes' 	=> 'monday', 
+					'Martes' 	=> 'tuesday',
+					'Miercoles' => 'wednesday',
+					'Jueves' 	=> 'thursday',
+					'Viernes' 	=> 'friday',
+					'Sabado' 	=> 'saturday',
+					'Domingo' 	=> 'sunday',
+					);
+		$meses = array(
+					'January' => 'Enero',
+				    'February' => 'Febrero',
+				    'March' => 'Marzo',
+				    'April' => 'Abril',
+				    'May' => 'Mayo',
+				    'June' => 'Junio',
+				    'July ' => 'Julio',
+				    'August' => 'Agosto',
+				    'September' => 'Septiembre',
+				    'October' => 'Octubre',
+				    'November' => 'Noviembre',
+				    'December' => 'Diciembre'
+					);
 
 	    //Select area-entrega post type
 	    $query_args = array(
@@ -158,8 +189,19 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				if(isset($meta['_dia5'])) { $dias .= $meta['_dia5'][0].', '; }
 				if(isset($meta['_dia6'])) { $dias .= $meta['_dia6'][0].', '; }
 				if(isset($meta['_dia7'])) { $dias .= $meta['_dia7'][0].', '; }
+
+
 				$dias = substr($dias, 0, -2);
-				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'">'.get_the_title().'</option>';
+				$d = explode(',', $dias);
+				//OBTENER FECHA DE PROXIMA ENTREGA
+				$timestamp = strtotime('+1 day');
+				
+				$dia =  date('d', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$m =  date('F', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$a =  date('Y', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$p = $d[0].' '.$dia.' de '.$meses[$m].', '.$a;
+				setlocale(LC_ALL,"es_ES");
+				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-proxdia="'.$p.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'">'.get_the_title().'</option>';
 			}
 		}
 
@@ -167,6 +209,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
+				<strong>Se programara tu entrega para el dia: </strong><p><small id="lblDiaTuEntrega"></small></p>
 				<strong>Horario: </strong><p><small id="lblHorarioEntrega"></small></p>
 			</div>';
 
@@ -292,6 +335,13 @@ class Area_Entrega_Checkout_Pixan_Settings {
 											    'class'     => array('form-row-wide hide'),
 											    'clear'     => true
 										     );
+		$fields['billing']['billing_regalo'] = array(
+										        'label'     => __('¿Es un regalo?', 'woocommerce'),
+											    'required'  => false,
+											    'type'		=> 'checkbox',
+											    'class'     => array('form-row-wide'),
+											    'clear'     => true
+										     );
 		return $fields;
 
 	}// set_timeframe_required
@@ -330,6 +380,30 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	 **/
 
 	public function my_custom_checkout_field_update_order_meta( $order_id ) {
+		//global $post, $the_order;
+		$tempe = array();
+		$t = '';
+
+		if ( empty( $the_order ) || $the_order->id != $order_id ) {
+			$the_order = wc_get_order( $order_id );
+		}
+
+		foreach ( $the_order->get_items() as $item ) {
+			//echo $item;
+			$product        = apply_filters( 'woocommerce_order_item_product', $the_order->get_product_from_item( $item ), $item );
+			//var_dump($product->id);
+			/* Get the post meta. */
+			$temperatura = get_post_meta( $product->id , 'temperatura', true );
+			//echo '['.$temperatura.']';
+			if ( !empty( $temperatura ) && !in_array($temperatura, $tempe)) { array_push($tempe, $temperatura); }
+		}
+		for ($i = 0; $i<count($tempe); $i++) {
+			$t .= $tempe[$i].'<br />';
+			//update_post_meta( $order_id, '_temperatura_'.$tempe[$i], $tempe[$i]);
+		}
+		//echo $t;
+		update_post_meta( $order_id, '_temperaturas_orden', $t);
+		
 
 		//if ($_POST['billing_area_entrega']) update_post_meta( $order_id, 'billing_area_entrega', $_POST['billing_area_entrega']);
 		//if ($_POST['billing_puntos_recoleccion']) update_post_meta( $order_id, 'billing_puntos_recoleccion', $_POST['billing_puntos_recoleccion']);

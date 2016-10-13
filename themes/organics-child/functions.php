@@ -2,8 +2,8 @@
 
 define( 'THEMEPATH', get_stylesheet_directory_uri() . '/' );
 
-add_action( 'admin_enqueue_scripts', 'load_maps_js');
-function load_maps_js(){
+add_action( 'admin_enqueue_scripts', 'load_js');
+function load_js(){
 
 	if(get_post_type() == 'puntos-recoleccion')
 	{
@@ -11,7 +11,10 @@ function load_maps_js(){
 		wp_enqueue_script( 'api-google-punto', 'https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA&language=es-ES', array('jquery'), '1.0', true );
 		wp_enqueue_script( 'google-function-autocomplete', THEMEPATH. 'includes/js/google-autocomplete.js', array('api-google-punto'), '1.0', true );
 	}
-
+	if(get_post_type() == 'shop_order')
+	{
+		wp_enqueue_script( 'imprimir-lista-ordenes', THEMEPATH. 'includes/js/print-list.js', array('jquery'), '1.0', true );
+	}
 }
 
 function px_woocommerce_functions() {

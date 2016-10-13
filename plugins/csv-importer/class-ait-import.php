@@ -251,6 +251,27 @@ class AitImport {
 	}
 
 	/**
+	 * Validate Row
+	 *
+	 * @since 1.0.0
+	 * 
+	 * @param  string $data      row in array format
+	 * 
+	 */
+	public function validate_row($data) {
+		//VALIDAR QUE LOS CAMPOS REQUERIDOS ESTEN SETEADOS Y NO ESTEN VACIOS
+		if(!isset($data[0]) || empty($data[0]) || !isset($data[1]) || empty($data[1]) || !isset($data[2]) || empty($data[2]) || !isset($data[4]) || empty($data[4])  ) {
+	    	return true;
+	    }
+	    //VALIDAR QUE LA CANTIDAD SEA UN VALOR NUMERICO >= 1
+	    if($data[4] < 0 || !is_numeric($data[4])) {
+	    	return true;
+	    }
+	    
+		return false;
+	}
+
+	/**
 	 * Import items from CSV file
 	 *
 	 * @since 1.0.0
@@ -272,6 +293,8 @@ class AitImport {
 		$default_options = array();
 		$meta_options = array();
 		$taxonomies = array();
+		$sku_invalidos = '';
+		$sku_existentes = '';
 		$tax_pre = 'tax-';
 
 		$post_type = new AitImportType($type);
@@ -279,6 +302,7 @@ class AitImport {
 		$num_imported = 0;
 		$num_updated = 0;
 		$num_ignored = 0;
+		$num_existente = 0;
 
 		$ignore = false;
 		$row = 1;
@@ -337,6 +361,25 @@ class AitImport {
 						}
 					}
 
+					//VALIDATE DUPLICATE SKU
+					//echo "SELECT post_id FROM $wpdb->postmeta WHERE meta_value = '".$data_row[0]."' and meta_key = '_sku'";
+					if (isset($data_row[0]) && !empty($data_row[0])) {
+						$sku = $data_row[0];
+						$existente_id = $wpdb->get_var("SELECT post_id FROM $wpdb->postmeta WHERE meta_value = '".$sku."' and meta_key = '_sku'");
+					}
+					if (isset($existente_id) && $existente_id) {
+						$num_existente++;
+						$ignore = true;
+						$attrs['ID'] = $existente_id;
+						$sku_existentes .= $sku.', ';
+					}
+
+					//VALIDAR DATOS DE ENTRADA
+					if(!$ignore) { 
+						$ignore = $this->validate_row($data_row); 
+						if($ignore) { $num_ignored++; $sku_invalidos .= $sku.', '; }
+					}
+
 					if (!$ignore) {
 						// parent
 						if (isset($attrs['post_parent']) && !empty($attrs['post_parent'])) {
@@ -357,12 +400,15 @@ class AitImport {
 								unset($attrs['post_author']);
 							}
 						}
+
+						$attrs['post_title'] = $data_row[1]; //columna 'nombre' del archivo csv
+						$attrs['post_content'] = '';	//columna 'descripcion' del archivo csv	
 						
 						// insert or update
 						$post_id = wp_insert_post( $attrs, true );
 
 						if ( is_wp_error($post_id) ){
-							echo '<div class="error"><p>' . $post_id->get_error_message() . '</p></div>';
+							echo '<div class="error"><p>' . $post_id->get_error_message() . ' - SKU : '.$data_row[0].'</p></div>';
 						} else {
 							// incerment count
 							if(isset($finded_id) && $finded_id) {
@@ -393,7 +439,64 @@ class AitImport {
 											$meta_attrs[$opt] = ($encoding == 'UTF-8') ? $data_row[$key] : mb_convert_encoding($data_row[$key],'UTF-8',$encoding);
 									}
 									*/
-									update_post_meta( $post_id, $opt, $data_row[$key] );
+									switch ($opt) {
+										case 'CODIGO':
+												$opt = '_sku';
+												update_post_meta( $post_id, $opt, $data_row[$key] );
+											break;
+										case 'DESCRIPCION':
+												$opt = 'post_title';
+												update_post_meta( $post_id, $opt, $data_row[$key] );
+											break;
+										case 'UNIDAD':
+												$opt = 'unidadmedida';
+												update_post_meta( $post_id, $opt, $data_row[$key] );
+											break;											
+										case 'PRECIO':
+												$opt = '_price';
+												update_post_meta( $post_id, $opt, $data_row[$key] );
+												update_post_meta( $post_id, '_regular_price', $data_row[$key] );
+											break;
+										case 'CATEGORIA':
+												$term_id = get_term_by('slug', strtolower($data_row[$key]), 'product_cat');
+												if ($term_id){
+													$result = wp_set_post_terms($post_id, $term_id->term_id, 'product_cat', true);
+												}
+											break;
+										case 'TEMPORADA':
+												if($data_row[$key] == 'SI') {
+													$term_id = get_term_by('slug', 'de-temporada', 'product_cat');
+													if ($term_id){
+														$result = wp_set_post_terms($post_id, $term_id->term_id, 'product_cat', true);
+													}
+												}
+											break;
+										case 'INVENTARIO':
+												
+												if(is_numeric($data_row[$key]) ) {
+													update_post_meta( $post_id, '_manage_stock', 'yes' );	
+													update_post_meta( $post_id, '_stock', $data_row[$key] );
+												}
+												
+											break;
+										case 'PRECIO_OFERTA':
+												$opt = '_sale_price';
+												if(is_numeric($data_row[$key]) && $data_row[$key] > 0) {
+													update_post_meta( $post_id, $opt, $data_row[$key] );
+												}
+											break;	
+										case 'VIGENCIA': 
+												list($dd,$mm,$yyyy) = explode('/',$data_row[$key]);
+												if (checkdate($mm,$dd,$yyyy)) {
+													$fecha = $yyyy.'-'.$mm.'-'.$dd;
+												    update_post_meta( $post_id, strtolower($opt), $fecha );
+												}
+											break;									
+										default:
+												update_post_meta( $post_id, strtolower($opt), $data_row[$key] );	
+																								
+											break;
+									}
 								}
 								
 							}
@@ -413,7 +516,8 @@ class AitImport {
 				$row++;
 			}
 			fclose($handle);
-			echo '<div class="updated"><p>' . $num_imported . __(' items was successfully imported. ') . $num_updated .  __(' items updated. ') . $num_ignored . __(' items ignored.') . 'delimiter' .$delim .'</p></div>';
+			
+			echo '<div class="updated"><p>' . $num_imported . __(' productos fueron importados exitosamente. ').'</p><p>'. $num_existente .  __(' productos tienen un SKU que ya exite y no fueron agregados. ').' Listado de SKUs ['.$sku_existentes.']</p><p>' . $num_ignored . __(' productos no fueron insertados por no cumplir la validación.') .' Listado de SKUs ['.$sku_invalidos.']</p></div>';
 		}		
 	}
 

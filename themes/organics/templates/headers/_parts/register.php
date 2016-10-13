@@ -16,6 +16,7 @@
 				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="registration_pwd"  name="registration_pwd"  value="" placeholder="<?php esc_attr_e('Password', 'organics'); ?>"></div>
 				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="registration_pwd2" name="registration_pwd2" value="" placeholder="<?php esc_attr_e('Confirm Password', 'organics'); ?>"></div>
 				<div class="popup_form_field description_field"><?php esc_html_e('Minimum 6 characters', 'organics'); ?></div>
+				<div class="popup_form_field password_field iconed_field icon-lock"><input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('Fecha de Nacimineto', 'organics'); ?>"></div>
 			</div>
 		</form>
 		<div class="result message_block"></div>

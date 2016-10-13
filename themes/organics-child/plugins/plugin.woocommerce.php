@@ -1,7 +1,9 @@
 <?php
 /* Woocommerce support functions
 ------------------------------------------------------------------------------- */
-
+if ( ! defined( 'SITEURL' ) ) {
+	define( 'SITEURL', site_url('/') );
+}
 // Theme init
 if (!function_exists('organics_woocommerce_theme_setup')) {
 	add_action( 'organics_action_before_init_theme', 'organics_woocommerce_theme_setup', 1 );
@@ -657,20 +659,32 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			            ),
 			            $product );
 			        ?></div>
-			        <div class="[ text-center ][ button-list ]">
-			        	<a href="#" class="button alt addToList">Agregar a mi Lista</a>
-			        </div>
+			        <?php 
+			        	if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) { ?>
+					        <div class="[ text-center ][ button-list ]">
+					        	<a href="#" class="button alt addToList" data-product-id="<?php echo $product->id; ?>">Agregar a mi Lista</a>
+					        </div>
+					<?php } ?>
 			    </div><!-- end button cart -->
 
 
 			</div>
 		</div>
+		
 		<?php
 		organics_set_global('in_product_item', false);
 	}
 }
 
+function get_lista($user_id){
+	global $wpdb;
+	$list_results = $wpdb->get_results(
+		"SELECT * FROM " . $wpdb->prefix . "product_list WHERE user_id = " . $user_id
+		);
+	if( empty( $list_results ) ) return 0;
 
+	return $list_results;
+}
 
 
 //Botón carrito
@@ -799,6 +813,28 @@ if ( !function_exists( 'organics_woocommerce_pagination' ) ) {
 			'pages_in_group' => $style=='pages' ? 10 : 20
 			)
 		);
+
+		echo '<div id="dialog" class="add_to_list_dialog" title="Seleccionar Lista">
+				<div id="dialogLoader" style="display:none;"><img src="'.SITEURL.'wp-content/plugins/product-list/inc/img/loader.gif" alt="Cargando..." /></div>
+				<div id="dialogMsj"></div>
+				<div id="dialogDefaultText">
+			    <p>Selecciona la lista en la que deseas guardar los articulos.</p>';
+			$listas = get_lista(get_current_user_id());
+			if (count($listas[0]) > 0) {
+				echo '<select id="add_product_list" name="add_product_list" >';
+				foreach ( $listas as $list )
+				{
+					echo '<option value="'.$list->id.'">'.$list->nombre.'</option>';
+				}
+				echo '</select>';
+			}
+			else {
+				echo '<span style="color:pink;">Aun no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
+				echo '<input type="hidden" id="add_product_list" name="add_product_list" value="0" />';
+			}
+		echo '</div></div>';
+		echo '<input type="hidden" name="add-to-cart" value="">';
+		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
 	}
 }
 
