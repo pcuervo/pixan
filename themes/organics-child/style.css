@@ -709,3 +709,7 @@ li.reviews_tab,
 /**/
 form.checkout .variation { text-align: right; }
 form.checkout .variation-Recurrencia { float: none!important; }
+.woocommerce-cart dt.variation-Recurrencia { line-height: 26px!important; }
+.woocommerce-cart.woocommerce td.product-name dl.variation dd { margin: 0px!important; }
+.woocommerce table.cart td { padding: 0px!important; }
+p.no_subscriptions a:nth-child(1) { display: none; }

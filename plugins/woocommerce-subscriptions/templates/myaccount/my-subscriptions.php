@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$payment_method_to_display = sprintf( __( 'Via %s', 'woocommerce-subscriptions' ), $subscription->get_payment_method_to_display() );
 					$payment_method_to_display = apply_filters( 'woocommerce_my_subscriptions_payment_method', $payment_method_to_display, $subscription );
 					?>
-				<br/><small><?php echo esc_attr( $payment_method_to_display ); ?></small>
+				<br/><small>Será cargado a la tarjeta <span><?php echo esc_attr( $payment_method_to_display ); ?></span></small>
 				<?php endif; ?>
 			</td>
 			<td class="subscription-total order-total" data-title="<?php echo esc_attr_x( 'Total', 'Used in data attribute. Escaped', 'woocommerce-subscriptions' ); ?>">
@@ -68,9 +68,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="no_subscriptions">
 			<?php
 			// translators: placeholders are opening and closing link tags to take to the shop page
-			printf( esc_html__( 'No tiene suscripciones activas. Realice su primera suscripción en la %stienda%s.', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
+			printf( esc_html__( 'No tiene suscripciones activas. Realice su primera suscripción en la %stienda%s', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
 			//'<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>'
 			?>
+			<a href="<?php echo site_url('/categoria-producto/canastas/programar-canasta-recurrente/'); ?>">tienda.</a>
 		</p>
 
 	<?php endif; ?>
