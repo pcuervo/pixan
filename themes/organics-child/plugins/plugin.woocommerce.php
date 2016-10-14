@@ -659,7 +659,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			            ),
 			            $product );
 			        ?></div>
-			        <?php 
+			        <?php
 			        	if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) { ?>
 					        <div class="[ text-center ][ button-list ]">
 					        	<a href="#" class="button alt addToList" data-product-id="<?php echo $product->id; ?>">Agregar a mi Lista</a>
@@ -670,7 +670,7 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 
 			</div>
 		</div>
-		
+
 		<?php
 		organics_set_global('in_product_item', false);
 	}
@@ -829,7 +829,7 @@ if ( !function_exists( 'organics_woocommerce_pagination' ) ) {
 				echo '</select>';
 			}
 			else {
-				echo '<span style="color:pink;">Aun no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
+				echo '<span style="color:pink;">Aún no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
 				echo '<input type="hidden" id="add_product_list" name="add_product_list" value="0" />';
 			}
 		echo '</div></div>';

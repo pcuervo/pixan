@@ -177,7 +177,7 @@ class Product_List_Settings {
 				echo '</select>';
 			}
 			else {
-				echo '<span style="color:pink;">Aun no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
+				echo '<span style="color:pink;">Aún no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
 				echo '<input type="hidden" id="add_product_list" name="add_product_list" value="0" />';
 			}
 		echo '</div></div>';
@@ -232,7 +232,7 @@ class Product_List_Settings {
 		global $wpdb;
 
 		$detalle = $this->get_list_detail($idlista);
-		
+
 		if (count($detalle[0]) > 0) {
 			foreach ( $detalle as $det )
 			{
@@ -245,7 +245,7 @@ class Product_List_Settings {
 				);
 			}
 		}
-		
+
 		$this->show_list_detail($idlista);
 	}
 
@@ -317,16 +317,16 @@ class Product_List_Settings {
 	}
 
 	function show_user_lists() {
-		
+
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$nombrenueva = $this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
 			$this->print_user_list($nombrenueva);
-			
+
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
 			$this->print_user_list('');
-			
+
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -348,13 +348,13 @@ class Product_List_Settings {
 		//END TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else {
 			$this->print_user_list('');
-			
+
 		}
 
 	}
 
 	public function print_user_list($cod) {
-		
+
 		if ($cod != '' && !is_numeric($cod)) {
 			echo '<div class="woocommerce-Message woocommerce-Message--info woocommerce-error" >';
 			echo 'Ya tienes una lista con el nombre <strong>'.$cod.'</strong> ingresa un nombre distinto.';
@@ -466,13 +466,13 @@ class Product_List_Settings {
 
 			echo '</tbody>';
 		echo '</table>';
-		
+
 		echo '<input type="hidden" id="actualizar" name="actualizar" value="'.$list_id.'" />';
 		echo '<button style="float:right;" type="submit" class="button view">Actualizar Cantidades</button>';
 		//echo '<a href="'.SITEURL.'my-account/product-list/?actualizar='.$list_id.'&prods='.$prod_ids.'&cants='.$cant_ids.'" class="[ float-right ] button alt">Actualizar Cantidades</a>';
 		echo '</form>';
 		echo '<a  href="'.SITEURL.'my-account/product-list/?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
-		
+
 	}
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
