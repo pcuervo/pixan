@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$payment_method_to_display = sprintf( __( 'Via %s', 'woocommerce-subscriptions' ), $subscription->get_payment_method_to_display() );
 					$payment_method_to_display = apply_filters( 'woocommerce_my_subscriptions_payment_method', $payment_method_to_display, $subscription );
 					?>
-				<br/><small>Será cargado a la tarjeta <span><?php echo esc_attr( $payment_method_to_display ); ?></span></small>
+				<br/><small><span><?php echo esc_attr( $payment_method_to_display ); ?></span></small>
 				<?php endif; ?>
 			</td>
 			<td class="subscription-total order-total" data-title="<?php echo esc_attr_x( 'Total', 'Used in data attribute. Escaped', 'woocommerce-subscriptions' ); ?>">

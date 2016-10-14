@@ -73,7 +73,7 @@ class WCS_User_Change_Status_Handler {
 			case 'cancelled' :
 				$subscription->cancel_order();
 				$subscription->add_order_note( _x( 'Suscripción cancelada por el suscriptor de su página de cuenta.', 'order note left on subscription after user action', 'woocommerce-subscriptions' ) );
-				WC_Subscriptions::add_notice( _x( 'Tu suscripción a sido cancelada.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'success' );
+				WC_Subscriptions::add_notice( _x( 'Tu suscripción ha sido cancelada.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'success' );
 				$changed = true;
 				break;
 		}

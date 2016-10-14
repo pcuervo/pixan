@@ -716,4 +716,5 @@ form.checkout .variation-Recurrencia { float: none!important; }
 p.no_subscriptions a:nth-child(1) { display: none; }
 
 /*pop up*/
-.popup_wrap input[type="checkbox"]{ width: 45px; }
+.popup_wrap input[type="checkbox"]{ width: 25px; height: 20px; }
+.popup_form_field.agree_field a { font-size: 11px; color: #80b500!important; text-decoration: underline; }

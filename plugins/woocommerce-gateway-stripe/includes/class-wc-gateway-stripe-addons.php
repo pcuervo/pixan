@@ -380,12 +380,12 @@ class WC_Gateway_Stripe_Addons extends WC_Gateway_Stripe {
 			foreach ( $cards as $card ) {
 				if ( $card->id === $stripe_card_id ) {
 					$found_card                = true;
-					$payment_method_to_display = sprintf( __( 'Via %s card ending in %s', 'woocommerce-gateway-stripe' ), ( isset( $card->type ) ? $card->type : $card->brand ), $card->last4 );
+					$payment_method_to_display = sprintf( __( 'Será cargado a la tarjeta %s terminada en %s', 'woocommerce-gateway-stripe' ), ( isset( $card->type ) ? $card->type : $card->brand ), $card->last4 );
 					break;
 				}
 			}
 			if ( ! $found_card ) {
-				$payment_method_to_display = sprintf( __( 'Via %s card ending in %s', 'woocommerce-gateway-stripe' ), ( isset( $cards[0]->type ) ? $cards[0]->type : $cards[0]->brand ), $cards[0]->last4 );
+				$payment_method_to_display = sprintf( __( 'Será cargado a la tarjeta %s terminada en %s', 'woocommerce-gateway-stripe' ), ( isset( $cards[0]->type ) ? $cards[0]->type : $cards[0]->brand ), $cards[0]->last4 );
 			}
 		}
 

@@ -82,3 +82,31 @@
     [limit] => 100
 )
 
+10-14-2016 @ 15:26:01 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+10-14-2016 @ 15:26:09 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+10-14-2016 @ 15:26:30 - Info: Begin processing payment for order 1076 for the amount of 500
+10-14-2016 @ 15:26:30 - charges request: Array
+(
+    [currency] => mxn
+    [amount] => 50000
+    [description] => Pixan Sustentable - Order 1076
+    [capture] => true
+    [expand[]] => balance_transaction
+    [customer] => cus_9CAA1DbCgndPHl
+    [source] => card_18tlqSHtulYPV1nKp74yA6N7
+)
+
+10-14-2016 @ 15:26:30 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+10-14-2016 @ 15:26:32 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+

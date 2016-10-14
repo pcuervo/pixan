@@ -242,7 +242,7 @@ if ( wc_tax_enabled() ) {
 	<button type="button" class="button add-order-item"><?php _e( 'Add product(s)', 'woocommerce' ); ?></button>
 	<button type="button" class="button add-order-fee"><?php _e( 'Add fee', 'woocommerce' ); ?></button>
 	<button type="button" class="button add-order-shipping"><?php _e( 'Add shipping cost', 'woocommerce' ); ?></button>
-	<button type="button" class="button cancel-action"><?php _e( 'Cancel', 'woocommerce' ); ?></button>
+	<button type="button" class="button cancel-action"><?php _e( 'Cancelar', 'woocommerce' ); ?></button>
 	<button type="button" class="button button-primary save-action"><?php _e( 'Save', 'woocommerce' ); ?></button>
 	<?php
 		// allow adding custom buttons
@@ -288,7 +288,7 @@ if ( wc_tax_enabled() ) {
 		?>
 		<button type="button" class="button <?php echo $gateway_supports_refunds ? 'button-primary do-api-refund' : 'tips disabled'; ?>" <?php echo $gateway_supports_refunds ? '' : 'data-tip="' . esc_attr__( 'The payment gateway used to place this order does not support automatic refunds.', 'woocommerce' ) . '"'; ?>><?php printf( _x( 'Refund %s via %s', 'Refund $amount', 'woocommerce' ), $refund_amount, $gateway_name ); ?></button>
 		<button type="button" class="button button-primary do-manual-refund tips" data-tip="<?php esc_attr_e( 'You will need to manually issue a refund through your payment gateway after using this.', 'woocommerce' ); ?>"><?php printf( _x( 'Refund %s manually', 'Refund $amount manually', 'woocommerce' ), $refund_amount ); ?></button>
-		<button type="button" class="button cancel-action"><?php _e( 'Cancel', 'woocommerce' ); ?></button>
+		<button type="button" class="button cancel-action"><?php _e( 'Cancelar', 'woocommerce' ); ?></button>
 		<div class="clear"></div>
 	</div>
 </div>
