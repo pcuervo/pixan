@@ -176,6 +176,11 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
                     </div>
                 </div>
 			</div>
+
+			<!-- Pop up registro -->
+
+
+
 			</div>
 		</header>
 		<?php
