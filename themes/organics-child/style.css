@@ -717,14 +717,14 @@ p.no_subscriptions a:nth-child(1) { display: none; }
 
 /*pop up*/
 .popup_wrap input[type="checkbox"]{ width: 25px; height: 20px; }
-.popup_form_field.agree_field a { font-size: 11px; color: #80b500!important; text-decoration: underline; }
-
-.popup_registration {
-	right: -6em;
-}
+.popup_form_field.agree_field a { font-size: 15px; color: #80b500!important; text-decoration: underline; }
 
 // .popup_registration {
-// 	right: 11em;
-// 	top: 4em;
-// 	z-index: 20;
+// 	right: -6em;
 // }
+
+.popup_registration {
+	right: 11em;
+	top: 4em;
+	z-index: 20;
+}

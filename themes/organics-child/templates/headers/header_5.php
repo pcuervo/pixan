@@ -128,10 +128,8 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 								                organics_enqueue_popup();
 										if ( (int) get_option('users_can_register') > 0) {
 								                ?>
-								                <li class="menu_user_register"><a href="#popup_registration" class="popup_link popup_register_link icon-pencil8"><?php esc_html_e('Registro', 'organics'); ?></a><?php
-												if (organics_get_theme_option('show_login')=='yes') {
-													require_once organics_get_file_dir('templates/headers/_parts/register.php');
-												}?></li>
+								                <!-- Registro header -->
+								                <li class="menu_user_register"><a href="#popup_registration" class="popup_link popup_register_link icon-pencil8"><?php esc_html_e('Registro', 'organics'); ?></a><!-- in Pop up registro --></li>
 										<?php } ?>
 								                <li class="menu_user_login"><a href="<?php echo site_url('/my-account/'); ?>" class="popup_link popup_login_link icon-user189"></a><?php
 								                    if (organics_get_theme_option('show_login')=='yes') {
@@ -178,8 +176,9 @@ if ( !function_exists( 'organics_template_header_5_output' ) ) {
 			</div>
 
 			<!-- Pop up registro -->
-
-
+				<?php if (organics_get_theme_option('show_login')=='yes') {
+                    require_once organics_get_file_dir('templates/headers/_parts/register.php');
+                }?>
 
 			</div>
 		</header>

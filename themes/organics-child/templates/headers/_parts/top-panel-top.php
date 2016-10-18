@@ -106,10 +106,8 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
 		// Anyone can register ?
 		if ( (int) get_option('users_can_register') > 0) {
                 ?>
-                <li class="menu_user_register"><a href="#popup_registration" class="popup_link popup_register_link icon-pencil8"><?php esc_html_e('Registro', 'organics'); ?></a><?php
-				if (organics_get_theme_option('show_login')=='yes') {
-					require_once organics_get_file_dir('templates/headers/_parts/register.php');
-				}?></li>
+                <!-- registro header top -->
+                <li class="menu_user_register"><a href="#popup_registration" class="popup_link popup_register_link icon-pencil8"><?php esc_html_e('Registro', 'organics'); ?></a><!-- in Pop up registro --></li>
 		<?php } ?>
                 <li class="menu_user_login"><a href="<?php echo site_url('/my-account/'); ?>" class="popup_link popup_login_link icon-user189"><?php esc_html_e('Login', 'organics'); ?></a><?php
                     if (organics_get_theme_option('show_login')=='yes') {
