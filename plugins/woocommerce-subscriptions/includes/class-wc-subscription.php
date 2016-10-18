@@ -678,10 +678,10 @@ class WC_Subscription extends WC_Order {
 
 			if ( $time_diff > 0 && $time_diff < WEEK_IN_SECONDS ) {
 				// translators: placeholder is human time diff (e.g. "3 weeks")
-				$date_to_display = sprintf( __( 'In %s', 'woocommerce-subscriptions' ), human_time_diff( current_time( 'timestamp', true ), $timestamp_gmt ) );
+				$date_to_display = sprintf( __( 'En %s', 'woocommerce-subscriptions' ), human_time_diff( current_time( 'timestamp', true ), $timestamp_gmt ) );
 			} elseif ( $time_diff < 0 && absint( $time_diff ) < WEEK_IN_SECONDS ) {
 				// translators: placeholder is human time diff (e.g. "3 weeks")
-				$date_to_display = sprintf( __( '%s ago', 'woocommerce-subscriptions' ), human_time_diff( current_time( 'timestamp', true ), $timestamp_gmt ) );
+				$date_to_display = sprintf( __( 'Hace %s', 'woocommerce-subscriptions' ), human_time_diff( current_time( 'timestamp', true ), $timestamp_gmt ) );
 			} else {
 				$date_to_display = date_i18n( wc_date_format(), $this->get_time( $date_type, 'site' ) );
 			}
