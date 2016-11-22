@@ -153,7 +153,7 @@ class WCS_Admin_Post_Types {
 		$bulk_actions = apply_filters( 'woocommerce_subscription_bulk_actions', array(
 			'active'    => _x( 'Activate', 'an action on a subscription', 'woocommerce-subscriptions' ),
 			'on-hold'   => _x( 'Put on-hold', 'an action on a subscription', 'woocommerce-subscriptions' ),
-			'cancelled' => _x( 'Cancel', 'an action on a subscription', 'woocommerce-subscriptions' ),
+			'cancelled' => _x( 'Cancelar', 'an action on a subscription', 'woocommerce-subscriptions' ),
 		) );
 
 		// No need to display certain bulk actions if we know all the subscriptions on the page have that status already
@@ -364,7 +364,7 @@ class WCS_Admin_Post_Types {
 				$all_statuses = array(
 					'active'    => __( 'Reactivate', 'woocommerce-subscriptions' ),
 					'on-hold'   => __( 'Suspend', 'woocommerce-subscriptions' ),
-					'cancelled' => _x( 'Cancel', 'an action on a subscription', 'woocommerce-subscriptions' ),
+					'cancelled' => _x( 'Cancelar', 'an action on a subscription', 'woocommerce-subscriptions' ),
 					'trash'     => __( 'Trash', 'woocommerce-subscriptions' ),
 					'deleted'   => __( 'Delete Permanently', 'woocommerce-subscriptions' ),
 				);

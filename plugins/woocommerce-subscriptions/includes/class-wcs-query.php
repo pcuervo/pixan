@@ -107,7 +107,7 @@ class WCS_Query extends WC_Query {
 
 		// Add our menu item after the Orders tab if it exists, otherwise just add it to the end
 		if ( array_key_exists( 'orders', $menu_items ) ) {
-			$menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Subscripciones', 'woocommerce-subscriptions' ) );
+			$menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Suscripciones', 'woocommerce-subscriptions' ) );
 		} else {
 			$menu_items['subscriptions'] = __( 'Subscriptions', 'woocommerce-subscriptions' );
 		}

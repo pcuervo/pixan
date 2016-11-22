@@ -118,7 +118,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		<a class="woocommerce-Button button" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
 			<?php _e( 'Ir a tienda', 'woocommerce' ) ?>
 		</a>
-		<?php _e( 'Aún no tienes ordes.', 'woocommerce' ); ?>
+		<?php _e( 'Aún no tienes ordenes.', 'woocommerce' ); ?>
 	</div>
 <?php endif; ?>
 

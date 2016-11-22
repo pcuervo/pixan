@@ -57,7 +57,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway {
 		$this->logging                = 'yes' === $this->get_option( 'logging' );
 
 		if ( $this->stripe_checkout ) {
-			$this->order_button_text = __( 'Pagar', 'woocommerce-gateway-stripe' );
+			$this->order_button_text = __( 'Continue to payment', 'woocommerce-gateway-stripe' );
 		}
 
 		if ( $this->testmode ) {
@@ -361,7 +361,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway {
 		// New CC info was entered and we have a new token to process
 		if ( isset( $_POST['stripe_token'] ) ) {
 			$stripe_token     = wc_clean( $_POST['stripe_token'] );
-			$maybe_saved_card = ! isset( $_POST['wc-stripe-new-payment-method'] ) || ! empty( $_POST['wc-stripe-new-payment-method'] );
+			$maybe_saved_card = isset( $_POST['wc-stripe-new-payment-method'] ) && ! empty( $_POST['wc-stripe-new-payment-method'] );
 
 			// This is true if the user wants to store the card to their account.
 			if ( ( $user_id && $this->saved_cards && $maybe_saved_card ) || $force_customer ) {

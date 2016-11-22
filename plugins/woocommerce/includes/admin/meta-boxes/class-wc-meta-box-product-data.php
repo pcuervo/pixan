@@ -732,7 +732,7 @@ class WC_Meta_Box_Product_Data {
 
 				<div class="toolbar">
 					<button type="button" class="button-primary save-variation-changes" disabled="disabled"><?php _e( 'Save changes', 'woocommerce' ); ?></button>
-					<button type="button" class="button cancel-variation-changes" disabled="disabled"><?php _e( 'Cancel', 'woocommerce' ); ?></button>
+					<button type="button" class="button cancel-variation-changes" disabled="disabled"><?php _e( 'Cancelar', 'woocommerce' ); ?></button>
 
 					<div class="variations-pagenav">
 						<span class="displaying-num"><?php printf( _n( '%s item', '%s items', $variations_count, 'woocommerce' ), $variations_count ); ?></span>

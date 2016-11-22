@@ -635,7 +635,7 @@ class WCS_PayPal_Standard_IPN_Handler extends WC_Gateway_Paypal_IPN_Handler {
 		wcs_set_paypal_id( $subscription, $old_paypal_subscriber_id );
 
 		// Call update_subscription_status() directly as we don't want the notes added by WCS_PayPal_Status_Manager::cancel_subscription()
-		WCS_PayPal_Status_Manager::update_subscription_status( $subscription, 'Cancel' );
+		WCS_PayPal_Status_Manager::update_subscription_status( $subscription, 'Cancelar' );
 
 		// Restore the current profile ID
 		wcs_set_paypal_id( $subscription, $current_profile_id );

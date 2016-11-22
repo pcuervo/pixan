@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php else : ?>
 
-		<li class="empty"><?php _e( 'No products in the cart.', 'woocommerce' ); ?></li>
+		<li class="empty"><?php _e( 'Por el momento tu carrito está vacío.', 'woocommerce' ); ?></li>
 
 	<?php endif; ?>
 
