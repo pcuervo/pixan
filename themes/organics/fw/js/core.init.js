@@ -1559,11 +1559,13 @@ function organics_registration_validate(form) {
 		]
 	});
 	if (!error) {
+		console.log(form.find('#_fecha_nacimiento').val());
 		jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
 			action: 'registration_user',
 			nonce: ORGANICS_GLOBALS['ajax_nonce'],
 			user_name: 	form.find('#registration_username').val(),
 			user_email: form.find('#registration_email').val(),
+			fecha_nacimiento: form.find('#_fecha_nacimiento').val(),
 			user_pwd: 	form.find('#registration_pwd').val()
 		}).done(function(response) {
 			var rez = JSON.parse(response);

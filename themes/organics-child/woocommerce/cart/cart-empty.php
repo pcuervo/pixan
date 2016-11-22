@@ -25,7 +25,7 @@ wc_print_notices();
 ?>
 
 <p class="cart-empty">
-	<?php _e( 'Tu carrito se a actualizado correctamente.', 'woocommerce' ) ?>
+	<?php _e( 'Por el momento tu carrito está vacío.', 'woocommerce' ) ?>
 </p>
 
 <?php do_action( 'woocommerce_cart_is_empty' ); ?>

@@ -101,9 +101,9 @@ if (!function_exists('organics_messages_add_scripts_inline')) {
 	function organics_messages_add_scripts_inline() {
 		global $ORGANICS_GLOBALS;
 		echo '<script type="text/javascript">'
-			
+
 			. "if (typeof ORGANICS_GLOBALS == 'undefined') var ORGANICS_GLOBALS = {};"
-			
+
 			// Strings for translation
 			. 'ORGANICS_GLOBALS["strings"] = {'
 				. 'bookmark_add: 		"' . addslashes(esc_html__('Add the bookmark', 'organics')) . '",'
@@ -119,7 +119,7 @@ if (!function_exists('organics_messages_add_scripts_inline')) {
 				. 'error_global:		"' . addslashes(esc_html__('Global error text', 'organics')) . '",'
 				. 'name_empty:			"' . addslashes(esc_html__('The name can\'t be empty', 'organics')) . '",'
 				. 'name_long:			"' . addslashes(esc_html__('Too long name', 'organics')) . '",'
-				. 'email_empty:			"' . addslashes(esc_html__('Too short (or empty) email address', 'organics')) . '",'
+				. 'email_empty:			"' . addslashes(esc_html__('Dirección de email corta o invalida', 'organics')) . '",'
 				. 'email_long:			"' . addslashes(esc_html__('Too long email address', 'organics')) . '",'
 				. 'email_not_valid:		"' . addslashes(esc_html__('Invalid email address', 'organics')) . '",'
 				. 'subject_empty:		"' . addslashes(esc_html__('The subject can\'t be empty', 'organics')) . '",'
@@ -132,8 +132,8 @@ if (!function_exists('organics_messages_add_scripts_inline')) {
 				. 'login_long:			"' . addslashes(esc_html__('Too long login field', 'organics')) . '",'
 				. 'login_success:		"' . addslashes(esc_html__('Login success! The page will be reloaded in 3 sec.', 'organics')) . '",'
 				. 'login_failed:		"' . addslashes(esc_html__('Login failed!', 'organics')) . '",'
-				. 'password_empty:		"' . addslashes(esc_html__('The password can\'t be empty and shorter then 4 characters', 'organics')) . '",'
-				. 'password_long:		"' . addslashes(esc_html__('Too long password', 'organics')) . '",'
+				. 'password_empty:		"' . addslashes(esc_html__('La contraseña debe tener mínimo 4 caracteres', 'organics')) . '",'
+				. 'password_long:		"' . addslashes(esc_html__('Contraseña muy larga', 'organics')) . '",'
 				. 'password_not_equal:	"' . addslashes(esc_html__('The passwords in both fields are not equal', 'organics')) . '",'
 				. 'registration_success:"' . addslashes(esc_html__('Registration success! Please log in!', 'organics')) . '",'
 				. 'registration_failed:	"' . addslashes(esc_html__('Registration failed!', 'organics')) . '",'
@@ -148,7 +148,7 @@ if (!function_exists('organics_messages_add_scripts_inline')) {
 				. 'editor_caption_cancel:	"' . addslashes(esc_html__('Cancel', 'organics')) . '",'
 				. 'editor_caption_close:	"' . addslashes(esc_html__('Close', 'organics')) . '"'
 				. '};'
-			
+
 			. '</script>';
 	}
 }

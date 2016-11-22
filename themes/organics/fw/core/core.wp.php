@@ -2117,6 +2117,7 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
 
         $user_name  = organics_substr($_REQUEST['user_name'], 0, 20);
         $user_email = organics_substr($_REQUEST['user_email'], 0, 60);
+        $fecha_nacimiento = $_REQUEST['fecha_nacimiento'];
         $user_pwd   = organics_substr($_REQUEST['user_pwd'], 0, 20);
 
         $response = array('error' => '');
@@ -2126,6 +2127,7 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
             $response['error'] = $id->get_error_message();
         } else if (($notify = organics_get_theme_option('notify_about_new_registration'))!='no' && (($contact_email = organics_get_theme_option('contact_email')) || ($contact_email = organics_get_theme_option('admin_email')))) {
             $mail = organics_get_theme_option('mail_function');
+            
             if (in_array($notify, array('both', 'admin', 'yes'))) {
                 $subj = sprintf(esc_html__('Site %s - New user registration: %s', 'organics'), esc_html(get_bloginfo('site_name')), esc_html($user_name));
                 $msg = "\n".esc_html__('New registration:', 'organics')
@@ -2156,7 +2158,8 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
                 @$mail($user_email, $subj, $msg, $head);
             }
         }
-
+        //AGREGAR FECHA DE NACIMIENTO
+        update_user_meta($id, '_fecha_nacimiento', $fecha_nacimiento);
         echo json_encode($response);
         die();
     }

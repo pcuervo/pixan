@@ -42,6 +42,10 @@ class Product_List_Settings {
 		//add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action('woocommerce_after_cart_table', array( $this, 'add_list_to_list_button'));
 		add_action('woocommerce_after_add_to_cart_button', array( $this, 'add_product_to_list_button'));
+		//
+		//add_action(    'woocommerce_after_subcategory',				array( $this, 'add_product_to_list_button') );
+		//add_action(    'woocommerce_after_shop_loop_item',			array( $this, 'add_product_to_list_button') );
+		//
 		//add_action('woocommerce_after_my_account', array( $this, 'show_user_lists'));
 		add_action( 'wp_ajax_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
 		add_action( 'wp_ajax_nopriv_add_products_to_a_list', array( $this, 'add_products_to_a_list') );
@@ -149,14 +153,19 @@ class Product_List_Settings {
 	}
 
 	function add_list_to_list_button() {
-		echo '<a href="#" class="button alt addToList">Agregar este pedido a mi Lista</a>';
-		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
-		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
-		$this->show_dialog();
+		if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) {
+			echo '<a href="#" class="button alt addToList">Agregar este pedido a mi Lista</a>';
+			echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
+			echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
+			$this->show_dialog();
+		}
 	}
 
 	function show_dialog() {
-		echo '<div id="dialog" class="add_to_list_dialog" title="Seleccionar Lista">
+		echo '<div style="display:none;" id="dialog" class="add_to_list_dialog" title="Seleccionar Lista">
+				<div id="dialogLoader" style="display:none;"><img src="'.PRODUCT_LIST_URL.'inc/img/loader.gif" alt="Cargando..." /></div>
+				<div id="dialogMsj"></div>
+				<div id="dialogDefaultText">
 			    <p>Selecciona la lista en la que deseas guardar los articulos.</p>';
 			$listas = $this->get_list(get_current_user_id());
 			if (count($listas[0]) > 0) {
@@ -168,10 +177,10 @@ class Product_List_Settings {
 				echo '</select>';
 			}
 			else {
-				echo '<span style="color:pink;">Aun no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
+				echo '<span style="color:pink;">Aún no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
 				echo '<input type="hidden" id="add_product_list" name="add_product_list" value="0" />';
 			}
-		echo '</div>';
+		echo '</div></div>';
 	}
 
 	public function send_mail_reminders() {
@@ -217,6 +226,27 @@ class Product_List_Settings {
 			array( '%s' ),
 			array( '%d' )
 		);
+	}
+
+	public function update_list_detail($idlista) {
+		global $wpdb;
+
+		$detalle = $this->get_list_detail($idlista);
+
+		if (count($detalle[0]) > 0) {
+			foreach ( $detalle as $det )
+			{
+				$wpdb->update(
+					$wpdb->prefix . 'product_list_detail',
+					array( 'cantidad' => $_GET['cant_'.$det->product_id] ),
+					array( 'product_list_id' => $idlista, 'product_id' => $det->product_id ),
+					array( '%d' ),
+					array( '%d', '%d' )
+				);
+			}
+		}
+
+		$this->show_list_detail($idlista);
 	}
 
 	//CALCULA LA CANTIDAD DE DIAS ENTRE 2 FECHAS CON FORMATO dd/mm/aaaa
@@ -277,29 +307,26 @@ class Product_List_Settings {
 	}
 
 	function add_product_to_list_button() {
-		echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
-		echo '<div class="clearfix"></div>';
-		echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
-		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
-		$this->show_dialog();
+		if(is_numeric(get_current_user_id()) && get_current_user_id() != 0) {
+			echo '<a href="#" class="button alt addToList">Agregar a mi Lista</a>';
+			echo '<div class="clearfix"></div>';
+			echo '<input type="hidden" id="rutaPlugin" name="rutaPlugin" value="'.PRODUCT_LIST_URL.'" />';
+			echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
+			$this->show_dialog();
+		}
 	}
 
 	function show_user_lists() {
-		//var_dump($_POST);
-		//var_dump($_GET);
+
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
-			$this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
-			$this->print_user_list();
-			//header("Location: ".SITEURL."my-account/product-list");
-			//wp_redirect(SITEURL."my-account/product-list");
-			//exit;
+			$nombrenueva = $this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
+			$this->print_user_list($nombrenueva);
+
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
-			$this->print_user_list();
-			//header("Location: ".SITEURL."my-account/product-list");
-			//wp_redirect(SITEURL."my-account/product-list");
-			//exit;
+			$this->print_user_list('');
+
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -311,19 +338,28 @@ class Product_List_Settings {
 		else if( isset($_GET['detalle']) ){
 			$this->show_list_detail($_GET['detalle']);
 		}
+		else if( isset($_GET['actualizar']) ){
+			$this->update_list_detail($_GET['actualizar']);
+		}
 		//TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else if ( isset($_GET['cron']) ){
 			$this->send_mail_reminders();
 		}
 		//END TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else {
-			$this->print_user_list();
-			
+			$this->print_user_list('');
+
 		}
 
 	}
 
-	public function print_user_list() {
+	public function print_user_list($cod) {
+
+		if ($cod != '' && !is_numeric($cod)) {
+			echo '<div class="woocommerce-Message woocommerce-Message--info woocommerce-error" >';
+			echo 'Ya tienes una lista con el nombre <strong>'.$cod.'</strong> ingresa un nombre distinto.';
+			echo '</div>';
+		}
 		echo '<h4>Mis listas</h4>';
 		echo '<table class="woocommerce-MyAccount-lists shop_table shop_table_responsive my_account_lists account-lists-table">
 				<thead>
@@ -352,8 +388,8 @@ class Product_List_Settings {
 								Cada <span>'.$list->recurrencia.'</span> dias.
 							</td>
 							<td class="list-actions" data-title="&nbsp;">
-								<a href="my-account?detalle='.$list->id.'" class="button view">Ver</a>
-								<a href="my-account?eliminar='.$list->id.'" title="Eliminar" class="button view red">X</a>
+								<a href="'.SITEURL.'my-account/product-list/?detalle='.$list->id.'" class="button view">Ver</a>
+								<a href="'.SITEURL.'my-account/product-list/?eliminar='.$list->id.'" title="Eliminar" class="button view red">X</a>
 							</td>
 						</tr>';
 					}
@@ -363,7 +399,7 @@ class Product_List_Settings {
 				}
 
 				echo '<tr class="list">
-						<form id="formAddLista" action="my-account" type="post" >
+						<form id="formAddLista" action="'.SITEURL.'my-account/product-list/" type="post" >
 							<td class="list-name" colspan="2">
 								<input id="lista_nombre" name="lista_nombre" />
 							</td>
@@ -387,7 +423,7 @@ class Product_List_Settings {
 	public function show_list_detail( $list_id ) {
 		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
-
+		$urladdtocart = '';
 		echo '<h3>'.$this->get_list_name($list_id).'</h3>';
 		echo '<table class="shop_table shop_table_responsive cart" cellspacing="0">
 			<thead>
@@ -401,20 +437,28 @@ class Product_List_Settings {
 			</thead>
 			<tbody>';
 
-
+		echo '<form id="formUpdateList" action="'.SITEURL.'my-account/product-list/" type="post" >';
 			if (count($detalle[0]) > 0) {
-
+				$prod_ids = '';
+				$cant_ids = '';
 				foreach ( $detalle as $det )
 				{
 					$_product = $_pf->get_product($det->product_id);
+					$urladdtocart .= '&quantity['.$det->product_id.']='.$det->cantidad;
+
+					$prod_ids .= $det->product_id.',';
+					$cant_ids .= $det->cantidad.',';
+
 					echo '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
-						echo '<td><a href="my-account?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.'" class="remove" title="Eliminar de mi Lista" >X</a></td>';
+						echo '<td><a href='.SITEURL.'my-account/product-list/?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.' class="remove" title="Eliminar de mi Lista" >X</a></td>';
 						echo '<td>'.$_product->get_image().'</td>';
 						echo '<td>'.$_product->get_title().'</td>';
 						echo '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
-						echo '<td>'.$det->cantidad.'</td>';
+						echo '<td><input size="1" style="text-align: center;" id="cant_'.$det->product_id.'" name="cant_'.$det->product_id.'" value="'.$det->cantidad.'" /></td>';
 					echo '</tr>';
 				}
+				$prod_ids = substr($prod_ids, 0, -1);
+				$cant_ids = substr($cant_ids, 0, -1);
 			}
 			else {
 				echo '<td colspan="5">Esta lista esta vacia.</td>';
@@ -423,18 +467,25 @@ class Product_List_Settings {
 			echo '</tbody>';
 		echo '</table>';
 
-		echo '<a href="my-account?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
+		echo '<input type="hidden" id="actualizar" name="actualizar" value="'.$list_id.'" />';
+		echo '<button style="float:right;" type="submit" class="button view">Actualizar Cantidades</button>';
+		//echo '<a href="'.SITEURL.'my-account/product-list/?actualizar='.$list_id.'&prods='.$prod_ids.'&cants='.$cant_ids.'" class="[ float-right ] button alt">Actualizar Cantidades</a>';
+		echo '</form>';
+		echo '<a  href="'.SITEURL.'my-account/product-list/?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
+
 	}
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
 	public function show_list_detail_to_email( $list_id ) {
+		global $current_user;
+      	get_currentuserinfo();
 		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 		$msj = '';
 		$msj .= '<a href="'.SITEURL.'" style="display: block; margin-bottom:30px;">';
 			$msj .= '<img style="width:100%;" src="'.SITEURL.'wp-content/themes/organics-child/images/header.png" alt="logo pixan"/>';
 		$msj .= '</a>';
-		$msj .= '<p style="margin-bottom: 20px;font-size: 16px;line-height: 30px;color: #222222;">Hola nombre-de-usuario, ya esta lista tu canasta recurrencia de productos Pixan, sólo haz click en <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">ver mi lista</a> para finalizar tu compra.</p>';
+		$msj .= '<p style="margin-bottom: 20px;font-size: 16px;line-height: 30px;color: #222222;">Hola '.$current_user->user_firstname .' '.$current_user->user_lastname.', ya esta lista tu canasta <strong>'.$this->get_list_name($list_id).'</strong> de productos Pixan, sólo haz click en <a style="color: #1E4B24;" href="'.SITEURL.'my-account/product-list/">ver mi lista</a> para finalizar tu compra.</p>';
 		$msj .= '<h3 style="margin-bottom:30px; text-align: center; background-color: #80B500; color: #fff; padding: 10px; font-size: 22px; letter-spacing: 2px; font-weight:500;">'.$this->get_list_name($list_id).'</h3>';
 		$msj .= '<table style="border-bottom: 2px solid #80B500; width: 100%; text-align: left;" class="shop_table shop_table_responsive cart" cellspacing="0">
 			<thead>
@@ -453,14 +504,14 @@ class Product_List_Settings {
 
 				foreach ( $detalle as $det )
 				{
-
+					$tipo_unidad = get_post_meta($det->product_id, 'unidadmedida', true);
 					$_product = $_pf->get_product($det->product_id);
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
 						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
-						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">Unidad</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$tipo_unidad.'</td>';
 					$msj .= '</tr>';
 				}
 			}
@@ -501,23 +552,31 @@ class Product_List_Settings {
 	*/
 	public function add_list( $nombre, $recurrencia ) {
 		global $wpdb;
-		if(isset($nombre) && isset($recurrencia) ) {
-			$list_data = array(
-				'user_id'		=> get_current_user_id(),
-				'nombre'		=> $nombre,
-				'recurrencia' 	=> $recurrencia,
-				'fecha'			=> current_time( 'mysql' ),
+		$existe_nombre = $wpdb->get_results(
+			"SELECT nombre FROM " . $wpdb->prefix . "product_list WHERE nombre = '" . $nombre."' AND user_id = ".get_current_user_id()
 			);
-			$wpdb->insert(
-				$wpdb->prefix . 'product_list',
-				$list_data,
-				array( '%d', '%s', '%d', '%s' )
-			);
-			//wp_redirect( 'my-account' );
-			return $wpdb->insert_id;
+		if( empty( $existe_nombre ) ) {
+			if(isset($nombre) && isset($recurrencia) ) {
+				$list_data = array(
+					'user_id'		=> get_current_user_id(),
+					'nombre'		=> $nombre,
+					'recurrencia' 	=> $recurrencia,
+					'fecha'			=> current_time( 'mysql' ),
+				);
+				$wpdb->insert(
+					$wpdb->prefix . 'product_list',
+					$list_data,
+					array( '%d', '%s', '%d', '%s' )
+				);
+				//wp_redirect( 'my-account' );
+				return $wpdb->insert_id;
+			}
+			else {
+				return 0;
+			}
 		}
 		else {
-			return 0;
+			return $nombre;
 		}
 	}
 
@@ -639,7 +698,11 @@ class Product_List_Settings {
 				WC()->cart->add_to_cart( $det->product_id, $det->cantidad );
 			}
 		}
-		header("Location: ".SITEURL."cart");
+		echo '<div class="woocommerce-Message woocommerce-Message--info woocommerce-success" >';
+		echo 'Hemos agregado los productos de tu lista a tu carrito.';
+		echo '</div>';
+		echo '<a href="'.SITEURL.'cart" class="[ float-right ] button alt">Ver Carrito</a>';
+		//header("Location: ".SITEURL."cart");
 	}
 
 }// Product_List_Settings

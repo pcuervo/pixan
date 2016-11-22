@@ -204,7 +204,7 @@ class WC_Subscriptions_Change_Payment_Gateway {
 
 				if ( $subscription->get_time( 'next_payment' ) > 0 ) {
 					// translators: placeholder is next payment's date
-					$next_payment_string = sprintf( __( ' El próximo pago es en %s.', 'woocommerce-subscriptions' ), $subscription->get_date_to_display( 'next_payment' ) );
+					$next_payment_string = sprintf( __( ' El próximo pago es el %s.', 'woocommerce-subscriptions' ), $subscription->get_date_to_display( 'next_payment' ) );
 				} else {
 					$next_payment_string = '';
 				}
