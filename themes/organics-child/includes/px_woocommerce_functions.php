@@ -47,6 +47,9 @@ function px_apply_new_customer_coupon(){
  * Create coupon "bienvenido"
  */
 function px_create_new_customer_coupon(){
+	$welcome_coupon = new WC_Coupon( 'bienvenido' );
+	if ( $welcome_coupon->exists ) return;
+
 	$coupon_code = 'bienvenido'; 
 	$amount = '50';
 	$discount_type = 'fixed_cart';
@@ -65,7 +68,8 @@ function px_create_new_customer_coupon(){
 	update_post_meta( $new_coupon_id, 'individual_use', 'yes' );
 	update_post_meta( $new_coupon_id, 'product_ids', '' );
 	update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
-	update_post_meta( $new_coupon_id, 'usage_limit', '1' );
+	//update_post_meta( $new_coupon_id, 'usage_limit', '1' );
+	update_post_meta( $new_coupon_id, 'usage_limit_per_user', '1' );
 	update_post_meta( $new_coupon_id, 'expiry_date', '' );
 	update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
 	update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
@@ -108,6 +112,7 @@ function px_order_has_coupon( WC_Order $order, $coupon_name ) {
 
 	if( in_array( $coupon_name, $order->get_used_coupons() ) ) return 1;
 }
+
 
 /*=====  End of #GENERAL FUNCTIONS  ======*/
 
