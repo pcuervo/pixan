@@ -15,11 +15,12 @@ function load_js(){
 	{
 		wp_enqueue_script( 'imprimir-lista-ordenes', THEMEPATH. 'includes/js/print-list.js', array('jquery'), '1.0', true );
 	}
+
 }
 
 function px_woocommerce_functions() {
 	// https://developer.wordpress.org/reference/functions/locate_template/
-	// locate_template( $nombres_de_plantilla, $cargar, $requerir_una_vez ) 
+	// locate_template( $nombres_de_plantilla, $cargar, $requerir_una_vez )
 	// Con esta función se carga un archivo y se sobreescribe para el child y el parent theme.
 	locate_template( array( 'includes/px_woocommerce_functions.php' ), TRUE, TRUE );
 	locate_template( array( 'includes/px_woocommerce_hooks.php' ), TRUE, TRUE );
@@ -27,6 +28,15 @@ function px_woocommerce_functions() {
 }
 add_action( 'after_setup_theme', 'px_woocommerce_functions' );
 
+
+/**
+* Enqueue frontend scripts and styles
+**/
+add_action( 'wp_enqueue_scripts', function(){
+
+	wp_enqueue_script( 'functions-user', THEMEPATH. 'js/functions.js', array('jquery'), '1.0', true );
+
+});
 
 
 

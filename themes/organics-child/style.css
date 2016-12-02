@@ -26,6 +26,8 @@ h1 { text-transform: uppercase; }
 .text-right--all * { text-align: right; }
 .text-left--all * { text-align: left; }
 
+.color-primary { color: #80B500; }
+.color-gray { color: #555555; }
 .color-red { color: #b33451; }
 
 /*Background image*/
