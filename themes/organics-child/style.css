@@ -224,6 +224,27 @@ input[type="submit"]{ width: auto!important; }
 blockquote.sc_quote p { font-size: 20px; }
 @media (max-width: 767px){ blockquote.sc_quote { margin: 0px!important; }}
 
+blockquote.sc_quote:after {
+	height: 0.7em;
+    width: 1em;
+    font-size: 3em;
+    font-weight: 700;
+    right: 0.25em;
+    bottom: 0.4em;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    color: rgba( 255, 255, 255, 0.102 );
+    overflow: hidden;
+    font-family: 'fontello';
+    content: '\e8b6';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    line-height: 1em;
+}
+
 /*Form*/
 
 input {
@@ -510,6 +531,19 @@ footer #text-5.column-1_3 { text-align: center; }
 .sc_testimonial_author { width: 100%; }
 .sc_testimonials_style_testimonials-4 .sc_testimonial_author_name { text-align: right; font-weight: bold; color: #3f3f3f!important;}
 .sc_testimonials_style_testimonials-4 .sc_testimonial_item { min-height: 200px; }
+
+.sc_testimonials_style_testimonials-4 .sc_testimonial_content p:last-child:after{
+	content: '\e8b6';
+    font-family: 'fontello';
+    font-size: 1.5em;
+    position: relative;
+    display: inline;
+    margin-left: 10px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: #80B500;
+}
 
 /*Algunas ideas*/
 
