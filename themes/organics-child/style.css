@@ -307,6 +307,9 @@ li.menu_user_cart a.top_panel_cart_button,
 	background-color: #dedede!important;
 }
 
+.top_panel_top .content_wrap { height: auto; }
+body > .top_panel_title > .breadcrumbs_present_inner {display: none;}
+
 .top_panel_inner_style_4 .top_panel_top a { color: #1E4B24!important; }
 
 .top_panel_style_5 .main-menu_wrapper { border: none!important; }
@@ -684,6 +687,12 @@ li.reviews_tab,
 
 /*Price*/
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price { margin-bottom: 0.5em!important; }
+
+span.woocommerce-Price-amount { font-family: Proxima Nova; }
+.woocommerce .widget_price_filter .price_label span {
+	font-family: Proxima Nova;
+    font-weight: 400;
+}
 
 /*Button cart */
 .list_products.shop_mode_list .price + .woo_thumb_buttons,

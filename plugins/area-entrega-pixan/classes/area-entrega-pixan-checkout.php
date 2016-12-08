@@ -142,7 +142,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		//wp_nonce_field(__FILE__, '_coordenadas_nonce');
 
 		$semana = array(
-					'Lunes' 	=> 'monday', 
+					'Lunes' 	=> 'monday',
 					'Martes' 	=> 'tuesday',
 					'Miercoles' => 'wednesday',
 					'Jueves' 	=> 'thursday',
@@ -195,7 +195,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				$d = explode(',', $dias);
 				//OBTENER FECHA DE PROXIMA ENTREGA
 				$timestamp = strtotime('+1 day');
-				
+
 				$dia =  date('d', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
 				$m =  date('F', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
 				$a =  date('Y', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
@@ -205,7 +205,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			}
 		}
 
-		echo '</select><small style="color:red; display:none;" id="areaInfo">Todavía no entregamos en tu zona, estamos trabajando para incrementar nuestra cobertura, regresa pronto.</small><br />';
+		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti.</small><br />';
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
@@ -403,7 +403,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		}
 		//echo $t;
 		update_post_meta( $order_id, '_temperaturas_orden', $t);
-		
+
 
 		//if ($_POST['billing_area_entrega']) update_post_meta( $order_id, 'billing_area_entrega', $_POST['billing_area_entrega']);
 		//if ($_POST['billing_puntos_recoleccion']) update_post_meta( $order_id, 'billing_puntos_recoleccion', $_POST['billing_puntos_recoleccion']);
