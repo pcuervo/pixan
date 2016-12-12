@@ -98,3 +98,27 @@
 [12-Dec-2016 23:38:46 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
 [12-Dec-2016 23:38:46 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
 [12-Dec-2016 23:38:46 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[12-Dec-2016 23:41:31 UTC] PHP Notice:  Undefined property: stdClass::$homepage in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1077
+[12-Dec-2016 23:41:31 UTC] PHP Stack trace:
+[12-Dec-2016 23:41:31 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Dec-2016 23:41:31 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Dec-2016 23:41:31 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP Notice:  Undefined property: stdClass::$post in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1088
+[12-Dec-2016 23:41:31 UTC] PHP Stack trace:
+[12-Dec-2016 23:41:31 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Dec-2016 23:41:31 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Dec-2016 23:41:31 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP Notice:  Undefined property: stdClass::$page in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1117
+[12-Dec-2016 23:41:31 UTC] PHP Stack trace:
+[12-Dec-2016 23:41:31 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Dec-2016 23:41:31 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Dec-2016 23:41:31 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP Notice:  Undefined property: stdClass::$category in C:\wamp\www\pixan\wp-content\plugins\wp-fastest-cache\wpFastestCache.php on line 1149
+[12-Dec-2016 23:41:31 UTC] PHP Stack trace:
+[12-Dec-2016 23:41:31 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Dec-2016 23:41:31 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Dec-2016 23:41:31 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Dec-2016 23:41:31 UTC] PHP   4. WpFastestCache->create_preload_cache() C:\wamp\www\pixan\wp-includes\plugin.php:601

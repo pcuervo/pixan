@@ -103,6 +103,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php endif; ?>
 
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+				<label for="_fecha_nacimiento" class="popup_form_field description_field"><?php _e( 'Fecha de nacimiento', 'organics' ); ?> <span class="required">*</span></label>
+				<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('Fecha de Nacimineto', 'organics'); ?>">
+			</p>
+
 			<!-- Spam Trap -->
 			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'woocommerce' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
 

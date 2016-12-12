@@ -1,5 +1,6 @@
 <div id="popup_registration" class="popup_wrap popup_registration bg_tint_light">
 	<a href="#" class="popup_close"></a>
+	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header.png" class="[ margin-bottom ]" alt="logo pixan para header">
 	<div class="form_wrap">
 		<form name="registration_form" method="post" class="popup_form registration_form">
 			<input type="hidden" name="redirect_to" value="<?php echo esc_attr(home_url()); ?>"/>
