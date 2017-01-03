@@ -359,10 +359,10 @@ class WC_Subscriptions_Order {
 
 			$subscription_count = count( wcs_get_subscriptions_for_order( $order_id, array( 'order_type' => 'any' ) ) );
 
-			$thank_you_message = '<p>' . _n( 'Tu suscripción será activada una vez que el pago haya sido procesado.', 'Your subscriptions will be activated when payment clears.', $subscription_count, 'woocommerce-subscriptions' ) . '</p>';
+			$thank_you_message = '<p>' . _n( 'Tu suscripción será activada una vez que el pago haya sido procesado.', 'Tus suscripciones serán activadas una vez que el pago haya sido procesado.', $subscription_count, 'woocommerce-subscriptions' ) . '</p>';
 
 			// translators: placeholders are opening and closing link tags
-			$thank_you_message .= '<p>' . sprintf( _n( 'Ver el estatus de tu suscripción en %stu cuenta%s.', 'View the status of your subscriptions in %syour account%s.', $subscription_count, 'woocommerce-subscriptions' ), '<a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">', '</a>' ) . '</p>';
+			$thank_you_message .= '<p>' . sprintf( _n( 'Ver el estatus de tu suscripción en %stu cuenta%s.', 'Ver el estatus de tus suscripciones en  %syour account%s.', $subscription_count, 'woocommerce-subscriptions' ), '<a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">', '</a>' ) . '</p>';
 			echo wp_kses( apply_filters( 'woocommerce_subscriptions_thank_you_message', $thank_you_message, $order_id ), array( 'a' => array( 'href' => array(), 'title' => array() ), 'p' => array(), 'em' => array(), 'strong' => array() ) );
 		}
 

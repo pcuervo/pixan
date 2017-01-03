@@ -27,10 +27,9 @@ if ( !function_exists( 'organics_template_no_search_output' ) ) {
 		?>
 		<article class="post_item">
 			<div class="post_content">
-				<h2 class="post_title"><?php echo sprintf(esc_html__('Search: %s', 'organics'), get_search_query()); ?></h2>
-				<p><?php esc_html_e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'organics' ); ?></p>
-				<p><?php echo wp_kses( sprintf(__('Go back, or return to <a href="%s">%s</a> home page to choose a new page.', 'organics'), home_url(), get_bloginfo()), $ORGANICS_GLOBALS['allowed_tags'] ); ?>
-				<br><?php esc_html_e('Please report any broken links to our team.', 'organics'); ?></p>
+				<h2 class="post_title"><?php echo sprintf(esc_html__('Busqueda: %s', 'organics'), get_search_query()); ?></h2>
+				<p><?php esc_html_e( 'Disculpa, por el momento no contamos con este producto.', 'organics' ); ?></p>
+				<p><?php echo wp_kses( sprintf(__('Checa nuestros productos existentes en <a href="../categoria-producto/canastas/programar-canasta-recurrente/">Crea tu canasta</a><a class="hidden" href="%s">%s</a>', 'organics'), home_url(), get_bloginfo()), $ORGANICS_GLOBALS['allowed_tags'] ); ?>
 				<?php echo trim(organics_sc_search(array('state'=>"fixed"))); ?>
 			</div>	<!-- /.post_content -->
 		</article>	<!-- /.post_item -->
