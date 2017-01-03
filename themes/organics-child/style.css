@@ -583,6 +583,12 @@ footer #text-5.column-1_3 { text-align: center; }
 
 @media (max-width: 959px) { .isotope_wrap .isotope_item { padding-bottom: 50px!important; } }
 
+.comment-subscription-form input,
+.comment-subscription-form label {
+	display: inline-block!important;
+	vertical-align: middle;
+}
+
 /*Productos temporada*/
 #productos-temporada .woo_thumb_buttons { display: none; }
 #productos-temporada .post_featured { margin-bottom: 0px; }

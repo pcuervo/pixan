@@ -136,7 +136,7 @@ if (!function_exists('organics_messages_add_scripts_inline')) {
 				. 'password_long:		"' . addslashes(esc_html__('Contraseña muy larga', 'organics')) . '",'
 				. 'password_not_equal:	"' . addslashes(esc_html__('The passwords in both fields are not equal', 'organics')) . '",'
 				. 'registration_success:"' . addslashes(esc_html__('Registration success! Please log in!', 'organics')) . '",'
-				. 'registration_failed:	"' . addslashes(esc_html__('', 'organics')) . '",'
+				. 'registration_failed:	"' . addslashes(esc_html__('Regifailedstration !', 'organics')) . '",'
 				. 'geocode_error:		"' . addslashes(esc_html__('Geocode was not successful for the following reason:', 'wspace')) . '",'
 				. 'googlemap_not_avail:	"' . addslashes(esc_html__('Google map API not available!', 'organics')) . '",'
 				. 'editor_save_success:	"' . addslashes(esc_html__("Post content saved!", 'organics')) . '",'
