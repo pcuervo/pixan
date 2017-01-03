@@ -695,7 +695,7 @@ if ( !function_exists( 'organics_woocommerce_after_shop_loop_item_title' ) ) {
 		global $ORGANICS_GLOBALS;
 		if ($ORGANICS_GLOBALS['shop_mode'] == 'list') {
 		    $excerpt = apply_filters('the_excerpt', get_the_excerpt());
-			echo '<div class="description prueba1">'.trim($excerpt).'</div>';
+			echo '<div class="description">'.trim($excerpt).'</div>';
 		}
 	}
 }

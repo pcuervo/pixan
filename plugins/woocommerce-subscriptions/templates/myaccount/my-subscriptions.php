@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="no_subscriptions">
 			<?php
 			// translators: placeholders are opening and closing link tags to take to the shop page
-			printf( esc_html__( 'No tienes suscripciones activas. Crea tu primera suscripción %saquí%s', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
+			printf( esc_html__( 'Aún no tienes suscripciones activas', 'woocommerce-subscriptions' ), '<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>' );
 			//'<a href="' . esc_url( apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( wc_get_page_id( 'shop' ) ) ) ) . '">', '</a>'
 			?>
 			<a href="<?php echo site_url('/categoria-producto/canastas/programar-canasta-recurrente/'); ?>">aquí.</a>
