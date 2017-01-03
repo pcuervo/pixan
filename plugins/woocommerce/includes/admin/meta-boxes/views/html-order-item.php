@@ -14,6 +14,7 @@ $thumbnail     = $_product ? apply_filters( 'woocommerce_admin_order_item_thumbn
 $tax_data      = empty( $legacy_order ) && wc_tax_enabled() ? maybe_unserialize( isset( $item['line_tax_data'] ) ? $item['line_tax_data'] : '' ) : false;
 $item_total    = ( isset( $item['line_total'] ) ) ? esc_attr( wc_format_localized_price( $item['line_total'] ) ) : '';
 $item_subtotal = ( isset( $item['line_subtotal'] ) ) ? esc_attr( wc_format_localized_price( $item['line_subtotal'] ) ) : '';
+$temperatura = get_post_meta($_product->id, 'temperatura', true);
 ?>
 <tr class="item <?php echo apply_filters( 'woocommerce_admin_html_order_item_class', ( ! empty( $class ) ? $class : '' ), $item, $order ); ?>" data-order_item_id="<?php echo $item_id; ?>">
 	<td class="thumb">
@@ -45,6 +46,12 @@ $item_subtotal = ( isset( $item['line_subtotal'] ) ) ? esc_attr( wc_format_local
 		<?php do_action( 'woocommerce_before_order_itemmeta', $item_id, $item, $_product ) ?>
 		<?php include( 'html-order-item-meta.php' ); ?>
 		<?php do_action( 'woocommerce_after_order_itemmeta', $item_id, $item, $_product ) ?>
+		<?php 
+			if(isset($temperatura)) {
+				echo '<small>'.$temperatura.'</small>';
+			}
+		
+		?>
 	</td>
 
 	<?php do_action( 'woocommerce_admin_order_item_values', $_product, $item, absint( $item_id ) ); ?>
