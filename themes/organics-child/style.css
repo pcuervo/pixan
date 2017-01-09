@@ -729,10 +729,10 @@ li.reviews_tab,
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price { margin-bottom: 0.5em!important; }
 
 /*span.woocommerce-Price-amount { font-family: Proxima Nova; }*/
-.woocommerce .widget_price_filter .price_label span {
+/*.woocommerce .widget_price_filter .price_label span {
 	font-family: Proxima Nova;
     font-weight: 400;
-}
+}*/
 
 .woocommerce-page .shop_mode_list ul.products li.product .price {
 	font-size: 19px!important;
