@@ -214,6 +214,7 @@ input[type="button"]:hover,
 
 .search-no-results .search_submit {
 	height: 40px!important;
+	margin-top: -1px;
 	width: auto;
 	padding: 0 15px!important;
 	line-height: 40px!important;
@@ -687,7 +688,6 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
-.single .variations .reset_variations { display: none!important; }
 
 /*Desde /time */
 .sidebar .price .from, /*.price .subscription-details,*/
