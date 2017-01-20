@@ -109,7 +109,7 @@ class WCS_Query extends WC_Query {
 		if ( array_key_exists( 'orders', $menu_items ) ) {
 			$menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Suscripciones', 'woocommerce-subscriptions' ) );
 		} else {
-			$menu_items['subscriptions'] = __( 'Subscriptions', 'woocommerce-subscriptions' );
+			$menu_items['subscriptions'] = __( 'Suscripciones', 'woocommerce-subscriptions' );
 		}
 
 		return $menu_items;

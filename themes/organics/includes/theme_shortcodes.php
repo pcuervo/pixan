@@ -778,7 +778,7 @@ if (!function_exists('organics_sc_search')) {
             . ($css!='' ? ' style="'.esc_attr($css).'"' : '')
             . (!organics_param_is_off($animation) ? ' data-animation="'.esc_attr(organics_get_animation_classes($animation)).'"' : '')
             . '>
-						<div class="search_form_wrap">
+						<div class="search_form_wrap [ margin-bottom--xlarge ]">
 							<form role="search" method="get" class="search_form" action="' . esc_url( home_url( '/' ) ) . '">
 								<button type="submit" class="search_submit icon-search" title="' . ($state=='closed' ? __('Open search', 'organics') : __('Start search', 'organics')) . '"></button>
 								<label class="[ hidden ]" for="s">search</label>

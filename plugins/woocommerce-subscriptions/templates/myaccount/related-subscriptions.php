@@ -12,15 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <header>
-	<h2><?php esc_html_e( 'Suscripciones relacionadas', 'woocommerce-subscriptions' ); ?></h2>
+	<h2>Suscripciones relacionadas</h2>
 </header>
 <table class="shop_table shop_table_responsive my_account_orders">
 	<thead>
 		<tr>
-			<th class="order-number"><span class="nobr"><?php esc_html_e( 'Suscripción', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="order-date"><span class="nobr"><?php esc_html_e( 'Estatus', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="order-status"><span class="nobr"><?php echo esc_html_x( 'Próximo pago', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="order-total"><span class="nobr"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="order-number"><span class="nobr">Suscripción</span></th>
+			<th class="order-date"><span class="nobr">Estatus</span></th>
+			<th class="order-status"><span class="nobr">Próximo pago</span></th>
+			<th class="order-total"><span class="nobr">Total</span></th>
 			<th class="order-actions">&nbsp;</th>
 		</tr>
 	</thead>
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo wp_kses_post( $subscription->get_formatted_order_total() ); ?>
 				</td>
 				<td class="subscription-actions order-actions">
-					<a href="<?php echo esc_url( $subscription->get_view_order_url() ) ?>" class="button view"><?php echo esc_html_x( 'Ver', 'view a subscription', 'woocommerce-subscriptions' ); ?></a>
+					<a href="<?php echo esc_url( $subscription->get_view_order_url() ) ?>" class="button view">Ver</a>
 				</td>
 			</tr>
 		<?php endforeach; ?>

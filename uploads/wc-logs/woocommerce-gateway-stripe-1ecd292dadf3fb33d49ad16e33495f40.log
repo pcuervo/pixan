@@ -120,3 +120,31 @@
     [limit] => 100
 )
 
+01-03-2017 @ 20:08:29 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+01-03-2017 @ 20:08:56 - Info: Begin processing payment for order 1080 for the amount of 22
+01-03-2017 @ 20:08:56 - charges request: Array
+(
+    [currency] => mxn
+    [amount] => 2200
+    [description] => Pixan Sustentable - Pedido 1080
+    [capture] => true
+    [expand[]] => balance_transaction
+    [customer] => cus_9CAA1DbCgndPHl
+    [source] => card_18tlqSHtulYPV1nKp74yA6N7
+)
+
+01-03-2017 @ 20:08:57 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+01-03-2017 @ 20:08:57 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
+01-03-2017 @ 20:09:27 - customers/cus_9CAA1DbCgndPHl/sources request: Array
+(
+    [limit] => 100
+)
+
