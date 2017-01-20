@@ -205,7 +205,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			}
 		}
 
-		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti.</small><br />';
+		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti. <br>Escribenos a: <strong> contacto@pixan.com</strong></small><br />';
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>

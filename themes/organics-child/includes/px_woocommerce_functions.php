@@ -198,7 +198,7 @@ function MY_COLUMNS_FUNCTION($columns){
     //edit this for you column(s)
     //all of your columns will be added before the actions column
     //$new_columns['temperatura'] = 'Tempreratura';
-    $new_columns['_temperaturas_orden'] = 'Tempreraturas';
+    $new_columns['_temperaturas_orden'] = 'Temperaturas';
     $new_columns['_billing_regalo'] = 'Regalo';
     //stop editing
 
@@ -281,24 +281,6 @@ function my_manage_shop_order_columns( $column, $post_id ) {
 
 	switch( $column ) {
 
-		/* If displaying the '_ciudad_meta' column. */
-		/*
-		case 'temperatura' :
-			foreach ( $the_order->get_items() as $item ) {
-				//echo $item;
-				$product        = apply_filters( 'woocommerce_order_item_product', $the_order->get_product_from_item( $item ), $item );
-				//var_dump($product->id);
-				/* Get the post meta. * /
-				$temperatura = get_post_meta( $product->id , 'temperatura', true );
-				//echo '['.$temperatura.']';
-				if ( !empty( $temperatura ) && !in_array($temperatura, $tempe)) { array_push($tempe, $temperatura); }
-			}
-			for ($i = 0; $i<count($tempe); $i++) {
-				$t .= $tempe[$i].'<br />';
-			}
-			echo $t;
-			break;
-		*/
 		case '_temperaturas_orden' :
 			/* Get the post meta. */
 			$_temperaturas_orden = get_post_meta( $post_id, '_temperaturas_orden', true );
