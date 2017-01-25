@@ -842,12 +842,23 @@ p.no_subscriptions a:nth-child(1) { display: none; }
 .popup_wrap input[type="checkbox"]{ width: 25px; height: 20px; }
 .popup_form_field.agree_field a { font-size: 15px; color: #80b500!important; text-decoration: underline; }
 
-// .popup_registration {
-// 	right: -6em;
-// }
-
 .popup_registration {
 	right: 11em;
 	top: 4em;
 	z-index: 20;
+}
+
+/*Canasta recurrente*/
+ul.products li.product .price .subscription-details {
+	position: relative;
+	width: 85px;
+	display: inline-block;
+	color: #fff;
+}
+ul.products li.product .price .subscription-details:after {
+	content: '/ mensual';
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	color: #b33451;
 }
