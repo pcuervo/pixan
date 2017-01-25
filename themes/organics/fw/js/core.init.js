@@ -1501,6 +1501,7 @@ function organics_login_validate(form) {
 			user_log: form.find('#log').val(),
 			user_pwd: form.find('#password').val()
 		}).done(function(response) {
+			
 			try {
 				var rez = JSON.parse(response);
 			} catch (e) {
@@ -1527,6 +1528,7 @@ function organics_login_validate(form) {
 
 // Registration form
 function organics_registration_validate(form) {
+
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
 	var error = organics_form_validate(form, {
@@ -1537,9 +1539,14 @@ function organics_registration_validate(form) {
 		exit_after_first_error: true,
 		rules: [
 			{
-				field: "registration_username",
-				min_length: { value: 1, message: ORGANICS_GLOBALS['strings']['login_empty'] },
-				max_length: { value: 60, message: ORGANICS_GLOBALS['strings']['login_long'] }
+				field: "registration_firstname",
+				min_length: { value: 1, message: 'Tu nombre es obligatorio' },
+				max_length: { value: 60, message: 'Tu nombre no puede ser mayor a 60 caracteres' }
+			},
+			{
+				field: "registration_lastname",
+				min_length: { value: 1, message: 'Tu apellido es obligatorio' },
+				max_length: { value: 60, message: 'Tu nombre no puede ser mayor a 60 caracteres' }
 			},
 			{
 				field: "registration_email",
@@ -1555,15 +1562,25 @@ function organics_registration_validate(form) {
 			{
 				field: "registration_pwd2",
 				equal_to: { value: 'registration_pwd', message: ORGANICS_GLOBALS['strings']['password_not_equal'] }
+			},
+			{
+				field: "registration_agree",
+				required : true
 			}
 		]
 	});
 	if (!error) {
+		form.find('#btnSubmitRegister').val('ENVIANDO...');
+		form.find('#btnSubmitRegister').attr('disabled', true);
+		form.find('#btnSubmitRegister').css('background-color', "grey");
+		//form.find('#btnSubmitRegister').style.backgroundColor = "red";
 		console.log(form.find('#_fecha_nacimiento').val());
 		jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
 			action: 'registration_user',
 			nonce: ORGANICS_GLOBALS['ajax_nonce'],
-			user_name: 	form.find('#registration_username').val(),
+			user_name: 	form.find('#registration_firstname').val()+' '+form.find('#registration_lastname').val(),
+			first_name: form.find('#registration_firstname').val(),
+			last_name: 	form.find('#registration_lastname').val(),
 			user_email: form.find('#registration_email').val(),
 			fecha_nacimiento: form.find('#_fecha_nacimiento').val(),
 			user_pwd: 	form.find('#registration_pwd').val()
@@ -1576,10 +1593,42 @@ function organics_registration_validate(form) {
 			if (rez.error === '') {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['registration_success']);
 				setTimeout(function() {
+					jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
+						action: 'login_user',
+						nonce: ORGANICS_GLOBALS['ajax_nonce'],
+						remember: 'forever',
+						user_log: form.find('#registration_email').val(),
+						user_pwd: form.find('#registration_pwd').val()
+					}).done(function(response) {
+						
+						try {
+							var rez = JSON.parse(response);
+						} catch (e) {
+							dcl(response);
+						}
+						var result_box = form.find('.result');
+						if (result_box.length==0) result_box = form.siblings('.result');
+						if (result_box.length==0) result_box = form.after('<div class="result"></div>').next('.result');
+						result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
+						if (rez.error === '') {
+							result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['login_success']);
+							setTimeout(function() {
+								//location.reload();
+								window.location.replace("my-account");
+								}, 3000);
+						} else {
+							result_box.addClass('sc_infobox sc_infobox_style_error').html(ORGANICS_GLOBALS['strings']['login_failed'] + '<br>' + rez.error);
+						}
+						result_box.fadeIn().delay(3000).fadeOut();
+					});
 					jQuery('.popup_login_link').trigger('click');
 					}, 3000);
 			} else {
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ORGANICS_GLOBALS['strings']['registration_failed'] + ' ' + rez.error);
+				form.find('#btnSubmitRegister').val('INGRESAR');
+				form.find('#btnSubmitRegister').attr('disabled', false);
+				form.find('#btnSubmitRegister').style('background-color', "green");
+				//form.find('#btnSubmitRegister').style.backgroundColor = "green";
 			}
 			result_box.fadeIn().delay(3000).fadeOut();
 		});
