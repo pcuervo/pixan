@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<h2><?php _e( 'Crear cuenta', 'woocommerce' ); ?></h2>
 
-		<form method="post" class="register">
+		<form method="post" class="register registration_form">
 
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
 
@@ -88,17 +88,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</p>
 
 			<?php endif; ?>
-
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+				<label for="reg_firstname"><?php _e( 'Nombre', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="text" id="registration_firstname" name="registration_firstname"  value="<?php if ( ! empty( $_POST['registration_firstname'] ) ) echo esc_attr( $_POST['registration_firstname'] ); ?>" placeholder="<?php esc_attr_e('Nombre(s) ', 'organics'); ?>">
+			</p>
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+				<label for="reg_lastname"><?php _e( 'Apellido', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="text" id="registration_lastname" name="registration_lastname"  value="<?php if ( ! empty( $_POST['registration_lastname'] ) ) echo esc_attr( $_POST['registration_lastname'] ); ?>" placeholder="<?php esc_attr_e('Apellido(s) ', 'organics'); ?>">
+			</p>
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="reg_email"><?php _e( 'Email', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>" />
+				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="registration_email" id="registration_email" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>" />
 			</p>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" />
+					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="registration_pwd" id="registration_pwd" />
+
 				</p>
 
 			<?php endif; ?>
@@ -115,10 +123,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<p class="woocomerce-FormRow form-row [ margin-bottom--large ]">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Crear cuenta', 'woocommerce' ); ?>" />
+				<input type="submit" id="btnSubmitRegister" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Crear cuenta', 'woocommerce' ); ?>" />
 			</p>
 
-			<?php do_action( 'register_form' ); ?>
+			<?php //do_action( 'register_form' ); ?>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 

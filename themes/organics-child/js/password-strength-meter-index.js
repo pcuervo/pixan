@@ -4,6 +4,8 @@ jQuery( function( $ ) {
 	/**
 	 * Password Strength Meter class.
 	 */
+	 var wc_password_strength_meter_params = {"min_password_strength":"3","i18n_password_error":"Please enter a stronger password.","i18n_password_hint":"The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ & )."};
+	 
 	var wc_password_strength_meter = {
 
 		/**
@@ -13,7 +15,8 @@ jQuery( function( $ ) {
 			$( document.body )
 				.on( 'keyup change', 'form.register #reg_password, #registration_pwd, form.checkout #account_password, form.edit-account #password_1, form.lost_reset_password #password_1', this.strengthMeter );
 			$( 'form.checkout #createaccount' ).change();
-			alert('indiORIGINAL');			
+			alert('indiceWWW');
+			alert(wc_password_strength_meter_params);
 		},
 
 		/**

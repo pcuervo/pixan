@@ -22,7 +22,9 @@
 				<div class="popup_form_field login_field iconed_field icon-user">
 					<input type="text" id="registration_lastname" name="registration_lastname"  value="" placeholder="<?php esc_attr_e('Apellido(s) ', 'organics'); ?>">
 				</div>
-				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="registration_pwd"  name="registration_pwd"  value="" placeholder="<?php esc_attr_e('Contraseña', 'organics'); ?>"></div>
+				<div class="popup_form_field password_field iconed_field icon-lock">
+					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" id="registration_pwd"  name="registration_pwd"  value="" placeholder="<?php esc_attr_e('Contraseña', 'organics'); ?>">
+				</div>
 				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="registration_pwd2" name="registration_pwd2" value="" placeholder="<?php esc_attr_e('Confirmar contraseña', 'organics'); ?>"></div>
 				<div class="popup_form_field description_field"><?php esc_html_e('Mínimo 6 caracteres', 'organics'); ?></div>
 			</div>

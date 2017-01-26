@@ -7,8 +7,6 @@ jQuery(document).ready(function() {
 	organics_init_actions();
 });
 
-
-
 // Theme init actions
 function organics_init_actions() {
 	"use strict";
@@ -391,6 +389,14 @@ function organics_ready_actions() {
 
 	// Registration form
 	jQuery('.popup_form.registration_form').submit(function(e){
+		"use strict";
+		var rez = organics_registration_validate(jQuery(this));
+		if (!rez)
+			e.preventDefault();
+		return rez;
+	});
+
+	jQuery('.register.registration_form').submit(function(e){
 		"use strict";
 		var rez = organics_registration_validate(jQuery(this));
 		if (!rez)

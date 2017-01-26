@@ -35,6 +35,7 @@ add_action( 'after_setup_theme', 'px_woocommerce_functions' );
 add_action( 'wp_enqueue_scripts', function(){
 
 	wp_enqueue_script( 'functions-user', THEMEPATH. 'js/functions.js', array('jquery'), '1.0', true );
+	//wp_enqueue_script( 'wc-password-strength-meter-index', THEMEPATH . 'js/password-strength-meter-index.js', array( 'jquery' ), true );
 
 });
 

@@ -167,7 +167,8 @@ class WC_Frontend_Scripts {
 		self::register_script( 'wc-single-product', $frontend_script_path . 'single-product' . $suffix . '.js', array( 'jquery' ) );
 		self::register_script( 'wc-country-select', $frontend_script_path . 'country-select' . $suffix . '.js', array( 'jquery' ) );
 		self::register_script( 'wc-address-i18n', $frontend_script_path . 'address-i18n' . $suffix . '.js', array( 'jquery' ) );
-		self::register_script( 'wc-password-strength-meter', $frontend_script_path . 'password-strength-meter' . $suffix . '.js', array( 'jquery', 'password-strength-meter' ) );
+		//self::register_script( 'wc-password-strength-meter', $frontend_script_path . 'password-strength-meter' . $suffix . '.js', array( 'jquery', 'password-strength-meter' ) );
+		self::register_script( 'wc-password-strength-meter', $frontend_script_path . 'password-strength-meter.js', array( 'jquery', 'password-strength-meter' ) );
 
 		// Register frontend scripts conditionally
 		if ( $ajax_cart_en ) {
@@ -176,7 +177,7 @@ class WC_Frontend_Scripts {
 		if ( is_cart() ) {
 			self::enqueue_script( 'wc-cart', $frontend_script_path . 'cart' . $suffix . '.js', array( 'jquery', 'wc-country-select', 'wc-address-i18n' ) );
 		}
-		if ( is_checkout() || is_account_page() ) {
+		//if ( is_checkout() || is_account_page() ) {
 			self::enqueue_script( 'select2' );
 			self::enqueue_style( 'select2', $assets_path . 'css/select2.css' );
 
@@ -185,7 +186,7 @@ class WC_Frontend_Scripts {
 			if ( ( 'no' === get_option( 'woocommerce_registration_generate_password' ) && ! is_user_logged_in() ) || is_edit_account_page() ) {
 				self::enqueue_script( 'wc-password-strength-meter' );
 			}
-		}
+		//}
 		if ( is_checkout() ) {
 			self::enqueue_script( 'wc-checkout', $frontend_script_path . 'checkout' . $suffix . '.js', array( 'jquery', 'woocommerce', 'wc-country-select', 'wc-address-i18n' ) );
 		}
