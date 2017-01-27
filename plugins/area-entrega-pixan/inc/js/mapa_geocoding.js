@@ -5,7 +5,6 @@ zonaarray = new Array();
 $(document).ready(function(){
     var existe = document.getElementById('gmap_geocoding');
     if (existe !== null) {
-        alert('dentro');
         mapGeocoding();
     }
 
