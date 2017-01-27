@@ -1534,7 +1534,7 @@ function organics_login_validate(form) {
 
 // Registration form
 function organics_registration_validate(form) {
-
+	
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
 	var error = organics_form_validate(form, {

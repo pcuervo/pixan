@@ -448,11 +448,16 @@ class Product_List_Settings {
 
 					$prod_ids .= $det->product_id.',';
 					$cant_ids .= $det->cantidad.',';
+					$stock_msj = '';
+					$stock = $_product->get_stock_quantity();
+					if(isset($stock) && $stock == 0) {
+						$stock_msj = '<strong style="color: red;"><small>Agotado: No podra agregarse al carrito.<small></strong>';
+					}
 
 					echo '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
 						echo '<td><a href='.SITEURL.'my-account/product-list/?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.' class="remove" title="Eliminar de mi Lista" >X</a></td>';
 						echo '<td>'.$_product->get_image().'</td>';
-						echo '<td>'.$_product->get_title().'</td>';
+						echo '<td>'.$_product->get_title().' <br>'.$stock_msj.'</td>';
 						echo '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
 						echo '<td><input size="1" style="text-align: center;" id="cant_'.$det->product_id.'" name="cant_'.$det->product_id.'" value="'.$det->cantidad.'" /></td>';
 					echo '</tr>';
@@ -504,11 +509,15 @@ class Product_List_Settings {
 
 				foreach ( $detalle as $det )
 				{
+					$stock = $_product->get_stock_quantity();
+					if(isset($stock) && $stock == 0) {
+						$stock_msj = '<strong style="color: red;"><small>Agotado: No podra agregarse al carrito.<small></strong>';
+					}
 					$tipo_unidad = get_post_meta($det->product_id, 'unidadmedida', true);
 					$_product = $_pf->get_product($det->product_id);
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
-						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().'</td>';
+						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().' <br>'.$stock_msj.'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$tipo_unidad.'</td>';

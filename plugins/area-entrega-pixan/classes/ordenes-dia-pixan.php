@@ -130,8 +130,8 @@ class Ordenes_Dia_Pixan {
 
 		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
 				<input style="width:45%;" type="button" id="btnImprimir" class="btn blue" value="Imprimir"/>
-				<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>
-				<ol id="gmap_admin_orders_instructions"></ol></div>';
+				<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps">
+				</div><br>';
 		$customer_orders = get_posts( array(
 		    'numberposts' => -1,
 		    'meta_key'    => '_billing_area_entrega',
@@ -140,6 +140,7 @@ class Ordenes_Dia_Pixan {
 		    'post_status' => array_keys( wc_get_order_statuses() ),
 		) );
 
+		/*
 		echo '<select style="display:none;" id="listado_ordenes">';
 		echo '<option></option>';
 		for($i = 0; $i < count($customer_orders); $i++)
@@ -149,7 +150,14 @@ class Ordenes_Dia_Pixan {
 			echo '<option class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'</option>';
 		}
 		echo '</select>';
-
+		*/
+		for($i = 0; $i < count($customer_orders); $i++)
+		{
+			$meta = get_post_meta($customer_orders[$i]->ID);
+			
+			echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br>'.$meta['_billing_formated_address'][0].' </div><br/>';
+		}
+		echo '<ol id="gmap_admin_orders_instructions"></ol></div>';
 	}
 
 	public function show_map_orders() {

@@ -13,7 +13,7 @@ jQuery( function( $ ) {
 			$( document.body )
 				.on( 'keyup change', 'form.register #reg_password, #registration_pwd, form.checkout #account_password, form.edit-account #password_1, form.lost_reset_password #password_1', this.strengthMeter );
 			$( 'form.checkout #createaccount' ).change();
-			alert('indiORIGINAL');			
+					
 		},
 
 		/**

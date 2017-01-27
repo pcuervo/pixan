@@ -398,7 +398,7 @@ msgid ""
 "You cannot add &quot;%s&quot; to the cart because the product is out of "
 "stock."
 msgstr ""
-"No se puede añadir este producto al carrito porque el producto está agotado."
+"No se puede añadir &quot;%s&quot; al carrito porque el producto está agotado."
 
 # @ woocommerce
 #: classes/class-wc-cart.php:830

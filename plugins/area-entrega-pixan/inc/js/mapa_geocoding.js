@@ -3,8 +3,11 @@ $ = jQuery.noConflict();
 
 zonaarray = new Array();
 $(document).ready(function(){
-    
-    mapGeocoding();
+    var existe = document.getElementById('gmap_geocoding');
+    if (existe !== null) {
+        alert('dentro');
+        mapGeocoding();
+    }
 
     $("#puntos_recoleccion").change(function() {
         resetInfo();

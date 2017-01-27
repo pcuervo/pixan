@@ -7,6 +7,10 @@ $(document).ready(function(){
     if ( $( "#gmap_admin_orders" ).length ) {
         mapAdminOrders();
     }
+
+    $(".orderMap").click(function() {
+        mapAdminOrders();
+    });
     
 });
 
@@ -25,6 +29,7 @@ var imprSelec = function ()
 }
 
 function printMaps() {
+    $( ".orderMap:not(:checked)").parent().hide();
     var body               = $('body');
     var mapContainer       = $('#gmap_admin_orders');
     var ficha = $("#divImprimir");
@@ -64,13 +69,16 @@ function printMaps() {
 
     printContainer.remove();
     patchedStyle.remove();
+    $( ".orderMap:not(:checked)").parent().show();
 }
 
 var calcularRuta = function(map,imprimir) {
+    $('#gmap_admin_orders_instructions').html('');
     var origen = [19.4016653,-99.1743618];
+    //var origen = [18.994597,-99.481275];
     var color = ["#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000", "#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000"];
-    $(".orderMap").each(function(index) {
-        $('#gmap_admin_orders_instructions').append('<h5>' +$(this).html()+'<br>'+$(this).data('dir')+ '</h5>');
+    $(".orderMap:checked").each(function(index) {
+        //$('#gmap_admin_orders_instructions').append('<h5>' +$(this).html()+'<br>'+$(this).data('dir')+ '</h5>');
         var destino = [$(this).data('lat'),$(this).data('long')];
         map.travelRoute({
             origin: origen,
@@ -97,6 +105,7 @@ var calcularRuta = function(map,imprimir) {
 }
 
 var mapAdminOrders = function () {
+    $('#gmap_admin_orders_instructions').html('');
     var bounds = new google.maps.LatLngBounds();
     var map = new GMaps({
         div: '#gmap_admin_orders',
@@ -105,22 +114,17 @@ var mapAdminOrders = function () {
         zoom: 11
     });
 
-    $(".orderMap").each(function() {
+    $(".orderMap:checked").each(function() {
         var pedido = new google.maps.LatLng($(this).data('lat'), $(this).data('long'));
         map.addMarker({
             lat: $(this).data('lat'),
             lng: $(this).data('long'),
             title: '# '+$(this).data("num"),
             infoWindow: {
-                content: '<span style="color:#000">'+$(this).html()+'<br>'+$(this).data('dir')+'</span>'
+                content: '<span style="color:#000">'+$(this).data('info')+'<br>'+$(this).data('dir')+'</span>'
             }
         });
         bounds.extend(pedido);
-    });
-
-    $('#gmap_admin_orders_start').click(function (e) {
-        e.preventDefault();
-        calcularRuta(map,false);
     });
 
     $("#btnImprimir").click(function(e) {
@@ -130,5 +134,11 @@ var mapAdminOrders = function () {
        
     });
 
+    $('#gmap_admin_orders_start').click(function (e) {
+        e.preventDefault();
+        calcularRuta(map,false);
+    });
+
     map.fitBounds(bounds);
 }
+
