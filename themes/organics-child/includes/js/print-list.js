@@ -16,6 +16,7 @@ $("#btnImprimir").click(function(e) {
   });
   $('.show_order_items').css({
     backgroundColor: "#fff",
+    color: "#1E4B24",
     marginLeft: "-15px",
     marginTop: "-15px",
     height: "20px"
@@ -27,9 +28,12 @@ $("#btnImprimir").click(function(e) {
    zIndex: "99",
    position: "relative"
   });
-  $('.row-title').css( "margin-left", "20px" );
+  $('.row-title').css({
+    marginLeft: "20px",
+    color: "#1E4B24"
+  });
   $('.amount, .meta, abbr, .note-on.tips').css( "display", "block" );
-  $('.row-title').css( "clear", "both" );
+  $('.amount').css( "color", "#1E4B24" );
   $('.order_status').css( "background-color", "#fff" );
   $(':checkbox').hide();
 
@@ -51,6 +55,7 @@ $("#btnImprimir").click(function(e) {
       });
       $('.show_order_items').css({
         backgroundColor: "#",
+        color: "",
         marginLeft: "",
         marginTop: "",
         height: ""
@@ -62,9 +67,12 @@ $("#btnImprimir").click(function(e) {
        zIndex: "",
        position: ""
       });
-      $('.row-title').css( "margin-left", "" );
+      $('.row-title').css({
+        marginLeft: "",
+        color: ""
+      });
       $('.amount, .meta, abbr, .note-on.tips').css( "display", "" );
-      $('.row-title').css( "clear", "" );
+      $('.amount').css( "color", "" );
       $('.order_status').css( "background-color", "" );
       $(':checkbox').show();
     }, 1000);
