@@ -862,3 +862,9 @@ ul.products li.product .price .subscription-details:after {
 	top: 0px;
 	color: #b33451;
 }
+
+#the-list a.link-list {
+	text-decoration: none!important;
+	color: #1E4B24;
+}
+
