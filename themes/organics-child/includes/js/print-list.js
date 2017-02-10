@@ -2,6 +2,7 @@
 $("#btnImprimir").click(function(e) {
 	e.preventDefault();
   $('.screen-reader-text, .order_actions, .order_actions, .edit, .trash, .button.tips, input ').hide();
+  $('#the-list').css( "background-color", "#000" );
   $('#the-list a, small, .meta').css({
     color: "#000",
     textDecoration: "none",
