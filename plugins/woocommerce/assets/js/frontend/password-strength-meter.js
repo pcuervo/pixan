@@ -23,12 +23,12 @@ jQuery( function( $ ) {
 			var wrapper  = $( 'form.register, form.checkout, form.edit-account, form.lost_reset_password' ),
 				submit   = $( 'input[type="submit"]', wrapper ),
 				field    = $( '#reg_password, #registration_pwd, #account_password, #password_1', wrapper ),
-				strength = 1;
-
+				strength = 10;
+				wc_password_strength_meter_params.min_password_strength = 0;
 			wc_password_strength_meter.includeMeter( wrapper, field );
 
 			strength = wc_password_strength_meter.checkPasswordStrength( wrapper, field );
-
+			//console.log(strength+' < '+wc_password_strength_meter_params.min_password_strength);
 			if ( strength < wc_password_strength_meter_params.min_password_strength && ! wrapper.is( 'form.checkout' ) ) {
 				submit.attr( 'disabled', 'disabled' ).addClass( 'disabled' );
 			} else {
@@ -66,7 +66,7 @@ jQuery( function( $ ) {
 			var hint_html = '<small class="woocommerce-password-hint">' + wc_password_strength_meter_params.i18n_password_hint + '</small>';
 			var strength  = wp.passwordStrength.meter( field.val(), wp.passwordStrength.userInputBlacklist() );
 			var error     = '';
-
+			//console.log(strength);
 			// Reset
 			meter.removeClass( 'short bad good strong' );
 			hint.remove();

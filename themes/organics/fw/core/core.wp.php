@@ -2110,11 +2110,13 @@ if (!function_exists('organics_check_user_role')) {
 if ( !function_exists( 'organics_callback_registration_user' ) ) {
     function organics_callback_registration_user() {
         global $_REQUEST, $ORGANICS_GLOBALS;
-
+        /*
         if ( !wp_verify_nonce( $_REQUEST['nonce'], $ORGANICS_GLOBALS['ajax_url'] ) ) {
+            var_dump($_REQUEST['nonce']);
+            var_dump($ORGANICS_GLOBALS['ajax_url']);
             die();
         }
-
+        */
         $user_name  = organics_substr($_REQUEST['user_name'], 0, 20);
         $user_email = organics_substr($_REQUEST['user_email'], 0, 60);
         $fecha_nacimiento = $_REQUEST['fecha_nacimiento'];
@@ -2123,6 +2125,7 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
         $response = array('error' => '');
 
         $id = wp_insert_user( array ('user_login' => $user_name, 'user_pass' => $user_pwd, 'user_email' => $user_email) );
+        //var_dump($id);
         if ( is_wp_error($id) ) {
             $response['error'] = $id->get_error_message();
         } else if (($notify = organics_get_theme_option('notify_about_new_registration'))!='no' && (($contact_email = organics_get_theme_option('contact_email')) || ($contact_email = organics_get_theme_option('admin_email')))) {
@@ -2173,11 +2176,13 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
 if ( !function_exists( 'organics_callback_login_user' ) ) {
     function organics_callback_login_user() {
         global $_REQUEST, $ORGANICS_GLOBALS;
-
+        /*
         if ( !wp_verify_nonce( $_REQUEST['nonce'], $ORGANICS_GLOBALS['ajax_url'] ) ) {
+            var_dump($_REQUEST['nonce']);
+            var_dump($ORGANICS_GLOBALS['ajax_url']);
             die();
         }
-
+        */
         $user_log = organics_substr($_REQUEST['user_log'], 0, 60);
         $user_pwd = organics_substr($_REQUEST['user_pwd'], 0, 20);
         $remember = organics_substr($_REQUEST['remember'], 0, 7)=='forever';

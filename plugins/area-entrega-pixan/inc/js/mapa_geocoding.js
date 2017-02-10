@@ -7,7 +7,7 @@ $(document).ready(function(){
     if (existe !== null) {
         mapGeocoding();
     }
-
+    $("#gmap_geocoding_address").val($("#billing_formated_address").val());
     $("#puntos_recoleccion").change(function() {
         resetInfo();
         $(".area_e").removeAttr('selected', false);

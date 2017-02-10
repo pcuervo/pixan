@@ -88,6 +88,7 @@ class AitImport {
 
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		add_action( 'admin_menu', array( $this, 'add_plugin_reports_menu' ) );
 
 		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -189,6 +190,9 @@ class AitImport {
 		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
 		}
+		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
+			wp_enqueue_script( $this->plugin_slug . '-reports-script', plugins_url( 'js/reports.js', __FILE__ ), array( 'jquery' ), $this->version );
+		}
 
 	}
 
@@ -218,6 +222,26 @@ class AitImport {
 	 */
 	public function display_plugin_admin_page() {
 		include_once( 'views/admin.php' );
+	}
+
+	public function add_plugin_reports_menu() {
+
+		if( is_admin() && current_user_can("manage_options") ) {
+			$this->plugin_screen_hook_suffix = add_menu_page(
+				__('Reportes de Operación', 'operation-reports'),
+				__('Reportes', 'operation-reports'),
+				'read',
+				'operation-reports',
+				array( $this, 'display_plugin_reports_page' ),
+				'dashicons-chart-area',
+				2
+			);
+		}
+
+	}
+
+	public function display_plugin_reports_page() {
+		include_once( 'views/reports.php' );
 	}
 
 	/**
