@@ -2,7 +2,7 @@
 $("#btnImprimir").click(function(e) {
 	e.preventDefault();
   $('.screen-reader-text, .order_actions, .order_actions, .edit, .trash, .button.tips, input ').hide();
-  $('#the-list').css( "background-color", "#000" );
+  $( '.row-title' ).before( '<p class="line" style="border: 1px solid #000; margin: 0; position: relative; top: -20px;"></p>' );
   $('#the-list a, small, .meta').css({
     color: "#000",
     textDecoration: "none",
@@ -30,7 +30,7 @@ $("#btnImprimir").click(function(e) {
    position: "relative"
   });
   $('.row-title').css({
-    marginLeft: "20px",
+    marginLeft: "0px",
     color: "#1E4B24"
   });
   $('.amount, .meta, abbr, .note-on.tips').css( "display", "block" );
@@ -72,6 +72,7 @@ $("#btnImprimir").click(function(e) {
         marginLeft: "",
         color: ""
       });
+      $( 'p.line' ).hide();
       $('.amount, .meta, abbr, .note-on.tips').css( "display", "" );
       $('.amount').css( "color", "" );
       $('.order_status').css( "background-color", "" );
