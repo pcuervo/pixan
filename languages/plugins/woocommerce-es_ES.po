@@ -3626,8 +3626,8 @@ msgid "Saudi riyal"
 msgstr "Saudi Riyal"
 
 #: includes/class-wc-frontend-scripts.php:350
-msgid "The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
-msgstr "La contraseña debe tener, al menos, siete caracteres. Para hacerla más fuerte usa mayúsculas, minúsculas, números y símbolos como ! \" ? $ % ^ &amp; )."
+msgid "The password should be at least six characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "La contraseña debe tener, al menos, seis caracteres. Para hacerla más fuerte usa mayúsculas, minúsculas, números y símbolos como ! \" ? $ % ^ &amp; )."
 
 #: includes/class-wc-frontend-scripts.php:349
 msgid "Please enter a stronger password."

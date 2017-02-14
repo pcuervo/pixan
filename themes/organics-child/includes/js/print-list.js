@@ -91,7 +91,7 @@ function imprimirDiv()
   ventimp.document.write( ficha.innerHTML);
   //ventimp.document.write(  );
   ventimp.document.close();
-  ventimp.print( );
+  ventimp.print();
   ventimp.close();
 
 }

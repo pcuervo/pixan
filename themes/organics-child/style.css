@@ -616,6 +616,8 @@ footer #text-5.column-1_3 { text-align: center; }
 	vertical-align: middle;
 }
 
+.category-algunas-ideas .post_content p { text-align: justify; }
+
 /*Productos temporada*/
 #productos-temporada .woo_thumb_buttons { display: none; }
 #productos-temporada .post_featured { margin-bottom: 0px; }

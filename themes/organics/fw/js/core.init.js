@@ -1521,7 +1521,7 @@ function organics_login_validate(form) {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['login_success']);
 				setTimeout(function() {
 					location.reload();
-					}, 3000);
+					}, 1000);
 			} else {
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ORGANICS_GLOBALS['strings']['login_failed'] + '<br>' + rez.error);
 			}
@@ -1591,11 +1591,13 @@ function organics_registration_validate(form) {
 			fecha_nacimiento: form.find('#_fecha_nacimiento').val(),
 			user_pwd: 	form.find('#registration_pwd').val()
 		}).done(function(response) {
+			console.log(response);
 			var rez = JSON.parse(response);
 			var result_box = form.find('.result');
 			if (result_box.length==0) result_box = form.siblings('.result');
 			if (result_box.length==0) result_box = form.after('<div class="result"></div>').next('.result');
 			result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
+			console.log("Si vacio loguear = ["+rez.error+"]");
 			if (rez.error === '') {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['registration_success']);
 				setTimeout(function() {
@@ -1606,7 +1608,7 @@ function organics_registration_validate(form) {
 						user_log: form.find('#registration_email').val(),
 						user_pwd: form.find('#registration_pwd').val()
 					}).done(function(response) {
-						
+						console.log("LOGIN = "+response);
 						try {
 							var rez = JSON.parse(response);
 						} catch (e) {
@@ -1630,10 +1632,11 @@ function organics_registration_validate(form) {
 					jQuery('.popup_login_link').trigger('click');
 					}, 3000);
 			} else {
+				console.log(rez.error);
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ORGANICS_GLOBALS['strings']['registration_failed'] + ' ' + rez.error);
 				form.find('#btnSubmitRegister').val('INGRESAR');
 				form.find('#btnSubmitRegister').attr('disabled', false);
-				form.find('#btnSubmitRegister').style('background-color', "green");
+				//form.find('#btnSubmitRegister').style('background-color', "green");
 				//form.find('#btnSubmitRegister').style.backgroundColor = "green";
 			}
 			result_box.fadeIn().delay(3000).fadeOut();

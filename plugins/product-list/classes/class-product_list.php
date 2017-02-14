@@ -185,6 +185,7 @@ class Product_List_Settings {
 
 	public function send_mail_reminders() {
 		$listas = $this->get_all_lists();
+		error_log('ENVIANDO RECORDATORIOS DE EMAIL');
 		if (count($listas[0]) > 0) {
 			foreach ( $listas as $list )
 			{
@@ -195,6 +196,7 @@ class Product_List_Settings {
 				$dif = $this->calcular_cant_dias_entre_fechas($ultimo_recordatorio, $ahora);
 
 				if($dif >= $list->recurrencia) {
+					error_log('ENVIANDO RECORDATORIOS LISTA: '.$list->id);
 					$this->send_mail($list->id, $list->user_id);
 				}
 			}
@@ -204,8 +206,7 @@ class Product_List_Settings {
 	public function send_mail($idlista, $idusuario) {
 		global $wpdb;
 		$ud = get_userdata( $idusuario );
-		echo 'Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email.'<br />';
-
+		error_log('Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email);
 		$subject = 'Pixan - Recordatorio de tu lista';
 		$headers = array('Content-Type: text/html; charset=UTF-8');
 		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
@@ -483,7 +484,7 @@ class Product_List_Settings {
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
 	public function show_list_detail_to_email( $list_id ) {
 		global $current_user;
-      	get_currentuserinfo();
+      	wp_get_current_user();
 		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 		$msj = '';
@@ -509,7 +510,9 @@ class Product_List_Settings {
 
 				foreach ( $detalle as $det )
 				{
+					$_product = $_pf->get_product($det->product_id);
 					$stock = $_product->get_stock_quantity();
+					$stock_msj = '';
 					if(isset($stock) && $stock == 0) {
 						$stock_msj = '<strong style="color: red;"><small>Agotado: No podra agregarse al carrito.<small></strong>';
 					}
@@ -518,7 +521,8 @@ class Product_List_Settings {
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
 						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().' <br>'.$stock_msj.'</td>';
-						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						//$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$_product->get_price().'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$tipo_unidad.'</td>';
 					$msj .= '</tr>';
@@ -713,6 +717,8 @@ class Product_List_Settings {
 		echo '<a href="'.SITEURL.'cart" class="[ float-right ] button alt">Ver Carrito</a>';
 		//header("Location: ".SITEURL."cart");
 	}
+
+
 
 }// Product_List_Settings
 

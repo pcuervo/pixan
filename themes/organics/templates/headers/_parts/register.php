@@ -1,8 +1,18 @@
+<?php $pagename = get_query_var('pagename'); 
+	if($pagename != 'my-account') {
+?>
+<style type="text/css">
+	.disabled {
+		color: inherit;
+	    cursor: not-allowed;
+	    opacity: .5;
+	}
+</style>
 <div id="popup_registration" class="popup_wrap popup_registration bg_tint_light">
 	<a href="#" class="popup_close"></a>
 	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header.png" class="[ margin-bottom ]" alt="logo pixan para header">
 	<div class="form_wrap">
-		<form name="registration_form" method="post" class="popup_form registration_form">
+		<form name="registration_form" method="post" class="register registration_form">
 			<input type="hidden" name="redirect_to" value="<?php echo esc_attr(home_url()); ?>"/>
 			<div class="form_left">
 				<div class="popup_form_field login_field iconed_field icon-user">
@@ -30,12 +40,13 @@
 			</div>
 			<div class="" style="text-align: center; width: 100%;">
 				<input type="checkbox" value="agree" id="registration_agree" name="registration_agree">
-				<label for="registration_agree"><?php esc_html_e('Estoy de acuerdo con los', 'organics'); ?> <a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a></label> 
+				<label for="registration_agree"><?php esc_html_e('Estoy de acuerdo con los', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a></label> 
 			</div>
 			<div class="popup_form_field submit_field">
-				<input id="btnSubmitRegister" type="submit" class="submit_button" value="<?php esc_attr_e('Ingresar', 'organics'); ?>">
+				<input id="btnSubmitRegister" type="submit" class="submit_button disabled" disabled="disabled" value="<?php esc_attr_e('Ingresar', 'organics'); ?>">
 			</div>
 		</form>
 		<div class="result message_block"></div>
 	</div>	<!-- /.registration_wrap -->
 </div>		<!-- /.user-popUp -->
+<?php } ?>

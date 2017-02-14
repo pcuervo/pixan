@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $saved_methods = wc_get_customer_saved_methods_list( get_current_user_id() );
 $has_methods   = (bool) $saved_methods;
 $types         = wc_get_account_payment_methods_types();
-
+var_dump($saved_methods);
 do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 
 <?php if ( $has_methods ) : ?>
@@ -42,7 +42,7 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 			<?php foreach ( $methods as $method ) : ?>
 				<tr class="payment-method<?php echo ! empty( $method['is_default'] ) ? ' default-payment-method' : '' ?>">
 					<?php foreach ( wc_get_account_payment_methods_columns() as $column_id => $column_name ) : ?>
-						<td class="woocommerce-PaymentMethod woocommerce-PaymentMethod--<?php echo esc_attr( $column_id ); ?> payment-method-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
+						<td class="woocommerce-PaymentMethod woocommerce-PaymentMethod--<?php echo esc_attr( $column_id ); ?> payment-method-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">AQUI
 							<?php
 							if ( has_action( 'woocommerce_account_payment_methods_column_' . $column_id ) ) {
 								do_action( 'woocommerce_account_payment_methods_column_' . $column_id, $method );
