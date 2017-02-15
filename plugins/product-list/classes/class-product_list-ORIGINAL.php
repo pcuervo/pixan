@@ -177,7 +177,7 @@ class Product_List_Settings {
 				echo '</select>';
 			}
 			else {
-				echo '<span style="color:pink;">Aun no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
+				echo '<span style="color:pink;">Aún no tienes ninguna lista, pero no te preocupes crearemos una por ti cuando hagas click en <strong>Continuar</strong>.</span>';
 				echo '<input type="hidden" id="add_product_list" name="add_product_list" value="0" />';
 			}
 		echo '</div></div>';
@@ -185,6 +185,7 @@ class Product_List_Settings {
 
 	public function send_mail_reminders() {
 		$listas = $this->get_all_lists();
+		error_log('ENVIANDO RECORDATORIOS DE EMAIL');
 		if (count($listas[0]) > 0) {
 			foreach ( $listas as $list )
 			{
@@ -195,6 +196,7 @@ class Product_List_Settings {
 				$dif = $this->calcular_cant_dias_entre_fechas($ultimo_recordatorio, $ahora);
 
 				if($dif >= $list->recurrencia) {
+					error_log('ENVIANDO RECORDATORIOS LISTA: '.$list->id);
 					$this->send_mail($list->id, $list->user_id);
 				}
 			}
@@ -204,8 +206,7 @@ class Product_List_Settings {
 	public function send_mail($idlista, $idusuario) {
 		global $wpdb;
 		$ud = get_userdata( $idusuario );
-		echo 'Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email.'<br />';
-
+		error_log('Enviando Mail a '.$ud->first_name.' '.$ud->last_name.' -> '.$ud->user_email);
 		$subject = 'Pixan - Recordatorio de tu lista';
 		$headers = array('Content-Type: text/html; charset=UTF-8');
 		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
@@ -232,7 +233,7 @@ class Product_List_Settings {
 		global $wpdb;
 
 		$detalle = $this->get_list_detail($idlista);
-		
+
 		if (count($detalle[0]) > 0) {
 			foreach ( $detalle as $det )
 			{
@@ -245,7 +246,7 @@ class Product_List_Settings {
 				);
 			}
 		}
-		
+
 		$this->show_list_detail($idlista);
 	}
 
@@ -317,16 +318,16 @@ class Product_List_Settings {
 	}
 
 	function show_user_lists() {
-		
+
 		if( isset($_GET['lista_nombre']) && isset($_GET['recurrencia']) ) {
 			$nombrenueva = $this->add_list( $_GET['lista_nombre'], $_GET['recurrencia'] );
 			$this->print_user_list($nombrenueva);
-			
+
 		}
 		else if( isset($_GET['eliminar']) ) {
 			$this->delete_list( $_GET['eliminar']);
 			$this->print_user_list('');
-			
+
 		}
 		else if( isset($_GET['eliminar_detalle']) ) {
 			$this->delete_list_detail( $_GET['eliminar_detalle'], $_GET['list_id']);
@@ -348,13 +349,13 @@ class Product_List_Settings {
 		//END TESTING CRON DELETE THIS ELSE IF SENTENCE
 		else {
 			$this->print_user_list('');
-			
+
 		}
 
 	}
 
 	public function print_user_list($cod) {
-		
+
 		if ($cod != '' && !is_numeric($cod)) {
 			echo '<div class="woocommerce-Message woocommerce-Message--info woocommerce-error" >';
 			echo 'Ya tienes una lista con el nombre <strong>'.$cod.'</strong> ingresa un nombre distinto.';
@@ -448,11 +449,16 @@ class Product_List_Settings {
 
 					$prod_ids .= $det->product_id.',';
 					$cant_ids .= $det->cantidad.',';
+					$stock_msj = '';
+					$stock = $_product->get_stock_quantity();
+					if(isset($stock) && $stock == 0) {
+						$stock_msj = '<strong style="color: red;"><small>Agotado: No podra agregarse al carrito.<small></strong>';
+					}
 
 					echo '<tr class="productOnList" data-p_id="'.$det->product_id.'">';
 						echo '<td><a href='.SITEURL.'my-account/product-list/?eliminar_detalle='.$det->product_id.'&list_id='.$det->product_list_id.' class="remove" title="Eliminar de mi Lista" >X</a></td>';
 						echo '<td>'.$_product->get_image().'</td>';
-						echo '<td>'.$_product->get_title().'</td>';
+						echo '<td>'.$_product->get_title().' <br>'.$stock_msj.'</td>';
 						echo '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
 						echo '<td><input size="1" style="text-align: center;" id="cant_'.$det->product_id.'" name="cant_'.$det->product_id.'" value="'.$det->cantidad.'" /></td>';
 					echo '</tr>';
@@ -466,19 +472,19 @@ class Product_List_Settings {
 
 			echo '</tbody>';
 		echo '</table>';
-		
+
 		echo '<input type="hidden" id="actualizar" name="actualizar" value="'.$list_id.'" />';
 		echo '<button style="float:right;" type="submit" class="button view">Actualizar Cantidades</button>';
 		//echo '<a href="'.SITEURL.'my-account/product-list/?actualizar='.$list_id.'&prods='.$prod_ids.'&cants='.$cant_ids.'" class="[ float-right ] button alt">Actualizar Cantidades</a>';
 		echo '</form>';
 		echo '<a  href="'.SITEURL.'my-account/product-list/?loadCart='.$list_id.'" class="[ float-right ] button alt">Agregar los articulos de esta lista a mi carrito</a>';
-		
+
 	}
 
 	//FORMAT DETAIL LIST TO EMAIL HTML TEMPLATE
 	public function show_list_detail_to_email( $list_id ) {
 		global $current_user;
-      	get_currentuserinfo();
+      	wp_get_current_user();
 		$_pf = new WC_Product_Factory();
 		$detalle = $this->get_list_detail($list_id);
 		$msj = '';
@@ -504,12 +510,19 @@ class Product_List_Settings {
 
 				foreach ( $detalle as $det )
 				{
+					$_product = $_pf->get_product($det->product_id);
+					$stock = $_product->get_stock_quantity();
+					$stock_msj = '';
+					if(isset($stock) && $stock == 0) {
+						$stock_msj = '<strong style="color: red;"><small>Agotado: No podra agregarse al carrito.<small></strong>';
+					}
 					$tipo_unidad = get_post_meta($det->product_id, 'unidadmedida', true);
 					$_product = $_pf->get_product($det->product_id);
 					$msj .= '<tr style="padding-right: 15px; class="productOnList" data-p_id="'.$det->product_id.'">';
 						$msj .= '<td style="padding-right: 15px; padding-bottom: 15px; padding-top: 15px;">'.$_product->get_image().'</td>';
-						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().'</td>';
-						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td style="font-size:16px; color: #1E4B24; padding-right: 15px;text-align:center;">'.$_product->get_title().' <br>'.$stock_msj.'</td>';
+						//$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.WC()->cart->get_product_price( $_product ).'</td>';
+						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$_product->get_price().'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$det->cantidad.'</td>';
 						$msj .= '<td style="font-size: 16px; padding-right: 15px; color: #222222;text-align:center;">'.$tipo_unidad.'</td>';
 					$msj .= '</tr>';
@@ -550,20 +563,15 @@ class Product_List_Settings {
 	* @param int $user_id, $nombre, $recurrencia
 	* @return Integer
 	*/
-	public function add_list( $nombre, $recurrencia, $user_id = null ) {
+	public function add_list( $nombre, $recurrencia ) {
 		global $wpdb;
-		
-		if( $user_id === null ){
-			$user_id = get_current_user_id();
-		}
-		
 		$existe_nombre = $wpdb->get_results(
-			"SELECT nombre FROM " . $wpdb->prefix . "product_list WHERE nombre = '" . $nombre."' AND user_id = ".$user_id
+			"SELECT nombre FROM " . $wpdb->prefix . "product_list WHERE nombre = '" . $nombre."' AND user_id = ".get_current_user_id()
 			);
 		if( empty( $existe_nombre ) ) {
 			if(isset($nombre) && isset($recurrencia) ) {
 				$list_data = array(
-					'user_id'		=> $user_id,
+					'user_id'		=> get_current_user_id(),
 					'nombre'		=> $nombre,
 					'recurrencia' 	=> $recurrencia,
 					'fecha'			=> current_time( 'mysql' ),
@@ -667,68 +675,6 @@ class Product_List_Settings {
 			array( '%d' )
 		);
 	}
-	
-	
-	public function add_product_to_a_list( $list_id, $product_id, $cant ) {
-		global $wpdb;
-		if ( $list_id == 0 ) {
-			$list_id = $this->add_list( "Mi Lista", 15 );
-		}
-		
-		
-		$existe_producto = $wpdb->get_var( "SELECT count(*) FROM " . $wpdb->prefix . "product_list_detail WHERE product_list_id = '" . $list_id."' AND product_id = ".$product_id);
-		
-		if( $existe_producto > 0 ){
-			
-			$cantidad = $wpdb->get_var( "SELECT cantidad FROM " . $wpdb->prefix . "product_list_detail WHERE product_list_id = '" . $list_id."' AND product_id = ".$product_id);	
-			
-			return $this->update_product_from_a_list( $list_id, $product_id, $cant + $cantidad );
-		}
-		
-		
-		$list_data = array(
-			'product_list_id'	=> $list_id,
-			'product_id'		=> $product_id,
-			'cantidad' 			=> $cant
-		);
-		$wpdb->insert(
-			$wpdb->prefix . 'product_list_detail',
-			$list_data,
-			array( '%d', '%d', '%d' )
-		);
-		//wp_redirect( 'my-account' );
-		return $wpdb->insert_id;
-	}
-	public function update_product_from_a_list($list_id, $product_id, $cant) {
-		global $wpdb;
-
-
-		
-		if( $cant == 0 ){
-			
-			$where = array(
-				'product_list_id'	=> $list_id,
-				'product_id'		=> $product_id
-			);
-			return $wpdb->delete(
-				$wpdb->prefix . 'product_list_detail',
-				$where,
-				array( '%d' )
-			);
-			
-			
-		}else{
-			$return = $wpdb->update(
-				$wpdb->prefix . 'product_list_detail',
-				array( 'cantidad' => $cant ),
-				array( 'product_list_id' => $list_id, 'product_id' => $product_id ),
-				array( '%d' ),
-				array( '%d', '%d' )
-			);	
-		}
-		
-		
-	}
 
 	public function add_products_to_a_list() {
 		global $wpdb;
@@ -771,6 +717,8 @@ class Product_List_Settings {
 		echo '<a href="'.SITEURL.'cart" class="[ float-right ] button alt">Ver Carrito</a>';
 		//header("Location: ".SITEURL."cart");
 	}
+
+
 
 }// Product_List_Settings
 

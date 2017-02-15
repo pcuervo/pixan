@@ -1,38 +1,170 @@
-[03-Feb-2017 00:01:29 UTC] Info: Begin processing payment for order 1404 for the amount of 22
-[03-Feb-2017 00:01:29 UTC] charges request: Array
+[13-Feb-2017 17:01:13 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
+[13-Feb-2017 17:03:54 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
+[13-Feb-2017 17:05:58 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
+[13-Feb-2017 17:06:51 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
+[13-Feb-2017 17:06:59 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
+[13-Feb-2017 17:18:07 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 18:11:40 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
+[13-Feb-2017 18:24:37 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:57 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[13-Feb-2017 20:22:30 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 21:21:02 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 22:20:25 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[13-Feb-2017 23:50:37 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 00:17:04 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 01:18:25 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 02:15:34 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 03:15:27 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 05:30:13 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 14:39:42 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
+[14-Feb-2017 14:39:45 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 15:16:18 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:02 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[14-Feb-2017 17:48:50 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 18:32:07 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
+[14-Feb-2017 18:32:10 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 19:45:31 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 22:13:53 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 22:20:26 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[14-Feb-2017 23:16:05 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[15-Feb-2017 00:20:48 UTC] Info: Begin processing subscription payment for order 1433 for the amount of 300
+[15-Feb-2017 00:20:48 UTC] charges request: Array
 (
     [currency] => mxn
-    [amount] => 2200
-    [description] => Pixan Sustentable - Pedido 1404
+    [amount] => 30000
+    [description] => Pixan Sustentable - Pedido 1433
     [capture] => true
     [expand[]] => balance_transaction
-    [customer] => cus_A1sDHeB3ZWQP9N
-    [source] => card_19hoSmHtulYPV1nKIkZz2UvV
+    [customer] => cus_9CAA1DbCgndPHl
+    [source] => card_18tlqSHtulYPV1nKp74yA6N7
+    [metadata] => Array
+        (
+            [payment_type] => recurring
+        )
+
 )
 
-[03-Feb-2017 00:01:32 UTC] Processing response: stdClass Object
+[15-Feb-2017 00:20:49 UTC] Processing response: stdClass Object
 (
-    [id] => ch_19iuW5HtulYPV1nKI2EgQQwz
+    [id] => ch_19nGXNHtulYPV1nKvzZ1acw1
     [object] => charge
-    [amount] => 2200
+    [amount] => 30000
     [amount_refunded] => 0
     [application] => 
     [application_fee] => 
     [balance_transaction] => stdClass Object
         (
-            [id] => txn_19iuW8HtulYPV1nKjXW1qF01
+            [id] => txn_19nGXNHtulYPV1nKbztxDXw6
             [object] => balance_transaction
-            [amount] => 2200
-            [available_on] => 1486684800
-            [created] => 1486080089
+            [amount] => 30000
+            [available_on] => 1487721600
+            [created] => 1487118049
             [currency] => mxn
-            [description] => Pixan Sustentable - Pedido 1404
-            [fee] => 440
+            [description] => Pixan Sustentable - Pedido 1433
+            [fee] => 1601
             [fee_details] => Array
                 (
                     [0] => stdClass Object
                         (
-                            [amount] => 379
+                            [amount] => 1380
                             [application] => 
                             [currency] => mxn
                             [description] => Stripe processing fees
@@ -41,7 +173,7 @@
 
                     [1] => stdClass Object
                         (
-                            [amount] => 61
+                            [amount] => 221
                             [application] => 
                             [currency] => mxn
                             [description] => 
@@ -50,8 +182,8 @@
 
                 )
 
-            [net] => 1760
-            [source] => ch_19iuW5HtulYPV1nKI2EgQQwz
+            [net] => 28399
+            [source] => ch_19nGXNHtulYPV1nKvzZ1acw1
             [sourced_transfers] => stdClass Object
                 (
                     [object] => list
@@ -61,7 +193,7 @@
 
                     [has_more] => 
                     [total_count] => 0
-                    [url] => /v1/transfers?source_transaction=ch_19iuW5HtulYPV1nKI2EgQQwz
+                    [url] => /v1/transfers?source_transaction=ch_19nGXNHtulYPV1nKvzZ1acw1
                 )
 
             [status] => pending
@@ -69,10 +201,10 @@
         )
 
     [captured] => 1
-    [created] => 1486080089
+    [created] => 1487118049
     [currency] => mxn
-    [customer] => cus_A1sDHeB3ZWQP9N
-    [description] => Pixan Sustentable - Pedido 1404
+    [customer] => cus_9CAA1DbCgndPHl
+    [description] => Pixan Sustentable - Pedido 1433
     [destination] => 
     [dispute] => 
     [failure_code] => 
@@ -85,8 +217,10 @@
     [livemode] => 
     [metadata] => stdClass Object
         (
+            [payment_type] => recurring
         )
 
+    [on_behalf_of] => 
     [order] => 
     [outcome] => stdClass Object
         (
@@ -110,14 +244,14 @@
 
             [has_more] => 
             [total_count] => 0
-            [url] => /v1/charges/ch_19iuW5HtulYPV1nKI2EgQQwz/refunds
+            [url] => /v1/charges/ch_19nGXNHtulYPV1nKvzZ1acw1/refunds
         )
 
     [review] => 
     [shipping] => 
     [source] => stdClass Object
         (
-            [id] => card_19hoSmHtulYPV1nKIkZz2UvV
+            [id] => card_18tlqSHtulYPV1nKp74yA6N7
             [object] => card
             [address_city] => 
             [address_country] => 
@@ -129,11 +263,11 @@
             [address_zip_check] => 
             [brand] => Visa
             [country] => US
-            [customer] => cus_A1sDHeB3ZWQP9N
+            [customer] => cus_9CAA1DbCgndPHl
             [cvc_check] => 
             [dynamic_last4] => 
-            [exp_month] => 12
-            [exp_year] => 2020
+            [exp_month] => 9
+            [exp_year] => 2017
             [fingerprint] => pTqwi3PY8DNAtS2u
             [funding] => credit
             [last4] => 4242
@@ -141,7 +275,7 @@
                 (
                 )
 
-            [name] => jonas@pcuervo.com
+            [name] => nayeli@pcuervo.com
             [tokenization_method] => 
         )
 
@@ -151,251 +285,18 @@
     [transfer_group] => 
 )
 
-[03-Feb-2017 00:01:32 UTC] Success: Cargo completo en Stripe (ID del cargo: ch_19iuW5HtulYPV1nKI2EgQQwz)
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:04:44 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:04 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[03-Feb-2017 00:05:37 UTC] Info: Begin processing payment for order 1405 for the amount of 22
-[03-Feb-2017 00:05:37 UTC] charges request: Array
-(
-    [currency] => mxn
-    [amount] => 2200
-    [description] => Pixan Sustentable - Pedido 1405
-    [capture] => true
-    [expand[]] => balance_transaction
-    [customer] => cus_A1sDHeB3ZWQP9N
-    [source] => card_19hoSmHtulYPV1nKIkZz2UvV
-)
-
-[03-Feb-2017 00:05:38 UTC] Processing response: stdClass Object
-(
-    [id] => ch_19iua5HtulYPV1nKmXzdFFlS
-    [object] => charge
-    [amount] => 2200
-    [amount_refunded] => 0
-    [application] => 
-    [application_fee] => 
-    [balance_transaction] => stdClass Object
-        (
-            [id] => txn_19iua6HtulYPV1nKD364hmxH
-            [object] => balance_transaction
-            [amount] => 2200
-            [available_on] => 1486684800
-            [created] => 1486080337
-            [currency] => mxn
-            [description] => Pixan Sustentable - Pedido 1405
-            [fee] => 440
-            [fee_details] => Array
-                (
-                    [0] => stdClass Object
-                        (
-                            [amount] => 379
-                            [application] => 
-                            [currency] => mxn
-                            [description] => Stripe processing fees
-                            [type] => stripe_fee
-                        )
-
-                    [1] => stdClass Object
-                        (
-                            [amount] => 61
-                            [application] => 
-                            [currency] => mxn
-                            [description] => 
-                            [type] => tax
-                        )
-
-                )
-
-            [net] => 1760
-            [source] => ch_19iua5HtulYPV1nKmXzdFFlS
-            [sourced_transfers] => stdClass Object
-                (
-                    [object] => list
-                    [data] => Array
-                        (
-                        )
-
-                    [has_more] => 
-                    [total_count] => 0
-                    [url] => /v1/transfers?source_transaction=ch_19iua5HtulYPV1nKmXzdFFlS
-                )
-
-            [status] => pending
-            [type] => charge
-        )
-
-    [captured] => 1
-    [created] => 1486080337
-    [currency] => mxn
-    [customer] => cus_A1sDHeB3ZWQP9N
-    [description] => Pixan Sustentable - Pedido 1405
-    [destination] => 
-    [dispute] => 
-    [failure_code] => 
-    [failure_message] => 
-    [fraud_details] => stdClass Object
-        (
-        )
-
-    [invoice] => 
-    [livemode] => 
-    [metadata] => stdClass Object
-        (
-        )
-
-    [order] => 
-    [outcome] => stdClass Object
-        (
-            [network_status] => approved_by_network
-            [reason] => 
-            [risk_level] => normal
-            [seller_message] => Payment complete.
-            [type] => authorized
-        )
-
-    [paid] => 1
-    [receipt_email] => 
-    [receipt_number] => 
-    [refunded] => 
-    [refunds] => stdClass Object
-        (
-            [object] => list
-            [data] => Array
-                (
-                )
-
-            [has_more] => 
-            [total_count] => 0
-            [url] => /v1/charges/ch_19iua5HtulYPV1nKmXzdFFlS/refunds
-        )
-
-    [review] => 
-    [shipping] => 
-    [source] => stdClass Object
-        (
-            [id] => card_19hoSmHtulYPV1nKIkZz2UvV
-            [object] => card
-            [address_city] => 
-            [address_country] => 
-            [address_line1] => 
-            [address_line1_check] => 
-            [address_line2] => 
-            [address_state] => 
-            [address_zip] => 
-            [address_zip_check] => 
-            [brand] => Visa
-            [country] => US
-            [customer] => cus_A1sDHeB3ZWQP9N
-            [cvc_check] => 
-            [dynamic_last4] => 
-            [exp_month] => 12
-            [exp_year] => 2020
-            [fingerprint] => pTqwi3PY8DNAtS2u
-            [funding] => credit
-            [last4] => 4242
-            [metadata] => stdClass Object
-                (
-                )
-
-            [name] => jonas@pcuervo.com
-            [tokenization_method] => 
-        )
-
-    [source_transfer] => 
-    [statement_descriptor] => 
-    [status] => succeeded
-    [transfer_group] => 
-)
-
-[03-Feb-2017 00:05:38 UTC] PHP Fatal error:  Call to undefined function WC_Stripe() in /nas/content/live/pixan/wp-content/themes/organics-child/woocommerce/emails/customer-processing-order.php on line 61
-[03-Feb-2017 00:46:08 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[03-Feb-2017 00:50:23 UTC] PHP Notice:  map_meta_cap se llamó <strong>incorrectamente</strong>. El tipo de publicación scheduled-action no está registrado así que puede que no sea fiable para comprobar la capacidad de "read_post" para una publicación de ese tipo. Por favor, visita <a href="https://codex.wordpress.org/es:Depurar_en_WordPress">Depuración en WordPress</a> para más información. (Este mensaje se añadió en la versión 4.4.0.) in C:\wamp\www\pixan\wp-includes\functions.php on line 3942
-[03-Feb-2017 00:50:23 UTC] PHP Stack trace:
-[03-Feb-2017 00:50:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
-[03-Feb-2017 00:50:23 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
-[03-Feb-2017 00:50:23 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:210
-[03-Feb-2017 00:50:23 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
-[03-Feb-2017 00:50:23 UTC] PHP   5. wp_dashboard_site_activity() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
-[03-Feb-2017 00:50:23 UTC] PHP   6. wp_dashboard_recent_comments() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:766
-[03-Feb-2017 00:50:23 UTC] PHP   7. current_user_can() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:894
-[03-Feb-2017 00:50:23 UTC] PHP   8. call_user_func_array() C:\wamp\www\pixan\wp-includes\capabilities.php:436
-[03-Feb-2017 00:50:23 UTC] PHP   9. WP_User->has_cap() C:\wamp\www\pixan\wp-includes\capabilities.php:436
-[03-Feb-2017 00:50:23 UTC] PHP  10. call_user_func_array() C:\wamp\www\pixan\wp-includes\class-wp-user.php:721
-[03-Feb-2017 00:50:23 UTC] PHP  11. map_meta_cap() C:\wamp\www\pixan\wp-includes\class-wp-user.php:721
-[03-Feb-2017 00:50:23 UTC] PHP  12. _doing_it_wrong() C:\wamp\www\pixan\wp-includes\capabilities.php:193
-[03-Feb-2017 00:50:23 UTC] PHP  13. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3942
-[03-Feb-2017 00:50:23 UTC] PHP Notice:  map_meta_cap se llamó <strong>incorrectamente</strong>. El tipo de publicación scheduled-action no está registrado así que puede que no sea fiable para comprobar la capacidad de "edit_post" para una publicación de ese tipo. Por favor, visita <a href="https://codex.wordpress.org/es:Depurar_en_WordPress">Depuración en WordPress</a> para más información. (Este mensaje se añadió en la versión 4.4.0.) in C:\wamp\www\pixan\wp-includes\functions.php on line 3942
-[03-Feb-2017 00:50:23 UTC] PHP Stack trace:
-[03-Feb-2017 00:50:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
-[03-Feb-2017 00:50:23 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
-[03-Feb-2017 00:50:23 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:210
-[03-Feb-2017 00:50:23 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
-[03-Feb-2017 00:50:23 UTC] PHP   5. wp_dashboard_site_activity() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
-[03-Feb-2017 00:50:23 UTC] PHP   6. wp_dashboard_recent_comments() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:766
-[03-Feb-2017 00:50:23 UTC] PHP   7. _wp_dashboard_recent_comments_row() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:910
-[03-Feb-2017 00:50:23 UTC] PHP   8. current_user_can() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:601
-[03-Feb-2017 00:50:23 UTC] PHP   9. call_user_func_array() C:\wamp\www\pixan\wp-includes\capabilities.php:436
-[03-Feb-2017 00:50:23 UTC] PHP  10. WP_User->has_cap() C:\wamp\www\pixan\wp-includes\capabilities.php:436
-[03-Feb-2017 00:50:23 UTC] PHP  11. call_user_func_array() C:\wamp\www\pixan\wp-includes\class-wp-user.php:721
-[03-Feb-2017 00:50:23 UTC] PHP  12. map_meta_cap() C:\wamp\www\pixan\wp-includes\class-wp-user.php:721
-[03-Feb-2017 00:50:23 UTC] PHP  13. map_meta_cap() C:\wamp\www\pixan\wp-includes\capabilities.php:287
-[03-Feb-2017 00:50:23 UTC] PHP  14. _doing_it_wrong() C:\wamp\www\pixan\wp-includes\capabilities.php:134
-[03-Feb-2017 00:50:23 UTC] PHP  15. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3942
-[03-Feb-2017 00:53:07 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\themes\organics\fw\core\type.taxonomy.php on line 105
-[03-Feb-2017 00:53:07 UTC] PHP Stack trace:
-[03-Feb-2017 00:53:07 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
-[03-Feb-2017 00:53:07 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
-[03-Feb-2017 00:53:07 UTC] PHP   3. wp() C:\wamp\www\pixan\wp-blog-header.php:16
-[03-Feb-2017 00:53:07 UTC] PHP   4. WP->main() C:\wamp\www\pixan\wp-includes\functions.php:952
-[03-Feb-2017 00:53:07 UTC] PHP   5. WP->query_posts() C:\wamp\www\pixan\wp-includes\class-wp.php:726
-[03-Feb-2017 00:53:07 UTC] PHP   6. WP_Query->query() C:\wamp\www\pixan\wp-includes\class-wp.php:608
-[03-Feb-2017 00:53:07 UTC] PHP   7. WP_Query->get_posts() C:\wamp\www\pixan\wp-includes\query.php:4007
-[03-Feb-2017 00:53:07 UTC] PHP   8. do_action_ref_array() C:\wamp\www\pixan\wp-includes\query.php:2493
-[03-Feb-2017 00:53:07 UTC] PHP   9. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[03-Feb-2017 00:53:07 UTC] PHP  10. organics_query_add_posts_per_page() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[03-Feb-2017 00:53:07 UTC] PHP  11. organics_taxonomy_get_inherited_properties() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1803
-[03-Feb-2017 00:53:07 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\themes\organics\fw\core\type.taxonomy.php on line 121
-[03-Feb-2017 00:53:07 UTC] PHP Stack trace:
-[03-Feb-2017 00:53:07 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
-[03-Feb-2017 00:53:07 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
-[03-Feb-2017 00:53:07 UTC] PHP   3. wp() C:\wamp\www\pixan\wp-blog-header.php:16
-[03-Feb-2017 00:53:07 UTC] PHP   4. WP->main() C:\wamp\www\pixan\wp-includes\functions.php:952
-[03-Feb-2017 00:53:07 UTC] PHP   5. WP->query_posts() C:\wamp\www\pixan\wp-includes\class-wp.php:726
-[03-Feb-2017 00:53:07 UTC] PHP   6. WP_Query->query() C:\wamp\www\pixan\wp-includes\class-wp.php:608
-[03-Feb-2017 00:53:07 UTC] PHP   7. WP_Query->get_posts() C:\wamp\www\pixan\wp-includes\query.php:4007
-[03-Feb-2017 00:53:07 UTC] PHP   8. do_action_ref_array() C:\wamp\www\pixan\wp-includes\query.php:2493
-[03-Feb-2017 00:53:07 UTC] PHP   9. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[03-Feb-2017 00:53:07 UTC] PHP  10. organics_query_add_posts_per_page() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[03-Feb-2017 00:53:07 UTC] PHP  11. organics_taxonomy_get_inherited_properties() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.wp.php:1803
-[03-Feb-2017 02:01:04 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[08-Feb-2017 22:23:40 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[08-Feb-2017 22:32:23 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[08-Feb-2017 23:29:31 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[09-Feb-2017 01:31:59 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[09-Feb-2017 01:31:59 UTC] ENVIANDO RECORDATORIOS LISTA: 1
-[09-Feb-2017 01:31:59 UTC] Enviando Mail a Nayeli Jordan -> jonas@pcuervo.com
-[09-Feb-2017 01:32:00 UTC] ENVIANDO RECORDATORIOS LISTA: 11
-[09-Feb-2017 01:32:00 UTC] Enviando Mail a Jonas Graterol -> jonasgraterol@hotmail.com
-[09-Feb-2017 14:01:45 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[09-Feb-2017 14:43:31 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[10-Feb-2017 17:03:16 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[10-Feb-2017 17:38:01 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[15-Feb-2017 00:20:50 UTC] Success: Cargo completo en Stripe (ID del cargo: ch_19nGXNHtulYPV1nKvzZ1acw1)
+[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS LISTA: 26
+[15-Feb-2017 00:20:50 UTC] Enviando Mail a Octavio Rojas Topete  -> tattvasounds@gmail.com
+[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS LISTA: 32
+[15-Feb-2017 00:20:50 UTC] Enviando Mail a Octavio Rojas Topete  -> tattvasounds@gmail.com
+[15-Feb-2017 01:31:28 UTC] ENVIANDO RECORDATORIOS DE EMAIL
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
+[15-Feb-2017 01:36:16 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275

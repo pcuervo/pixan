@@ -51,6 +51,123 @@ class PIXAN_API_Web_services {
 		add_action( 'pixan_api_webservice_lost_password', array( $this, 'lost_password' ) );
 		add_action( 'pixan_api_webservice_change_password', array( $this, 'change_password' ) );
 		
+		add_action( 'pixan_api_webservice_zonas_entrega', array( $this, 'zonas_entrega' ) );
+		
+		add_action( 'pixan_api_webservice_update_user_meta', array( $this, 'update_user_meta' ) );
+		
+		
+		
+		
+		add_filter(
+            'woocommerce_api_create_order',
+            array($this, 'create_order'),
+            10,
+            4
+        );
+
+	}
+	
+	
+	public function update_user_meta(){
+		
+		update_user_meta($_POST['user_id'], $_POST['user_meta'], $_POST['meta_value']);
+		PIXAN_API_Output::get()->output( true, 200 );
+	}
+	
+	
+	public function create_order($id, $data, $api){
+		
+		
+		if( isset( $data['area_entrega'] ) ){
+			update_post_meta( $id, 'billing_area_entrega', $data['area_entrega'] );
+		}
+		
+		if( isset( $data['regalo'] ) ){
+			update_post_meta( $id, 'billing_regalo', $data['regalo'] );
+		}
+		
+		return $data;
+	}
+	
+	
+	
+	
+	public function zonas_entrega(){
+		
+		
+		$query_args = array(
+			'post_type'      => 'area-entrega',
+			'orderby'        => 'date',
+			'no_found_rows'  => true,
+			'cache_results'  => false,
+		);
+
+	    $posts = new WP_Query( $query_args );
+	    
+	    $zonas = array();
+	    
+	    
+	    $semana = array(
+					'Lunes' 	=> 'monday', 
+					'Martes' 	=> 'tuesday',
+					'Miercoles' => 'wednesday',
+					'Jueves' 	=> 'thursday',
+					'Viernes' 	=> 'friday',
+					'Sabado' 	=> 'saturday',
+					'Domingo' 	=> 'sunday',
+					);
+		$meses = array(
+					'January' => 'Enero',
+				    'February' => 'Febrero',
+				    'March' => 'Marzo',
+				    'April' => 'Abril',
+				    'May' => 'Mayo',
+				    'June' => 'Junio',
+				    'July ' => 'Julio',
+				    'August' => 'Agosto',
+				    'September' => 'Septiembre',
+				    'October' => 'Octubre',
+				    'November' => 'Noviembre',
+				    'December' => 'Diciembre'
+					);
+
+		if ( $posts->have_posts() ) {
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
+				$meta = get_post_meta($posts->post->ID);
+				$dias = '';
+				if(isset($meta['_dia1'])) { $dias .= $meta['_dia1'][0].', '; }
+				if(isset($meta['_dia2'])) { $dias .= $meta['_dia2'][0].', '; }
+				if(isset($meta['_dia3'])) { $dias .= $meta['_dia3'][0].', '; }
+				if(isset($meta['_dia4'])) { $dias .= $meta['_dia4'][0].', '; }
+				if(isset($meta['_dia5'])) { $dias .= $meta['_dia5'][0].', '; }
+				if(isset($meta['_dia6'])) { $dias .= $meta['_dia6'][0].', '; }
+				if(isset($meta['_dia7'])) { $dias .= $meta['_dia7'][0].', '; }
+
+
+				$dias = substr($dias, 0, -2);
+				$d = explode(',', $dias);
+				//OBTENER FECHA DE PROXIMA ENTREGA
+				$timestamp = strtotime('+1 day');
+				
+				$dia =  date('d', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$m =  date('F', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$a =  date('Y', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
+				$p = $d[0].' '.$dia.' de '.$meses[$m].', '.$a;
+				setlocale(LC_ALL,"es_ES");
+				
+				array_push($zonas, array(
+					'id_zona' 	=> $posts->post->ID,
+					'dias' 		=> $dias,
+					'proxdia'	=> $p,
+					'hora'		=> $meta['_hora'][0],
+					'coor'		=> $meta['_coordenadas'][0],
+					'zona'		=> get_the_title(),
+				));
+			}
+		}
+		
+		PIXAN_API_Output::get()->output( true, 200, '', $zonas	);
 
 	}
 	
@@ -122,8 +239,20 @@ class PIXAN_API_Web_services {
 				
 			for( $i = 0; $i < count( $result ); $i++ ){
 				
+				$post = get_post($result[$i]->product_id);
 				
-				$result[$i]->product = new WC_Product( $result[$i]->product_id );
+				$p = new WC_Product( $result[$i]->product_id );
+				
+				$result[$i]->product = array(
+					
+					'title' => $p->get_title( ),
+					'id' => $p->get_ID(),
+					'price' => $p->get_price( ),
+					'description' => $post->post_content,
+					'categories' => $this->get_taxonomy_terms($p),
+					'images' => $this->get_images( $p ),
+					'unidadmedida' => get_post_meta($p->id, 'unidadmedida',true)
+				);
 			}
 			
 		}
@@ -313,6 +442,8 @@ class PIXAN_API_Web_services {
 			"orders_count" =>  count( $customer_orders ) ,
 			"total_spent" => $total_spent,
 			
+			'user_metas' => get_user_meta( $user->ID ),
+			
 		);
 
 		if( $last_order !== null ){
@@ -334,10 +465,12 @@ class PIXAN_API_Web_services {
 		switch ($_POST['type']) {
 			case 'site':
 
-				PIXAN_API_Catch_Request::get()->check_params(array('user_email', 'type'));
+				PIXAN_API_Catch_Request::get()->check_params(array('user_email', 'type', 'first_name', 'username', '_fecha_nacimiento'));
 				PIXAN_API_Catch_Request::get()->check_params(array('user_password'));
 
-				$user_email = $_POST['user_email'];
+				$user_email 	= $_POST['user_email'];
+				$username 		= $_POST['username'];
+				$first_name		= $_POST['first_name'];
 
 				if ( username_exists( $user_email ) || email_exists($user_email) ) {
 					PIXAN_API_Output::get()->output( false, 409, "User already exists." );
@@ -347,23 +480,25 @@ class PIXAN_API_Web_services {
 
 
 				$userdata = array(
-				    'user_login'  =>  $user_email,
-				    'user_email'  =>  $user_email,
-				    'role' 	      =>  'customer',
-				    'user_pass'   =>  $user_password,
+				    'user_login'  => $username,
+				    'user_email'  => $user_email,
+				    'role' 	      => 'customer',
+				    'user_pass'   => $user_password,
+				    'first_name'  => $first_name,
+				    
 				);
 
 				$user_id = wp_insert_user( $userdata ) ;
 
-				if ( is_wp_error($user) ){
-					PIXAN_API_Output::get()->output( false, 401, $user->get_error_code() );
+				if ( is_wp_error($user_id) ){
+					PIXAN_API_Output::get()->output( false, 401, $user_id->get_error_code() );
 				}
 				
 				break;
 			
 			case 'facebook':
 
-				PIXAN_API_Catch_Request::get()->check_params(array('facebook_uid'));
+				PIXAN_API_Catch_Request::get()->check_params(array('facebook_uid', 'first_name', '_fecha_nacimiento'));
 
 				$facebook_uid = $_POST['facebook_uid'];
 
@@ -401,6 +536,7 @@ class PIXAN_API_Web_services {
 				    'user_email'  =>  $user_email,
 				    'role' 	      =>  'customer',
 				    'user_pass'   =>  $user_password,
+				    'first_name'  =>  $first_name,
 				);
 
 				$user_id = wp_insert_user( $userdata ) ;
@@ -424,6 +560,9 @@ class PIXAN_API_Web_services {
 
 
 		}
+		
+		
+		update_user_meta($user_id, '_fecha_nacimiento', $_POST['_fecha_nacimiento']);
 
 
 		$user = get_user_by( 'id', $user_id );
@@ -773,6 +912,67 @@ class PIXAN_API_Web_services {
 		}
 
 		PIXAN_API_Output::get()->output( $return_data );
+	}
+	
+	protected function get_taxonomy_terms( $product, $taxonomy = 'cat' ) {
+		$terms = array();
+
+		foreach ( wp_get_post_terms( $product->id, 'product_' . $taxonomy ) as $term ) {
+			$terms[] = array(
+				'id'   => $term->term_id,
+				'name' => $term->name,
+				'slug' => $term->slug,
+			);
+		}
+
+		return $terms;
+	}
+	
+	
+	
+	protected function get_images( $product ) {
+		$images = array();
+		$attachment_ids = array();
+
+		if ( $product->is_type( 'variation' ) ) {
+			if ( has_post_thumbnail( $product->get_variation_id() ) ) {
+				// Add variation image if set.
+				$attachment_ids[] = get_post_thumbnail_id( $product->get_variation_id() );
+			} elseif ( has_post_thumbnail( $product->id ) ) {
+				// Otherwise use the parent product featured image if set.
+				$attachment_ids[] = get_post_thumbnail_id( $product->id );
+			}
+		} else {
+			// Add featured image.
+			if ( has_post_thumbnail( $product->id ) ) {
+				$attachment_ids[] = get_post_thumbnail_id( $product->id );
+			}
+			// Add gallery images.
+			$attachment_ids = array_merge( $attachment_ids, $product->get_gallery_attachment_ids() );
+		}
+
+		// Build image data.
+		foreach ( $attachment_ids as $position => $attachment_id ) {
+			$attachment_post = get_post( $attachment_id );
+			if ( is_null( $attachment_post ) ) {
+				continue;
+			}
+
+			$attachment = wp_get_attachment_image_src( $attachment_id, 'full' );
+			if ( ! is_array( $attachment ) ) {
+				continue;
+			}
+
+			$images[] = array(
+				'id'            => (int) $attachment_id,
+				'src'           => current( $attachment ),
+				'name'          => get_the_title( $attachment_id ),
+				'alt'           => get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ),
+				'position'      => (int) $position,
+			);
+		}
+
+		return $images;
 	}
 
 }

@@ -112,6 +112,9 @@ Url: <code><?php bloginfo('url'); ?>/api/register</code><br/><br/>
 <label for="user_email">user_email [post]</label>
 <input type="text" name="user_email" id="user_email" value=""/><br/>
 
+<label for="username">username [post] opcional</label>
+<input type="text" name="username" id="username" value=""/><br/>
+
 
 
 <label for="user_password">user_password [post] - optional</label>
@@ -120,6 +123,12 @@ Url: <code><?php bloginfo('url'); ?>/api/register</code><br/><br/>
 
 <label for="facebook_uid">facebook_uid [post] - optional</label>
 <input type="text" name="facebook_uid" id="facebook_uid" value=""/><br/>
+
+<label for="first_name">first_name [post] </label>
+<input type="text" name="first_name" id="first_name" value=""/><br/>
+
+<label for="_fecha_nacimiento">_fecha_nacimiento [post] (dd/mm/aaaa) </label>
+<input type="text" name="_fecha_nacimiento" id="_fecha_nacimiento" value=""/><br/>
 
 <input type="submit" value="Enviar"/>
 
@@ -277,6 +286,41 @@ Url: <code><?php bloginfo('url'); ?>/api/lost_password</code><br/><br/>
 
 </form>
 
+
+<h2>zonas entrega</h2>
+Url: <code><?php bloginfo('url'); ?>/api/zonas_entrega</code><br/><br/>
+<form action="<?php bloginfo('url'); ?>/api/zonas_entrega" method="post" target="_blank">
+	
+<label for="auth_key">auth_key [post]</label>
+<input type="text" name="auth_key" id="auth_key" value="<?php echo PIXAN_API_AUTH_KEY; ?>"/><br/>	
+
+
+<input type="submit" value="Enviar"/>
+
+</form>
+
+
+
+<h2>update user meta</h2>
+Url: <code><?php bloginfo('url'); ?>/api/update_user_meta</code><br/><br/>
+<form action="<?php bloginfo('url'); ?>/api/update_user_meta" method="post" target="_blank">
+	
+<label for="auth_key">auth_key [post]</label>
+<input type="text" name="auth_key" id="auth_key" value="<?php echo PIXAN_API_AUTH_KEY; ?>"/><br/>	
+
+
+<label for="user_id">user_id [post]</label>
+<input type="text" name="user_id" id="user_id" value=""/><br/>
+
+<label for="user_meta">user_meta [post]</label>
+<input type="text" name="user_meta" id="user_meta" value=""/><br/>
+
+<label for="meta_value">meta_value [post]</label>
+<input type="text" name="meta_value" id="meta_value" value=""/><br/>
+
+<input type="submit" value="Enviar"/>
+
+</form>
 
 
 <script type="text/javascript">
