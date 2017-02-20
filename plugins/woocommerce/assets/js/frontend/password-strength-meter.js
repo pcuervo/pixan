@@ -13,6 +13,7 @@ jQuery( function( $ ) {
 			$( document.body )
 				.on( 'keyup change', 'form.register #reg_password, #registration_pwd, form.checkout #account_password, form.edit-account #password_1, form.lost_reset_password #password_1', this.strengthMeter );
 			$( 'form.checkout #createaccount' ).change();
+
 					
 		},
 
@@ -26,7 +27,15 @@ jQuery( function( $ ) {
 				strength = 10;
 				wc_password_strength_meter_params.min_password_strength = 0;
 			wc_password_strength_meter.includeMeter( wrapper, field );
-
+			//console.log('tamano->'+field.val().length);
+			if(field.val().length >= 6) {
+				$(".woocommerce-password-strength").hide();
+				setTimeout(function() { $(".woocommerce-password-hint").hide(); }, 500);
+			}
+			else {
+				$(".woocommerce-password-strength").show();
+				setTimeout(function() { $(".woocommerce-password-hint").show(); }, 500);
+			}
 			strength = wc_password_strength_meter.checkPasswordStrength( wrapper, field );
 			//console.log(strength+' < '+wc_password_strength_meter_params.min_password_strength);
 			if ( strength < wc_password_strength_meter_params.min_password_strength && ! wrapper.is( 'form.checkout' ) ) {
