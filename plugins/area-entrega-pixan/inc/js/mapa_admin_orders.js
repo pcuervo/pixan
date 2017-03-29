@@ -1,6 +1,13 @@
 $ = jQuery.noConflict();
 
 $(document).ready(function(){
+    map = new GMaps({
+        div: '#gmap_admin_orders',
+        lat: 19.4389263,
+        lng: -99.1278322,
+        zoom: 11
+    });
+    $('#gmap_admin_orders_instructions').hide();
     if ( $( "#fechaPedido" ).length ) {
         $( "#fechaPedido" ).datepicker();
     }
@@ -10,6 +17,18 @@ $(document).ready(function(){
 
     $(".orderMap").click(function() {
         mapAdminOrders();
+    });
+
+    $("#btnImprimir").click(function(e) {
+        e.preventDefault();
+        //calcularRuta(map,true);
+        printMaps();
+       
+    });
+
+    $('#gmap_admin_orders_start').click(function (e) {
+        e.preventDefault();
+        calcularRuta(map,false);
     });
     
 });
@@ -73,12 +92,14 @@ function printMaps() {
 }
 
 var calcularRuta = function(map,imprimir) {
+
     $('#gmap_admin_orders_instructions').html('');
     var origen = [19.4016653,-99.1743618];
     //var origen = [18.994597,-99.481275];
     var color = ["#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000", "#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000"];
     $(".orderMap:checked").each(function(index) {
         //$('#gmap_admin_orders_instructions').append('<h5>' +$(this).html()+'<br>'+$(this).data('dir')+ '</h5>');
+        //console.log('RUTA -> '+$(this).data('info'));
         var destino = [$(this).data('lat'),$(this).data('long')];
         map.travelRoute({
             origin: origen,
@@ -88,6 +109,7 @@ var calcularRuta = function(map,imprimir) {
                 $('#gmap_admin_orders_instructions').append('<li>' + e.instructions + '</li>');
                 $('#gmap_admin_orders_instructions li:eq(' + e.step_number + ')').delay(800 * e.step_number).fadeIn(500, function () {
                     map.setCenter(e.end_location.lat(), e.end_location.lng());
+                    //console.log(e.end_location.lat()+' '+e.end_location.lng());
                     map.drawPolyline({
                         path: e.path,
                         strokeColor: color[index],
@@ -99,6 +121,8 @@ var calcularRuta = function(map,imprimir) {
         });
         origen = destino;
     });
+    
+    $("#btnImprimir").removeAttr('disabled');
     if(imprimir) {
          //setTimeout('printMaps();', 4000);
     }
@@ -107,14 +131,11 @@ var calcularRuta = function(map,imprimir) {
 var mapAdminOrders = function () {
     $('#gmap_admin_orders_instructions').html('');
     var bounds = new google.maps.LatLngBounds();
-    var map = new GMaps({
-        div: '#gmap_admin_orders',
-        lat: 19.4389263,
-        lng: -99.1278322,
-        zoom: 11
-    });
+    
+    map.removeMarkers();
 
     $(".orderMap:checked").each(function() {
+        //console.log($(this).data('info'));
         var pedido = new google.maps.LatLng($(this).data('lat'), $(this).data('long'));
         map.addMarker({
             lat: $(this).data('lat'),
@@ -126,19 +147,6 @@ var mapAdminOrders = function () {
         });
         bounds.extend(pedido);
     });
-
-    $("#btnImprimir").click(function(e) {
-        e.preventDefault();
-        //calcularRuta(map,true);
-        printMaps();
-       
-    });
-
-    $('#gmap_admin_orders_start').click(function (e) {
-        e.preventDefault();
-        calcularRuta(map,false);
-    });
-
     map.fitBounds(bounds);
 }
 

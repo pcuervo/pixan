@@ -1,340 +1,164 @@
-[13-Feb-2017 17:01:13 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[13-Feb-2017 17:03:54 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[13-Feb-2017 17:05:58 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[13-Feb-2017 17:06:51 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[13-Feb-2017 17:06:59 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[13-Feb-2017 17:18:07 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 18:11:40 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
-[13-Feb-2017 18:24:37 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:12:23 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:57 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:14:58 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:07 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:20 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:26 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:28 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:29 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:33 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:42 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:43 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:44 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 19:15:49 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[13-Feb-2017 20:22:30 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 21:21:02 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 22:20:25 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[13-Feb-2017 23:50:37 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 00:17:04 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 01:18:25 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 02:15:34 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 03:15:27 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 05:30:13 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 14:39:42 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
-[14-Feb-2017 14:39:45 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 15:16:18 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 15:30:02 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:02 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 16:29:07 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[14-Feb-2017 17:48:50 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 18:32:07 UTC] PHP Notice:  Undefined property: stdClass::$plugin in /nas/content/live/pixan/wp-content/plugins/jetpack/class.jetpack-autoupdate.php on line 43
-[14-Feb-2017 18:32:10 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 19:45:31 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 22:13:53 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 22:20:26 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[14-Feb-2017 23:16:05 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[15-Feb-2017 00:20:48 UTC] Info: Begin processing subscription payment for order 1433 for the amount of 300
-[15-Feb-2017 00:20:48 UTC] charges request: Array
-(
-    [currency] => mxn
-    [amount] => 30000
-    [description] => Pixan Sustentable - Pedido 1433
-    [capture] => true
-    [expand[]] => balance_transaction
-    [customer] => cus_9CAA1DbCgndPHl
-    [source] => card_18tlqSHtulYPV1nKp74yA6N7
-    [metadata] => Array
-        (
-            [payment_type] => recurring
-        )
-
-)
-
-[15-Feb-2017 00:20:49 UTC] Processing response: stdClass Object
-(
-    [id] => ch_19nGXNHtulYPV1nKvzZ1acw1
-    [object] => charge
-    [amount] => 30000
-    [amount_refunded] => 0
-    [application] => 
-    [application_fee] => 
-    [balance_transaction] => stdClass Object
-        (
-            [id] => txn_19nGXNHtulYPV1nKbztxDXw6
-            [object] => balance_transaction
-            [amount] => 30000
-            [available_on] => 1487721600
-            [created] => 1487118049
-            [currency] => mxn
-            [description] => Pixan Sustentable - Pedido 1433
-            [fee] => 1601
-            [fee_details] => Array
-                (
-                    [0] => stdClass Object
-                        (
-                            [amount] => 1380
-                            [application] => 
-                            [currency] => mxn
-                            [description] => Stripe processing fees
-                            [type] => stripe_fee
-                        )
-
-                    [1] => stdClass Object
-                        (
-                            [amount] => 221
-                            [application] => 
-                            [currency] => mxn
-                            [description] => 
-                            [type] => tax
-                        )
-
-                )
-
-            [net] => 28399
-            [source] => ch_19nGXNHtulYPV1nKvzZ1acw1
-            [sourced_transfers] => stdClass Object
-                (
-                    [object] => list
-                    [data] => Array
-                        (
-                        )
-
-                    [has_more] => 
-                    [total_count] => 0
-                    [url] => /v1/transfers?source_transaction=ch_19nGXNHtulYPV1nKvzZ1acw1
-                )
-
-            [status] => pending
-            [type] => charge
-        )
-
-    [captured] => 1
-    [created] => 1487118049
-    [currency] => mxn
-    [customer] => cus_9CAA1DbCgndPHl
-    [description] => Pixan Sustentable - Pedido 1433
-    [destination] => 
-    [dispute] => 
-    [failure_code] => 
-    [failure_message] => 
-    [fraud_details] => stdClass Object
-        (
-        )
-
-    [invoice] => 
-    [livemode] => 
-    [metadata] => stdClass Object
-        (
-            [payment_type] => recurring
-        )
-
-    [on_behalf_of] => 
-    [order] => 
-    [outcome] => stdClass Object
-        (
-            [network_status] => approved_by_network
-            [reason] => 
-            [risk_level] => normal
-            [seller_message] => Payment complete.
-            [type] => authorized
-        )
-
-    [paid] => 1
-    [receipt_email] => 
-    [receipt_number] => 
-    [refunded] => 
-    [refunds] => stdClass Object
-        (
-            [object] => list
-            [data] => Array
-                (
-                )
-
-            [has_more] => 
-            [total_count] => 0
-            [url] => /v1/charges/ch_19nGXNHtulYPV1nKvzZ1acw1/refunds
-        )
-
-    [review] => 
-    [shipping] => 
-    [source] => stdClass Object
-        (
-            [id] => card_18tlqSHtulYPV1nKp74yA6N7
-            [object] => card
-            [address_city] => 
-            [address_country] => 
-            [address_line1] => 
-            [address_line1_check] => 
-            [address_line2] => 
-            [address_state] => 
-            [address_zip] => 
-            [address_zip_check] => 
-            [brand] => Visa
-            [country] => US
-            [customer] => cus_9CAA1DbCgndPHl
-            [cvc_check] => 
-            [dynamic_last4] => 
-            [exp_month] => 9
-            [exp_year] => 2017
-            [fingerprint] => pTqwi3PY8DNAtS2u
-            [funding] => credit
-            [last4] => 4242
-            [metadata] => stdClass Object
-                (
-                )
-
-            [name] => nayeli@pcuervo.com
-            [tokenization_method] => 
-        )
-
-    [source_transfer] => 
-    [statement_descriptor] => 
-    [status] => succeeded
-    [transfer_group] => 
-)
-
-[15-Feb-2017 00:20:50 UTC] Success: Cargo completo en Stripe (ID del cargo: ch_19nGXNHtulYPV1nKvzZ1acw1)
-[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS LISTA: 26
-[15-Feb-2017 00:20:50 UTC] Enviando Mail a Octavio Rojas Topete  -> tattvasounds@gmail.com
-[15-Feb-2017 00:20:50 UTC] ENVIANDO RECORDATORIOS LISTA: 32
-[15-Feb-2017 00:20:50 UTC] Enviando Mail a Octavio Rojas Topete  -> tattvasounds@gmail.com
-[15-Feb-2017 01:31:28 UTC] ENVIANDO RECORDATORIOS DE EMAIL
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 150 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 180 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 300 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 390 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 240 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 75 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:31:32 UTC] PHP Notice:  Undefined offset: 540 in /nas/content/live/pixan/wp-content/mu-plugins/wpengine-common/plugin.php on line 266
-[15-Feb-2017 01:36:16 UTC] PHP Fatal error:  Call to undefined method Product_List_Settings::add_product_to_a_list() in /nas/content/live/pixan/wp-content/plugins/pixan-web-services/classes/class-pixan_api-webservices.php on line 275
-[20-Feb-2017 18:46:14 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
-[20-Feb-2017 18:46:14 UTC] PHP Stack trace:
-[20-Feb-2017 18:46:14 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
-[20-Feb-2017 18:46:14 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
-[20-Feb-2017 18:46:14 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 18:46:14 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 18:46:14 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
-[20-Feb-2017 18:46:14 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
-[20-Feb-2017 18:46:14 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
-[20-Feb-2017 18:46:14 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
-[20-Feb-2017 18:46:14 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
-[20-Feb-2017 18:46:14 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
-[20-Feb-2017 18:46:14 UTC] PHP Stack trace:
-[20-Feb-2017 18:46:14 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
-[20-Feb-2017 18:46:14 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
-[20-Feb-2017 18:46:14 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 18:46:14 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 18:46:14 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
-[20-Feb-2017 18:46:14 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
-[20-Feb-2017 19:28:17 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
-[20-Feb-2017 19:28:17 UTC] PHP Stack trace:
-[20-Feb-2017 19:28:17 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
-[20-Feb-2017 19:28:17 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
-[20-Feb-2017 19:28:17 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 19:28:17 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 19:28:17 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
-[20-Feb-2017 19:28:17 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
-[20-Feb-2017 19:28:17 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
-[20-Feb-2017 19:28:17 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
-[20-Feb-2017 19:28:17 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
-[20-Feb-2017 19:28:17 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
-[20-Feb-2017 19:28:17 UTC] PHP Stack trace:
-[20-Feb-2017 19:28:17 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
-[20-Feb-2017 19:28:17 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
-[20-Feb-2017 19:28:17 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 19:28:17 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
-[20-Feb-2017 19:28:17 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
-[20-Feb-2017 19:28:17 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:18:07 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:25:26 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:25:26 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:25:26 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:25:26 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:25:26 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:28:29 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 05:28:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:36:44 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:37:58 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:38:59 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:38:59 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:38:59 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:38:59 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:38:59 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:39:37 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:39:50 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:40:42 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:41:23 UTC] PHP Parse error:  syntax error, unexpected ':' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:41:25 UTC] PHP Parse error:  syntax error, unexpected ':' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 211
+[29-Mar-2017 05:41:52 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 213
+[29-Mar-2017 05:41:52 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 213
+[29-Mar-2017 05:41:52 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 213
+[29-Mar-2017 05:41:52 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 213
+[29-Mar-2017 05:41:52 UTC] PHP Notice:  Undefined index: _temperaturas_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 213
+[29-Mar-2017 06:28:49 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 06:28:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 15:36:59 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\user.php on line 28
+[29-Mar-2017 15:36:59 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\user.php on line 28
+[29-Mar-2017 15:38:57 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.strings.php on line 10
+[29-Mar-2017 15:38:57 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php on line 10
+[29-Mar-2017 15:40:06 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 15:40:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 17:20:34 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\meta.php on line 30
+[29-Mar-2017 17:22:25 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\api\class-wc-rest-product-tags-controller.php on line 13
+[29-Mar-2017 17:24:24 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 17:24:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 17:29:23 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 17:29:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 19:36:41 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\fw\widgets\popular_posts.php on line 5
+[29-Mar-2017 19:38:27 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 19:38:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 22:12:50 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\api\class-wc-rest-product-shipping-classes-controller.php on line 13
+[29-Mar-2017 22:14:48 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\wp-db.php on line 1811
+[29-Mar-2017 22:16:23 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 22:16:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 22:28:34 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[29-Mar-2017 22:28:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[29-Mar-2017 23:21:48 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 13

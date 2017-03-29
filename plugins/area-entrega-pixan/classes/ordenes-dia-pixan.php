@@ -129,7 +129,7 @@ class Ordenes_Dia_Pixan {
 		//var_dump($id_areas);
 
 		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
-				<input style="width:45%;" type="button" id="btnImprimir" class="btn blue" value="Imprimir"/>
+				<input style="width:45%;" type="button" id="btnImprimir" disabled="disabled" class="btn blue" value="Imprimir"/>
 				<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps">
 				</div><br>';
 		$customer_orders = get_posts( array(
@@ -155,7 +155,10 @@ class Ordenes_Dia_Pixan {
 		{
 			$meta = get_post_meta($customer_orders[$i]->ID);
 			
-			echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br>'.$meta['_billing_formated_address'][0].' </div><br/>';
+			isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
+			isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
+
+			echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
 		}
 		echo '<ol id="gmap_admin_orders_instructions"></ol></div>';
 	}
@@ -181,9 +184,8 @@ class Ordenes_Dia_Pixan {
 
 		echo '<input type="hidden" class="datepicker" id="fechaPedido" name="fechaPedido" />
 				<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
-						<input style="width:45%;" type="button" id="btnImprimir" class="btn blue" value="Imprimir"/>';
-		echo '<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>
-				<ol id="gmap_admin_orders_instructions"></ol></div>';
+						<input style="width:45%;" type="button" id="btnImprimir" disabled="disabled" class="btn blue" value="Imprimir"/>';
+		echo '<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>';
 		$customer_orders = get_posts( array(
 		    'numberposts' => -1,
 		    'meta_key'    => '_billing_area_entrega',
@@ -192,6 +194,7 @@ class Ordenes_Dia_Pixan {
 		    'post_status' => array_keys( wc_get_order_statuses() ),
 		) );
 
+		/*
 		echo '<select style="display:none;" id="listado_ordenes">';
 		echo '<option></option>';
 		for($i = 0; $i < count($customer_orders); $i++)
@@ -201,7 +204,20 @@ class Ordenes_Dia_Pixan {
 			echo '<option class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'</option>';
 		}
 		echo '</select>';
+		*/
+		for($i = 0; $i < count($customer_orders); $i++)
+		{
+			$meta = get_post_meta($customer_orders[$i]->ID);
+			//var_dump($meta);
+			
+			isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
+			isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
+			echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+		}
+		echo '<ol id="gmap_admin_orders_instructions"></ol></div>';
+
+				
 	}
 
 	public function add_dashboard_widgets_map() {
