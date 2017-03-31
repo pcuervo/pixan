@@ -849,7 +849,10 @@ p.no_subscriptions a:nth-child(1) { display: none; }
 	top: 4em;
 	z-index: 20;
 }
-
+#popup_registration,
+.widget_area.sidebar_cart {
+	animation: none!important;
+}
 /*Canasta recurrente*/
 ul.products li.product .price .subscription-details {
 	position: relative;
