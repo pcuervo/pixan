@@ -46,6 +46,9 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		add_action( 'edit_user_profile_update', array( $this, 'update_extra_fields') );
 		//add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		//add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
+
+		add_action( 'wp_ajax_send_email_client_zona', array( $this, 'send_email_client_zona') );
+		add_action( 'wp_ajax_nopriv_send_email_client_zona', array( $this, 'send_email_client_zona') );
 	}
 
 
@@ -206,6 +209,20 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		}
 
 		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti. <br>Escribenos a: <strong> contacto@pixan.com</strong></small><br />';
+		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
+		echo '<div style="display:none;" id="dialog_zona" class="info_client" title="Cobertura de Zona">
+				<div id="dialogMsj"></div>
+				<div id="dialogLoader" style="display:none;"><img src="'.PRODUCT_LIST_URL.'inc/img/loader.gif" alt="Cargando..." /></div>
+				<div id="dialogDefaultText">
+				<p>Aún no tenemos cobertura de entrega en tu zona. Por favor dejanos tus datos y nos pondremos en contacto contigo para coordinar una entrega.</p>
+				
+					<input type="email" required id="nozona_email" name="nozona_email" placeholder="Tu email" />
+					<input type="text" required id="nozona_nombre" name="nozona_nombre" placeholder="Tu nombre" />
+					<input type="text" id="nozona_telefono" name="nozona_telefono" placeholder="Tu telefóno" />
+
+				<small style="color:red; display:none;" id="errorCampos">Los campos email y nombre son obligatorios.</small>
+			  </div></div>';
+
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
 				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
@@ -254,6 +271,26 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			</div>';
 
 	}// meta_box_info_maestro
+
+	public function send_email_client_zona(){ 
+		error_log('NO ZONA MAIL = '.$_POST['nombre'].' '.$_POST['telefono'].' -> '.$_POST['email']);
+		$subject = 'Pixan - Cliente sin Zona';
+		$headers = array('Content-Type: text/html; charset=UTF-8');
+		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
+		$message = '<html><body>';
+		$message .= '<br>Nombre: '.$_POST['nombre'];
+		$message .= '<br>Telefono: '.$_POST['telefono'];
+		$message .= '<br>Email: '.$_POST['email'];
+		$message .= '<br>Dirección de envio: '.$_POST['direccion'];
+		$message .= '</body></html>';
+
+		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
+
+		//SEND EMAIL CONFIRMATION
+		$resp = wp_mail( 'jonasgraterol@gmail.com, alejandro@pcuervo.com', $subject, $message, $headers );
+		echo "OK";
+		wp_die();
+	}
 
 	/**
 	* Display extra inputs for checkout page
