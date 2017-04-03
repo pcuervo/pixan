@@ -2363,3 +2363,57 @@ Stack trace:
 #3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
 #4 {main}
   thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[01-Apr-2017 20:29:18 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[01-Apr-2017 20:29:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[02-Apr-2017 05:00:07 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\better-search-replace\includes\class-bsr-admin.php on line 18
+[02-Apr-2017 05:00:11 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[02-Apr-2017 05:00:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[02-Apr-2017 05:00:11 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-admin\custom-background.php on line 16
+[03-Apr-2017 02:36:44 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\deprecated.php on line 25
+[03-Apr-2017 02:40:28 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 02:40:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 02:42:46 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 333
+[03-Apr-2017 02:44:46 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\templates\single-team.php on line 4
+[03-Apr-2017 15:09:15 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\templates\trx_events\events-1.php on line 4
+[03-Apr-2017 15:10:52 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 15:10:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 15:28:40 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 15:28:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 16:06:47 UTC] PHP Notice: This XML document is invalid, likely due to invalid characters. XML error: Undeclared entity error at line 11, column 24 in C:\wamp\www\pixan\wp-includes\class-simplepie.php on line 1446
+[03-Apr-2017 16:12:07 UTC] PHP Warning:  date() expects at least 1 parameter, 0 given in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 174
+[03-Apr-2017 16:15:30 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-admin-bar.php on line 15

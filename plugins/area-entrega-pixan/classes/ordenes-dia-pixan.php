@@ -110,7 +110,15 @@ class Ordenes_Dia_Pixan {
 	}
 	
 	public function show_admin_map_widget() {
-		$dayofweek = date('N');
+		if(isset($_POST['fecha_ruta']) && $_POST['fecha_ruta'] != '') {
+			$dayofweek = date('N', strtotime($_POST['fecha_ruta']));
+			$fech = $_POST['fecha_ruta'];
+		}
+		else {
+			$fech = date('Y-m-d');
+			$dayofweek = date('N');
+		}
+		
 		$id_areas = array();
 		//echo '==='.$dayofweek.'===';
 		$areas_entregas = get_posts( array(
@@ -127,6 +135,11 @@ class Ordenes_Dia_Pixan {
 			
 		}
 		//var_dump($id_areas);
+		echo '<strong style="width:45%;">Fecha para entregas:</strong>';
+		echo '<form action="index.php" method="post">';
+		echo '<input style="width:45%;" type="date" name="fecha_ruta" value="'.$fech.'" />';
+		echo '<input type="submit" value="ACTUALIZAR MAPA" />';
+		echo '</form>';
 
 		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
 				<input style="width:45%;" type="button" id="btnImprimir" disabled="disabled" class="btn blue" value="Imprimir"/>
@@ -164,7 +177,15 @@ class Ordenes_Dia_Pixan {
 	}
 
 	public function show_map_orders() {
-		$dayofweek = date('N');
+		//var_dump($_POST);
+		if(isset($_POST['fecha_ruta']) && $_POST['fecha_ruta'] != '') {
+			$dayofweek = date('N', strtotime($_POST['fecha_ruta']));
+			$fech = $_POST['fecha_ruta'];
+		}
+		else {
+			$fech = date('Y-m-d');
+			$dayofweek = date('N');
+		}
 		$id_areas = array();
 		//echo '==='.$dayofweek.'===';
 		$areas_entregas = get_posts( array(
@@ -181,9 +202,13 @@ class Ordenes_Dia_Pixan {
 			
 		}
 		//var_dump($id_areas);
+		echo '<strong style="width:45%;">Fecha para entregas:</strong>';
+		echo '<form action="admin.php?page=pedidos-geolocalizados-mapa" method="post">';
+		echo '<input style="width:45%;" type="date" name="fecha_ruta" value="'.$fech.'" />';
+		echo '<input type="submit" value="ACTUALIZAR MAPA" />';
+		echo '</form>';
 
-		echo '<input type="hidden" class="datepicker" id="fechaPedido" name="fechaPedido" />
-				<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
+		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
 						<input style="width:45%;" type="button" id="btnImprimir" disabled="disabled" class="btn blue" value="Imprimir"/>';
 		echo '<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps"></div>';
 		$customer_orders = get_posts( array(
