@@ -172,6 +172,7 @@ var mapGeocoding = function () {
                                 $("#lblHorarioEntrega").html($("#"+opti[1]).data('hora'));
                                 $("#divInfoAreaEntrega").slideDown();
                                 $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();
+                                $(".info_client").dialog( "close" );
 
                                 return;
                             }
@@ -190,6 +191,7 @@ var mapGeocoding = function () {
                         $(".area_e").removeAttr('selected', false);
                         $("#divInfoAreaEntrega").slideUp();
                         $("#divInfoPunto, #areaInfo").slideUp();
+                        $(".info_client").dialog( "close" );
                         limpiarLabels();
                     }
                 }
@@ -199,6 +201,7 @@ var mapGeocoding = function () {
                     $(".area_e").removeAttr('selected', false);
                     $("#divInfoAreaEntrega").slideUp();
                     $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();
+                    $(".info_client").dialog( "close" );
                     limpiarLabels();
                 }
             }

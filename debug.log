@@ -1,3 +1,57 @@
 [03-Apr-2017 18:44:14 UTC] NO ZONA MAIL = Jonas Graterol  -> jonasgraterol@gmail.com
 [03-Apr-2017 18:52:36 UTC] NO ZONA MAIL = don Goyo 5524428233 -> goyo@gmail.com
 [03-Apr-2017 18:53:39 UTC] NO ZONA MAIL = don Goyo 5524428233 -> goyo@gmail.com
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:12:23 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:14:13 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:16:15 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 224
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 202
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 203
+[03-Apr-2017 19:16:18 UTC] PHP Notice:  Undefined index:  in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 204
+[03-Apr-2017 19:29:21 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 19:29:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 21:17:25 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 224
+[03-Apr-2017 21:17:46 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 21:17:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 21:28:16 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[03-Apr-2017 21:28:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[03-Apr-2017 21:34:16 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:36:17 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:38:18 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:39:49 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:40:48 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:41:48 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[03-Apr-2017 21:42:28 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
