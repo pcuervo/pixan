@@ -545,6 +545,55 @@ class AitImport {
 		}		
 	}
 
+	public function import_csv_precios($type, $file) {
+
+		global $wpdb;
+		$header_line = 1;
+		$num_exitosos = 0;
+		$num_invalidos = 0;
+		$num_noencontrados = 0;
+		$sku_exitosos = '';
+		$sku_invalidos = '';
+		$sku_noencontrados = '';
+
+		if (($handle = fopen($file, "r")) !== FALSE) {
+			while (($data_row = fgetcsv($handle, 10000, ',', '"')) !== FALSE ) {
+				
+				if (isset($data_row[0]) && $data_row[0] != '' && isset($data_row[1]) && is_numeric($data_row[1]) && $data_row[1] != '' && $header_line > 1) {
+					$post_ids = $wpdb->get_results("SELECT pm.post_id FROM $wpdb->postmeta pm, $wpdb->posts p where pm.meta_key = '_sku' and pm.meta_value = '".$data_row[0]."' and (p.post_type = 'product' or p.post_type = 'product_variation') and p.post_status IN ('publish', 'draft') and pm.post_id = p.ID;");
+					
+					foreach ($post_ids as $post_id) {
+						if(isset($post_id) && is_numeric($post_id->post_id)) {
+						
+							update_post_meta( $post_id->post_id, '_price', $data_row[1] );
+							update_post_meta( $post_id->post_id, '_regular_price', $data_row[1] );
+							delete_transient( 'wc_var_prices_' . $post_id->post_id );
+							$num_exitosos++;
+							$sku_exitosos .= $data_row[0].', ';
+						}
+						else {
+							$num_noencontrados++;
+							$sku_noencontrados .= $data_row[0].', ';
+						}
+					}
+					
+				}
+				else {
+					if($header_line > 1) {
+						$num_invalidos++;
+						$sku_invalidos .= $data_row[0].', ';
+					}
+				}
+				$header_line++;
+			}
+			echo '<div class="updated"><p>' . $num_exitosos . __(' productos con precio actualizado exitosamente. ').' Listado de SKUs ['.$sku_exitosos.']</p><p>' . $num_invalidos . __(' productos no fueron actualizados por no cumplir la validación.') .' Listado de SKUs ['.$sku_invalidos.']</p><p>' . $num_noencontrados . __(' no encontrados. ').' Listado de SKUs ['.$sku_noencontrados.']</p></div>';
+		}
+		else {
+			echo '<div class="error"><p>Error al intentar leer el archivo. Por favor revisa el archivo e intentalo de nuevo.</p></div>';
+		}
+
+	}
+	
 	/**
 	 * Import categories from CSV file
 	 *

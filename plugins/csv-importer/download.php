@@ -17,7 +17,7 @@ if(!isset($_POST['ait-import-post-type'])) exit(0);
 $type = $_POST['ait-import-post-type'];
 
 header("Content-type: text/csv");
-header("Content-Disposition: attachment; filename=".$type.".csv");
+header("Content-Disposition: attachment; filename=sample-csv.csv");
 header("Pragma: no-cache");
 header("Expires: 0");
 

@@ -55,3 +55,58 @@ Stack trace:
 [03-Apr-2017 21:40:48 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
 [03-Apr-2017 21:41:48 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
 [03-Apr-2017 21:42:28 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 170
+[19-Apr-2017 20:46:56 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\revslider\includes\operations.class.php on line 8
+[19-Apr-2017 20:47:29 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce-subscriptions\includes\wcs-time-functions.php on line 13
+[19-Apr-2017 20:48:17 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 13
+[19-Apr-2017 20:54:49 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[19-Apr-2017 20:54:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[19-Apr-2017 20:56:03 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[19-Apr-2017 20:56:03 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[19-Apr-2017 21:10:28 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 113
+[19-Apr-2017 21:10:28 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 113
+[19-Apr-2017 21:10:28 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 129
+[19-Apr-2017 21:10:28 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 129
+[19-Apr-2017 21:11:05 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 113
+[19-Apr-2017 21:11:05 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 113
+[19-Apr-2017 21:11:05 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 129
+[19-Apr-2017 21:11:05 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 129
+[19-Apr-2017 21:20:58 UTC] PHP Warning:  Header may not contain more than a single header, new line detected in C:\wamp\www\pixan\wp-content\plugins\csv-importer\download.php on line 20
+[19-Apr-2017 21:22:25 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 121
+[19-Apr-2017 21:22:25 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 121
+[19-Apr-2017 21:22:25 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 137
+[19-Apr-2017 21:22:25 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 137
+[19-Apr-2017 21:22:40 UTC] PHP Warning:  Header may not contain more than a single header, new line detected in C:\wamp\www\pixan\wp-content\plugins\csv-importer\download.php on line 20
+[19-Apr-2017 21:27:53 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[19-Apr-2017 21:27:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_product_price() on null in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:512
+Stack trace:
+#0 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(213): Product_List_Settings->show_list_detail_to_email('1')
+#1 C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php(198): Product_List_Settings->send_mail('1', '1')
+#2 C:\wamp\www\pixan\wp-includes\plugin.php(601): Product_List_Settings->send_mail_reminders()
+#3 C:\wamp\www\pixan\wp-cron.php(120): do_action_ref_array('my_cron_event', Array)
+#4 {main}
+  thrown in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[19-Apr-2017 21:30:48 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:30:48 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:30:48 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:30:48 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:30:54 UTC] PHP Warning:  Header may not contain more than a single header, new line detected in C:\wamp\www\pixan\wp-content\plugins\csv-importer\download.php on line 20
+[19-Apr-2017 21:35:12 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:35:12 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:35:12 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:35:12 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 123
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 139
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 199
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 199
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Undefined variable: type in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 215
+[19-Apr-2017 21:36:19 UTC] PHP Notice:  Trying to get property of non-object in C:\wamp\www\pixan\wp-content\plugins\csv-importer\views\admin.php on line 215
+[19-Apr-2017 21:36:25 UTC] PHP Warning:  Header may not contain more than a single header, new line detected in C:\wamp\www\pixan\wp-content\plugins\csv-importer\download.php on line 20
