@@ -161,7 +161,7 @@
 			$this->url = $url;
 
 			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".md5($url);
-			$jsLink = content_url()."/cache/wpfc-minified/".md5($url);
+			$jsLink = WPFC_WP_CONTENT_URL."/cache/wpfc-minified/".md5($url);
 
 			if(is_dir($cachFilePath)){
 				return array("cachFilePath" => $cachFilePath, "jsContent" => "", "url" => $jsLink);
@@ -198,7 +198,12 @@
 						return $src[1];
 					}
 
-					if(@strpos($src[1], $httpHost)){
+					if(preg_match("/".preg_quote($httpHost, "/")."/i", $src[1])){
+						//<script src="https://server1.opentracker.net/?site=www.site.com"></script>
+						if(preg_match("/[\?\=].*".preg_quote($httpHost, "/")."/i", $src[1])){
+							return false;
+						}
+
 						return $src[1];
 					}
 				}
@@ -220,7 +225,7 @@
 
 				$jsFiles[0] = preg_replace("/\.gz$/", "", $jsFiles[0]);
 				
-				$prefixLink = str_replace(array("http:", "https:"), "", content_url());
+				$prefixLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL);
 				$newLink = "<script src='".$prefixLink."/cache/wpfc-minified/".$name."/".$jsFiles[0]."' type=\"text/javascript\"></script>";
 
 				$script_tag = substr($this->html, $value["start"], ($value["end"] - $value["start"] + 1));

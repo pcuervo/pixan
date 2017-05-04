@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Facebook Login\n"
-"POT-Creation-Date: 2016-07-04 10:41-0300\n"
-"PO-Revision-Date: 2016-07-04 10:41-0300\n"
+"POT-Creation-Date: 2016-08-04 10:33-0300\n"
+"PO-Revision-Date: 2016-08-04 10:33-0300\n"
 "Last-Translator: \n"
 "Language-Team: Timersys <info@timersys.com>\n"
 "Language: en_US\n"
@@ -22,19 +22,19 @@ msgid "Please login into facebook and then click connect button again"
 msgstr ""
 
 #: admin/class-facebook-login-admin.php:115
-#: public/class-facebook-login-public.php:547
+#: public/class-facebook-login-public.php:550
 msgid "Facebook connection"
 msgstr ""
 
 #: admin/class-facebook-login-admin.php:118
-#: public/class-facebook-login-public.php:550
+#: public/class-facebook-login-public.php:553
 msgid ""
 "Your profile is currently linked to your Facebook account. Click the button "
 "below to remove connection and avatar"
 msgstr ""
 
 #: admin/class-facebook-login-admin.php:121
-#: public/class-facebook-login-public.php:553
+#: public/class-facebook-login-public.php:556
 msgid "Link your facebook account to your profile."
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 
 #: includes/class-fbl-notices.php:36
 #, php-format
-msgid "<a href=\"%s\">No, thanks</a>"
+msgid "<a href=\"%s\">I already did</a>"
 msgstr ""
 
 #: public/class-facebook-login-public.php:98
@@ -85,27 +85,27 @@ msgstr ""
 msgid "Disconnect Facebook"
 msgstr ""
 
-#: public/class-facebook-login-public.php:182
+#: public/class-facebook-login-public.php:185
 msgid "We need your email in order to continue. Please try loging again. "
 msgstr ""
 
-#: public/class-facebook-login-public.php:196
+#: public/class-facebook-login-public.php:199
 msgid "Invalid User"
 msgstr ""
 
-#: public/class-facebook-login-public.php:214
+#: public/class-facebook-login-public.php:217
 msgid "User registration is disabled"
 msgstr ""
 
-#: public/class-facebook-login-public.php:287
+#: public/class-facebook-login-public.php:290
 #, php-format
 msgid "Profile photo of %s"
 msgstr ""
 
-#: public/class-facebook-login-public.php:289
+#: public/class-facebook-login-public.php:292
 msgid "Facebook Profile photo"
 msgstr ""
 
-#: public/class-facebook-login-public.php:342
+#: public/class-facebook-login-public.php:345
 msgid "Profile Photo"
 msgstr ""

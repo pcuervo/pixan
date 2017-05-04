@@ -89,13 +89,13 @@ class Facebook_Login_Public {
 	 * @since   1.0.0
 	 */
 	public function print_button() {
-		$redirect = apply_filters( 'flp/redirect_url', ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		$redirect = ! empty( $_GET['redirect_to'] ) ? esc_url($_GET['redirect_to']) : ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 		// if we are in login page we don't want to redirect back to it
-		if ( isset( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) )
-			$redirect = apply_filters( 'flp/redirect_url', '');
+		if ( isset( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) && empty($_GET['redirect_to']) )
+			$redirect = '';
 
-		echo apply_filters('fbl/login_button', '<a href="#" class="css-fbl js-fbl" data-redirect="'.$redirect.'" data-fb_nonce="' . wp_create_nonce( 'facebook-nonce' ).'"><div>'. __('Connect with Facebook', 'fbl') .'<img data-no-lazy="1" src="'.site_url('/wp-includes/js/mediaelement/loading.gif').'" alt="" style="display:none"/></div></a>');
+		echo apply_filters('fbl/login_button', '<a href="#" class="css-fbl js-fbl" data-redirect="'.apply_filters( 'flp/redirect_url', $redirect).'" data-fb_nonce="' . wp_create_nonce( 'facebook-nonce' ).'"><div>'. __('Connect with Facebook', 'fbl') .'<img data-no-lazy="1" src="'.site_url('/wp-includes/js/mediaelement/loading.gif').'" alt="" style="display:none"/></div></a>');
 	}
 
 	/**
@@ -120,7 +120,7 @@ class Facebook_Login_Public {
 
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId      : '<?php echo $this->opts['fb_id'];?>',
+					appId      : '<?php echo trim( $this->opts['fb_id'] );?>',
 					cookie     : true,  // enable cookies to allow the server to access
 					xfbml      : true,  // parse social plugins on this page
 					version    : 'v2.2' // use version 2.2
@@ -161,7 +161,7 @@ class Facebook_Login_Public {
 		);
 		//
 		if( !empty( $this->opts['fb_app_secret'] ) ) {
-			$appsecret_proof = hash_hmac('sha256', $access_token, $this->opts['fb_app_secret'] );
+			$appsecret_proof = hash_hmac('sha256', $access_token, trim( $this->opts['fb_app_secret'] ) );
 			$fb_url = add_query_arg(
 				array(
 					'appsecret_proof' => $appsecret_proof
@@ -176,6 +176,9 @@ class Facebook_Login_Public {
 			$this->ajax_response( array( 'error' => $fb_response->get_error_message() ) );
 
 		$fb_user = apply_filters( 'fbl/auth_data',json_decode( wp_remote_retrieve_body( $fb_response ), true ) );
+
+		if( isset( $fb_user['error'] ) )
+			$this->ajax_response( array( 'error' => 'Error code: '. $fb_user['error']['code'] . ' - ' . $fb_user['error']['message'] ) );
 
 		//check if user at least provided email
 		if( empty( $fb_user['email'] ) )
@@ -519,7 +522,9 @@ class Facebook_Login_Public {
 	 */
 	private function notify_new_registration( $user_id ) {
 		// Notify the site admin of a new user registration.
-		wp_new_user_notification( $user_id );
+		wp_new_user_notification( $user_id,'','admin' );
+		// notify the user
+		wp_new_user_notification( $user_id,'','user' );
 		do_action( 'fbl/notify_new_registration', $user_id );
 		// bp notifications
 		// fires xprofile_sync_wp_profile, bp_core_new_user_activity, bp_core_clear_member_count_caches

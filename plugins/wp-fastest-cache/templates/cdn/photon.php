@@ -39,6 +39,7 @@
 																											    	 	<option value="http://i1.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i1.wp.com</option>
 																											    	 	<option value="http://i2.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i2.wp.com</option>
 																											    	 	<option value="http://i3.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i3.wp.com</option>
+																											    	 	<option value="random">Random</option>
 																											    	 </select> 
 					    	<div id="cdn-url-loading"></div>
 					    	<label class="wiz-error-msg"></label>
