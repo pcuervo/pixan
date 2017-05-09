@@ -52,6 +52,7 @@ class PIXAN_API_Web_services {
 		add_action( 'pixan_api_webservice_change_password', array( $this, 'change_password' ) );
 		
 		add_action( 'pixan_api_webservice_zonas_entrega', array( $this, 'zonas_entrega' ) );
+		add_action( 'pixan_api_webservice_preguntas_frecuentes', array( $this, 'preguntas_frecuentes' ) );
 		
 		add_action( 'pixan_api_webservice_update_user_meta', array( $this, 'update_user_meta' ) );
 		
@@ -168,6 +169,38 @@ class PIXAN_API_Web_services {
 		}
 		
 		PIXAN_API_Output::get()->output( true, 200, '', $zonas	);
+
+	}
+
+	public function preguntas_frecuentes(){
+		
+		
+		$query_args = array(
+			'post_type'      => 'preguntas-frecuentes',
+			'orderby'        => 'pots_title',
+			'no_found_rows'  => true,
+			'cache_results'  => false,
+			'numberposts' => -1,
+		);
+
+	    $posts = new WP_Query( $query_args );
+	    
+	    $preguntas = array();
+	    
+	    if ( $posts->have_posts() ) {
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
+								
+				array_push($preguntas, array(
+					'id_pregunta' 	=> $posts->post->ID,
+					'question' 		=> $posts->post->post_title,
+					'answer'		=> $posts->post->post_content,
+					'url'			=> $posts->post->guid
+				));
+			}
+		}
+		
+		PIXAN_API_Output::get()->output( true, 200, '', $preguntas	);
 
 	}
 	

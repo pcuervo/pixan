@@ -198,23 +198,44 @@ class Area_Entrega_Pixan_Settings {
 		if ( isset($_POST['_dia1']) and check_admin_referer(__FILE__, '_dia1_nonce') ){
 			update_post_meta($post_id, '_dia1', $_POST['_dia1']);
 		}
+		else {
+			delete_post_meta($post_id, '_dia1');	
+		}
 		if ( isset($_POST['_dia2']) and check_admin_referer(__FILE__, '_dia2_nonce') ){
 			update_post_meta($post_id, '_dia2', $_POST['_dia2']);
+		}
+		else {
+			delete_post_meta($post_id, '_dia2');	
 		}
 		if ( isset($_POST['_dia3']) and check_admin_referer(__FILE__, '_dia3_nonce') ){
 			update_post_meta($post_id, '_dia3', $_POST['_dia3']);
 		}
+		else {
+			delete_post_meta($post_id, '_dia3');	
+		}
 		if ( isset($_POST['_dia4']) and check_admin_referer(__FILE__, '_dia4_nonce') ){
 			update_post_meta($post_id, '_dia4', $_POST['_dia4']);
+		}
+		else {
+			delete_post_meta($post_id, '_dia4');	
 		}
 		if ( isset($_POST['_dia5']) and check_admin_referer(__FILE__, '_dia5_nonce') ){
 			update_post_meta($post_id, '_dia5', $_POST['_dia5']);
 		}
+		else {
+			delete_post_meta($post_id, '_dia5');	
+		}
 		if ( isset($_POST['_dia6']) and check_admin_referer(__FILE__, '_dia6_nonce') ){
 			update_post_meta($post_id, '_dia6', $_POST['_dia6']);
 		}
+		else {
+			delete_post_meta($post_id, '_dia6');	
+		}
 		if ( isset($_POST['_dia7']) and check_admin_referer(__FILE__, '_dia7_nonce') ){
 			update_post_meta($post_id, '_dia7', $_POST['_dia7']);
+		}
+		else {
+			delete_post_meta($post_id, '_dia7');	
 		}
 		if ( isset($_POST['_hora']) and check_admin_referer(__FILE__, '_hora_nonce') ){
 			update_post_meta($post_id, '_hora', $_POST['_hora']);

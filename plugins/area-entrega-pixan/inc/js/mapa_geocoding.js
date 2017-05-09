@@ -172,6 +172,7 @@ var mapGeocoding = function () {
                                 $("#lblHorarioEntrega").html($("#"+opti[1]).data('hora'));
                                 $("#divInfoAreaEntrega").slideDown();
                                 $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();
+                                $(".info_client").dialog( "close" );
 
                                 return;
                             }
@@ -179,6 +180,7 @@ var mapGeocoding = function () {
                                 $(".area_e").removeAttr('selected', false);
                                 $("#divInfoAreaEntrega").slideUp();
                                 $("#areaInfo, #divInfoPunto").slideDown();
+                                $(".info_client").dialog( "open" );
                                 limpiarLabels();
                             }
                         }
@@ -189,6 +191,7 @@ var mapGeocoding = function () {
                         $(".area_e").removeAttr('selected', false);
                         $("#divInfoAreaEntrega").slideUp();
                         $("#divInfoPunto, #areaInfo").slideUp();
+                        $(".info_client").dialog( "close" );
                         limpiarLabels();
                     }
                 }
@@ -198,6 +201,7 @@ var mapGeocoding = function () {
                     $(".area_e").removeAttr('selected', false);
                     $("#divInfoAreaEntrega").slideUp();
                     $("#puntos_recoleccion, #divInfoPunto, #areaInfo").slideUp();
+                    $(".info_client").dialog( "close" );
                     limpiarLabels();
                 }
             }
@@ -239,5 +243,78 @@ var mapGeocoding = function () {
             handleAction();
         }
     });
+
+     $( ".info_client" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      
+      buttons: {
+        "Continuar" : {
+          id : 'btnContinuar',
+          text: 'Enviar',
+          click : function() {
+            //RESET ARRAYS
+            ids = [];
+            cant = [];
+            
+            
+            //$("#dialogDefaultText").hide();
+            if($("#nozona_email").val() == '' || $("#nozona_nombre").val() == '') {
+                $("#errorCampos").slideDown();
+                $("#btnContinuar").show();
+            }
+            else {
+                $("#errorCampos").slideUp();
+                $("#btnContinuar").hide();    
+                $("#dialogLoader").show();
+                $("#dialogDefaultText").hide(); 
+
+                $.post($("#rutaAjax").val(), {action: 'send_email_client_zona', nombre: $("#nozona_nombre").val(), telefono: $("#nozona_telefono").val(), email: $("#nozona_email").val(), direccion: $("#gmap_geocoding_address").val() }, 
+                  function(data) {
+                    
+                    if(data == "OK") {
+                      var exitoText = '<div class="" style="background-color:#C8E6C9;">Mensaje enviado. Te contactaremos a la brevedad posible.</div>';
+                      $("#btnContinuar").hide();
+                      $("#dialogMsj").show();
+                      
+                      $("#dialogMsj").html(exitoText);
+                      $("#btnCerrar").html('Listo');
+                    } 
+                    else {
+                      var errorText = '<div class="" style="background-color:#F8BBD0;">Ocurrio un error, por favor intentalo nuevamente.</div>';
+                      $("#dialogMsj").html(errorText);
+                    }
+                })
+                .always(function(data){ 
+                   console.log('Always -> ['+data+']');
+                   $("#dialogLoader").hide();
+                })
+                .fail(function(xhr, status, error) {
+                    console.log('FAIL');
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+                });
+            }
+          }
+        },
+        "Cerrar": {
+          click: function() {
+            $( this ).dialog( "close" );
+            $("#dialogMsj").hide();
+            $("#dialogDefaultText").show();
+            $("#btnContinuar").show();
+            $("#btnCerrar").html('Cerrar');
+           
+          }, 
+          id: 'btnCerrar',
+          text: 'Cerrar'
+        }
+      }
+    });
+    
 
 }
