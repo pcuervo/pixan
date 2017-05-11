@@ -24,7 +24,7 @@ h1 { text-transform: uppercase; }
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
 .text-right--all * { text-align: right; }
-.text-left--all * { text-align: left; }
+.text-left, .text-left--all * { text-align: left; }
 
 .color-primary { color: #80B500; }
 .color-gray { color: #555555; }
@@ -88,6 +88,7 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 .max-height--220 { max-height: 220px; }
 .max-height--240 { max-height: 240px; }
 
+.width--20		{ width: 20px; }
 .width--30		{ width: 30px; }
 .width--80		{ width: 85px; }
 
@@ -128,6 +129,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 
 .float-left { float: left; }
 .float-right { float: right; }
+
+.vertical-align--middle { vertical-align: middle; }
 
 /*Colum*/
 .columns--5.vc_col-sm-2 { width: 20%; }
@@ -874,3 +877,16 @@ ul.products li.product .price .subscription-details:after {
 	color: #1E4B24;
 }
 
+h3.sd-title {
+	width: 80px;
+	overflow: hidden;
+	height: 18px;
+}
+h3.sd-title:before {
+	content: 'Comparte:'!important;
+	border-top: 0px!important;
+}
+
+.post_item_excerpt + .post_item_excerpt {
+    border-top: 2px solid #e6e6e6;
+}
