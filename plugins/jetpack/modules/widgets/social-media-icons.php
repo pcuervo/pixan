@@ -130,7 +130,7 @@ class WPCOM_social_media_icons_widget extends WP_Widget {
 			$html[ $index ] =
 				'<a title="' . sprintf( $alt_text, esc_attr( $username ), $service_name )
 				. '" href="' . $link
-				. '" class="genericon genericon-' . $service . '" target="_blank">WWW<span class="screen-reader-text">'
+				. '" class="genericon genericon-' . $service . '" target="_blank"><span class="screen-reader-text">'
 				. sprintf( $alt_text, esc_html( $username ), $service_name )
 				. '</span></a>';
 		}

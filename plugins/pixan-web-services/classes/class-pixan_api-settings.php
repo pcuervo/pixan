@@ -299,6 +299,18 @@ Url: <code><?php bloginfo('url'); ?>/api/zonas_entrega</code><br/><br/>
 
 </form>
 
+<h2>Redes sociales</h2>
+Url: <code><?php bloginfo('url'); ?>/api/redes_sociales</code><br/><br/>
+<form action="<?php bloginfo('url'); ?>/api/redes_sociales" method="post" target="_blank">
+	
+<label for="auth_key">auth_key [post]</label>
+<input type="text" name="auth_key" id="auth_key" value="<?php echo PIXAN_API_AUTH_KEY; ?>"/><br/>	
+
+
+<input type="submit" value="Enviar"/>
+
+</form>
+
 <h2>Preguntas Frecuentes</h2>
 Url: <code><?php bloginfo('url'); ?>/api/preguntas_frecuentes</code><br/><br/>
 <form action="<?php bloginfo('url'); ?>/api/preguntas_frecuentes" method="post" target="_blank">
