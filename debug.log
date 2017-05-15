@@ -802,3 +802,1544 @@ Stack trace:
 [15-May-2017 17:16:20 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
 [15-May-2017 17:16:20 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
 [15-May-2017 17:16:20 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 18:05:50 UTC] jp-sitemap-C4PCa: -- Updating...
+[15-May-2017 18:05:50 UTC] jp-sitemap-C4PCa: -- Building sitemap-1.xml
+[15-May-2017 18:05:50 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_sitemap
+[15-May-2017 18:05:50 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_sitemap_index
+[15-May-2017 18:05:50 UTC] jp-sitemap-C4PCa: -- Building image-sitemap-1.xml
+[15-May-2017 18:05:51 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_img_sitemap
+[15-May-2017 18:05:51 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_img_sitemap_index
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa: -- Building video-sitemap-1.xml
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_vid_sitemap
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa: -- Cleaning Up jp_vid_sitemap_index
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa: -- Building Master Sitemap.
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa: -- Finished.
+[15-May-2017 18:05:52 UTC] jp-sitemap-C4PCa:  3.932 seconds elapsed.
+[15-May-2017 18:14:56 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[15-May-2017 18:14:56 UTC] PHP Stack trace:
+[15-May-2017 18:14:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 18:14:56 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 18:14:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 18:14:56 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 18:14:56 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 18:14:56 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 18:14:56 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
+[15-May-2017 18:14:56 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[15-May-2017 18:14:56 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[15-May-2017 18:14:56 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[15-May-2017 18:14:56 UTC] PHP Stack trace:
+[15-May-2017 18:14:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 18:14:56 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 18:14:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 18:14:56 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 18:14:56 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 18:14:56 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 20:28:35 UTC] Error Unknown column 'ooption_name' in 'where clause' de la base de datos de WordPress para la consulta SELECT o.* FROM px_options o WHERE ooption_name = 'widget_wpcom_social_media_icons_widget' realizada por do_action('toplevel_page_wpw'), call_user_func_array, PIXAN_API_Settings->screen_main
+[15-May-2017 20:28:36 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[15-May-2017 20:28:36 UTC] PHP Stack trace:
+[15-May-2017 20:28:36 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 20:28:36 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 20:28:36 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 20:28:36 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 20:28:36 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 20:28:36 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 20:28:36 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
+[15-May-2017 20:28:36 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[15-May-2017 20:28:36 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[15-May-2017 20:28:37 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[15-May-2017 20:28:37 UTC] PHP Stack trace:
+[15-May-2017 20:28:37 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 20:28:37 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 20:28:37 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 20:28:37 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 20:28:37 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 20:28:37 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 20:41:38 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 312
+[15-May-2017 20:41:39 UTC] PHP Stack trace:
+[15-May-2017 20:41:39 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 20:41:39 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 20:41:39 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:41:39 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:51:26 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 20:51:26 UTC] PHP Stack trace:
+[15-May-2017 20:51:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 20:51:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 20:51:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:51:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:51:27 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 20:51:27 UTC] PHP Stack trace:
+[15-May-2017 20:51:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 20:51:27 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 20:51:27 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:51:27 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:52:07 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 308
+[15-May-2017 20:52:07 UTC] PHP Stack trace:
+[15-May-2017 20:52:07 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 20:52:07 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 20:52:07 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:52:07 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:52:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 308
+[15-May-2017 20:52:07 UTC] PHP Stack trace:
+[15-May-2017 20:52:07 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 20:52:07 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 20:52:07 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:52:07 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:53:34 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-webservices.php on line 187
+[15-May-2017 20:53:34 UTC] PHP Stack trace:
+[15-May-2017 20:53:34 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[15-May-2017 20:53:34 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[15-May-2017 20:53:34 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-May-2017 20:53:34 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-May-2017 20:53:34 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[15-May-2017 20:53:34 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:53:34 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:53:34 UTC] PHP   8. Pixan_Web_Service::get() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php(163) : runtime-created function:1
+[15-May-2017 20:53:34 UTC] PHP   9. Pixan_Web_Service->__construct() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:43
+[15-May-2017 20:53:34 UTC] PHP  10. Pixan_Web_Service->includes() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:65
+[15-May-2017 20:54:33 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-webservices.php on line 187
+[15-May-2017 20:54:33 UTC] PHP Stack trace:
+[15-May-2017 20:54:33 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[15-May-2017 20:54:33 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[15-May-2017 20:54:33 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-May-2017 20:54:33 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-May-2017 20:54:33 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[15-May-2017 20:54:33 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:54:33 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:54:34 UTC] PHP   8. Pixan_Web_Service::get() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php(163) : runtime-created function:1
+[15-May-2017 20:54:34 UTC] PHP   9. Pixan_Web_Service->__construct() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:43
+[15-May-2017 20:54:34 UTC] PHP  10. Pixan_Web_Service->includes() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:65
+[15-May-2017 20:55:34 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-webservices.php on line 187
+[15-May-2017 20:55:34 UTC] PHP Stack trace:
+[15-May-2017 20:55:34 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[15-May-2017 20:55:34 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[15-May-2017 20:55:34 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-May-2017 20:55:34 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-May-2017 20:55:34 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[15-May-2017 20:55:34 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:55:34 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:55:34 UTC] PHP   8. Pixan_Web_Service::get() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php(163) : runtime-created function:1
+[15-May-2017 20:55:34 UTC] PHP   9. Pixan_Web_Service->__construct() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:43
+[15-May-2017 20:55:34 UTC] PHP  10. Pixan_Web_Service->includes() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:65
+[15-May-2017 20:57:35 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-webservices.php on line 187
+[15-May-2017 20:57:35 UTC] PHP Stack trace:
+[15-May-2017 20:57:35 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[15-May-2017 20:57:35 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[15-May-2017 20:57:35 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-May-2017 20:57:35 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-May-2017 20:57:35 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[15-May-2017 20:57:35 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:57:35 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 20:57:35 UTC] PHP   8. Pixan_Web_Service::get() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php(163) : runtime-created function:1
+[15-May-2017 20:57:35 UTC] PHP   9. Pixan_Web_Service->__construct() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:43
+[15-May-2017 20:57:35 UTC] PHP  10. Pixan_Web_Service->includes() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:65
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Notice:  Undefined variable: link_username in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 319
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:01:26 UTC] PHP Stack trace:
+[15-May-2017 21:01:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:01:26 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:01:26 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:01:26 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP Deprecated:  Function split() is deprecated in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 309
+[15-May-2017 21:04:23 UTC] PHP Stack trace:
+[15-May-2017 21:04:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:04:23 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:04:23 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:04:23 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:15:23 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[15-May-2017 21:15:23 UTC] PHP Stack trace:
+[15-May-2017 21:15:23 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 21:15:24 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 21:15:24 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 21:15:24 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 21:15:24 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 21:15:24 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 21:15:24 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
+[15-May-2017 21:15:24 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[15-May-2017 21:15:24 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[15-May-2017 21:15:24 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[15-May-2017 21:15:24 UTC] PHP Stack trace:
+[15-May-2017 21:15:24 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[15-May-2017 21:15:24 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[15-May-2017 21:15:24 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 21:15:24 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[15-May-2017 21:15:24 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[15-May-2017 21:15:24 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-May-2017 21:21:20 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-webservices.php on line 207
+[15-May-2017 21:21:20 UTC] PHP Stack trace:
+[15-May-2017 21:21:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[15-May-2017 21:21:20 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[15-May-2017 21:21:20 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-May-2017 21:21:20 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-May-2017 21:21:20 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[15-May-2017 21:21:20 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:21:20 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:21:20 UTC] PHP   8. Pixan_Web_Service::get() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php(163) : runtime-created function:1
+[15-May-2017 21:21:20 UTC] PHP   9. Pixan_Web_Service->__construct() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:43
+[15-May-2017 21:21:20 UTC] PHP  10. Pixan_Web_Service->includes() C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\pixan_web_services.php:65
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:53 UTC] PHP Stack trace:
+[15-May-2017 21:23:53 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:53 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:53 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:53 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:54 UTC] PHP Stack trace:
+[15-May-2017 21:23:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:54 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:54 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:54 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:55 UTC] PHP Stack trace:
+[15-May-2017 21:23:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:55 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:55 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 313
+[15-May-2017 21:23:56 UTC] PHP Stack trace:
+[15-May-2017 21:23:56 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:23:56 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:23:56 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:23:56 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:01 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:01 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:01 UTC] PHP Stack trace:
+[15-May-2017 21:25:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:02 UTC] PHP Stack trace:
+[15-May-2017 21:25:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:02 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:02 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP Notice:  Undefined variable: value in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 315
+[15-May-2017 21:25:03 UTC] PHP Stack trace:
+[15-May-2017 21:25:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:25:03 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:25:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:25:03 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:48 UTC] PHP Notice:  Undefined variable: upload_dir in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 331
+[15-May-2017 21:36:48 UTC] PHP Stack trace:
+[15-May-2017 21:36:48 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:36:48 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:36:48 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:48 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:48 UTC] PHP Notice:  Undefined variable: upload_dir in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 331
+[15-May-2017 21:36:48 UTC] PHP Stack trace:
+[15-May-2017 21:36:49 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:36:49 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:36:49 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:49 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:49 UTC] PHP Notice:  Undefined variable: upload_dir in C:\wamp\www\pixan\wp-content\plugins\pixan-web-services\classes\class-pixan_api-settings.php on line 331
+[15-May-2017 21:36:49 UTC] PHP Stack trace:
+[15-May-2017 21:36:49 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[15-May-2017 21:36:49 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
+[15-May-2017 21:36:49 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[15-May-2017 21:36:49 UTC] PHP   4. PIXAN_API_Settings->screen_main() C:\wamp\www\pixan\wp-includes\plugin.php:525

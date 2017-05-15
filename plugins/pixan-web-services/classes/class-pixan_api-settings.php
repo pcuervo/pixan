@@ -300,6 +300,7 @@ Url: <code><?php bloginfo('url'); ?>/api/zonas_entrega</code><br/><br/>
 </form>
 
 <h2>Redes sociales</h2>
+
 Url: <code><?php bloginfo('url'); ?>/api/redes_sociales</code><br/><br/>
 <form action="<?php bloginfo('url'); ?>/api/redes_sociales" method="post" target="_blank">
 	

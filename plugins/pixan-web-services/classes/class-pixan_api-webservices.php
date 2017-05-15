@@ -53,6 +53,7 @@ class PIXAN_API_Web_services {
 		
 		add_action( 'pixan_api_webservice_zonas_entrega', array( $this, 'zonas_entrega' ) );
 		add_action( 'pixan_api_webservice_preguntas_frecuentes', array( $this, 'preguntas_frecuentes' ) );
+		add_action( 'pixan_api_webservice_redes_sociales', array( $this, 'redes_sociales' ) );
 		
 		add_action( 'pixan_api_webservice_update_user_meta', array( $this, 'update_user_meta' ) );
 		
@@ -170,6 +171,51 @@ class PIXAN_API_Web_services {
 		
 		PIXAN_API_Output::get()->output( true, 200, '', $zonas	);
 
+	}
+
+	public function redes_sociales(){
+		global $wpdb;
+		/*
+		$redes = $wpdb->get_results("SELECT o.* FROM ".$wpdb->prefix."options o WHERE ooption_name = 'widget_wpcom_social_media_icons_widget'");
+		var_dump($redes);
+		*/
+		$opti = get_option( 'widget_wpcom_social_media_icons_widget' );
+	    foreach ($opti as $op) {
+			if(is_array($op)) {
+				$este = $op;
+			}
+		}
+	    $redes = array();
+	    $upload_dir = wp_upload_dir();
+	    foreach ($este as $red => $username) {
+	    	$redname = explode("_", $red);
+	    	
+	    	if(isset($redname[1])) {
+		    	if($redname[1] == "username" && $username != '' ) {
+		    		$redname = explode("_", $red);
+					$link_username = $username;
+					$url = 'https://www.'.$redname[0].'.com/'.$link_username;
+					if ( 'googleplus' === $redname[0] && ! is_numeric( $username ) && substr( $username, 0, 1 ) !== '+'
+					) {
+						$link_username = '+' . $username;
+						$url = 'https://plus.google.com/u/0/'.$link_username.'/';
+					}
+					if ( 'youtube' === $redname[0] && 'UC' === substr( $username, 0, 2 ) ) {
+						$link_username = 'channel/' . $username;
+					} else if ( 'youtube' === $redname[0] ) {
+						$link_username = 'user/' . $username;
+					}
+			    	array_push($redes, array(
+						'nombre' 		=> $redname[0],
+						'titulo' 		=> ucfirst($redname[0]),
+						'url'			=> $url,
+						'icon'			=> $upload_dir['baseurl'].'/redes/'.$redname[0].'.png'
+					));
+			    }
+			}
+	    }
+	   	
+		PIXAN_API_Output::get()->output( true, 200, '', $redes	);
 	}
 
 	public function preguntas_frecuentes(){
