@@ -3,8 +3,8 @@ Contributors: emrevona
 Donate link: http://profiles.wordpress.org/emrevona/
 Tags: cache, performance, wp-cache, total cache, super cache
 Requires at least: 3.3
-Tested up to: 4.6
-Stable tag: 4.6
+Tested up to: 4.7.3
+Stable tag: 0.8.6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,8 +97,78 @@ Wpfc does not support Wordpress Multisite yet.
 15. Enter CDN Information
 16. File Types
 17. Specify Sources
+18. Database Cleanup
 
 == Changelog ==
+
+= 0.8.6.8 =
+* <strong>[FEATURE]</strong> Widget Cache [<a target="_blank" href="http://www.wpfastestcache.com/premium/widget-cache-reduce-the-number-of-sql-queries/">Details</a>]
+* to add browser cache for woff2
+* to fix Woocommerce basket issue
+* to serve the sources via cdn for logged-in users
+* to prevent removing "=" from exclude rules
+* to change <FilesMatch "\.(html|htm)"> to <FilesMatch "index\.(html|htm)">
+* to fix problem about random url of photon
+* to replace origin-url which starts with /wp-content with cdn-url
+* to replace wp_get_recent_posts() with get_results() for preload
+* to replace the attribute which are data-srcsmall|data-srclarge|data-srcfull with cdn-url
+* <strong>[FEATURE]</strong> Compatible with WP Hide & Security Enhancer
+
+= 0.8.6.7 =
+* to escape spaces in path for htaccess
+* to fix the error of htaccess not writeable warning
+* <strong>[FEATURE]</strong> WP AMP — Accelerated Mobile Pages for WordPress and WooCommerce
+* <strong>[FEATURE]</strong> to support webp for leverage browser caching
+* <strong>[FEATURE]</strong> to exclude REST API url which start with /wp-json
+* <strong>[FEATURE]</strong> Google Fonts Async [<a target="_blank" href="http://www.wpfastestcache.com/premium/google-fonts-optimize-css-delivery/">Details</a>]
+* <strong>[FEATURE]</strong> Random option for Photon CDN
+
+= 0.8.6.6 =
+* to make compatible with the new rules of wordpress
+* <strong>[FEATURE]</strong> Database Cleanup [<a target="_blank" href="http://www.wpfastestcache.com/premium/database-cleanup-speed-up-databases/">Details</a>]
+* to decode URLs in non-latin languages for singleDeleteCache()
+* to change the method of the premium update <a href="http://www.wpfastestcache.com/blog/premium-update-before-v1-3-6/">Details</a>
+
+= 0.8.6.5 =
+* <strong>[FEATURE]</strong> Compatible with GTranslate
+* to exclude avada-dynamic-css-css for css optimizations
+* to compatible with Safir Mobile theme
+* to update htaccess after activation
+* <strong>[FEATURE]</strong> Compatible with Caldera Forms
+* to prevent 404 errors for non-existent minified files
+* to clear the cache of post cats and the cache of post tags after update post
+
+= 0.8.6.4 =
+* <strong>[FEATURE]</strong> Compatible with kk Star Ratings
+* to add aac, mp3, ogg extension for CDN
+* to serve wp-emoji-release.min.js via cdn if CDN integration has been added
+* not to show the cache for comment authors
+* to show how to enable gzip warning for Nginx
+* to fix the check cdn-url issue which is cURL error 6: Couldn't resolve host 
+* to check http_response_code is 503 or not if DONOTCACHEPAGE is set
+* to fix the warnings about clearing cache
+* to fix the issue if a js source is called as ?site=site.com
+
+= 0.8.6.3 =
+* to be able to hide toolbar [<a target="_blank" href="http://www.wpfastestcache.com/features/hide-toolbar-link/">Details</a>]
+* <strong>[FEATURE]</strong> Compatible with Yet Another Stars Rating
+* <strong>[FEATURE]</strong> Cache Timeout with Hour and Minute [<a target="_blank" href="http://www.wpfastestcache.com/features/cache-timeout-with-hour-and-minute/">Details</a>]
+* to add style for manually preload
+* to fix htaccess popup
+* <strong>[FEATURE]</strong>  exclude cookie
+
+= 0.8.6.2 =
+* to update user-agents with Microsoft Edge
+* to fix duplicate menu problem
+* to create /cache/index.html for security
+* to create /cache/wpfc-minified/index.html for security
+* to execute render blocking js before css and js (premium)
+* to fix Undefined variable: trailing_slash_rule
+* <strong>[FEATURE]</strong> Clear Cache for Specific Page [<a target="_blank" href="http://www.wpfastestcache.com/tutorial/clear-cache-for-specific-page/">Details</a>]
+* to add http_host condition into htaccess
+* <strong>[FEATURE]</strong> Compatible with Mailchimp mc4wp.com
+* <strong>[FEATURE]</strong> Compatible with Hide My WP [<a target="_blank" href="http://www.wpfastestcache.com/features/hide-my-wp/">Details</a>]
+* <strong>[FEATURE]</strong> Compatible with AMP
 
 = 0.8.6.1 =
 * <strong>[FEATURE]</strong>  exclude css sources
@@ -176,7 +246,6 @@ Wpfc does not support Wordpress Multisite yet.
 * WAP-Browser has been added into mobile user agent list
 * to prevent 404 error for wpfc-minified after clearing minified files
 * <strong>[FEATURE]</strong> to add any cdn provider
-* <strong>[FEATURE]</strong> WPFC_DELETE_ALL_CACHE_AFTER_UPDATE has been added
 * to prevent from xss attacks (Brendon Boshell)
 * to clear the cache of homepage after update static page
 * to clear the cache of homepage after update sticky page
@@ -525,63 +594,27 @@ Wpfc does not support Wordpress Multisite yet.
 
 = 0.7 =
 * <strong>[FEATURE]</strong> works with Wordfence properly
-
-= 0.6.9 =
 * <strong>[FEATURE]</strong> 404 pages are not cached
-
-= 0.6.8 =
 * urls which includes words that wp-content, wp-admin, wp-includes are not cached
 * The issue about cache timeout has been solved
-
-= 0.6.7 =
 * <strong>[FEATURE]</strong> Cache Timeout has been added
-
-= 0.6.6 =
 * <strong>[FEATURE]</strong> Spanish language has been added
-
-= 0.6.5 =
 * <strong>[FEATURE]</strong> Minify html
-
-= 0.6.4 =
 * <strong>[FEATURE]</strong> Supported languages: Russian, Ukrainian and Turkish
-
-= 0.6.3 =
 * <strong>[FEATURE]</strong> "Block Cache For Posts and Pages" has been added as a icon for TinyMCE and  Quicktags editor
-
-= 0.6.2 =
 * Cache file is not created if the file is exist
-
-= 0.6.1 =
 * Cached files are deleted after deactivation of the plugin
 
 = 0.6 =
 * Cached file is not updated after comment because of security reasons
-
-= 0.5.9 =
 * Checking corruption of html
-
-= 0.5.8 =
 * Creation time of file has been added
-
-= 0.5.7 =
 * "Not cached version" text has been removed
-
-= 0.5.6 =
 * Some style changes
-
-= 0.5.5 =
 * System works under sub wp sites
-
-= 0.5.4 =
 * Plugin URI has been added
-
-= 0.5.3 =
 * Dir path has been removed from not cached version 
-
-= 0.5.2 =
 * Some styles changes
-
-= 0.5.1 =
 * Some styles changes
 
 = 0.5 =
@@ -622,7 +655,7 @@ Yes, it is compatible with Http Secure (https).
 Yes, it is compatible with Adsense 100%.
 
 = Is this plugin compatible with CloudFlare? =
-Yes, it is compatible with CloudFlare 100%. If the "minify html" option is active on CloudFlare, the minify system removed the comment from html so you cannot see the comment of Wpfc at the bottom of the page and you cannot be sure that it works or not. In this case, you need to look at the style files. You can see the minified css files.
+Yes, it is but you need to read the details. <a href="http://www.wpfastestcache.com/tutorial/wp-fastest-cache-cloudflarecloudfront/">Click</a>
 
 = Is this plugin compatible with WP-Polls? =
 Yes, it is compatible with WP-Polls 100%.

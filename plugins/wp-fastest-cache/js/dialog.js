@@ -8,7 +8,7 @@ var Wpfc_Dialog = {
 
 		jQuery("#" + id).show();
 		
-		if(jQuery.ui.draggable){jQuery("#" + id).draggable();}
+		jQuery("#" + id).draggable();
 
 		jQuery("#" + id).position({my: "center", at: "center", of: window});
 

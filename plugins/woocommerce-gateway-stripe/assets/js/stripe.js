@@ -2,6 +2,8 @@
 Stripe.setPublishableKey( wc_stripe_params.key );
 
 jQuery( function( $ ) {
+	'use strict';
+
 	/* Open and close for legacy class */
 	$( 'form.checkout, form#order_review' ).on( 'change', 'input[name="wc-stripe-payment-token"]', function() {
 		if ( 'new' === $( '.stripe-legacy-payment-fields input[name="wc-stripe-payment-token"]:checked' ).val() ) {
@@ -62,6 +64,10 @@ jQuery( function( $ ) {
 				.on(
 					'stripeError',
 					this.onError
+				)
+				.on(
+					'checkout_error',
+					this.clearToken
 				);
 		},
 
@@ -90,12 +96,24 @@ jQuery( function( $ ) {
 		onError: function( e, responseObject ) {
 			var message = responseObject.response.error.message;
 
-			if ( wc_stripe_params.hasOwnProperty( responseObject.response.error.code ) ) {
+			// Customers do not need to know the specifics of the below type of errors
+			// therefore return a generic localizable error message.
+			if ( 
+				'invalid_request_error' === responseObject.response.error.type ||
+				'api_connection_error'  === responseObject.response.error.type ||
+				'api_error'             === responseObject.response.error.type ||
+				'authentication_error'  === responseObject.response.error.type ||
+				'rate_limit_error'      === responseObject.response.error.type
+			) {
+				message = wc_stripe_params.invalid_request_error;
+			}
+
+			if ( 'card_error' === responseObject.response.error.type && wc_stripe_params.hasOwnProperty( responseObject.response.error.code ) ) {
 				message = wc_stripe_params[ responseObject.response.error.code ];
 			}
 
-			$( '.woocommerce-error, .stripe_token' ).remove();
-			$( '#stripe-card-number' ).closest( 'p' ).before( '<ul class="woocommerce_error woocommerce-error"><li>' + message + '</li></ul>' );
+			$( '.wc-stripe-error, .stripe_token' ).remove();
+			$( '#stripe-card-number' ).closest( 'p' ).before( '<ul class="woocommerce_error woocommerce-error wc-stripe-error"><li>' + message + '</li></ul>' );
 			wc_stripe_form.unblock();
 		},
 
@@ -112,12 +130,12 @@ jQuery( function( $ ) {
 					data       = {
 						number   : card,
 						cvc      : cvc,
-						exp_month: parseInt( expires['month'], 10 ) || 0,
-						exp_year : parseInt( expires['year'], 10 ) || 0
+						exp_month: parseInt( expires.month, 10 ) || 0,
+						exp_year : parseInt( expires.year, 10 ) || 0
 					};
 
 				if ( first_name && last_name ) {
-					data.name = first_name + ' ' + last_name
+					data.name = first_name + ' ' + last_name;
 				}
 
 				if ( $( '#billing_address_1' ).length > 0 ) {
@@ -144,7 +162,7 @@ jQuery( function( $ ) {
 		},
 
 		onCCFormChange: function() {
-			$( '.woocommerce-error, .stripe_token' ).remove();
+			$( '.wc-stripe-error, .stripe_token' ).remove();
 		},
 
 		onStripeResponse: function( status, response ) {
@@ -161,12 +179,16 @@ jQuery( function( $ ) {
 				}
 
 				// token contains id, last4, and card type
-				var token = response['id'];
+				var token = response.id;
 
 				// insert the token into the form so it gets submitted to the server
 				wc_stripe_form.form.append( "<input type='hidden' class='stripe_token' name='stripe_token' value='" + token + "'/>" );
 				wc_stripe_form.form.submit();
 			}
+		},
+
+		clearToken: function() {
+			$( '.stripe_token' ).remove();
 		}
 	};
 

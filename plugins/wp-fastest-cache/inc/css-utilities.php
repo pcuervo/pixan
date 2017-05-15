@@ -95,14 +95,15 @@
 						$combined_link = "";
 
 						$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".$combined_name;
-						$cssLink = str_replace(array("http:", "https:"), "", content_url())."/cache/wpfc-minified/".$combined_name;
-
-						$GLOBALS["wp_fastest_cache"]->images_in_css["name"] = $GLOBALS["wp_fastest_cache"]->images_in_css["name"].$cachFilePath;
+						$cssLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL)."/cache/wpfc-minified/".$combined_name;
 
 						if(is_dir($cachFilePath)){
 							if($cssFiles = @scandir($cachFilePath, 1)){
-
 								$combined_link = '<link rel="stylesheet" type="text/css" href="'.$cssLink."/".$cssFiles[0].'" media="'.$group_value[0]["media"].'"/>';
+
+								if($css_content = $this->wpfc->read_file($cssLink."/".$cssFiles[0])){
+									$combined_link = $this->to_inline($combined_link, $css_content);
+								}
 							}
 						}else{
 							$combined_css = $this->create_content(array_reverse($group_value));
@@ -114,13 +115,14 @@
 									$combined_css = preg_replace_callback("/(url)\(([^\)]+)\)/i", array($this->wpfc, 'cdn_replace_urls'), $combined_css);
 								}
 
-								$GLOBALS["wp_fastest_cache"]->set_images_in_css($combined_css);
 
 								$this->wpfc->createFolder($cachFilePath, $combined_css, "css", time(), true);
 								
 								if(is_dir($cachFilePath)){
 									if($cssFiles = @scandir($cachFilePath, 1)){
 										$combined_link = '<link rel="stylesheet" type="text/css" href="'.$cssLink."/".$cssFiles[0].'" media="'.$group_value[0]["media"].'"/>';
+
+										$combined_link = $this->to_inline($combined_link, $combined_css);
 									}
 								}
 							}
@@ -163,7 +165,7 @@
 		public function create_name($arr){
 			$name = "";
 			foreach ($arr as $tag_key => $tag_value) {
-				$name = $name.$tag_value["href"];
+				$name = $name.$this->remove_query_string($tag_value["href"]);
 			}
 			return md5($name);
 		}
@@ -184,16 +186,14 @@
 							$minifiedCss = $this->minify($href);
 
 							if($minifiedCss){
-								$GLOBALS["wp_fastest_cache"]->set_images_in_css($minifiedCss["cssContent"]);
-
 								$prefixLink = str_replace(array("http:", "https:"), "", $minifiedCss["url"]);
 								$text = preg_replace("/href\=[\"\'][^\"\']+[\"\']/", "href='".$prefixLink."'", $text);
 
+								$text = $this->to_inline($text, $minifiedCss["cssContent"]);
+
 								$this->html = substr_replace($this->html, $text, $value["start"], ($value["end"] - $value["start"] + 1));
 
-								$GLOBALS["wp_fastest_cache"]->images_in_css["name"] = $GLOBALS["wp_fastest_cache"]->images_in_css["name"].md5($minifiedCss["url"]);
 							}
-
 
 						}
 					}
@@ -201,6 +201,24 @@
 			}
 
 			return $this->html;
+		}
+
+		public function to_inline($link, $css_content){
+			if(!isset($GLOBALS["wp_fastest_cache_options"]->wpFastestCacheRenderBlocking)){
+				return $link;
+			}
+
+			if(!preg_match("/\smedia\=[\'\"]all[\'\"]/i", $link)){
+				return $link;
+			}
+
+			if(isset($css_content["11000"])){
+				return $link;
+			}
+
+			$link = "<style>".$css_content."</style>";
+
+			return $link;
 		}
 
 		public function tags_reorder(){
@@ -222,14 +240,24 @@
 
 		public function set_except_tags(){
 			$comment_tags = $this->find_tags("<!--", "-->");
-			$noscript_tags = $this->find_tags("<noscript", "</noscript>");
 
 			foreach ($comment_tags as $key => $value) {
 				$this->except = $value["text"].$this->except;
 			}
 
-			foreach ($noscript_tags as $key => $value) {
-				$this->except = $value["text"].$this->except;
+			// to execute if html contains <noscript> tag
+			if(preg_match("/<noscript/i", $this->html)){
+				$noscript_tags = $this->find_tags("<noscript", "</noscript>");
+
+				foreach ($noscript_tags as $key => $value) {
+					$this->except = $value["text"].$this->except;
+
+					if(isset($GLOBALS["wp_fastest_cache_options"]->wpFastestCacheLazyLoad)){
+						// to set noscript for lazy load
+						// <noscript><img src="http://google.com/image.jpg"></noscript>
+						$GLOBALS["wp_fastest_cache"]->noscript = $value["text"].$GLOBALS["wp_fastest_cache"]->noscript;
+					}
+				}
 			}
 
 			// $("head").append( "<link rel='stylesheet' id='ms-fonts'  href='//fonts.googleapis.com/css?family=Exo+2:regular' type='text/css' media='all' />" );
@@ -247,6 +275,11 @@
 			$link_tags = $this->find_tags("<link", ">");
 
 			foreach ($link_tags as $key => $value) {
+				//<link rel='stylesheet' id='avada-dynamic-css-css'  href='/wp-content/uploads/avada-styles/avada-9.css?timestamp=1485306359&#038;ver=4.7.2' type='text/css' media='all' />
+				if(preg_match("/avada-dynamic-css-css/", $value["text"])){
+					continue;
+				}
+
 				preg_match("/media\=[\'\"]([^\'\"]+)[\'\"]/", $value["text"], $media);
 				preg_match("/href\=[\'\"]([^\'\"]+)[\'\"]/", $value["text"], $href);
 
@@ -296,11 +329,19 @@
 			return $list;
 		}
 
+		public function remove_query_string($url){
+			$url = preg_replace("/^(\/\/|http\:\/\/|https\:\/\/)(www\.)?/", "", $url);
+			$url = preg_replace("/\?.*/", "", $url);
+			
+			return $url;
+		}
+
 		public function minify($url){
 			$this->url = $url;
+			$md5 = md5($this->remove_query_string($url));
 
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".md5($url);
-			$cssLink = content_url()."/cache/wpfc-minified/".md5($url);
+			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".$md5;
+			$cssLink = WPFC_WP_CONTENT_URL."/cache/wpfc-minified/".$md5;
 
 			if(is_dir($cachFilePath)){
 				if($cssFiles = @scandir($cachFilePath, 1)){

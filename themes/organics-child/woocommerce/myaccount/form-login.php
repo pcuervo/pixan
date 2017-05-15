@@ -54,8 +54,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="form-row">
 				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Iniciar sesión', 'woocommerce' ); ?>" />
+				<div class="[ clearfix ]"></div>
 				<label for="rememberme" class="inline">
-					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Recordarme', 'woocommerce' ); ?>
+					<input class="[ width--20 ][ vertical-align--middle ] woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Recordarme', 'woocommerce' ); ?>
 				</label>
 			</p>
 			<p class="woocommerce-LostPassword lost_password">
@@ -88,11 +89,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</p>
 
 			<?php endif; ?>
-			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-first">
 				<label for="reg_firstname"><?php _e( 'Nombre', 'woocommerce' ); ?> <span class="required">*</span></label>
 				<input type="text" id="registration_firstname" name="registration_firstname"  value="<?php if ( ! empty( $_POST['registration_firstname'] ) ) echo esc_attr( $_POST['registration_firstname'] ); ?>" placeholder="<?php esc_attr_e('Nombre(s) ', 'organics'); ?>">
 			</p>
-			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-last">
 				<label for="reg_lastname"><?php _e( 'Apellido', 'woocommerce' ); ?> <span class="required">*</span></label>
 				<input type="text" id="registration_lastname" name="registration_lastname"  value="<?php if ( ! empty( $_POST['registration_lastname'] ) ) echo esc_attr( $_POST['registration_lastname'] ); ?>" placeholder="<?php esc_attr_e('Apellido(s) ', 'organics'); ?>">
 			</p>
@@ -106,7 +107,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="registration_pwd" id="registration_pwd" />
-
 				</p>
 
 			<?php endif; ?>

@@ -6,20 +6,24 @@ class Jetpack_Sync_Settings {
 	const SETTINGS_OPTION_PREFIX = 'jetpack_sync_settings_';
 
 	static $valid_settings = array(
-		'dequeue_max_bytes'    => true,
-		'upload_max_bytes'     => true,
-		'upload_max_rows'      => true,
-		'sync_wait_time'       => true,
-		'sync_wait_threshold'  => true,
-		'max_queue_size'       => true,
-		'max_queue_lag'        => true,
-		'queue_max_writes_sec' => true,
-		'post_types_blacklist' => true,
-		'disable'              => true,
+		'dequeue_max_bytes'       => true,
+		'upload_max_bytes'        => true,
+		'upload_max_rows'         => true,
+		'sync_wait_time'          => true,
+		'sync_wait_threshold'     => true,
+		'enqueue_wait_time'       => true,
+		'max_queue_size'          => true,
+		'max_queue_lag'           => true,
+		'queue_max_writes_sec'    => true,
+		'post_types_blacklist'    => true,
+		'disable'                 => true,
 		'render_filtered_content' => true,
-		'post_meta_whitelist' => true,
-		'comment_meta_whitelist' => true,
-		'avoid_wp_cron'        => true,
+		'post_meta_whitelist'     => true,
+		'comment_meta_whitelist'  => true,
+		'max_enqueue_full_sync'   => true,
+		'max_queue_size_full_sync'=> true,
+		'sync_via_cron'           => true,
+		'cron_sync_time_limit'    => true,
 	);
 
 	static $is_importing;
@@ -66,7 +70,7 @@ class Jetpack_Sync_Settings {
 				$default_array_value = Jetpack_Sync_Defaults::$blacklisted_post_types;
 				break;
 			case 'post_meta_whitelist':
-				$default_array_value = Jetpack_Sync_Defaults::$post_meta_whitelist;
+				$default_array_value = Jetpack_Sync_Defaults::get_post_meta_whitelist();
 				break;
 			case 'comment_meta_whitelist':
 				$default_array_value = Jetpack_Sync_Defaults::$comment_meta_whitelist;
@@ -158,7 +162,7 @@ class Jetpack_Sync_Settings {
 	}
 
 	static function is_syncing() {
-		return (bool) self::$is_syncing;
+		return (bool) self::$is_syncing || ( defined( 'REST_API_REQUEST' ) && REST_API_REQUEST );
 	}
 
 	static function set_is_syncing( $is_syncing ) {

@@ -40,6 +40,16 @@ add_action( 'wp_enqueue_scripts', function(){
 });
 
 
+function wooc_extra_register_fields() {?>
+       <p class="form-row form-row-wide">
+			<label for="registration_agree">
+				<input type="checkbox" value="agree" id="registration_agree" name="registration_agree" class="[ width--20 ][ vertical-align--middle ]" required="">
+				<?php esc_html_e('Estoy de acuerdo con los ', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a>
+			</label>
+       </p>
+       <?php
+ }
+ add_action( 'woocommerce_register_form', 'wooc_extra_register_fields' );
 
 
 ?>

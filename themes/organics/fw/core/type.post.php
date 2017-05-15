@@ -25,7 +25,7 @@ if (!function_exists('organics_post_theme_setup')) {
 			add_filter('organics_filter_post_save_custom_options',		'organics_post_save_custom_options', 10, 3);
 			add_filter('organics_filter_post_show_custom_field_option',	'organics_post_show_custom_field_option', 10, 4);
 		}
-		
+
 		// Detect current page type, taxonomy and title
 		add_filter('organics_filter_get_blog_type',						'organics_post_get_blog_type', 10, 2);
 		add_filter('organics_filter_get_blog_title',					'organics_post_get_blog_title', 10, 2);
@@ -228,7 +228,7 @@ if (!function_exists('organics_post_after_show_meta_box')) {
 if (!function_exists('organics_post_load_custom_options')) {
 	//add_filter('organics_filter_post_load_custom_options', 'organics_post_load_custom_options', 10, 3);
 	function organics_post_load_custom_options($custom_options, $post_type, $post_id) {
-		if (isset($custom_options['reviews_marks'])) 
+		if (isset($custom_options['reviews_marks']))
 			$custom_options['reviews_marks'] = organics_reviews_marks_to_display($custom_options['reviews_marks']);
 		return $custom_options;
 	}
@@ -373,7 +373,7 @@ if ( !function_exists( 'organics_post_get_blog_title' ) ) {
 	//add_filter('organics_filter_get_blog_title',	'organics_post_get_blog_title', 10, 2);
 	function organics_post_get_blog_title($title, $page) {
 		if (!empty($title)) return $title;
-		
+
 		if ( $page == 'blog' )
 			$title = esc_html__( 'All Posts', 'organics' );
 		else if ( $page == 'author' ) {
@@ -382,7 +382,7 @@ if ( !function_exists( 'organics_post_get_blog_title' ) ) {
 		} else if ( $page == 'error404' )
 			$title = esc_html__('URL not found', 'organics');
 		else if ( $page == 'search' )
-			$title = sprintf( esc_html__( 'Search: %s', 'organics' ), get_search_query() );
+			$title = sprintf( esc_html__( 'Búsqueda: %s', 'organics' ), get_search_query() );
 		else if ( $page == 'archives_day' )
 			$title = sprintf( esc_html__( 'Daily Archives: %s', 'organics' ), organics_get_date_translations(get_the_date()) );
 		else if ( $page == 'archives_month' )
@@ -463,7 +463,7 @@ if ( !function_exists( 'organics_post_is_taxonomy' ) ) {
 	function organics_post_is_taxonomy($tax, $query=null) {
 		if (!empty($tax))
 			return $tax;
-		else 
+		else
 			return $query && $query->is_category() || is_category() ? 'category' : '';
 	}
 }
@@ -475,8 +475,8 @@ if ( !function_exists( 'organics_post_get_period_links' ) ) {
 		if (!empty($links)) return $links;
 		global $post;
 		if (in_array($page, array('archives_day', 'archives_month')) && is_object($post)) {
-			$year  = get_the_time('Y'); 
-			$month = get_the_time('m'); 
+			$year  = get_the_time('Y');
+			$month = get_the_time('m');
 			$links = '<a class="breadcrumbs_item cat_parent" href="' . get_year_link( $year ) . '">' . ($year) . '</a>';
 			if ($page == 'archives_day')
 				$links .= (!empty($links) ? $delimiter : '') . '<a class="breadcrumbs_item cat_parent" href="' . esc_url(get_month_link( $year, $month )) . '">' . trim(organics_get_date_translations(get_the_date('F'))) . '</a>';
