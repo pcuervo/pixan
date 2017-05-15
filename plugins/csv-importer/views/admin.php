@@ -51,6 +51,167 @@ $import = AitImport::get_instance();
 		}
 		
 	}
+
+	if(isset($_FILES["posts_csv_ajuste"]) && isset($_POST["type"])) {
+		$ext = explode('.', $_FILES["posts_csv_ajuste"]['name']);
+		if ($_FILES["posts_csv_ajuste"]["error"] > 0 || $ext[count($ext)-1] != 'csv') {
+			echo '<div class="error"><p>'.__('Incorrect CSV file').'. Por favor intente de nuevo con un archivo correcto.</p></div>';
+		} else {
+			$import->import_csv_ajuste($_POST["type"],$_FILES["posts_csv_ajuste"]['tmp_name'],$_POST["duplicate"], $_FILES["posts_csv_ajuste"]['name']);
+		}
+		
+	}
+
+	// eliminar una carga con todos sus articulos
+	if(isset($_POST["deshacer"]) && isset($_POST["bulk_id"]) && isset($_POST["deshacer_confirmar"]) ) {
+		$import->deshacer_carga($_POST["bulk_id"]);
+	}
+
+	// eliminar un registro de alguna de las cargas
+	if(isset($_POST["eliminar_detalle"]) && isset($_POST["bulk_id"]) && isset($_POST["post_id"]) && isset($_POST["cantidad"]) ) {
+		$import->eliminar_detalle($_POST["bulk_id"], $_POST["post_id"], $_POST["cantidad"]);
+	}
+
+	// eliminar un registro de alguna de las cargas
+	if(isset($_POST["restaurar_detalle"]) && isset($_POST["bulk_id"]) && isset($_POST["post_id"]) && isset($_POST["cantidad"]) ) {
+		$import->restaurar_detalle($_POST["bulk_id"], $_POST["post_id"], $_POST["cantidad"]);
+	}
+
+	global $wpdb;
+
+		if((isset($_POST["detalle"]) && isset($_POST["bulk_id"])) || (isset($_POST["eliminar_detalle"]) || isset($_POST["restaurar_detalle"]))) {
+			$bulk_detail = $wpdb->get_results("SELECT bld.* FROM ".$wpdb->prefix."bulk_load_detail bld WHERE bld.bulk_load_id = ".$_POST["bulk_id"]);
+
+			if(!empty( $bulk_detail )) {
+				echo '<div class="import-custom-type metabox-holder">';		
+				echo '<div class="import-options postbox">';
+				echo '<button type="button" class="handlediv button-link" aria-expanded="true"><span class="screen-reader-text">Alternar panel: Actividad</span><span class="toggle-indicator" aria-hidden="true"></span></button>';
+				echo '<h3 class="hndle"><span>DETALLE DE LA CARGA ID: '.$_POST["bulk_id"].'</span></h3>';
+				echo '<div class="inside">';
+				echo '<table style="width:100%;">';
+				echo '<thead>
+							<th width="30%" style="text-align:left;">Nombre</th>
+							<th width="20%" style="text-align:left;">Comentarios</th>
+							<th width="15%" style="text-align:center;">SKU</th>
+							<th width="5%" style="text-align:center;">Cantidad</th>
+							<th width="10%" style="text-align:center;">Acciones</th>
+						</thead>';
+				echo '<tbody>';
+				foreach ($bulk_detail as $detail) {
+					$produ = get_post($detail->post_id);
+					$stilo = '';
+					if($detail->status == '1') { $stilo = 'background-color:#dc3232'; }
+					if($detail->status == '0') { $stilo = 'background-color:#ffb900'; }
+					
+					echo '<tr >';
+					echo '<td>'.$produ->post_title.'</td>';
+					echo '<td>'.$detail->comentarios.'</td>';
+					echo '<td>'.$detail->sku.'</td>';
+					echo '<td style="text-align:center;">'.$detail->cantidad.'</td>';
+					echo '<td style="text-align:center;">
+							<form action="admin.php?page=ait-import" method="post">';
+								if($detail->status == '1') {  
+									echo '<input style="'.$stilo.'" class="btn button " id="btnSendToSystem" type="submit" value="ELIMINAR">';
+									echo '<input type="hidden" name="eliminar_detalle" >';
+								}
+								else {
+									echo '<input style="'.$stilo.'" class="btn button " id="btnSendToSystem" type="submit" value="RESTAURAR">';
+									echo '<input type="hidden" name="restaurar_detalle" >';
+								}
+								echo '<input type="hidden" name="bulk_id" value="'.$_POST["bulk_id"].'" >
+								<input type="hidden" name="post_id" value="'.$detail->post_id.'" >
+								<input type="hidden" name="cantidad" value="'.$detail->cantidad.'" >
+							</form>
+						</td>';
+					echo '</tr>';
+				}
+				echo '</tbody></table></div></div></div>';
+			}
+			else {
+				echo '<div class="error"><p>No se encontro ningun registro de productos para la carga con ID  '.$_POST["bulk_id"].'. <br /></div>';
+			}
+
+		}
+
+	if((isset($_POST["vercargas"])) || (isset($_POST["detalle"]) && isset($_POST["bulk_id"])) || (isset($_POST["eliminar_detalle"]) || isset($_POST["restaurar_detalle"])) || isset($_POST["deshacer"]) ){
+		$bulks = $wpdb->get_results("SELECT bl.*, (select count(bulk_load_id) from ".$wpdb->prefix."bulk_load_detail where bulk_load_id = bl.id) as registros FROM ".$wpdb->prefix."bulk_load bl WHERE bl.status = '1'");
+					
+		if(!empty( $bulks )) {
+			foreach ($bulks as $bulk) {
+				echo '<div class="error">
+					
+						<table style="width:100%;">
+							<thead>
+								<th width="5%">ID</th>
+								<th width="10%">Fecha</th>
+								<th width="40%">Archivo</th>
+								<th width="10%">Registros</th>
+								<th width="35%">Acciones</th>
+							</thead>
+							<tbody>
+								<th>'.$bulk->id.'</th>
+								<th>'.$bulk->date.'</th>
+								<th>'.$bulk->file.'</th>
+								<th>'.$bulk->registros.'</th>
+								<th>';
+								if(isset($_POST["deshacer"]) && isset($_POST["bulk_id"])) {
+									echo '<h4>¿Estas seguro que deseas eliminar esta carga?</h4>';
+									echo '<form action="admin.php?page=ait-import" method="post">
+										<input class="btn button button-primary" style="background-color:#ffb900;" id="btnSendToSystem" type="submit" value="CONFIRMAR">
+										<input type="hidden" name="deshacer" >
+										<input type="hidden" name="deshacer_confirmar" >
+										<input type="hidden" name="bulk_id" value="'.$bulk->id.'" >
+									</form>
+									<form action="admin.php?page=ait-import" method="post">
+										<input class="btn button button-primary" id="btnSendToSystem" type="submit" value="CANCELAR">
+									</form>';
+								}
+								else {
+									if(isset($_POST["enviar"]) && isset($_POST["bulk_id"])) {
+										echo '<h4>¿Estas seguro que deseas enviar los registros de esta al SIL?</h4>';
+										echo '<form action="admin.php?page=ait-import" method="post">
+											<input class="btn button button-primary" style="background-color:#ffb900;" id="btnSendToSystem" type="submit" value="CONFIRMAR">
+											<input type="hidden" name="enviar" >
+											<input type="hidden" name="enviar_confirmar" >
+											<input type="hidden" name="bulk_id" value="'.$bulk->id.'" >
+										</form>
+										<form action="admin.php?page=ait-import" method="post">
+											<input class="btn button button-primary" id="btnSendToSystem" type="submit" value="CANCELAR">
+										</form>';
+									}
+									else {
+										echo '<form action="admin.php?page=ait-import" method="post">
+													<input class="btn button button-primary" id="btnSendToSystem" type="submit" value="DETALLE DE LA CARGA">
+													<input type="hidden" name="detalle" >
+													<input type="hidden" name="bulk_id" value="'.$bulk->id.'" >
+												</form>
+												<form action="'.AIT_IMPORT_PLUGIN_URL . 'load-report.php" method="post">
+													<input class="btn button button-primary" id="btnSendToSystem" type="submit" value="REPORTE DE LA CARGA">
+													<input type="hidden" name="reporte_carga" >
+													<input type="hidden" name="bulk_id" value="'.$bulk->id.'" >
+												</form>
+												<form action="admin.php?page=ait-import" method="post">
+													<input class="btn button button-primary" id="btnSendToSystem" type="submit" value="DESHACER CARGA">
+													<input type="hidden" name="deshacer" >
+													<input type="hidden" name="bulk_id" value="'.$bulk->id.'" >
+												</form>';
+									}
+								}
+								echo '</th>
+							</tbody>
+						</table>
+						</p>
+						
+					</form>
+				</div>';
+			}
+			
+			
+		}
+		else {
+			echo '<div class="updated"><p>Todos los artículos estan actualizados en el sistema.</p></div>';
+		}
+	}
 	?>
 
 	<div class="import-settings metabox-holder">
@@ -80,6 +241,20 @@ $import = AitImport::get_instance();
 
 			</div>
 
+		</div>
+	</div>
+
+	<div class="import-settings metabox-holder">
+		<div class="import-options postbox">
+			<div class="inside">
+				<div class="handlediv" title="Click to toggle"><br></div>
+					
+						<form action="admin.php?page=ait-import" method="post">
+							<input type="hidden" name="vercargas" >
+							<input class="btn button button-primary" id="btnVerCargas" type="submit" value="VER CARGAS ANTERIORES">
+						</form>
+					
+			</div>
 		</div>
 	</div>
 
@@ -149,8 +324,24 @@ $import = AitImport::get_instance();
 					
 					</form>
 				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+	<div class=" metabox-holder">
+		<div class="import-options postbox">
+
+			<div class="handlediv" title="Click to toggle"><br></div>
+
+			<h3 class="hndle"><span><?php _e('Ajuste de inventario'); ?></span></h3>
+
+			<div class="inside">
+
+				
 				<!-- AJUSTES DE INVENTARIO -->
-				<div style="border: 1px solid; padding: 10px;">
+				<div style="">
 					<form  action="<?php echo AIT_IMPORT_PLUGIN_URL . 'download.php'; ?>" method="post">
 						
 						<h3>Ajustes de inventario</h3>
@@ -164,19 +355,9 @@ $import = AitImport::get_instance();
 							
 							<!-- AGREGADOS EN HARDCODE PARA OBTENERE EL FORMATO REQUEIRDO POR EL CLIENTE -->
 							<tr>
-								<td><input type="checkbox" name="MID" checked="checked"> MID </td>
-								<td>MID</td>
+								<td><input type="checkbox" name="SKU" checked="checked"> SKU </td>
+								<td>SKU</td>
 								<td>Valor numerico</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" name="UPC" checked="checked"> UPC </td>
-								<td>UPC</td>
-								<td>Corresponde al valor Sku</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" name="TALLA" checked="checked"> Talla del Producto </td>
-								<td>TALLA</td>
-								<td>El nombre de la talla contenido en esta columna ya debe haberse creado en la pagina como un atributo de producto.</td>
 							</tr>
 							<tr>
 								<td><input type="checkbox" name="CANTIDAD" checked="checked"> Cantidad </td>
@@ -188,11 +369,7 @@ $import = AitImport::get_instance();
 								<td>COMENTARIOS</td>
 								<td>Notas respecto si es un ajuste por mercancia dañanda, alta por devolución, etc.</td>
 							</tr>
-							<tr>
-								<td><input type="checkbox" name="DESTACADO" checked="checked"> Destacado </td>
-								<td>DESTACADO</td>
-								<td>Marcar producto como destacado <small>(Admite "SI", "si", "YES", "yes" o dejar vacio para no marcar como destacado)</small>. Ej: <strong>SI</strong></td>
-							</tr>
+							
 
 						</table>
 

@@ -1,35 +1,37 @@
 $ = jQuery.noConflict();
 
 $(document).ready(function(){
-    map = new GMaps({
-        div: '#gmap_admin_orders',
-        lat: 19.4389263,
-        lng: -99.1278322,
-        zoom: 11
-    });
-    $('#gmap_admin_orders_instructions').hide();
-    if ( $( "#fechaPedido" ).length ) {
-        $( "#fechaPedido" ).datepicker();
+    if($("#gmap_admin_orders").length > 0) {
+        map = new GMaps({
+            div: '#gmap_admin_orders',
+            lat: 19.4389263,
+            lng: -99.1278322,
+            zoom: 11
+        });
+        $('#gmap_admin_orders_instructions').hide();
+        if ( $( "#fechaPedido" ).length ) {
+            $( "#fechaPedido" ).datepicker();
+        }
+        if ( $( "#gmap_admin_orders" ).length ) {
+            mapAdminOrders();
+        }
+
+        $(".orderMap").click(function() {
+            mapAdminOrders();
+        });
+
+        $("#btnImprimir").click(function(e) {
+            e.preventDefault();
+            //calcularRuta(map,true);
+            printMaps();
+           
+        });
+
+        $('#gmap_admin_orders_start').click(function (e) {
+            e.preventDefault();
+            calcularRuta(map,false);
+        });
     }
-    if ( $( "#gmap_admin_orders" ).length ) {
-        mapAdminOrders();
-    }
-
-    $(".orderMap").click(function() {
-        mapAdminOrders();
-    });
-
-    $("#btnImprimir").click(function(e) {
-        e.preventDefault();
-        //calcularRuta(map,true);
-        printMaps();
-       
-    });
-
-    $('#gmap_admin_orders_start').click(function (e) {
-        e.preventDefault();
-        calcularRuta(map,false);
-    });
     
 });
 
