@@ -109,6 +109,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	    $query_args = array(
 			'post_type'      => 'area-entrega',
 			'orderby'        => 'date',
+			'post_status'	=> 'publish',
 			'no_found_rows'  => true,
 			'cache_results'  => false,
 		);
@@ -208,7 +209,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			}
 		}
 
-		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti. <br>Escribenos a: <strong> contacto@pixan.com</strong></small><br />';
+		echo '</select><small style="color:red; display:none;" id="areaInfo">Gracias por tu interés en PIXAN, por el momento no estamos llegando a tu zona, estamos intentando incrementar nuestra cobertura, te pedimos enviarnos un correo para buscar alternativas para ti. <br>Escribenos a: <strong> ventas@pixansustentable.com</strong></small><br />';
 		echo '<input type="hidden" id="rutaAjax" name="rutaAjax" value="'.admin_url('admin-ajax.php').'" />';
 		echo '<div style="display:none;" id="dialog_zona" class="info_client" title="Cobertura de Zona">
 				<div id="dialogMsj"></div>
@@ -287,7 +288,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 		//SEND EMAIL CONFIRMATION
-		$resp = wp_mail( 'jonasgraterol@gmail.com, jackie@pcuervo.com', $subject, $message, $headers );
+		$resp = wp_mail( 'ventas@pixansustentable.com', $subject, $message, $headers );
 		echo "OK";
 		wp_die();
 	}
