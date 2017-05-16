@@ -2728,3 +2728,28 @@ Stack trace:
 [16-May-2017 19:16:18 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
 [16-May-2017 19:16:18 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
 [16-May-2017 19:16:18 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[16-May-2017 19:56:08 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 214
+[16-May-2017 19:56:09 UTC] PHP Stack trace:
+[16-May-2017 19:56:09 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[16-May-2017 19:56:09 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[16-May-2017 19:56:09 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[16-May-2017 19:56:09 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[16-May-2017 19:56:09 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[16-May-2017 19:56:09 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 19:56:09 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 19:56:09 UTC] PHP   8. Area_Entrega_Pixan::get() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php(25) : runtime-created function:1
+[16-May-2017 19:56:09 UTC] PHP   9. Area_Entrega_Pixan->__construct() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:40
+[16-May-2017 19:56:09 UTC] PHP  10. Area_Entrega_Pixan->includes() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:50
+[16-May-2017 19:56:12 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 214
+[16-May-2017 19:56:12 UTC] PHP Stack trace:
+[16-May-2017 19:56:12 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[16-May-2017 19:56:12 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[16-May-2017 19:56:12 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[16-May-2017 19:56:12 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[16-May-2017 19:56:12 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[16-May-2017 19:56:12 UTC] PHP   6. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[16-May-2017 19:56:12 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 19:56:12 UTC] PHP   8. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 19:56:12 UTC] PHP   9. Area_Entrega_Pixan::get() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php(25) : runtime-created function:1
+[16-May-2017 19:56:12 UTC] PHP  10. Area_Entrega_Pixan->__construct() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:40
+[16-May-2017 19:56:12 UTC] PHP  11. Area_Entrega_Pixan->includes() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:50

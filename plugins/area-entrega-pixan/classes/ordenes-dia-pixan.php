@@ -209,6 +209,10 @@ class Ordenes_Dia_Pixan {
 		}
 		echo '</select>';
 		*/
+		if(count($customer_orders) >= 35) {
+			echo '<div class="error"><h3>Para el dia de hoy existen <strong>'.count($customer_orders).'</strong> pedidos/guacales por entregar.</h3></div>';
+		}
+
 		if(count($customer_orders) > 0) {
 			for($i = 0; $i < count($customer_orders); $i++)
 			{
