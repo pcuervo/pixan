@@ -113,10 +113,12 @@ class Ordenes_Dia_Pixan {
 		if(isset($_POST['fecha_ruta']) && $_POST['fecha_ruta'] != '') {
 			$dayofweek = date('N', strtotime($_POST['fecha_ruta']));
 			$fech = $_POST['fecha_ruta'];
+			$area = $_POST['area_entrega'];
 		}
 		else {
 			$fech = date('Y-m-d');
 			$dayofweek = date('N');
+			$area = "";
 		}
 		
 		$id_areas = array();
@@ -135,16 +137,59 @@ class Ordenes_Dia_Pixan {
 			
 		}
 		//var_dump($id_areas);
-		echo '<strong style="width:45%;">Fecha para entregas:</strong>';
-		echo '<form action="index.php" method="post">';
-		echo '<input style="width:45%;" type="date" name="fecha_ruta" value="'.$fech.'" />';
-		echo '<input type="submit" value="ACTUALIZAR MAPA" />';
+		
+		//Select area-entrega post type
+	    $query_args = array(
+			'post_type'      => 'area-entrega',
+			'orderby'        => 'date',
+			'post_status'	 => 'publish',
+			'no_found_rows'  => true,
+			'cache_results'  => false,
+		);
+
+	    $posts = new WP_Query( $query_args );
+	    echo '<form action="index.php" method="post">';
+	    echo '<table style="width: 100%;">';
+	    echo '<thead><tr>';
+	    echo '<td style="width: 50%;">Area de entrega </td>';
+	    echo '<td style="width: 50%;">Fecha para entregas </td>';
+	    echo '</tr></thead>';
+	    echo '<tbody>';
+
+	    echo '<td><select style="width:100%;" id="area_entrega" name="area_entrega" class="input-text" >';
+	 		echo '<option></option>';
+		if ( $posts->have_posts() ) {
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
+				$sel = '';
+				if($area == $posts->post->ID) { $sel = 'selected'; }
+				echo '<option value="'.$posts->post->ID.'" id="ae_'.$posts->post->ID.'" '.$sel.'>'.get_the_title().'</option>';
+			}
+		}
+
+		echo '</select></td>';
+
+		echo '<td><input style="width:100%;" type="date" name="fecha_ruta" value="'.$fech.'" /></td></tr>';
+		echo '<tr><td colspan="2" style="text-align:center;"><input type="submit" value="ACTUALIZAR MAPA" /></td></tr>';
+		echo '</tbody>';
+		echo '</table>';
 		echo '</form>';
 
 		echo '<input style="width:45%;" type="button" id="gmap_admin_orders_start" class="btn blue" value="Iniciar Ruta"/>
 				<input style="width:45%;" type="button" id="btnImprimir" disabled="disabled" class="btn blue" value="Imprimir"/>
 				<div id="divImprimir"><div id="gmap_admin_orders" class="gmaps">
 				</div><br>';
+		if($area != '') {
+			if(in_array($area, $id_areas)) {
+				unset($id_areas);
+				$id_areas[] = $area;	
+			}
+			else {
+				unset($id_areas);
+				$id_areas[] = 0;
+			}
+			
+		}	
 		$customer_orders = get_posts( array(
 		    'numberposts' => -1,
 		    'meta_key'    => '_billing_area_entrega',
@@ -164,20 +209,25 @@ class Ordenes_Dia_Pixan {
 		}
 		echo '</select>';
 		*/
-		for($i = 0; $i < count($customer_orders); $i++)
-		{
-			//DESCARTAR PEDIDOS MENORES A UN DIA
-			if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days"))) {
-				$meta = get_post_meta($customer_orders[$i]->ID);
-				
-				isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
-				isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
+		if(count($customer_orders) > 0) {
+			for($i = 0; $i < count($customer_orders); $i++)
+			{
+				//DESCARTAR PEDIDOS MENORES A UN DIA
+				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days"))) {
+					$meta = get_post_meta($customer_orders[$i]->ID);
+					
+					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
+					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
-				echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+				}
+
 			}
-
+			echo '<ol id="gmap_admin_orders_instructions"></ol></div>';
 		}
-		echo '<ol id="gmap_admin_orders_instructions"></ol></div>';
+		else {
+			echo '<div style="border-left: #ffb900 solid 5px; padding: 0px 5px;"><p><strong>No se encontro ningun pedido para la combinación zona y fecha de entrega seleccionadas.</strong></p></div>';
+		}
 	}
 
 	public function show_map_orders() {
