@@ -3,7 +3,7 @@
 Plugin Name: WP Fastest Cache
 Plugin URI: http://wordpress.org/plugins/wp-fastest-cache/
 Description: The simplest and fastest WP Cache system
-Version: 0.8.6.8
+Version: 0.8.6.9
 Author: Emre Vona
 Author URI: http://tr.linkedin.com/in/emrevona
 Text Domain: wp-fastest-cache
@@ -105,10 +105,8 @@ GNU General Public License for more details.
 				if(isset($_GET) && isset($_GET["type"])  && $_GET["type"] == "preload"){
 					// /?action=wpfastestcache&type=preload
 					
-					$this->create_preload_cache();
+					add_action('init', array($this, "create_preload_cache"));
 				}
-				
-				exit;
 			}else{
 				$this->setCustomInterval();
 
@@ -793,6 +791,8 @@ GNU General Public License for more details.
 								$this->deleteCache();
 							}else if($this->options->wpFastestCacheNewPost_type == "homepage"){
 								$this->deleteHomePageCache();
+								//to clear category cache and tag cache
+								$this->singleDeleteCache(false, $post->ID);
 							}
 						}else{
 							$this->deleteCache();
@@ -872,8 +872,7 @@ GNU General Public License for more details.
 				}
 				
 				// to clear cache of homepage
-				@unlink($this->getWpContentDir()."/cache/all/index.html");
-				@unlink($this->getWpContentDir()."/cache/wpfc-mobile-cache/index.html");
+				$this->deleteHomePageCache();
 
 				// to clear cache of cats which contains the post (only first page)
 				foreach (wp_get_post_categories($post_id) as $cat_key => $cat_id) {
@@ -1144,7 +1143,7 @@ GNU General Public License for more details.
 								// 		    'suppress_filters' => true
 								// 		    ), ARRAY_A);
 		    		global $wpdb;
-		    		$recent_posts = $GLOBALS['wpdb']->get_results("SELECT SQL_CALC_FOUND_ROWS  ".$wpdb->prefix."posts.ID FROM ".$wpdb->prefix."posts  WHERE 1=1  AND ".$wpdb->prefix."posts.post_type = 'post' AND ((".$wpdb->prefix."posts.post_status = 'publish'))  ORDER BY ".$wpdb->prefix."posts.ID DESC LIMIT ".$pre_load->post.", ".$number, ARRAY_A);
+		    		$recent_posts = $GLOBALS['wpdb']->get_results("SELECT SQL_CALC_FOUND_ROWS  ".$wpdb->prefix."posts.ID FROM ".$wpdb->prefix."posts  WHERE 1=1  AND (".$wpdb->prefix."posts.post_type = 'post' OR ".$wpdb->prefix."posts.post_type = 'product') AND ((".$wpdb->prefix."posts.post_status = 'publish'))  ORDER BY ".$wpdb->prefix."posts.ID DESC LIMIT ".$pre_load->post.", ".$number, ARRAY_A);
 
 
 		    		if(count($recent_posts) > 0){
@@ -1198,7 +1197,7 @@ GNU General Public License for more details.
 				}
 
 				// CATEGORY
-				if(false && $number > 0 && $pre_load->category > -1){
+				if($number > 0 && $pre_load->category > -1){
 					$categories = get_terms("category", array(
 														    'orderby'           => 'id', 
 														    'order'             => 'DESC',
@@ -1221,10 +1220,6 @@ GNU General Public License for more details.
 
 							$pre_load->category = $pre_load->category + 1;
 
-						}
-
-						if(count($categories) == 1){
-							$pre_load->category = -1;
 						}
 					}else{
 						$pre_load->category = -1;
@@ -1292,6 +1287,8 @@ GNU General Public License for more details.
 			$response = wp_remote_get($url, array('timeout' => 10, 'headers' => array("cache-control" => array("no-store, no-cache, must-revalidate", "post-check=0, pre-check=0"),'user-agent' => $user_agent)));
 
 			if (!$response || is_wp_error($response)){
+				echo $response->get_error_message()." - ";
+
 				return false;
 			}else{
 				if(wp_remote_retrieve_response_code($response) != 200){
@@ -1437,10 +1434,7 @@ GNU General Public License for more details.
 		}
 
 		protected function getMobileUserAgents(){
-
 			return implode("|", $this->get_mobile_browsers())."|".implode("|", $this->get_operating_systems());
-
-			//return "iphone|midp|sony|symbos|nokia|samsung|mobile|epoc|ericsson|panasonic|philips|sanyo|sharp|sie-|portalmmm|blazer|avantgo|danger|palm|series60|palmsource|pocketpc|android|blackberry|playbook|ipad|ipod|iemobile|palmos|webos|googlebot-mobile|bb10|xoom|p160u|nexus|SCH-I800|opera\smini|SM-G900R4|LG-|HTC|GT-I9505|WAP-Browser|Nokia309|Casper_VIA";
 		}
 
 		public function get_premium_path($name){
@@ -1638,14 +1632,14 @@ GNU General Public License for more details.
 					$cdn->file_types = str_replace(",", "|", $cdn->file_types);
 
 					if(!preg_match("/\.(".$cdn->file_types.")/i", $matches[0])){
-						return $matches[0];
+						continue;
 					}
 
 					if($cdn->keywords){
 						$cdn->keywords = str_replace(",", "|", $cdn->keywords);
 
 						if(!preg_match("/".$cdn->keywords."/i", $matches[0])){
-							return $matches[0];
+							continue;
 						}
 					}
 
@@ -1657,12 +1651,18 @@ GNU General Public License for more details.
 					}else if(preg_match("/^(\/?)(wp-includes|wp-content)/", $matches[2])){
 						$matches[0] = preg_replace("/(\/?)(wp-includes|wp-content)/i", $cdnurl."/"."$2", $matches[0]);
 					}else if(preg_match("/[\"\']https?\:\\\\\/\\\\\/[^\"\']+[\"\']/i", $matches[0])){
-						//<script>var loaderRandomImages=["https:\/\/www.site.com\/wp-content\/uploads\/2016\/12\/image.jpg"];</script>
-						$matches[0] = preg_replace("/\\\\\//", "/", $matches[0]);
-						
-						if(preg_match("/".preg_quote($cdn->originurl, "/")."/", $matches[0])){
-							$matches[0] = preg_replace("/(http(s?)\:)?\/\/(www\.)?".preg_quote($cdn->originurl, "/")."/i", $cdnurl, $matches[0]);
-							$matches[0] = preg_replace("/\//", "\/", $matches[0]);
+						if(preg_match("/^(logo|url)$/i", $matches[1])){
+							//If the url is called with "//", it causes an error on https://search.google.com/structured-data/testing-tool/u/0/
+							//<script type="application/ld+json">"logo":{"@type":"ImageObject","url":"\/\/cdn.site.com\/image.png"}</script>
+							//<script type="application/ld+json">{"logo":"\/\/cdn.site.com\/image.png"}</script>
+						}else{
+							//<script>var loaderRandomImages=["https:\/\/www.site.com\/wp-content\/uploads\/2016\/12\/image.jpg"];</script>
+							$matches[0] = preg_replace("/\\\\\//", "/", $matches[0]);
+							
+							if(preg_match("/".preg_quote($cdn->originurl, "/")."/", $matches[0])){
+								$matches[0] = preg_replace("/(http(s?)\:)?\/\/(www\.)?".preg_quote($cdn->originurl, "/")."/i", $cdnurl, $matches[0]);
+								$matches[0] = preg_replace("/\//", "\/", $matches[0]);
+							}
 						}
 					}
 				}
@@ -1703,6 +1703,7 @@ GNU General Public License for more details.
 									'Windows\sCE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window\sMobile|Windows\sPhone\s[0-9.]+|WCE;',
 									'Windows\sPhone\s10.0|Windows\sPhone\s8.1|Windows\sPhone\s8.0|Windows\sPhone\sOS|XBLWP7|ZuneWP7|Windows\sNT\s6\.[23]\;\sARM\;',
 									'\biPhone.*Mobile|\biPod|\biPad',
+									'Apple-iPhone7C2',
 									'MeeGo',
 									'Maemo',
 									'J2ME\/|\bMIDP\b|\bCLDC\b', // '|Java/' produces bug #135

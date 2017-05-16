@@ -35,10 +35,10 @@
 						<p>Please enter your <strong>CDN Url</strong> below to deliver your contents via CDN.</p>
 						<div class="wiz-input-cont">
 							<label class="mc-input-label" for="cdn-url" style="padding-right: 12px;">CDN Url:</label><select id="cdn-url">
-																											    	 	<option value="http://i0.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i0.wp.com</option>
-																											    	 	<option value="http://i1.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i1.wp.com</option>
-																											    	 	<option value="http://i2.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i2.wp.com</option>
-																											    	 	<option value="http://i3.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">http://i3.wp.com</option>
+																											    	 	<option value="http://i0.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">i0.wp.com</option>
+																											    	 	<option value="http://i1.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">i1.wp.com</option>
+																											    	 	<option value="http://i2.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">i2.wp.com</option>
+																											    	 	<option value="http://i3.wp.com/<?php echo str_replace("www.", "", $_SERVER["HTTP_HOST"]); ?>">i3.wp.com</option>
 																											    	 	<option value="random">Random</option>
 																											    	 </select> 
 					    	<div id="cdn-url-loading"></div>

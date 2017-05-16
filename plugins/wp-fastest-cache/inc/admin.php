@@ -387,24 +387,13 @@
 		}
 
 		public function insertWebp($htaccess){
-			$tester_arr = array(
-				"tr-TR",
-				"berkatan.com",
-				"pembeportakal.com",
-				"wpfastestcache.com",
-				"zamknijkonto.pl",
-				"devv.zamknijkonto.pl",
-				"goldsgym.nl",
-				"luxury-chauffeurs.com",
-				"rashays.com",
-				"bitcoincafe.ch",
-				"romeing.it",
-				"huzurlabeslen.com",
-				"premiumlv.com",
-				"ribbons.se"
-				);
-														
-			if(in_array(get_bloginfo('language'), $tester_arr) || in_array(str_replace("www.", "", $_SERVER["HTTP_HOST"]), $tester_arr)){
+			if(class_exists("WpFastestCachePowerfulHtml")){
+				$webp = true;
+			}else{
+				$webp = false;
+			}
+							
+			if($webp){
 				$data = "# BEGIN WEBPWpFastestCache"."\n".
 						"<IfModule mod_rewrite.c>"."\n".
 						"RewriteEngine On"."\n".
@@ -429,6 +418,7 @@
 
 				return $htaccess;
 			}else{
+				$htaccess = preg_replace("/#\s?BEGIN\s?WEBPWpFastestCache.*?#\s?END\s?WEBPWpFastestCache/s", "", $htaccess);
 				return $htaccess;
 			}
 		}
@@ -1185,7 +1175,8 @@
 											"gingerdomain.com",
 											"topclassprinting.com",
 											"camilazivit.com.br",
-											"spycoupon.in"
+											"spycoupon.in",
+											"groovypost.com"
 											);
 														
 							if(in_array(get_bloginfo('language'), $tester_arr) || in_array(str_replace("www.", "", $_SERVER["HTTP_HOST"]), $tester_arr)){ ?>
@@ -1584,7 +1575,7 @@
 							    					<span>Purchased</span>
 							    				</button>
 						    				<?php }else{ ?>
-							    				<form action="http://api.wpfastestcache.net/paypal/buypremium/" method="post">
+							    				<form action="https://api.wpfastestcache.net/paypal/buypremium/" method="post">
 							    					<input type="hidden" name="ip" value="<?php echo $_SERVER["REMOTE_ADDR"]; ?>">
 							    					<input type="hidden" name="wpfclang" value="<?php echo $this->options->wpFastestCacheLanguage; ?>">
 							    					<input type="hidden" name="bloglang" value="<?php echo get_bloginfo('language'); ?>">

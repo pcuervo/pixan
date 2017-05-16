@@ -58,7 +58,7 @@
 				if($this->isPluginActive('gtranslate/gtranslate.php')){
 					if(isset($_SERVER["HTTP_X_GT_LANG"])){
 						$this->cacheFilePath = $this->getWpContentDir()."/cache/all/".$_SERVER["HTTP_X_GT_LANG"];
-					}else if(isset($_SERVER["REDIRECT_URL"])){
+					}else if(isset($_SERVER["REDIRECT_URL"]) && $_SERVER["REDIRECT_URL"] != "/index.php"){
 						$this->cacheFilePath = $this->getWpContentDir()."/cache/all/".$_SERVER["REDIRECT_URL"];
 					}else if(isset($_SERVER["REQUEST_URI"])){
 						$this->cacheFilePath = $this->getWpContentDir()."/cache/all/".$_SERVER["REQUEST_URI"];
@@ -85,14 +85,6 @@
 					}else{
 						//toDo
 					}
-				}
-			}
-
-			if(isset($_COOKIE) && isset($_COOKIE['safirmobilswitcher'])){
-				if($_COOKIE['safirmobilswitcher'] == "mobil"){
-					$this->cacheFilePath = str_replace("/cache/all/", "/cache/wpfc-mobile-cache/", $this->cacheFilePath);
-				}else if($_COOKIE['safirmobilswitcher'] == "masaustu"){
-					$this->cacheFilePath = str_replace("/cache/wpfc-mobile-cache/", "/cache/all/", $this->cacheFilePath);
 				}
 			}
 		}
@@ -169,6 +161,12 @@
 					}
 				}
 
+				if(isset($_COOKIE) && isset($_COOKIE['safirmobilswitcher'])){
+					ob_start(array($this, "cdn_rewrite"));
+
+					return 0;
+				}
+
 				if(preg_match("/\?/", $_SERVER["REQUEST_URI"]) && !preg_match("/\/\?fdx\_switcher\=true/", $_SERVER["REQUEST_URI"])){ // for WP Mobile Edition
 					if(preg_match("/\?amp(\=1)?/i", $_SERVER["REQUEST_URI"])){
 						//
@@ -200,7 +198,9 @@
 					//must be normal connection
 					if(!$this->isPluginActive('really-simple-ssl/rlrsssl-really-simple-ssl.php')){
 						if(!$this->isPluginActive('really-simple-ssl-pro/really-simple-ssl-pro.php')){
-							return 0;
+							if(!$this->isPluginActive('ssl-insecure-content-fixer/ssl-insecure-content-fixer.php')){
+								return 0;
+							}
 						}
 					}
 				}
@@ -362,8 +362,10 @@
 							return true;
 						}
 					}else if($value->type == "cookie"){
-						if(preg_match("/".preg_quote($value->content, "/")."/i", $_SERVER['HTTP_COOKIE'])){
-							return true;
+						if(isset($_SERVER['HTTP_COOKIE'])){
+							if(preg_match("/".preg_quote($value->content, "/")."/i", $_SERVER['HTTP_COOKIE'])){
+								return true;
+							}
 						}
 					}
 				}
@@ -570,13 +572,13 @@
 
 		public function cdn_rewrite($content){
 			if($this->cdn){
-				$content = preg_replace_callback("/(srcset|src|href|data-lazyload|data-srcsmall|data-srclarge|data-srcfull|data-slide-img)\s{0,2}\=[\'\"]([^\'\"]+)[\'\"]/i", array($this, 'cdn_replace_urls'), $content);
+				$content = preg_replace_callback("/(srcset|src|href|data-lazyload|data-source-url|data-srcsmall|data-srclarge|data-srcfull|data-slide-img|data-lazy-original)\s{0,2}\=[\'\"]([^\'\"]+)[\'\"]/i", array($this, 'cdn_replace_urls'), $content);
 				//url()
 				$content = preg_replace_callback("/(url)\(([^\)]+)\)/i", array($this, 'cdn_replace_urls'), $content);
 				//{"concatemoji":"http:\/\/your_url.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7"}
 				$content = preg_replace_callback("/\{\"concatemoji\"\:\"[^\"]+\"\}/i", array($this, 'cdn_replace_urls'), $content);
 				//<script>var loaderRandomImages=["https:\/\/www.site.com\/wp-content\/uploads\/2016\/12\/image.jpg"];</script>
-				$content = preg_replace_callback("/[\"\']https?\:\\\\\/\\\\\/[^\"\']+[\"\']/i", array($this, 'cdn_replace_urls'), $content);
+				$content = preg_replace_callback("/[\"\']([^\'\"]+)[\"\']\s*\:\s*[\"\']https?\:\\\\\/\\\\\/[^\"\']+[\"\']/i", array($this, 'cdn_replace_urls'), $content);
 			}
 
 			return $content;
