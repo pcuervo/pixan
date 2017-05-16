@@ -288,7 +288,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 		//SEND EMAIL CONFIRMATION
-		$resp = wp_mail( 'jackie@pcuervo.com', $subject, $message, $headers );
+		$resp = wp_mail( 'ventas@pixansustentable.com', $subject, $message, $headers );
 		echo "OK";
 		wp_die();
 	}

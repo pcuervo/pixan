@@ -433,6 +433,7 @@ class Product_List_Settings {
 					<th class="list-name">Producto</th>
 					<th class="">Precio</th>
 					<th class="">Cantidad</th>
+					<th class="">Unidad</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -445,7 +446,7 @@ class Product_List_Settings {
 				{
 					$_product = $_pf->get_product($det->product_id);
 					$urladdtocart .= '&quantity['.$det->product_id.']='.$det->cantidad;
-
+					$tipo_unidad = get_post_meta($det->product_id, 'unidadmedida', true);
 					$prod_ids .= $det->product_id.',';
 					$cant_ids .= $det->cantidad.',';
 
@@ -455,6 +456,7 @@ class Product_List_Settings {
 						echo '<td>'.$_product->get_title().'</td>';
 						echo '<td>'.WC()->cart->get_product_price( $_product ).'</td>';
 						echo '<td><input size="1" style="text-align: center;" id="cant_'.$det->product_id.'" name="cant_'.$det->product_id.'" value="'.$det->cantidad.'" /></td>';
+						echo '<td>'.$tipo_unidad.'</td>';
 					echo '</tr>';
 				}
 				$prod_ids = substr($prod_ids, 0, -1);

@@ -2709,3 +2709,22 @@ Stack trace:
 [16-May-2017 18:34:51 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin.php:236
 [16-May-2017 18:34:51 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
 [16-May-2017 18:34:51 UTC] PHP   4. Ordenes_Dia_Pixan->show_map_orders() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 19:16:17 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[16-May-2017 19:16:17 UTC] PHP Stack trace:
+[16-May-2017 19:16:17 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 19:16:17 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 19:16:17 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 19:16:17 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 19:16:17 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 19:16:17 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[16-May-2017 19:16:18 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:481
+[16-May-2017 19:16:18 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[16-May-2017 19:16:18 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[16-May-2017 19:16:18 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 512
+[16-May-2017 19:16:18 UTC] PHP Stack trace:
+[16-May-2017 19:16:18 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 19:16:18 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 19:16:18 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 19:16:18 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 19:16:18 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 19:16:18 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
