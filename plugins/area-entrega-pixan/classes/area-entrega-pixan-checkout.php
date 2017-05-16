@@ -109,6 +109,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	    $query_args = array(
 			'post_type'      => 'area-entrega',
 			'orderby'        => 'date',
+			'post_status'	=> 'publish',
 			'no_found_rows'  => true,
 			'cache_results'  => false,
 		);
