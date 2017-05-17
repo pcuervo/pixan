@@ -179,7 +179,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 	    $posts = new WP_Query( $query_args );
 
-	 	echo '<select id="area_entrega" style="display:none;" name="area_entrega" class="input-text" >';
+	 	echo '<select id="area_entrega"  name="area_entrega" class="input-text" >';
 	 		echo '<option></option>';
 		if ( $posts->have_posts() ) {
 			while ( $posts->have_posts() ) {
@@ -205,7 +205,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				$a =  date('Y', strtotime("next ".$semana[$d[0]] . date('H:i:s', $timestamp), $timestamp));
 				$p = $d[0].' '.$dia.' de '.$meses[$m].', '.$a;
 				setlocale(LC_ALL,"es_ES");
-				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-proxdia="'.$p.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'">'.get_the_title().'</option>';
+				echo '<option value="'.$posts->post->ID.'" class="area_e" id="ae_'.$posts->post->ID.'" data-dias="'.$dias.'" data-proxdia="'.$p.'" data-hora="'.$meta['_hora'][0].', '.'" data-coor="'.$meta['_coordenadas'][0].'" data-color="'.$meta['_favcolor'][0].'">'.get_the_title().'</option>';
 			}
 		}
 

@@ -2753,3 +2753,60 @@ Stack trace:
 [16-May-2017 19:56:12 UTC] PHP   9. Area_Entrega_Pixan::get() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php(25) : runtime-created function:1
 [16-May-2017 19:56:12 UTC] PHP  10. Area_Entrega_Pixan->__construct() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:40
 [16-May-2017 19:56:12 UTC] PHP  11. Area_Entrega_Pixan->includes() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:50
+[16-May-2017 20:14:47 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[16-May-2017 20:14:47 UTC] PHP Stack trace:
+[16-May-2017 20:14:47 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 20:14:47 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 20:14:47 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 20:14:47 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 20:14:47 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 20:14:47 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[16-May-2017 20:14:47 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[16-May-2017 20:14:47 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[16-May-2017 20:14:47 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[16-May-2017 20:14:47 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[16-May-2017 20:14:47 UTC] PHP Stack trace:
+[16-May-2017 20:14:47 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 20:14:47 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 20:14:47 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 20:14:47 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 20:14:47 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 20:14:47 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[16-May-2017 20:51:45 UTC] PHP Parse error:  syntax error, unexpected '.' in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\area-entrega-pixan-checkout.php on line 208
+[16-May-2017 20:51:45 UTC] PHP Stack trace:
+[16-May-2017 20:51:45 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[16-May-2017 20:51:45 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[16-May-2017 20:51:45 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[16-May-2017 20:51:45 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[16-May-2017 20:51:45 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[16-May-2017 20:51:45 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 20:51:45 UTC] PHP   7. __lambda_func() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[16-May-2017 20:51:45 UTC] PHP   8. Area_Entrega_Pixan::get() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php(25) : runtime-created function:1
+[16-May-2017 20:51:45 UTC] PHP   9. Area_Entrega_Pixan->__construct() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:40
+[16-May-2017 20:51:45 UTC] PHP  10. Area_Entrega_Pixan->includes() C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\area-entrega-pixan.php:50
+[16-May-2017 21:35:02 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress no pudo establecer una conexión segura con WordPress.org. Por favor, contacta con el administrador de tu servidor.) in C:\wamp\www\pixan\wp-includes\update.php on line 123
+[16-May-2017 21:35:02 UTC] PHP Stack trace:
+[16-May-2017 21:35:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 21:35:02 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 21:35:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   4. wp_version_check() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   5. trigger_error() C:\wamp\www\pixan\wp-includes\update.php:123
+[16-May-2017 21:35:02 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[16-May-2017 21:35:02 UTC] PHP Stack trace:
+[16-May-2017 21:35:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 21:35:02 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 21:35:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 21:35:02 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[16-May-2017 21:35:02 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[16-May-2017 21:35:02 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[16-May-2017 21:35:02 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[16-May-2017 21:35:02 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[16-May-2017 21:35:02 UTC] PHP Stack trace:
+[16-May-2017 21:35:02 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[16-May-2017 21:35:02 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[16-May-2017 21:35:02 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[16-May-2017 21:35:02 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[16-May-2017 21:35:02 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
