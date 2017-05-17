@@ -179,7 +179,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 	    $posts = new WP_Query( $query_args );
 
-	 	echo '<select id="area_entrega"  name="area_entrega" class="input-text" >';
+	 	echo '<select id="area_entrega" style="display:none;" name="area_entrega" class="input-text" >';
 	 		echo '<option></option>';
 		if ( $posts->have_posts() ) {
 			while ( $posts->have_posts() ) {

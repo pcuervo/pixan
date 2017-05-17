@@ -100,7 +100,7 @@ function pintarMapa() {
   
   var coor = document.getElementById("coordenadas").value;
   var favcolor = document.getElementById("favcolor").value;
-  //console.log(coor);
+  console.log(favcolor);
   coor = coor.substring(1, coor.length-1);
   coor = coor.split("),(");
   var zonacoor = new Array();
