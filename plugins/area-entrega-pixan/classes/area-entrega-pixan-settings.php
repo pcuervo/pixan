@@ -169,6 +169,7 @@ class Area_Entrega_Pixan_Settings {
 		echo 'Domingo <input type="checkbox" id="_dia7" name="_dia7" value="Domingo" '.$d7.' />';
 		echo '<br />';
 		echo '<input style="width:45%;"" type="text" id="hora" name="_hora" value="'.$hora.'" placeholder="Rango de horario de entrega (De 1pm a 4pm)" />';
+
 	}// meta_box_info_maestro
 
 	/**
@@ -178,8 +179,11 @@ class Area_Entrega_Pixan_Settings {
 	public function meta_box_area_entrega( $post ){
 		$coordenadas = get_post_meta($post->ID, '_coordenadas', true);
 		wp_nonce_field(__FILE__, '_coordenadas_nonce');
-
+		$favcolor = get_post_meta($post->ID, '_favcolor', true);
+		if(!isset($favcolor) || empty($favcolor) || $favcolor == '') { $favcolor = '#ff0000'; }
+		wp_nonce_field(__FILE__, '_favcolor_nonce');
 		echo '<div class="wrap" id="divMap" style="width: 1005; text-align: center;>"
+				<label>Color de la zona en el mapa: <input type="color" id="favcolor" name="_favcolor" value="'.$favcolor.'"></label>
 				 <h3><small>Defina un poligono cerrado marcando los puntos que delimitan la zona</small> <a href="#" id="clearPolygon">Resetear Mapa<a/></h3>
 				<div id="gmap_geo" class="gmaps"></div>
 			</div>';
@@ -242,6 +246,9 @@ class Area_Entrega_Pixan_Settings {
 		}
 		if ( isset($_POST['_coordenadas']) and check_admin_referer(__FILE__, '_coordenadas_nonce') ){
 			update_post_meta($post_id, '_coordenadas', $_POST['_coordenadas']);
+		}
+		if ( isset($_POST['_favcolor']) and check_admin_referer(__FILE__, '_favcolor_nonce') ){
+			update_post_meta($post_id, '_favcolor', $_POST['_favcolor']);
 		}
 	}// save_meta_boxes_area_entrega
 

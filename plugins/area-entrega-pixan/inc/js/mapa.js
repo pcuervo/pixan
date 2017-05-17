@@ -99,7 +99,8 @@ function pintarMapa() {
   c = 0;
   
   var coor = document.getElementById("coordenadas").value;
-  //console.log(coor);
+  var favcolor = document.getElementById("favcolor").value;
+  console.log(favcolor);
   coor = coor.substring(1, coor.length-1);
   coor = coor.split("),(");
   var zonacoor = new Array();
@@ -111,10 +112,10 @@ function pintarMapa() {
 
   zona = new google.maps.Polygon({
     paths: zonacoor,
-    strokeColor: color[0],
+    strokeColor: favcolor,
     strokeOpacity: 0.55,
     strokeWeight: 1,
-    fillColor: color[0],
+    fillColor: favcolor,
     fillOpacity: 0.35
   });
   //c++;

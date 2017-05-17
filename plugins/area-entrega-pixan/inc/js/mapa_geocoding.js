@@ -74,7 +74,7 @@ var mapGeocoding = function () {
     $(".area_e").each(function(index) {
         var coor = $(this).data("coor");
         color = ["#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000", "#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000"];
-        ////console.log(coor);
+        
         coor = coor.substring(1, coor.length-1);
         coor = coor.split("),(");
         var zonacoor = new Array();
@@ -83,20 +83,26 @@ var mapGeocoding = function () {
             c = coor[i].split(",");
             zonacoor.push(new google.maps.LatLng(c[0], c[1]));
         }
-
+        if($(this).data('color') != '') {
+            col = $(this).data('color');
+        }
+        else {
+            col = color[index];
+        }
+        
         zona = new google.maps.Polygon({
             paths: zonacoor,
-            strokeColor: color[index],
+            strokeColor: col,
             strokeOpacity: 0.5,
             strokeWeight: 1,
-            fillColor: color[index],
+            fillColor: col,
             fillOpacity: 0.35,
             indexID: 'poly-'+$(this).attr('id')
           });
         //console.log(zona);
         zonaarray.push(zona);
         zona.setMap(map);
-        c++;
+        
     });
 
     var handleAction = function () {
