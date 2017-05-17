@@ -139,6 +139,11 @@
 				if(preg_match("/wp-spamshield\/js\/jscripts\.php/i", $script_tag)){
 					$this->jsLinksExcept = $this->jsLinksExcept.$script_tag;
 				}
+
+				//amazonjs/components/js/jquery-tmpl/jquery.tmpl.min.js?ver=1.0.0pre
+				if(preg_match("/jquery-tmpl\/jquery\.tmpl\.min\.js/i", $script_tag)){
+					$this->jsLinksExcept = $this->jsLinksExcept.$script_tag;
+				}
 			}
 		}
 

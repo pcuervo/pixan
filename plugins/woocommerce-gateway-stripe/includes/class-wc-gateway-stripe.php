@@ -266,7 +266,8 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 			is_admin() &&
 			isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] &&
 			isset( $_GET['tab'] ) && 'checkout' === $_GET['tab'] &&
-			isset( $_GET['section'] ) && 'stripe' === $_GET['section']
+			isset( $_GET['section'] ) && 'stripe' === $_GET['section'] &&
+			$this->apple_pay
 		) {
 			$this->process_apple_pay_verification();
 		}
@@ -474,7 +475,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		if ( ! $this->stripe_checkout ) {
 			$this->form();
 
-			if ( $display_tokenization ) {
+			if ( apply_filters( 'wc_stripe_display_save_payment_method_checkbox', $display_tokenization ) ) {
 				$this->save_payment_method_checkbox();
 			}
 		}
@@ -650,6 +651,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 	 */
 	protected function get_source( $user_id, $force_customer = false ) {
 		$stripe_customer = new WC_Stripe_Customer( $user_id );
+		$force_customer  = apply_filters( 'wc_stripe_force_customer_creation', $force_customer, $stripe_customer );
 		$stripe_source   = false;
 		$token_id        = false;
 

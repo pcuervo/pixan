@@ -87,20 +87,25 @@ var WpfcDB = {
 	}
 };
 
+// if(window.attachEvent) {
+//     window.attachEvent('onload', WpfcDB_init);
+// } else {
+//     if(window.onload) {
+//         var curronload = window.onload;
+//         var newonload = function(evt) {
+//             curronload(evt);
+//             WpfcDB_init(evt);
+//         };
+//         window.onload = newonload;
+//     } else {
+//         window.onload = WpfcDB_init;
+//     }
+// }
 
-if(window.attachEvent) {
-    window.attachEvent('onload', WpfcDB_init);
-} else {
-    if(window.onload) {
-        var curronload = window.onload;
-        var newonload = function(evt) {
-            curronload(evt);
-            WpfcDB_init(evt);
-        };
-        window.onload = newonload;
-    } else {
-        window.onload = WpfcDB_init;
-    }
+if(window.attachEvent){
+	window.attachEvent('onload', WpfcDB_init);
+}else if(window.addEventListener){
+	window.addEventListener('load', WpfcDB_init, false);
 }
 
 function WpfcDB_init(){WpfcDB.init();}

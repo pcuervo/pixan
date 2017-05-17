@@ -4,7 +4,7 @@ Donate link: http://profiles.wordpress.org/emrevona/
 Tags: cache, performance, wp-cache, total cache, super cache
 Requires at least: 3.3
 Tested up to: 4.7.3
-Stable tag: 0.8.6.8
+Stable tag: 0.8.6.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,14 @@ Wpfc does not support Wordpress Multisite yet.
 18. Database Cleanup
 
 == Changelog ==
+
+= 0.8.6.9 =
+* <strong>[FEATURE]</strong> to clear cache of the post tags and the post categories after new post
+* <strong>[FEATURE]</strong> WebP [<a target="_blank" href="http://www.wpfastestcache.com/premium/image-optimization/">Details</a>]
+* to fix BlogPosting error on Structured Data Testing Tool when cdn is used
+* to fix more than one cdn work concurrently
+* <strong>[FEATURE]</strong> Preload for category
+* <strong>[FEATURE]</strong> Preload for woocommerce products
 
 = 0.8.6.8 =
 * <strong>[FEATURE]</strong> Widget Cache [<a target="_blank" href="http://www.wpfastestcache.com/premium/widget-cache-reduce-the-number-of-sql-queries/">Details</a>]

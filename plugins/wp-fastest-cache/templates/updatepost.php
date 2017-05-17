@@ -45,19 +45,16 @@
 
 
 				<div class="wiz-input-cont">
+					<label class="mc-input-label" style="margin-right: 5px;"><input type="radio" <?php echo $wpFastestCacheUpdatePost_type_all; ?> action-id="wpFastestCacheUpdatePost_type_all" id="wpFastestCacheUpdatePost_type_all" name="wpFastestCacheUpdatePost_type" value="all"></label>
+					<label for="wpFastestCacheUpdatePost_type_all">Clear All Cache</label>
+				</div>
+				<div class="wiz-input-cont">
 					<label class="mc-input-label" style="margin-right: 5px;"><input type="radio" <?php echo $wpFastestCacheUpdatePost_type_post; ?> action-id="wpFastestCacheUpdatePost_type_post" id="wpFastestCacheUpdatePost_type_post" name="wpFastestCacheUpdatePost_type" value="post"></label>
 					<label for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post / Page</label><br>
 					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post Categories</label><br>
 					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Post Tags</label><br>
 					<label style="margin-left:24px;" for="wpFastestCacheUpdatePost_type_post">Clear Cache of Homepage</label>
 				</div>
-				<div class="wiz-input-cont">
-					<label class="mc-input-label" style="margin-right: 5px;"><input type="radio" <?php echo $wpFastestCacheUpdatePost_type_all; ?> action-id="wpFastestCacheUpdatePost_type_all" id="wpFastestCacheUpdatePost_type_all" name="wpFastestCacheUpdatePost_type" value="all"></label>
-					<label for="wpFastestCacheUpdatePost_type_all">Clear All Cache</label>
-				</div>
-
-
-
 
 			</div>
 		</div>
