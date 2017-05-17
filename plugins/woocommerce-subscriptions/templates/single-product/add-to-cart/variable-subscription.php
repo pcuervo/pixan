@@ -49,6 +49,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				<?php endforeach;?>
 				</tbody>
 			</table>
+
 			<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 			<div class="single_variation_wrap" style="display:none;">

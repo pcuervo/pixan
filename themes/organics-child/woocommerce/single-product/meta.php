@@ -27,23 +27,9 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
 ?>
 <div class="product_meta">
-
-	<?php do_action( 'woocommerce_product_meta_start' ); ?>
-
-	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
-
-		<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku" itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
-
+	<?php echo $product->get_categories( ', ', '<p class="posted_in margin-bottom">' . _n( 'Category:', 'Categories:', $cat_count, 'woocommerce' ) . ' ', '</p>' ); ?>
+	<?php if( $product->is_type( 'variable' ) ) : ?>
+		<small class="[ color-red ]">Para añadir al carrito debes selecciona la recurrencia</small>
 	<?php endif; ?>
-
-	<?php echo $product->get_categories( ', ', '<span class="posted_in prueba">' . _n( 'Category:', 'Categories:', $cat_count, 'woocommerce' ) . ' ', '</span>' ); ?>
-
-	<?php echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', $tag_count, 'woocommerce' ) . ' ', '</span>' ); ?>
-
-	<!-- unidad de medida -->
-	<?php $tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true); ?>
-	<span class="tagged_as [ margin-bottom ]">Unidad de medida: <span class="[ color-red font-weight--500 ]"><?php echo $tipo_unidad; ?></span></span>
-
-	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 
 </div>

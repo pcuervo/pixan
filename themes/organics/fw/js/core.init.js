@@ -1507,7 +1507,7 @@ function organics_login_validate(form) {
 			user_log: form.find('#log').val(),
 			user_pwd: form.find('#password').val()
 		}).done(function(response) {
-			
+
 			try {
 				var rez = JSON.parse(response);
 			} catch (e) {
@@ -1518,7 +1518,7 @@ function organics_login_validate(form) {
 			if (result_box.length==0) result_box = form.after('<div class="result"></div>').next('.result');
 			result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
 			if (rez.error === '') {
-				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['login_success']);
+
 				setTimeout(function() {
 					location.reload();
 					}, 1000);
@@ -1534,7 +1534,7 @@ function organics_login_validate(form) {
 
 // Registration form
 function organics_registration_validate(form) {
-	
+
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
 	var error = organics_form_validate(form, {
@@ -1619,7 +1619,7 @@ function organics_registration_validate(form) {
 						if (result_box.length==0) result_box = form.after('<div class="result"></div>').next('.result');
 						result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
 						if (rez.error === '') {
-							result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['login_success']);
+
 							setTimeout(function() {
 								//location.reload();
 								window.location.replace("my-account");
