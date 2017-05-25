@@ -39,17 +39,25 @@ add_action( 'wp_enqueue_scripts', function(){
 
 });
 
-
+/**
+* Campo términos y condiciones login
+**/
 function wooc_extra_register_fields() {?>
        <p class="form-row form-row-wide">
 			<label for="registration_agree">
 				<input type="checkbox" value="agree" id="registration_agree" name="registration_agree" class="[ width--20 ][ vertical-align--middle ]" required="">
-				<?php esc_html_e('Estoy de acuerdo con los ', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a>
+				<?php esc_html_e('Estoy de acuerdo con los ', 'organics'); ?><a href="#"><?php esc_html_e(' Términos y condiciones', 'organics'); ?></a>
 			</label>
        </p>
        <?php
  }
  add_action( 'woocommerce_register_form', 'wooc_extra_register_fields' );
 
+//Cambiar orden o quitar elementos de content-single-product
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
 
 ?>

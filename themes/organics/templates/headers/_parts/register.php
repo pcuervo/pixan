@@ -41,7 +41,7 @@
 			<div class="[ clearfix ]"></div>
 			<div class="width---100 text-left">
 				<input type="checkbox" value="agree" id="registration_agree" name="registration_agree">
-				<label for="registration_agree"><?php esc_html_e('Estoy de acuerdo con los', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a></label>
+				<label for="registration_agree"><?php esc_html_e('Estoy de acuerdo con los ', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a></label>
 			</div>
 			<div class="popup_form_field submit_field">
 				<input id="btnSubmitRegister" type="submit" class="submit_button disabled" disabled="disabled" value="<?php esc_attr_e('Ingresar', 'organics'); ?>">

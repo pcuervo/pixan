@@ -80,6 +80,8 @@ p, span, a { font-size: 16px; line-height: 1.4em; font-weight: 500; }
 @media ( min-width: 769px) { .woocommerce-account .content { width: 80%!important; margin-left: 10%!important; } }
 .woocommerce-account .sidebar { display: none!important; }
 
+small { font-size: 12px!important; }
+
 /*Box model*/
 .max-height--60,
 .max-height--60 img { max-height: 50px; }
@@ -558,6 +560,8 @@ footer #text-5.column-1_3 { text-align: center; }
 
 .info-contact .sc_image a:hover:after { content: ''!important; }
 
+.widget_wpcom_social_media_icons_widget .genericon { font-size: 30px; }
+
 /*Agotado*/
 .woocommerce div.product .out-of-stock,
 .archive .post_item_wrap .out-of-stock {
@@ -675,6 +679,9 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 	max-width: 180px;
 	border-radius: 5px;
 }
+.woocommerce-MyAccount-navigation-link--customer-logout {
+	display: none;
+}
 
 /*Single product*/
 
@@ -694,6 +701,12 @@ input[type=number]::-webkit-outer-spin-button {
      margin: 8px;
 }
 
+.woocommerce div.product form.cart .variations,
+.woocommerce div.product form.cart {
+	margin-bottom: 0px!important;
+	border-bottom: 0px!important;
+	padding-bottom: 0px!important;
+}
 
 /*Desde /time */
 .sidebar .price .from, /*.price .subscription-details,*/
@@ -857,6 +870,13 @@ p.no_subscriptions a:nth-child(1) { display: none; }
 .widget_area.sidebar_cart {
 	animation: none!important;
 }
+
+abbr.required {
+	height: 15px;
+	display: inline-block;
+	overflow: hidden;
+}
+
 /*Canasta recurrente*/
 ul.products li.product .price .subscription-details {
 	position: relative;
@@ -890,3 +910,16 @@ h3.sd-title:before {
 .post_item_excerpt + .post_item_excerpt {
     border-top: 2px solid #e6e6e6;
 }
+
+.woocommerce-Addresses .u-column1 { display: none; }
+.woocommerce-Addresses .u-column2 {
+	width: 100%!important;
+	float: none!important;
+}
+
+.popup_wrap .form_wrap .result {
+	-webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
