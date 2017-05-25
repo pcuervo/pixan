@@ -134,7 +134,32 @@ Url: <code><?php bloginfo('url'); ?>/api/register</code><br/><br/>
 
 </form>
 
+<h2>Send Mail No Zonal</h2>
+Url: <code><?php bloginfo('url'); ?>/api/send_email_client_zona</code><br/><br/>
+<form action="<?php bloginfo('url'); ?>/api/send_email_client_zona" method="post" target="_blank">
+	
+<label for="auth_key">auth_key [post]</label>
+<input type="text" name="auth_key" id="auth_key" value="<?php echo PIXAN_API_AUTH_KEY; ?>"/><br/>	
 
+<label for="nombre">nombre [post] </label>
+<input type="text" name="nombre" id="nombre" value=""/><br/>
+
+
+<label for="telefono">telefono [post] </label>
+<input type="text" name="telefono" id="telefono" value=""/><br/>
+
+<label for="email">email [post] </label>
+<input type="text" name="email" id="email" value=""/><br/>
+
+
+<label for="direccion">direccion [post] </label>
+<input type="text" name="direccion" id="direccion" value=""/><br/>
+
+<br/>
+
+<input type="submit" value="Enviar"/>
+
+</form>
 
 
 <h2>Add list</h2>
