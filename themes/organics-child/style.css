@@ -694,7 +694,7 @@ li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--
 }
 
 .woocommerce.single-product select { border: 1px solid #888888; }
-.woocommerce.single-product input { height: 62px; font-size: 20px; }
+.woocommerce.single-product input:not(.aws-search-field) { height: 62px; font-size: 20px; }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
      -webkit-appearance: none;
