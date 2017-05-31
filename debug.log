@@ -2810,3 +2810,124 @@ Stack trace:
 [16-May-2017 21:35:02 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
 [16-May-2017 21:35:02 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
 [16-May-2017 21:35:02 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 17:49:35 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 36
+[25-May-2017 17:49:35 UTC] PHP Stack trace:
+[25-May-2017 17:49:35 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[25-May-2017 17:49:35 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[25-May-2017 17:49:35 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[25-May-2017 17:49:35 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[25-May-2017 17:49:35 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[25-May-2017 17:49:35 UTC] PHP   6. include_once() C:\wamp\www\pixan\wp-settings.php:255
+[25-May-2017 17:49:35 UTC] PHP   7. WC() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:537
+[25-May-2017 17:49:35 UTC] PHP   8. WooCommerce::instance() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:533
+[25-May-2017 17:49:35 UTC] PHP   9. WooCommerce->__construct() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:116
+[25-May-2017 17:49:35 UTC] PHP  10. WooCommerce->includes() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:153
+[25-May-2017 17:49:35 UTC] PHP  11. include_once() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:260
+[25-May-2017 17:52:13 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\jetpack\modules\widgets\twitter-timeline.php on line 14
+[25-May-2017 17:52:13 UTC] PHP Stack trace:
+[25-May-2017 17:52:13 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[25-May-2017 17:52:13 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[25-May-2017 17:52:13 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[25-May-2017 17:52:13 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[25-May-2017 17:52:13 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[25-May-2017 17:52:13 UTC] PHP   6. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[25-May-2017 17:52:13 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:52:13 UTC] PHP   8. Jetpack::load_modules() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:52:13 UTC] PHP   9. include_once() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:1612
+[25-May-2017 17:52:13 UTC] PHP  10. jetpack_load_widgets() C:\wamp\www\pixan\wp-content\plugins\jetpack\modules\widgets.php:58
+[25-May-2017 17:52:13 UTC] PHP  11. include() C:\wamp\www\pixan\wp-content\plugins\jetpack\modules\widgets.php:32
+[25-May-2017 17:52:49 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\jetpack\locales.php on line 3
+[25-May-2017 17:52:49 UTC] PHP Stack trace:
+[25-May-2017 17:52:49 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[25-May-2017 17:52:49 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[25-May-2017 17:52:49 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:13
+[25-May-2017 17:52:49 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[25-May-2017 17:52:49 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[25-May-2017 17:52:49 UTC] PHP   6. do_action() C:\wamp\www\pixan\wp-settings.php:414
+[25-May-2017 17:52:49 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:52:49 UTC] PHP   8. Jetpack->register_assets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:52:49 UTC] PHP   9. Jetpack->get_locale() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:819
+[25-May-2017 17:52:49 UTC] PHP  10. Jetpack->guess_locale_from_lang() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:894
+[25-May-2017 17:52:49 UTC] PHP  11. require() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:858
+[25-May-2017 17:53:14 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[25-May-2017 17:53:14 UTC] PHP Stack trace:
+[25-May-2017 17:53:14 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 17:53:14 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 17:53:14 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:53:14 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:53:14 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 17:53:14 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 17:53:14 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[25-May-2017 17:53:14 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[25-May-2017 17:53:14 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[25-May-2017 17:53:14 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[25-May-2017 17:53:14 UTC] PHP Stack trace:
+[25-May-2017 17:53:14 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 17:53:14 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 17:53:14 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:53:14 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:53:14 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 17:53:14 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 17:54:20 UTC] jp-sitemap-Zp0Fs: -- Updating...
+[25-May-2017 17:54:20 UTC] jp-sitemap-Zp0Fs: -- Building sitemap-1.xml
+[25-May-2017 17:54:21 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_sitemap
+[25-May-2017 17:54:21 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_sitemap_index
+[25-May-2017 17:54:21 UTC] jp-sitemap-Zp0Fs: -- Building image-sitemap-1.xml
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_img_sitemap
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_img_sitemap_index
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Building video-sitemap-1.xml
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_vid_sitemap
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Cleaning Up jp_vid_sitemap_index
+[25-May-2017 17:54:24 UTC] jp-sitemap-Zp0Fs: -- Building Master Sitemap.
+[25-May-2017 17:54:25 UTC] jp-sitemap-Zp0Fs: -- Finished.
+[25-May-2017 17:54:25 UTC] jp-sitemap-Zp0Fs:  6.83 seconds elapsed.
+[25-May-2017 17:55:29 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[25-May-2017 17:55:29 UTC] PHP Stack trace:
+[25-May-2017 17:55:29 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[25-May-2017 17:55:29 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[25-May-2017 17:55:29 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:55:29 UTC] PHP   4. wp_ajax_dashboard_widgets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:55:29 UTC] PHP   5. wp_dashboard_primary() C:\wamp\www\pixan\wp-admin\includes\ajax-actions.php:317
+[25-May-2017 17:55:29 UTC] PHP   6. wp_dashboard_cached_rss_widget() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1156
+[25-May-2017 17:55:29 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[25-May-2017 17:55:30 UTC] PHP   8. wp_dashboard_primary_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[25-May-2017 17:55:30 UTC] PHP   9. wp_dashboard_plugins_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1172
+[25-May-2017 17:55:30 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[25-May-2017 17:55:30 UTC] PHP Stack trace:
+[25-May-2017 17:55:30 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[25-May-2017 17:55:30 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[25-May-2017 17:55:30 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:55:30 UTC] PHP   4. wp_ajax_dashboard_widgets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[25-May-2017 17:55:30 UTC] PHP   5. wp_dashboard_primary() C:\wamp\www\pixan\wp-admin\includes\ajax-actions.php:317
+[25-May-2017 17:55:30 UTC] PHP   6. wp_dashboard_cached_rss_widget() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1156
+[25-May-2017 17:55:30 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[25-May-2017 17:55:30 UTC] PHP   8. wp_dashboard_primary_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[25-May-2017 17:55:30 UTC] PHP   9. wp_dashboard_plugins_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1172
+[25-May-2017 17:55:52 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 313
+[25-May-2017 17:55:52 UTC] PHP Stack trace:
+[25-May-2017 17:55:52 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 17:55:52 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 17:55:52 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:55:52 UTC] PHP   4. Jetpack_Heartbeat->cron_exec() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 17:55:52 UTC] PHP   5. Jetpack->do_stats() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack-heartbeat.php:92
+[25-May-2017 17:55:52 UTC] PHP   6. Jetpack::do_server_side_stat() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4020
+[25-May-2017 17:55:52 UTC] PHP   7. wp_remote_get() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4038
+[25-May-2017 17:55:52 UTC] PHP   8. WP_Http->get() C:\wamp\www\pixan\wp-includes\http.php:170
+[25-May-2017 17:55:52 UTC] PHP   9. WP_Http->request() C:\wamp\www\pixan\wp-includes\class-http.php:496
+[25-May-2017 17:55:52 UTC] PHP  10. WP_Http->_dispatch_request() C:\wamp\www\pixan\wp-includes\class-http.php:342
+[25-May-2017 17:55:52 UTC] PHP  11. WP_Http_Curl->request() C:\wamp\www\pixan\wp-includes\class-http.php:433
+[25-May-2017 17:55:53 UTC] PHP  12. curl_exec() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[25-May-2017 17:55:53 UTC] PHP  13. WP_Http_Curl->stream_headers() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[25-May-2017 18:06:19 UTC] jp-sitemap-bXRLe: -- Updating...
+[25-May-2017 18:06:19 UTC] jp-sitemap-bXRLe: -- Building sitemap-1.xml
+[25-May-2017 18:06:20 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_sitemap
+[25-May-2017 18:06:20 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_sitemap_index
+[25-May-2017 18:06:20 UTC] jp-sitemap-bXRLe: -- Building image-sitemap-1.xml
+[25-May-2017 18:06:22 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_img_sitemap
+[25-May-2017 18:06:22 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_img_sitemap_index
+[25-May-2017 18:06:22 UTC] jp-sitemap-bXRLe: -- Building video-sitemap-1.xml
+[25-May-2017 18:06:22 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_vid_sitemap
+[25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe: -- Cleaning Up jp_vid_sitemap_index
+[25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe: -- Building Master Sitemap.
+[25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe: -- Finished.
+[25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe:  5.284 seconds elapsed.

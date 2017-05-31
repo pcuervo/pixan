@@ -54,6 +54,7 @@ class PIXAN_API_Web_services {
 		add_action( 'pixan_api_webservice_zonas_entrega', array( $this, 'zonas_entrega' ) );
 		add_action( 'pixan_api_webservice_preguntas_frecuentes', array( $this, 'preguntas_frecuentes' ) );
 		add_action( 'pixan_api_webservice_redes_sociales', array( $this, 'redes_sociales' ) );
+		add_action( 'pixan_api_webservice_send_email_client_zona', array( $this, 'send_email_client_zona' ) );
 		
 		add_action( 'pixan_api_webservice_update_user_meta', array( $this, 'update_user_meta' ) );
 		
@@ -165,6 +166,7 @@ class PIXAN_API_Web_services {
 					'hora'		=> $meta['_hora'][0],
 					'coor'		=> $meta['_coordenadas'][0],
 					'zona'		=> get_the_title(),
+					'color'		=> $meta['_favcolor'][0]
 				));
 			}
 		}
@@ -280,6 +282,31 @@ class PIXAN_API_Web_services {
 		}
 		
 		
+	}
+
+	public function send_email_client_zona(){ 
+		
+		$subject = 'Pixan - Cliente sin Zona';
+		$headers = array('Content-Type: text/html; charset=UTF-8');
+		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
+		$message = '<html><body>';
+		$message .= '<br>Nombre: '.$_POST['nombre'];
+		$message .= '<br>Telefono: '.$_POST['telefono'];
+		$message .= '<br>Email: '.$_POST['email'];
+		$message .= '<br>Dirección de envio: '.$_POST['direccion'];
+		$message .= '</body></html>';
+
+		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
+
+		//SEND EMAIL CONFIRMATION
+		$resp = wp_mail( 'ventas@pixansustentable.com', $subject, $message, $headers );
+		if($resp) {
+			PIXAN_API_Output::get()->output( true );
+		}
+		else {
+			PIXAN_API_Output::get()->output( false );
+		}
+		wp_die();
 	}
 	
 	public function delete_list(){
