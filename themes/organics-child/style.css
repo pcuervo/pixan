@@ -925,3 +925,43 @@ h3.sd-title:before {
     box-shadow: none!important;
 }
 
+
+.ui-widget-header {
+	background-color: transparent;
+	border: 0px;
+	text-align: center;
+}
+.ui-widget-header > span {
+	font-weight: 700;
+	font-size: 18px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+	position: absolute;
+	top: 0px;
+	right: -9px;
+	width: 30px;
+	height: 30px!important;
+	padding: 0px!important;
+	border-radius: 50%!important;
+	border: 2px solid #80b641!important;
+    background-color: #fff!important;
+}
+.ui-dialog .ui-dialog-titlebar-close:before {
+	content: 'x';
+	color: #fff;
+	font-size: 20px;
+}
+div#dialog_zona input {
+	margin-bottom: 10px;
+}
+div#dialog_zona input + small {
+	display: block!important;
+	text-align: center;
+}
+div#dialog_zona + .ui-dialog-buttonpane {
+	text-align: center;
+}
+
+div#dialog_zona + .ui-dialog-buttonpane .ui-dialog-buttonset {
+	float: inherit;
+}
