@@ -15,7 +15,7 @@ if (!organics_param_is_off($sidebar_show) && is_active_sidebar($sidebar_name)) {
 				<a href="<?php echo site_url('/my-account/'); ?>" class="[ button-login ] sc_button sc_button_round sc_button_style_filled sc_button_scheme_original sc_button_size_small">Ingresa / Registrate</a>
 			<?php } ?>
 
-			<?php if ( is_page(array('cart', 'checkout')) ){ ?>
+			<?php if ( is_page('cart') ){ ?>
 				<a href="<?php echo site_url('/categoria-producto/productos/'); ?>" class="[ width---100 box-sizing-border-box ][ button-login ] sc_button sc_button_round sc_button_style_filled sc_button_scheme_original sc_button_size_small">Agregar productos</a><br>
 			<?php } ?>
 

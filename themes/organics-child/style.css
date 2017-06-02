@@ -858,9 +858,9 @@ form.checkout .variation-Recurrencia { float: none!important; }
 p.no_subscriptions a:nth-child(1) { display: none; }
 
 /*pop up*/
-.popup_wrap input[type="checkbox"]{ width: 25px; height: 20px; margin-bottom: -3px!important; }
+.popup_wrap input[type="checkbox"]{ width: 25px; height: 20px; margin-bottom: -4px!important; }
 .popup_wrap .text-left label,
-.popup_wrap .text-left label a { font-size: 14px!important; }
+.popup_wrap .text-left label a { font-size: 12px!important; }
 .popup_form_field.agree_field a { font-size: 15px; color: #80b500!important; text-decoration: underline; }
 
 .popup_registration {
