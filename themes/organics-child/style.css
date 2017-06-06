@@ -965,3 +965,8 @@ div#dialog_zona + .ui-dialog-buttonpane {
 div#dialog_zona + .ui-dialog-buttonpane .ui-dialog-buttonset {
 	float: inherit;
 }
+
+.woocommerce-MyAccount-content header h3,
+.woocommerce-MyAccount-content address {
+	display: none;
+}
