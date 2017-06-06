@@ -219,7 +219,8 @@ class Ordenes_Dia_Pixan {
 				//DESCARTAR PEDIDOS MENORES A UN DIA
 				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days"))) {
 					$meta = get_post_meta($customer_orders[$i]->ID);
-					
+					var_dump($meta['_unidadmedida_orden']);
+					var_dump($meta['_temperaturas_orden']);
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
 					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 

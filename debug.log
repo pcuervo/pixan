@@ -2931,3 +2931,468 @@ Stack trace:
 [25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe: -- Building Master Sitemap.
 [25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe: -- Finished.
 [25-May-2017 18:06:23 UTC] jp-sitemap-bXRLe:  5.284 seconds elapsed.
+[25-May-2017 18:16:00 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[25-May-2017 18:16:00 UTC] PHP Stack trace:
+[25-May-2017 18:16:00 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 18:16:00 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 18:16:00 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 18:16:00 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 18:16:00 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 18:16:00 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 18:16:00 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[25-May-2017 18:16:00 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[25-May-2017 18:16:00 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[25-May-2017 18:16:01 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[25-May-2017 18:16:01 UTC] PHP Stack trace:
+[25-May-2017 18:16:01 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 18:16:01 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 18:16:01 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 18:16:01 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 18:16:01 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 18:16:01 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 20:48:29 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[25-May-2017 20:48:29 UTC] PHP Stack trace:
+[25-May-2017 20:48:29 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 20:48:29 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 20:48:29 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 20:48:29 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 20:48:29 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 20:48:29 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[25-May-2017 20:48:29 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[25-May-2017 20:48:29 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[25-May-2017 20:48:29 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[25-May-2017 20:48:29 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[25-May-2017 20:48:29 UTC] PHP Stack trace:
+[25-May-2017 20:48:29 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[25-May-2017 20:48:29 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[25-May-2017 20:48:29 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 20:48:29 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[25-May-2017 20:48:29 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[25-May-2017 20:48:29 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[06-Jun-2017 20:18:39 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\fw\widgets\qrcode\qrcode.php on line 6
+[06-Jun-2017 20:18:39 UTC] PHP Stack trace:
+[06-Jun-2017 20:18:39 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:18:39 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[06-Jun-2017 20:18:39 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[06-Jun-2017 20:18:39 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[06-Jun-2017 20:18:39 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[06-Jun-2017 20:18:39 UTC] PHP   6. include() C:\wamp\www\pixan\wp-settings.php:369
+[06-Jun-2017 20:18:39 UTC] PHP   7. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[06-Jun-2017 20:18:39 UTC] PHP   8. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:102
+[06-Jun-2017 20:18:39 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php:173
+[06-Jun-2017 20:21:03 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[06-Jun-2017 20:21:03 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[06-Jun-2017 20:21:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[06-Jun-2017 20:21:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:21:03 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:21:03 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[06-Jun-2017 20:21:03 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[06-Jun-2017 20:21:03 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[06-Jun-2017 20:21:03 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[06-Jun-2017 20:21:03 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[06-Jun-2017 20:21:03 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[06-Jun-2017 20:21:03 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:03 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[06-Jun-2017 20:21:03 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[06-Jun-2017 20:21:03 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:21:03 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:21:03 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[06-Jun-2017 20:21:03 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[06-Jun-2017 20:21:25 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:25 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:26 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:26 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:26 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:26 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:26 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:26 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP Notice:  Undefined index: _unidadmedida_orden in C:\wamp\www\pixan\wp-content\plugins\area-entrega-pixan\classes\ordenes-dia-pixan.php on line 222
+[06-Jun-2017 20:21:27 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:27 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 20:21:27 UTC] PHP   2. wp_dashboard() C:\wamp\www\pixan\wp-admin\index.php:126
+[06-Jun-2017 20:21:27 UTC] PHP   3. do_meta_boxes() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:213
+[06-Jun-2017 20:21:27 UTC] PHP   4. call_user_func() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:27 UTC] PHP   5. Ordenes_Dia_Pixan->show_admin_map_widget() C:\wamp\www\pixan\wp-admin\includes\template.php:1037
+[06-Jun-2017 20:21:39 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[06-Jun-2017 20:21:39 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:39 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[06-Jun-2017 20:21:39 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[06-Jun-2017 20:21:39 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   4. wp_ajax_dashboard_widgets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   5. wp_dashboard_primary() C:\wamp\www\pixan\wp-admin\includes\ajax-actions.php:317
+[06-Jun-2017 20:21:39 UTC] PHP   6. wp_dashboard_cached_rss_widget() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1156
+[06-Jun-2017 20:21:39 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   8. wp_dashboard_primary_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   9. wp_dashboard_plugins_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1172
+[06-Jun-2017 20:21:39 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[06-Jun-2017 20:21:39 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:39 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[06-Jun-2017 20:21:39 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[06-Jun-2017 20:21:39 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   4. wp_ajax_dashboard_widgets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   5. wp_dashboard_primary() C:\wamp\www\pixan\wp-admin\includes\ajax-actions.php:317
+[06-Jun-2017 20:21:39 UTC] PHP   6. wp_dashboard_cached_rss_widget() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1156
+[06-Jun-2017 20:21:39 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   8. wp_dashboard_primary_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   9. wp_dashboard_plugins_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1172
+[06-Jun-2017 20:21:39 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\pixan\wp-admin\includes\dashboard.php on line 1214
+[06-Jun-2017 20:21:39 UTC] PHP Stack trace:
+[06-Jun-2017 20:21:39 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[06-Jun-2017 20:21:39 UTC] PHP   2. do_action() C:\wamp\www\pixan\wp-admin\admin-ajax.php:89
+[06-Jun-2017 20:21:39 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   4. wp_ajax_dashboard_widgets() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 20:21:39 UTC] PHP   5. wp_dashboard_primary() C:\wamp\www\pixan\wp-admin\includes\ajax-actions.php:317
+[06-Jun-2017 20:21:39 UTC] PHP   6. wp_dashboard_cached_rss_widget() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1156
+[06-Jun-2017 20:21:39 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   8. wp_dashboard_primary_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:986
+[06-Jun-2017 20:21:39 UTC] PHP   9. wp_dashboard_plugins_output() C:\wamp\www\pixan\wp-admin\includes\dashboard.php:1172
+[06-Jun-2017 20:22:43 UTC] jp-sitemap-wQlDT: -- Updating...
+[06-Jun-2017 20:22:43 UTC] jp-sitemap-wQlDT: -- Building sitemap-1.xml
+[06-Jun-2017 20:22:44 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_sitemap
+[06-Jun-2017 20:22:44 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_sitemap_index
+[06-Jun-2017 20:22:44 UTC] jp-sitemap-wQlDT: -- Building image-sitemap-1.xml
+[06-Jun-2017 20:22:45 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_img_sitemap
+[06-Jun-2017 20:22:45 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_img_sitemap_index
+[06-Jun-2017 20:22:45 UTC] jp-sitemap-wQlDT: -- Building video-sitemap-1.xml
+[06-Jun-2017 20:22:45 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_vid_sitemap
+[06-Jun-2017 20:22:46 UTC] jp-sitemap-wQlDT: -- Cleaning Up jp_vid_sitemap_index
+[06-Jun-2017 20:22:46 UTC] jp-sitemap-wQlDT: -- Building Master Sitemap.
+[06-Jun-2017 20:22:46 UTC] jp-sitemap-wQlDT: -- Finished.
+[06-Jun-2017 20:22:46 UTC] jp-sitemap-wQlDT:  4.642 seconds elapsed.
+[06-Jun-2017 20:26:05 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 313
+[06-Jun-2017 20:26:05 UTC] PHP Stack trace:
+[06-Jun-2017 20:26:05 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[06-Jun-2017 20:26:05 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[06-Jun-2017 20:26:05 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:26:05 UTC] PHP   4. Jetpack_Heartbeat->cron_exec() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 20:26:05 UTC] PHP   5. Jetpack->do_stats() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack-heartbeat.php:92
+[06-Jun-2017 20:26:05 UTC] PHP   6. Jetpack::do_server_side_stat() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4020
+[06-Jun-2017 20:26:05 UTC] PHP   7. wp_remote_get() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4038
+[06-Jun-2017 20:26:05 UTC] PHP   8. WP_Http->get() C:\wamp\www\pixan\wp-includes\http.php:170
+[06-Jun-2017 20:26:05 UTC] PHP   9. WP_Http->request() C:\wamp\www\pixan\wp-includes\class-http.php:496
+[06-Jun-2017 20:26:05 UTC] PHP  10. WP_Http->_dispatch_request() C:\wamp\www\pixan\wp-includes\class-http.php:342
+[06-Jun-2017 20:26:05 UTC] PHP  11. WP_Http_Curl->request() C:\wamp\www\pixan\wp-includes\class-http.php:433
+[06-Jun-2017 20:26:05 UTC] PHP  12. curl_exec() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[06-Jun-2017 20:26:05 UTC] PHP  13. WP_Http_Curl->stream_headers() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
