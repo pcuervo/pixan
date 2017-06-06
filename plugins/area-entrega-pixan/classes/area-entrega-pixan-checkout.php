@@ -216,7 +216,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				<div id="dialogLoader" style="display:none;"><img src="'.PRODUCT_LIST_URL.'inc/img/loader.gif" alt="Cargando..." /></div>
 				<div id="dialogDefaultText">
 				<p>Aún no tenemos cobertura de entrega en tu zona. Por favor dejanos tus datos y nos pondremos en contacto contigo para coordinar una entrega.</p>
-				
+
 					<input type="email" required id="nozona_email" name="nozona_email" placeholder="Tu email" />
 					<input type="text" required id="nozona_nombre" name="nozona_nombre" placeholder="Tu nombre" />
 					<input type="text" id="nozona_telefono" name="nozona_telefono" placeholder="Tu telefóno" />
@@ -273,7 +273,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 	}// meta_box_info_maestro
 
-	public function send_email_client_zona(){ 
+	public function send_email_client_zona(){
 		error_log('NO ZONA MAIL = '.$_POST['nombre'].' '.$_POST['telefono'].' -> '.$_POST['email']);
 		$subject = 'Pixan - Cliente sin Zona';
 		$headers = array('Content-Type: text/html; charset=UTF-8');

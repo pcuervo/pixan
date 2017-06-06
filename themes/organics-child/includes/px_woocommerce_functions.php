@@ -5,12 +5,12 @@
 ==========================================*/
 
 /**
- * Adds basket product ass fee to order if the user has 
- * never bought anything before. 
+ * Adds basket product ass fee to order if the user has
+ * never bought anything before.
  */
 function px_add_basket_on_first_order(){
 	if( 0 < px_get_num_orders() ) return;
-	WC()->cart->add_fee( 'Canasta primera vez', 100 );
+	WC()->cart->add_fee( 'Depósito por empaques', 250 );
 }
 
 /**
@@ -29,7 +29,7 @@ function px_free_shipping_above_500( $rates ) {
 	if( '500' > $current_cart_totals ){
 		unset( $rates['free_shipping:2'] );
 		return $rates;
-	} 
+	}
 
 	unset( $rates['flat_rate:1'] );
 	return $rates;
@@ -50,7 +50,7 @@ function px_create_new_customer_coupon(){
 	$welcome_coupon = new WC_Coupon( 'bienvenido' );
 	if ( $welcome_coupon->exists ) return;
 
-	$coupon_code = 'bienvenido'; 
+	$coupon_code = 'bienvenido';
 	$amount = '50';
 	$discount_type = 'fixed_cart';
 
@@ -60,7 +60,7 @@ function px_create_new_customer_coupon(){
 	    'post_status' 	=> 'publish',
 	    'post_author' 	=> 1,
 	    'post_type'     => 'shop_coupon'
-	);    
+	);
 	$new_coupon_id = wp_insert_post( $coupon );
 
 	update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
@@ -126,14 +126,14 @@ function px_order_has_coupon( WC_Order $order, $coupon_name ) {
  * @return boolean
  */
 function px_get_num_orders(){
-	$customer_orders = get_posts( 
+	$customer_orders = get_posts(
 		array(
 	        'numberposts' => -1,
 	        'meta_key'    => '_customer_user',
 	        'meta_value'  => get_current_user_id(),
 	        'post_type'   => wc_get_order_types(),
 	        'post_status' => array_keys( wc_get_order_statuses() ),
-    	) 
+    	)
 	);
 	//var_dump( $customer_orders );
 	return count( $customer_orders );
@@ -146,11 +146,11 @@ function px_get_num_orders(){
 =            #METABOXES            =
 ==================================*/
 function show_metabox_producto($post){
-	
+
 	$tipo_unidad = get_post_meta($post->ID, 'unidadmedida', true);
 	$temperatura = get_post_meta($post->ID, 'temperatura', true);
 	$vigencia = get_post_meta($post->ID, 'vigencia', true);
-	
+
 	wp_nonce_field(__FILE__, '_unidadmedida');
 	wp_nonce_field(__FILE__, '_temperatura');
 
@@ -212,11 +212,11 @@ function modify_orders_filters()
 {
     // Only apply the filter to our specific post type
     global $wpdb;
-	
+
     global $typenow;
     if( $typenow == 'shop_order' )
     {
-    	
+
     	$temperaturas = $wpdb->get_results(
 		"SELECT distinct(meta_value) FROM " . $wpdb->prefix . "postmeta WHERE meta_key = 'temperatura'"
 		);
@@ -242,7 +242,7 @@ function modify_filter_orders( $query )
 {
     global $typenow;
     global $pagenow;
-    
+
     /*
     if( isset($_GET['temperatura']) && $_GET['temperatura'] != '') {
 	    if( $pagenow == 'edit.php' && $typenow == 'shop_order' && $_GET['temperatura'] )
@@ -262,7 +262,7 @@ function modify_filter_orders( $query )
 	        $query->query_vars[ 'meta_compare' ] = 'LIKE';
 	    }
 	}
-		
+
 	//var_dump($query);
 }
 
@@ -288,7 +288,7 @@ function my_manage_shop_order_columns( $column, $post_id ) {
 			/* If no _temperaturas_orden is found, output a default message. */
 			if ( !empty( $_temperaturas_orden ) ) { echo $_temperaturas_orden; }
 			//else { echo 'NADA'; }
-			break;	
+			break;
 		case '_billing_regalo' :
 			/* Get the post meta. */
 			$_billing_regalo = get_post_meta( $post_id, '_billing_regalo', true );
@@ -296,7 +296,7 @@ function my_manage_shop_order_columns( $column, $post_id ) {
 			/* If no _billing_regalo is found, output a default message. */
 			if ( !empty( $_billing_regalo ) && $_billing_regalo == '1' ) { echo '<strong style="color:#CDDC39;">SI</strong>'; }
 			else { echo 'NO'; }
-			break;		
+			break;
 		/* Just break out of the switch statement for everything else. */
 		default :
 			break;
