@@ -970,3 +970,8 @@ div#dialog_zona + .ui-dialog-buttonpane .ui-dialog-buttonset {
 .woocommerce-MyAccount-content address {
 	display: none;
 }
+
+#_fecha_nacimiento::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}

@@ -53,12 +53,12 @@ function remplaceText(){
         var text = $(this).text();
         $(this).text(text.replace(' / week', '/ semana'));
     });
-    $('a').each(function() {
+    $('table a.button').each(function() {
         var text = $(this).text();
-        $(this).text(text.replace('your account', 'tu cuenta'));
+        $(this).text(text.replace('Suspend', 'suspender'));
     });
-    $('a').each(function() {
+    $('table a.button').each(function() {
         var text = $(this).text();
-        $(this).text(text.replace('suspend', 'suspender'));
+        $(this).text(text.replace('Resubscribe', 'resubscribir'));
     });
 }

@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="_fecha_nacimiento" class="popup_form_field description_field"><?php _e( 'Fecha de nacimiento', 'organics' ); ?> <span class="required">*</span></label>
-				<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('Fecha de Nacimineto', 'organics'); ?>">
+				<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('mm/dd/yyyy', 'organics'); ?>">
 			</p>
 
 			<!-- Spam Trap -->

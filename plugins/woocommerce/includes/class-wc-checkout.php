@@ -448,10 +448,10 @@ class WC_Checkout {
 					if ( isset( $field['required'] ) && $field['required'] && ( ! isset( $this->posted[ $key ] ) || "" === $this->posted[ $key ] ) ) {
 						switch ( $fieldset_key ) {
 							case 'shipping' :
-								$field_label = sprintf( _x( 'Shipping %s', 'Shipping FIELDNAME', 'woocommerce' ), $field['label'] );
+								$field_label = sprintf( _x( 'Shipping %s', 'FIELDNAME', 'woocommerce' ), $field['label'] );
 							break;
 							case 'billing' :
-								$field_label = sprintf( _x( '%s', 'Billing FIELDNAME', 'woocommerce' ), $field['label'] );
+								$field_label = sprintf( _x( '%s', 'FIELDNAME', 'woocommerce' ), $field['label'] );
 							break;
 							default :
 								$field_label = $field['label'];
