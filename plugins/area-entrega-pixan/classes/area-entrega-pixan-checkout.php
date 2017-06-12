@@ -226,8 +226,8 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 		echo '<div id="divInfoAreaEntrega" style="display:none;" >
 				<h5 id="lblNombrePunto"></h5>
-				<strong>Dias de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
-				<strong>Se programara tu entrega para el dia: </strong><p><small id="lblDiaTuEntrega"></small></p>
+				<strong>Días de Entrega: </strong><p><small id="lblDiasEntrega"></small></p>
+				<strong>Se programará tu entrega para el dia: </strong><p><small id="lblDiaTuEntrega"></small></p>
 				<strong>Horario: </strong><p><small id="lblHorarioEntrega"></small></p>
 			</div>';
 
