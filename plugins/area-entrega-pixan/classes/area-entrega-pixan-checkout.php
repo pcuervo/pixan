@@ -437,7 +437,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			$unidadmedida = get_post_meta( $product->id , 'unidadmedida', true );
 			//echo '['.$temperatura.']';
 			if ( !empty( $temperatura ) && !in_array($temperatura, $tempe)) { array_push($tempe, $temperatura); }
-			if ( !empty( $unidadmedida ) && !in_array($unidadmedida, $uni)) { array_push($tempe, $unidadmedida); }
+			if ( !empty( $unidadmedida ) && !in_array($unidadmedida, $uni)) { array_push($uni, $unidadmedida); }
 		}
 		for ($i = 0; $i<count($tempe); $i++) {
 			$t .= $tempe[$i].' ';
