@@ -319,7 +319,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
 
                     $product = wc_get_product( $post_id );
 
-                    $post_data = $product->get_post_data();
+                    $post_data = get_post( $post_id );
 
                     $title = $product->get_title();
                     $title = AWS_Helpers::html2txt( $title );
@@ -366,9 +366,8 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                         $sku = $product->get_sku();
                     }
 
-                    $categories = $product->get_categories( ',' );
-
-                    $tags = $product->get_tags( ',' );
+//                    $categories = $product->get_categories( ',' );
+//                    $tags = $product->get_tags( ',' );
 
                     $new_result = array(
                         'title'      => $title,
@@ -376,8 +375,6 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                         'link'       => get_permalink( $post_id ),
                         'image'      => $image,
                         'price'      => $price,
-                        'categories' => $categories,
-                        'tags'       => $tags,
                         'on_sale'    => $on_sale,
                         'sku'        => $sku,
                         'post_data'  => $post_data
