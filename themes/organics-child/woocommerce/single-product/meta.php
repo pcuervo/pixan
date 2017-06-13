@@ -13,23 +13,19 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $post, $product;
-
-$cat_count = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
-$tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
+global $product;
 
 ?>
 <div class="product_meta">
-	<?php echo $product->get_categories( ', ', '<p class="posted_in margin-bottom">' . _n( 'Category:', 'Categories:', $cat_count, 'woocommerce' ) . ' ', '</p>' ); ?>
+	<?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
 	<?php if( $product->is_type( 'variable' ) ) : ?>
 		<small class="[ color-red ]">Para añadir al carrito debes selecciona la recurrencia</small>
 	<?php endif; ?>
-
 </div>
