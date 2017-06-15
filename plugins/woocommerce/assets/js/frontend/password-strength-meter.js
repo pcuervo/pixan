@@ -11,34 +11,25 @@ jQuery( function( $ ) {
 		 */
 		init: function() {
 			$( document.body )
-				.on( 'keyup change', 'form.register #reg_password, #registration_pwd, form.checkout #account_password, form.edit-account #password_1, form.lost_reset_password #password_1', this.strengthMeter );
+				.on( 'keyup change', 'form.register #reg_password, form.checkout #account_password, form.edit-account #password_1, form.lost_reset_password #password_1', this.strengthMeter );
 			$( 'form.checkout #createaccount' ).change();
-
-					
 		},
 
 		/**
 		 * Strength Meter.
 		 */
 		strengthMeter: function() {
-			var wrapper  = $( 'form.register, form.checkout, form.edit-account, form.lost_reset_password' ),
-				submit   = $( 'input[type="submit"]', wrapper ),
-				field    = $( '#reg_password, #registration_pwd, #account_password, #password_1', wrapper ),
-				strength = 10;
-				wc_password_strength_meter_params.min_password_strength = 0;
+			var wrapper    = $( 'form.register, form.checkout, form.edit-account, form.lost_reset_password' ),
+				submit     = $( 'input[type="submit"]', wrapper ),
+				field      = $( '#reg_password, #account_password, #password_1', wrapper ),
+				strength   = 1,
+				fieldValue = field.val();
+
 			wc_password_strength_meter.includeMeter( wrapper, field );
-			//console.log('tamano->'+field.val().length);
-			if(field.val().length >= 6) {
-				$(".woocommerce-password-strength").hide();
-				setTimeout(function() { $(".woocommerce-password-hint").hide(); }, 500);
-			}
-			else {
-				$(".woocommerce-password-strength").show();
-				setTimeout(function() { $(".woocommerce-password-hint").show(); }, 500);
-			}
+
 			strength = wc_password_strength_meter.checkPasswordStrength( wrapper, field );
-			//console.log(strength+' < '+wc_password_strength_meter_params.min_password_strength);
-			if ( strength < wc_password_strength_meter_params.min_password_strength && ! wrapper.is( 'form.checkout' ) ) {
+
+			if ( fieldValue.length > 0 && strength < wc_password_strength_meter_params.min_password_strength && ! wrapper.is( 'form.checkout' ) ) {
 				submit.attr( 'disabled', 'disabled' ).addClass( 'disabled' );
 			} else {
 				submit.removeAttr( 'disabled', 'disabled' ).removeClass( 'disabled' );
@@ -53,6 +44,7 @@ jQuery( function( $ ) {
 		 */
 		includeMeter: function( wrapper, field ) {
 			var meter = wrapper.find( '.woocommerce-password-strength' );
+
 			if ( '' === field.val() ) {
 				meter.remove();
 				$( document.body ).trigger( 'wc-password-strength-removed' );
@@ -75,7 +67,7 @@ jQuery( function( $ ) {
 			var hint_html = '<small class="woocommerce-password-hint">' + wc_password_strength_meter_params.i18n_password_hint + '</small>';
 			var strength  = wp.passwordStrength.meter( field.val(), wp.passwordStrength.userInputBlacklist() );
 			var error     = '';
-			//console.log(strength);
+
 			// Reset
 			meter.removeClass( 'short bad good strong' );
 			hint.remove();

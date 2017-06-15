@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Jetpack by WordPress.com - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-05-02 17:50:53+0000\n"
+"PO-Revision-Date: 2017-05-15 14:24:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,6 +74,14 @@ msgstr "Muestra tu apoyo a la Liga para la defensa de Internet"
 msgid "Internet Defense League"
 msgstr "Liga para la defensa de Internet"
 
+#: modules/widgets/flickr.php:146
+msgid "(Only admins can see this message)"
+msgstr "(Solo los administradores pueden ver este mensaje)"
+
+#: modules/widgets/flickr.php:145
+msgid "There are no photos to display. Make sure your Flickr feed URL is correct, and that your pictures are publicly accessible."
+msgstr "No hay fotos que mostrar. Asegúrate de que la URL del feed de tu Flickr es la correcta, y de que tus fotos están accesibles públicamente."
+
 #: modules/widgets/flickr.php:52
 msgid "Flickr Photos"
 msgstr "Fotos de Flickr"
@@ -97,6 +105,10 @@ msgstr "¿Qué tamaño de fotos te gustaría mostrar?"
 #: modules/widgets/flickr/form.php:40
 msgid "How many photos would you like to display?"
 msgstr "¿Cuántas fotos te gustaría mostrar?"
+
+#: modules/widgets/flickr/form.php:32
+msgid "Leave the Flickr RSS URL field blank to display <a target=\"_blank\" href=\"%s\">interesting</a> Flickr photos."
+msgstr "Deja en blanco el campo de URL del RSS de Flickr para mostrar <a target=\"_blank\" href=\"%s\">interesantes</a> fotos de Flickr."
 
 #: modules/widgets/flickr/form.php:26
 msgid "To find your Flickr RSS URL, go to your photostream, open the \"More\" menu and click on \"Edit\". Scroll down until you see the RSS icon or the \"Latest\" link. Right click on either and copy the URL. Paste into the box above."
@@ -169,7 +181,7 @@ msgstr "después de que el usuario navegue por la página"
 
 #: modules/widgets/eu-cookie-law/form.php:14
 msgid "after the user clicks the dismiss button"
-msgstr "después de que el usuario haga clic en el botón descartar"
+msgstr "después de que el usuario haz clic en el botón descartar"
 
 #: modules/widgets/eu-cookie-law/form.php:3
 msgctxt "action"
@@ -1138,7 +1150,7 @@ msgstr "Esquema de color"
 
 #: _inc/jetpack-strings.php:105
 msgid "Enable Markdown use for comments."
-msgstr "Permite marcado en los comentarios."
+msgstr "Permite Markdown en los comentarios."
 
 #: _inc/jetpack-strings.php:68
 msgid "Connections"
@@ -6665,7 +6677,7 @@ msgstr "El pase de diapositivas requiere JavaScript."
 
 #: modules/shortcodes/slideshow.php:204
 msgid "Click to view slideshow."
-msgstr "Haga click para ver el pase de diapositivas."
+msgstr "Haz click para ver el pase de diapositivas."
 
 #: modules/shortcodes/slideshow.php:69
 msgid "Image Gallery Slideshow"
@@ -6681,7 +6693,7 @@ msgstr "Hora"
 
 #: modules/shortcodes/presentations.php:242
 msgid "Click to autoplay the presentation!"
-msgstr "¡Haga clic para activar la reproducción automática de la presentación!"
+msgstr "¡Haz clic para activar la reproducción automática de la presentación!"
 
 #: modules/shortcodes/presentations.php:226
 msgid "This slideshow could not be started. Try refreshing the page or viewing it in another browser."
@@ -8262,7 +8274,7 @@ msgstr "Más información sobre Markdown."
 
 #: modules/markdown/easy-markdown.php:271
 msgid "Use Markdown for posts and pages."
-msgstr "Usar Markdown para posts y páginas."
+msgstr "Usar Markdown para entradas y páginas."
 
 #: modules/markdown/easy-markdown.php:246
 #: modules/markdown/easy-markdown.php:248

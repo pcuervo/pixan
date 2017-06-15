@@ -12,7 +12,7 @@ if (!organics_param_is_off($sidebar_show) && is_active_sidebar($sidebar_name)) {
 	<div class="sidebar widget_area scheme_<?php echo esc_attr($sidebar_scheme); ?>" role="complementary">
 		<div class="sidebar_inner widget_area_inner">
 			<?php if ( ! is_user_logged_in() ){ ?>
-				<a href="<?php echo site_url('/my-account/'); ?>" class="[ button-login ] sc_button sc_button_round sc_button_style_filled sc_button_scheme_original sc_button_size_small">Ingresa / Registrate</a>
+				<a href="<?php echo site_url('/my-account/'); ?>" class="[ button-login ] sc_button sc_button_round sc_button_style_filled sc_button_scheme_original sc_button_size_small">Ingresa / Regístrate</a>
 			<?php } ?>
 
 			<?php if ( is_page('cart') ){ ?>

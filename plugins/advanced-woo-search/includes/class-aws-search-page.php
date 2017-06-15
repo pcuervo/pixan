@@ -171,10 +171,10 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
          * Filter the posts array to contain ES query results in EP_Post form. Pull previously queried posts.
          *
          * @param array $posts
-         * @param object &$query
+         * @param object $query
          * @return array
          */
-        public function filter_the_posts( $posts, &$query ) {
+        public function filter_the_posts( $posts, $query ) {
             if ( ! $this->aws_searchpage_enabled( $query )  || ! isset( $this->posts_by_query[spl_object_hash( $query )] ) ) {
                 return $posts;
             }

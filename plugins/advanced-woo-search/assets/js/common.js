@@ -33,7 +33,7 @@
                 }
 
                 if ( searchFor === '' ) {
-                    $(d.resultBlock).html('');
+                    $(d.resultBlock).html('').hide();
                     methods.hideLoader();
                     return;
                 }

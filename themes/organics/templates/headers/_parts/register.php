@@ -22,7 +22,7 @@
 					<input type="text" id="registration_email" name="registration_email" value="" placeholder="<?php esc_attr_e('Email', 'organics'); ?>">
 				</div>
 				<div class="popup_form_field date_field iconed_field icon-user">
-					<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('Fecha de Nacimineto', 'organics'); ?>" style="width: 90%;">
+					<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('mm/dd/yyyy', 'organics'); ?>" style="width: 90%;">
 				</div>
 				<div class="popup_form_field description_field">
 					<?php esc_html_e('Fecha de nacimiento', 'organics'); ?>

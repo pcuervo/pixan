@@ -181,7 +181,7 @@ function wcs_price_string( $subscription_details ) {
 	} elseif ( ! empty( $subscription_details['recurring_amount'] ) || intval( $subscription_details['recurring_amount'] ) === 0 ) {
 		// translators: 1$: recurring amount, 2$: subscription period (e.g. "month" or "3 months") (e.g. "$15 / month" or "$15 every 2nd month")
 		if ( true === $subscription_details['use_per_slash'] ) {
-			$subscription_string = sprintf( _n( '%1$s / %2$s', '%1$s every %2$s', $subscription_details['subscription_interval'], 'woocommerce-subscriptions' ), $recurring_amount_string, $subscription_period_string );
+			$subscription_string = sprintf( _n( '%1$s  <span class="traslate">/ %2$s</span>', '%1$s <span class="traslate">every %2$s</span>', $subscription_details['subscription_interval'], 'woocommerce-subscriptions' ), $recurring_amount_string, $subscription_period_string );
 		} else {
 			$subscription_string = sprintf( __( '%1$s every %2$s', 'woocommerce-subscriptions' ), $recurring_amount_string, $subscription_period_string );
 		}

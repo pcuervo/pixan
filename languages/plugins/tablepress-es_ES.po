@@ -2,14 +2,34 @@
 # This file is distributed under the same license as the Plugins - TablePress - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-11-15 18:42:03+0000\n"
+"PO-Revision-Date: 2017-05-02 07:15:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.3.0-alpha\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - TablePress - Stable (latest release)\n"
+
+#: views/view-import.php:269
+msgid "(recommended)"
+msgstr "(recomendado)"
+
+#: views/view-edit.php:638
+msgid "The following error was registered: %s."
+msgstr "Se registró el siguiente error: %s."
+
+#: views/view-edit.php:615
+msgid "Additional parameters from the <a href=\"%s\">DataTables documentation</a> to be added to the JS call."
+msgstr "Hace falta añadir parámetros adicionales de la <a href=\"%s\">documentación de la tabla de datos</a> a llamada de JS."
+
+#: classes/class-tablepress.php:365
+msgid "unknown"
+msgstr "desconocido"
+
+#: classes/class-admin-page-helper.php:79
+msgid "Thank you for using <a href=\"%s\">TablePress</a>."
+msgstr "Gracias por usar <a href=\"%s\">TablePress</a>."
 
 #: views/view-options.php:81
 msgid "In the User Options, every TablePress user can choose the position of the plugin in his WordPress admin menu."
@@ -171,37 +191,37 @@ msgstr "¿Estás realmente seguro?"
 msgid "Do you really want to uninstall TablePress and delete ALL data?"
 msgstr "¿Realmente quieres desinstalar TablePress y borrar TODOS los datos?"
 
-#: views/view-list.php:592
+#: views/view-list.php:612
 msgid "You should <a href=\"%s\">import</a> a table to get started!"
 msgstr "Debe <a href=\"%s\">importar</a> una tabla para comenzar!"
 
-#: views/view-list.php:590
+#: views/view-list.php:610
 msgid "You should <a href=\"%s\">add</a> a table to get started!"
 msgstr "Debe <a href=\"%s\">agregar</a> una tabla para comenzar!"
 
-#: views/view-list.php:569
+#: views/view-list.php:589
 msgid "Apply"
 msgstr "Aplicar"
 
-#: views/view-list.php:564
+#: views/view-list.php:584
 msgid "Bulk Actions"
 msgstr "Acciones en conjunto"
 
-#: views/view-list.php:562
+#: views/view-list.php:582
 msgid "Select Bulk Action"
 msgstr "Seleccionar acción en lote"
 
-#: views/view-list.php:530
+#: views/view-list.php:550
 msgctxt "bulk action"
 msgid "Delete"
 msgstr "Borrar"
 
-#: views/view-list.php:527
+#: views/view-list.php:547
 msgctxt "bulk action"
 msgid "Export"
 msgstr "Exportar"
 
-#: views/view-list.php:524
+#: views/view-list.php:544
 msgctxt "bulk action"
 msgid "Copy"
 msgstr "Copiar"
@@ -425,10 +445,6 @@ msgid "Import styling"
 msgstr "Importar estilos"
 
 #: views/view-import.php:269
-msgid "<span class=\"description\">(recommended)</span>"
-msgstr "<span class=\"descripción\">(recomendado)</span>"
-
-#: views/view-import.php:269
 msgid "Import all tables and their settings from WP-Table Reloaded."
 msgstr "Importar todas las tablas y sus configuraciones desde WP-Table Reloaded."
 
@@ -650,7 +666,7 @@ msgstr "Seleccionar todo"
 msgid "Tables to Export"
 msgstr "Tablas a exportar"
 
-#: views/view-export.php:89 views/view-list.php:588
+#: views/view-export.php:89 views/view-list.php:608
 msgid "You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to get started!"
 msgstr "Debe <a href=\"%s\">agregar</a> o <a href=\"%s\">importar</a> una tabla para comenzar!"
 
@@ -703,54 +719,54 @@ msgstr "Error: Esta tabla no puede ser creada!"
 msgid "Error: The export failed."
 msgstr "Error: La exportación fracasó."
 
-#: views/view-editor_button_thickbox.php:390
+#: views/view-editor_button_thickbox.php:386
 msgid "You should add or import a table on the TablePress screens to get started!"
 msgstr "Deberá agregar o importar una tabla en TablePress para comenzar!"
 
-#: views/view-editor_button_thickbox.php:388 views/view-export.php:88
-#: views/view-list.php:579
+#: views/view-editor_button_thickbox.php:384 views/view-export.php:88
+#: views/view-list.php:599
 msgid "No tables found."
 msgstr "No se encontraron tablas."
 
-#: views/view-editor_button_thickbox.php:365 views/view-list.php:461
+#: views/view-editor_button_thickbox.php:361 views/view-list.php:461
 msgid "(no description)"
 msgstr "(sin descripción)"
 
-#: views/view-editor_button_thickbox.php:289
+#: views/view-editor_button_thickbox.php:285
 msgid "Action"
 msgstr "Acción"
 
-#: views/view-editor_button_thickbox.php:286 views/view-list.php:320
+#: views/view-editor_button_thickbox.php:282 views/view-list.php:320
 msgid "ID"
 msgstr "ID"
 
-#: views/view-editor_button_thickbox.php:193 views/view-list.php:213
+#: views/view-editor_button_thickbox.php:189 views/view-list.php:213
 msgid "Search Tables"
 msgstr "Buscar tablas"
 
-#: views/view-editor_button_thickbox.php:187 views/view-list.php:205
+#: views/view-editor_button_thickbox.php:183 views/view-list.php:205
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Resultados de la búsqueda para &#8220;%s&#8221;"
 
-#: views/view-editor_button_thickbox.php:183
-#: views/view-editor_button_thickbox.php:379
+#: views/view-editor_button_thickbox.php:179
+#: views/view-editor_button_thickbox.php:375
 msgid "Insert Shortcode"
 msgstr "Insertar código abreviado"
 
-#: views/view-editor_button_thickbox.php:183
+#: views/view-editor_button_thickbox.php:179
 msgid "Click the &#8220;%1$s&#8221; button for the desired table to automatically insert the<br />corresponding Shortcode (%2$s) into the editor."
 msgstr "Haz click en el botón &#8220;%1$s&#8221; en la tabla deseada para insertar automáticamente el<br />correspondiente Shortcode (%2$s) en el editor."
 
-#: views/view-editor_button_thickbox.php:181
+#: views/view-editor_button_thickbox.php:177
 msgid "You may insert a table into a post or page here."
 msgstr "Puede insertar una tabla dentro de un artículo o página aquí."
 
-#: views/view-editor_button_thickbox.php:181
+#: views/view-editor_button_thickbox.php:177
 msgid "This is a list of all available tables."
 msgstr "Este es un listado de todas las tablas disponibles."
 
 #: views/view-editor_button_thickbox.php:68
-#: views/view-editor_button_thickbox.php:178
+#: views/view-editor_button_thickbox.php:174
 msgid "List of Tables"
 msgstr "Lista de tablas"
 
@@ -786,10 +802,6 @@ msgstr "Por favor ver <a href=\"%s\">la página de preguntas más frecuentes de 
 msgid "Because of this error, the table can not be edited at this time, to prevent possible further data loss."
 msgstr "Debido a este error, la tabla no puede ser editada en este momento, para prevenir posible pérdida de datos."
 
-#: views/view-edit.php:638
-msgid "The following error was registered: <code>%s</code>."
-msgstr "El siguiente error fue registrado: <code>%s</code>."
-
 #: views/view-edit.php:636
 msgid "The internal data of table &#8220;%1$s&#8221; (ID %2$s) is corrupted."
 msgstr "Los datos internos de la tabla &#8220;%1$s&#8221 (ID %2$s) están corruptos."
@@ -801,10 +813,6 @@ msgstr "Atención: Desafortunadamente, un error ha ocurrido."
 #: views/view-edit.php:615
 msgid "For advanced use only."
 msgstr "Para uso de usuarios avanzados."
-
-#: views/view-edit.php:615
-msgid "Additional parameters from the <a href=\"http://www.datatables.net/\">DataTables documentation</a> to be added to the JS call."
-msgstr "Parámetros adicionales desde la <a href=\"http://www.datatables.net/\">documentación de DataTables</a> para ser agregadas a una llamada JS."
 
 #: views/view-edit.php:614
 msgid "Custom Commands"
@@ -1342,7 +1350,7 @@ msgid "(optional)"
 msgstr "(opcional)"
 
 #: views/view-add.php:82 views/view-edit.php:226
-#: views/view-editor_button_thickbox.php:288 views/view-list.php:322
+#: views/view-editor_button_thickbox.php:284 views/view-list.php:322
 msgid "Description"
 msgstr "Descripción"
 
@@ -1355,7 +1363,7 @@ msgid "Enter Table Name here"
 msgstr "Ingrese el nombre de la tabla aquí"
 
 #: views/view-add.php:77 views/view-edit.php:222
-#: views/view-editor_button_thickbox.php:287 views/view-list.php:321
+#: views/view-editor_button_thickbox.php:283 views/view-list.php:321
 msgid "Table Name"
 msgstr "Nombre de la tabla"
 
@@ -1414,10 +1422,6 @@ msgstr "Está licenciado como Software Libre bajo GNU Licencia Pública General 
 #: views/view-about.php:130
 msgid "This plugin was written and developed by <a href=\"%s\">Tobias Bäthge</a>."
 msgstr "Esta extensión fue escrita y desarrollada por <a href=\"%s\">Tobias Bäthge</a>."
-
-#: views/view-about.php:113
-msgid "More information about TablePress can be found on the <a href=\"%s\">plugin&#8217;s website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
-msgstr "Mayor información acerca de TablePress puede ser encontrada en el <a href=\"%s\">sitio web de la extensión</a> o en la propia página del <a href=\"%s\">Directorio de plugins de WordPress</a>"
 
 #: views/view-about.php:97
 msgid "Please see the <a href=\"%s\">documentation</a> for a list of these selectors and for styling examples."
@@ -1507,11 +1511,11 @@ msgstr "Uso"
 msgid "Plugin Purpose"
 msgstr "Funcionalidad de la extensión"
 
-#: models/model-table.php:508
+#: models/model-table.php:523
 msgid "Copy of %s"
 msgstr "Copia de %s"
 
-#: models/model-table.php:506 views/view-editor_button_thickbox.php:350
+#: models/model-table.php:521 views/view-editor_button_thickbox.php:346
 #: views/view-export.php:131 views/view-import.php:211 views/view-list.php:421
 msgid "(no name)"
 msgstr "(sin nombre)"
@@ -1520,60 +1524,60 @@ msgstr "(sin nombre)"
 msgid "%s ago"
 msgstr "hace %s"
 
-#: controllers/controller-admin_ajax.php:271 views/view-preview_table.php:65
+#: controllers/controller-admin_ajax.php:274 views/view-preview_table.php:65
 msgid "To insert the table into a page, post, or text widget, copy the Shortcode %s and paste it into the editor."
 msgstr "Para insertar una tabla en su página, artículo, o widget de texto, copie este código abreviado %s y peguelo en su editor."
 
-#: controllers/controller-admin_ajax.php:270 views/view-preview_table.php:64
+#: controllers/controller-admin_ajax.php:273 views/view-preview_table.php:64
 msgid "The features of the DataTables JavaScript library are also not available or visible in this preview!"
 msgstr "Las funcionalidades de la bilblioteca Javascript DataTables no está disponible o visible en esta previsualización!"
 
-#: controllers/controller-admin_ajax.php:269 views/view-preview_table.php:64
+#: controllers/controller-admin_ajax.php:272 views/view-preview_table.php:64
 msgid "Because of CSS styling in your theme, the table might look different on your page!"
 msgstr "Debido al formato de código CSS en su tema, la tabla puede verse diferente en su página!"
 
-#: controllers/controller-admin_ajax.php:268 views/view-preview_table.php:64
+#: controllers/controller-admin_ajax.php:271 views/view-preview_table.php:64
 msgid "This is a preview of your table."
 msgstr "Esta es la previsualización de su tabla."
 
-#: controllers/controller-admin.php:1918 views/view-options.php:184
+#: controllers/controller-admin.php:1921 views/view-options.php:184
 #: views/view-options.php:191
 msgid "Uninstall TablePress"
 msgstr "Desinstalar TablePress"
 
-#: controllers/controller-admin.php:1916
+#: controllers/controller-admin.php:1919
 msgid "Go to Dashboard"
 msgstr "Ir al Escritorio"
 
-#: controllers/controller-admin.php:1914
+#: controllers/controller-admin.php:1917
 msgid "Go to &#8220;Plugins&#8221; page"
 msgstr "Ir a la página &#8220;Plugins&#8221;"
 
-#: controllers/controller-admin.php:1909
+#: controllers/controller-admin.php:1912
 msgid "You may now also delete your TablePress &#8220;Custom CSS&#8221; files in the <code>wp-content</code> folder."
 msgstr "Ahora también deberías eliminar tus archivos de &#8220;CSS Personalizado&#8221; de TablePress de la carpeta <code>wp-content</code>."
 
-#: controllers/controller-admin.php:1907
+#: controllers/controller-admin.php:1910
 msgid "Please also ask him to delete your TablePress &#8220;Custom CSS&#8221; files from the server."
 msgstr "Por favor también pídele que borre tus archivos de &#8220;CSS Personalizado&#8221; de TablePress del servidor."
 
-#: controllers/controller-admin.php:1904
+#: controllers/controller-admin.php:1907
 msgid "Your TablePress &#8220;Custom CSS&#8221; files have been deleted automatically."
 msgstr "Tus archivos de &#8220;CSS Personalizado&#8221; de TablePress han sido eliminadas automáticamente."
 
-#: controllers/controller-admin.php:1901
+#: controllers/controller-admin.php:1904
 msgid "You may now manually delete the plugin&#8217;s folder <code>tablepress</code> from the <code>plugins</code> directory on your server or use the &#8220;Delete&#8221; link for TablePress on the WordPress &#8220;Plugins&#8221; page."
 msgstr "Ahora deberías eliminar manualmente la carpeta del plugin <code>tablepress</code> del directorio <code>plugins</code> en tu servidor, o usar el enlace &#8220;Borrar&#8221; con TablePress en la página de &#8220;Plugins&#8221; de WordPress."
 
-#: controllers/controller-admin.php:1899
+#: controllers/controller-admin.php:1902
 msgid "You may now ask the network admin to delete the plugin&#8217;s folder <code>tablepress</code> from the server, if no other site in the network uses it."
 msgstr "Ahora deberías pedirle al administrador de la red que elimine la carpeta del plugin <code>tablepress</code> del servidor, si ningún otro sitio en la red la usa."
 
-#: controllers/controller-admin.php:1897
+#: controllers/controller-admin.php:1900
 msgid "All tables, data, and options were deleted."
 msgstr "Todas las tablas, los datos y las opciones fueron eliminadas."
 
-#: controllers/controller-admin.php:1896
+#: controllers/controller-admin.php:1899
 msgid "TablePress was uninstalled successfully."
 msgstr "TablePress fue desinstalado exitosamente."
 
@@ -1588,7 +1592,7 @@ msgid "Preview"
 msgstr "Previsualización"
 
 #: controllers/controller-admin.php:1802
-#: controllers/controller-admin_ajax.php:275
+#: controllers/controller-admin_ajax.php:278
 msgid "The preview could not be loaded."
 msgstr "La previsualización no puede ser cargada."
 
@@ -1656,8 +1660,8 @@ msgstr ";"
 #: controllers/controller-admin.php:948 controllers/controller-admin.php:1051
 #: controllers/controller-admin.php:1063 controllers/controller-admin.php:1694
 #: controllers/controller-admin.php:1721 controllers/controller-admin.php:1762
-#: controllers/controller-admin.php:1806 controllers/controller-admin.php:1850
-#: controllers/controller-admin.php:1878
+#: controllers/controller-admin.php:1806 controllers/controller-admin.php:1853
+#: controllers/controller-admin.php:1881
 msgid "You do not have sufficient permissions to access this page."
 msgstr "No posee suficientes permisos para acceder a esta página."
 
@@ -1707,7 +1711,7 @@ msgstr "Tabla"
 msgid "Save Changes"
 msgstr "Guardar cambios"
 
-#. #-#-#-#-#  tmp-tablepress.pot (TablePress 1.7)  #-#-#-#-#
+#. #-#-#-#-#  tmp-tablepress.pot (TablePress 1.8)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/class-view.php:382
 msgid "TablePress"
@@ -1721,7 +1725,7 @@ msgstr[1] "¿Realmente quiere borrar estas tablas?"
 
 #: classes/class-view.php:147 controllers/controller-admin.php:142
 #: views/view-editor_button_thickbox.php:68
-#: views/view-editor_button_thickbox.php:178
+#: views/view-editor_button_thickbox.php:174
 #: views/view-options_custom_css.php:37 views/view-preview_table.php:53
 msgid "%1$s &lsaquo; %2$s"
 msgstr "%1$s &lsaquo; %2$s"
@@ -1746,17 +1750,13 @@ msgstr "La <a href=\"%1$s\">ayuda</a> es provista a través de los <a href=\"%2$
 msgid "For technical information, please see the <a href=\"%s\">documentation</a>."
 msgstr "Para información técnica, por favor lea la <a href=\"%s\">documentación</a>."
 
-#: classes/class-view.php:105
-msgid "More information about TablePress can be found on the <a href=\"%1$s\">plugin&#8217;s website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
-msgstr "Más información acerca de TablePress puede ser encontrada en el <a href=\"%1$s\">sitio de esta extensión</a> o en esta página <a href=\"%s\">Directorio de extensiones de WordPress</a>."
+#: classes/class-view.php:105 views/view-about.php:113
+msgid "More information about TablePress can be found on the <a href=\"%1$s\">plugin&#8217;s website</a> or on its page in the <a href=\"%2$s\">WordPress Plugin Directory</a>."
+msgstr "Puedes encontrar más información de TablePress puede en la <a href=\"%1$s\">web del plugin</a> o en el <a href=\"%2$s\">directorio de plugins de WordPress</a>."
 
 #: classes/class-view.php:103
 msgid "TablePress Help"
 msgstr "Ayuda de TablePress"
-
-#: classes/class-tablepress.php:365
-msgid "<em>unknown</em>"
-msgstr "<em>desconocido</em>"
 
 #: classes/class-render.php:410 views/view-list.php:432
 msgid "Edit"
@@ -1766,8 +1766,8 @@ msgstr "Editar"
 msgid "<!-- The table with the ID %s is empty! -->"
 msgstr "<!-- La tabla con el ID %s está vacía! -->"
 
-#: classes/class-import.php:189 classes/class-import.php:280
-#: classes/class-import.php:381
+#: classes/class-import.php:189 classes/class-import.php:277
+#: classes/class-import.php:378
 msgid "The imported file contains errors:"
 msgstr "El archivo importado contiene errores:"
 
@@ -1806,7 +1806,3 @@ msgstr "CSV - Character-Separated Values"
 #: classes/class-admin-page-helper.php:80
 msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
 msgstr "Ayude a esta extensión con su <a href=\"%s\">donación</a> !"
-
-#: classes/class-admin-page-helper.php:79
-msgid "Thank you for using <a href=\"https://tablepress.org/\">TablePress</a>."
-msgstr "Gracias por utilizar <a href=\"https://tablepress.org/\">TablePress</a>."

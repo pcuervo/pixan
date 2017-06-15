@@ -90,7 +90,7 @@ wc_print_notices();
 			<?php if ( $allow_remove_item ) : ?>
 			<th class="product-remove" style="width: 3em;">&nbsp;</th>
 			<?php endif; ?>
-			<th class="product-name"><?php echo esc_html_x( 'Produco', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
+			<th class="product-name"><?php echo esc_html_x( 'Producto', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
 			<th class="product-total"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></th>
 		</tr>
 	</thead>
