@@ -113,7 +113,7 @@ class PIXAN_API_Web_services {
 	    $semana = array(
 					'Lunes' 	=> 'monday', 
 					'Martes' 	=> 'tuesday',
-					'Miercoles' => 'wednesday',
+					'Miércoles' => 'wednesday',
 					'Jueves' 	=> 'thursday',
 					'Viernes' 	=> 'friday',
 					'Sabado' 	=> 'saturday',
