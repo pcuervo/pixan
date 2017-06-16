@@ -154,7 +154,7 @@ class Area_Entrega_Pixan_Settings {
 
 		if($dia1 == 'Lunes') { $d1 = 'checked="checked"'; }
 		if($dia2 == 'Martes') { $d2 = 'checked="checked"'; }
-		if($dia3 == 'Miercoles') { $d3 = 'checked="checked"'; }
+		if($dia3 == 'Miercoles' || $dia3 == 'Miércoles') { $d3 = 'checked="checked"'; }
 		if($dia4 == 'Jueves') { $d4 = 'checked="checked"'; }
 		if($dia5 == 'Viernes') { $d5 = 'checked="checked"'; }
 		if($dia6 == 'Sabado') { $d6 = 'checked="checked"'; }
@@ -162,7 +162,7 @@ class Area_Entrega_Pixan_Settings {
 
 		echo 'Lunes <input type="checkbox" id="_dia1" name="_dia1" value="Lunes" '.$d1.' />';
 		echo 'Martes <input type="checkbox" id="_dia2" name="_dia2" value="Martes" '.$d2.' />';
-		echo 'Miercoles <input type="checkbox" id="_dia3" name="_dia3" value="Miercoles" '.$d3.' />';
+		echo 'Miércoles <input type="checkbox" id="_dia3" name="_dia3" value="Miércoles" '.$d3.' />';
 		echo 'Jueves <input type="checkbox" id="_dia4" name="_dia4" value="Jueves" '.$d4.' />';
 		echo 'Viernes <input type="checkbox" id="_dia5" name="_dia5" value="Viernes" '.$d5.' />';
 		echo 'Sabado <input type="checkbox" id="_dia6" name="_dia6" value="Sabado" '.$d6.' />';

@@ -3396,3 +3396,201 @@ Stack trace:
 [06-Jun-2017 20:26:05 UTC] PHP  11. WP_Http_Curl->request() C:\wamp\www\pixan\wp-includes\class-http.php:433
 [06-Jun-2017 20:26:05 UTC] PHP  12. curl_exec() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
 [06-Jun-2017 20:26:05 UTC] PHP  13. WP_Http_Curl->stream_headers() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[06-Jun-2017 21:37:51 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\js_composer\include\params\colorpicker\colorpicker.php on line 2
+[06-Jun-2017 21:37:51 UTC] PHP Stack trace:
+[06-Jun-2017 21:37:51 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[06-Jun-2017 21:37:51 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[06-Jun-2017 21:37:51 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[06-Jun-2017 21:37:51 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[06-Jun-2017 21:37:51 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:393
+[06-Jun-2017 21:37:51 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 21:37:51 UTC] PHP   7. Vc_Manager->init() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 21:37:51 UTC] PHP   8. Vc_Mapper->init() C:\wamp\www\pixan\wp-content\plugins\js_composer\js_composer.php:264
+[06-Jun-2017 21:37:51 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\classes\core\class-vc-mapper.php:53
+[06-Jun-2017 21:37:51 UTC] PHP  10. require_once() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\params\load.php:18
+[06-Jun-2017 21:37:54 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-admin-bar.php on line 15
+[06-Jun-2017 21:37:54 UTC] PHP Stack trace:
+[06-Jun-2017 21:37:54 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[06-Jun-2017 21:37:54 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[06-Jun-2017 21:37:54 UTC] PHP   3. do_action() C:\wamp\www\pixan\wp-admin\admin.php:168
+[06-Jun-2017 21:37:55 UTC] PHP   4. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 21:37:55 UTC] PHP   5. _wp_admin_bar_init() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[06-Jun-2017 21:37:55 UTC] PHP   6. require_once() C:\wamp\www\pixan\wp-includes\admin-bar.php:30
+[06-Jun-2017 21:37:55 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[06-Jun-2017 21:37:55 UTC] PHP Stack trace:
+[06-Jun-2017 21:37:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[06-Jun-2017 21:37:55 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[06-Jun-2017 21:37:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 21:37:55 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 21:37:55 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[06-Jun-2017 21:37:55 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[06-Jun-2017 21:37:55 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[06-Jun-2017 21:37:55 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[06-Jun-2017 21:37:55 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[06-Jun-2017 21:37:55 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[06-Jun-2017 21:37:55 UTC] PHP Stack trace:
+[06-Jun-2017 21:37:55 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[06-Jun-2017 21:37:55 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[06-Jun-2017 21:37:55 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 21:37:55 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[06-Jun-2017 21:37:55 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[06-Jun-2017 21:37:55 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[07-Jun-2017 20:14:48 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce-subscriptions\includes\admin\meta-boxes\class-wcs-meta-box-subscription-data.php on line 13
+[07-Jun-2017 20:14:48 UTC] PHP Stack trace:
+[07-Jun-2017 20:14:48 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[07-Jun-2017 20:14:48 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[07-Jun-2017 20:14:48 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[07-Jun-2017 20:14:48 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[07-Jun-2017 20:14:48 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[07-Jun-2017 20:14:48 UTC] PHP   6. do_action() C:\wamp\www\pixan\wp-settings.php:277
+[07-Jun-2017 20:14:48 UTC] PHP   7. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:14:48 UTC] PHP   8. WC_Subscriptions::load_dependant_classes() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:14:48 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\plugins\woocommerce-subscriptions\woocommerce-subscriptions.php:681
+[07-Jun-2017 20:15:19 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[07-Jun-2017 20:15:19 UTC] PHP Stack trace:
+[07-Jun-2017 20:15:19 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[07-Jun-2017 20:15:19 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[07-Jun-2017 20:15:19 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:15:19 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:15:19 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[07-Jun-2017 20:15:19 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[07-Jun-2017 20:15:19 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[07-Jun-2017 20:15:20 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[07-Jun-2017 20:15:20 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[07-Jun-2017 20:15:20 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-admin\includes\options.php on line 15
+[07-Jun-2017 20:15:20 UTC] PHP Stack trace:
+[07-Jun-2017 20:15:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\index.php:0
+[07-Jun-2017 20:15:20 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[07-Jun-2017 20:15:20 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\index.php:10
+[07-Jun-2017 20:15:20 UTC] PHP Stack trace:
+[07-Jun-2017 20:15:20 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-admin\admin.php:82
+[07-Jun-2017 20:15:20 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[07-Jun-2017 20:15:20 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-admin\includes\admin.php:44
+[07-Jun-2017 20:15:20 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[07-Jun-2017 20:15:20 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:15:20 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:15:20 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[07-Jun-2017 20:15:20 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[07-Jun-2017 20:16:29 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\js_composer\include\classes\settings\class-vc-settings.php on line 2
+[07-Jun-2017 20:16:29 UTC] PHP Stack trace:
+[07-Jun-2017 20:16:29 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[07-Jun-2017 20:16:29 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[07-Jun-2017 20:16:29 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[07-Jun-2017 20:16:29 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[07-Jun-2017 20:16:29 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:393
+[07-Jun-2017 20:16:29 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:29 UTC] PHP   7. Vc_Manager->init() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:29 UTC] PHP   8. do_action() C:\wamp\www\pixan\wp-content\plugins\js_composer\js_composer.php:241
+[07-Jun-2017 20:16:29 UTC] PHP   9. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:29 UTC] PHP  10. vc_check_for_custom_css_build() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:29 UTC] PHP  11. vc_settings() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\autoload\vc-pages\page-design-options.php:20
+[07-Jun-2017 20:16:29 UTC] PHP  12. Vc_Manager->settings() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\helpers\helpers_factory.php:49
+[07-Jun-2017 20:16:29 UTC] PHP  13. require_once() C:\wamp\www\pixan\wp-content\plugins\js_composer\js_composer.php:764
+[07-Jun-2017 20:16:44 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\js_composer\include\params\iconpicker\iconpicker.php on line 2
+[07-Jun-2017 20:16:44 UTC] PHP Stack trace:
+[07-Jun-2017 20:16:44 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin.php:0
+[07-Jun-2017 20:16:44 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin.php:31
+[07-Jun-2017 20:16:44 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[07-Jun-2017 20:16:44 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[07-Jun-2017 20:16:44 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:393
+[07-Jun-2017 20:16:44 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:44 UTC] PHP   7. Vc_Manager->init() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:16:44 UTC] PHP   8. Vc_Mapper->init() C:\wamp\www\pixan\wp-content\plugins\js_composer\js_composer.php:264
+[07-Jun-2017 20:16:44 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\classes\core\class-vc-mapper.php:53
+[07-Jun-2017 20:16:44 UTC] PHP  10. require_once() C:\wamp\www\pixan\wp-content\plugins\js_composer\include\params\load.php:34
+[07-Jun-2017 20:17:01 UTC] jp-sitemap-CZ5g8: -- Updating...
+[07-Jun-2017 20:17:01 UTC] jp-sitemap-CZ5g8: -- Building sitemap-1.xml
+[07-Jun-2017 20:17:02 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_sitemap
+[07-Jun-2017 20:17:02 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_sitemap_index
+[07-Jun-2017 20:17:02 UTC] jp-sitemap-CZ5g8: -- Building image-sitemap-1.xml
+[07-Jun-2017 20:17:03 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_img_sitemap
+[07-Jun-2017 20:17:03 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_img_sitemap_index
+[07-Jun-2017 20:17:03 UTC] jp-sitemap-CZ5g8: -- Building video-sitemap-1.xml
+[07-Jun-2017 20:17:03 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_vid_sitemap
+[07-Jun-2017 20:17:04 UTC] jp-sitemap-CZ5g8: -- Cleaning Up jp_vid_sitemap_index
+[07-Jun-2017 20:17:04 UTC] jp-sitemap-CZ5g8: -- Building Master Sitemap.
+[07-Jun-2017 20:17:04 UTC] jp-sitemap-CZ5g8: -- Finished.
+[07-Jun-2017 20:17:04 UTC] jp-sitemap-CZ5g8:  5.25 seconds elapsed.
+[07-Jun-2017 20:18:36 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 13
+[07-Jun-2017 20:18:36 UTC] PHP Stack trace:
+[07-Jun-2017 20:18:36 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-admin\admin-ajax.php:0
+[07-Jun-2017 20:18:36 UTC] PHP   2. require_once() C:\wamp\www\pixan\wp-admin\admin-ajax.php:22
+[07-Jun-2017 20:18:36 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-load.php:37
+[07-Jun-2017 20:18:36 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-config.php:91
+[07-Jun-2017 20:18:36 UTC] PHP   5. do_action() C:\wamp\www\pixan\wp-settings.php:377
+[07-Jun-2017 20:18:36 UTC] PHP   6. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:18:36 UTC] PHP   7. WooCommerce->include_template_functions() C:\wamp\www\pixan\wp-includes\plugin.php:525
+[07-Jun-2017 20:18:36 UTC] PHP   8. include_once() C:\wamp\www\pixan\wp-content\plugins\woocommerce\woocommerce.php:305
+[07-Jun-2017 20:20:41 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php on line 313
+[07-Jun-2017 20:20:41 UTC] PHP Stack trace:
+[07-Jun-2017 20:20:41 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[07-Jun-2017 20:20:41 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[07-Jun-2017 20:20:41 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:20:41 UTC] PHP   4. Jetpack_Heartbeat->cron_exec() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[07-Jun-2017 20:20:41 UTC] PHP   5. Jetpack->do_stats() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack-heartbeat.php:92
+[07-Jun-2017 20:20:41 UTC] PHP   6. Jetpack::do_server_side_stat() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4020
+[07-Jun-2017 20:20:41 UTC] PHP   7. wp_remote_get() C:\wamp\www\pixan\wp-content\plugins\jetpack\class.jetpack.php:4038
+[07-Jun-2017 20:20:41 UTC] PHP   8. WP_Http->get() C:\wamp\www\pixan\wp-includes\http.php:170
+[07-Jun-2017 20:20:41 UTC] PHP   9. WP_Http->request() C:\wamp\www\pixan\wp-includes\class-http.php:496
+[07-Jun-2017 20:20:41 UTC] PHP  10. WP_Http->_dispatch_request() C:\wamp\www\pixan\wp-includes\class-http.php:342
+[07-Jun-2017 20:20:41 UTC] PHP  11. WP_Http_Curl->request() C:\wamp\www\pixan\wp-includes\class-http.php:433
+[07-Jun-2017 20:20:41 UTC] PHP  12. curl_exec() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[07-Jun-2017 20:20:41 UTC] PHP  13. WP_Http_Curl->stream_headers() C:\wamp\www\pixan\wp-includes\class-wp-http-curl.php:239
+[12-Jun-2017 22:08:17 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\templates\trx_clients\clients-2.php on line 4
+[12-Jun-2017 22:08:17 UTC] PHP Stack trace:
+[12-Jun-2017 22:08:17 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[12-Jun-2017 22:08:17 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[12-Jun-2017 22:08:17 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:13
+[12-Jun-2017 22:08:17 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[12-Jun-2017 22:08:17 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[12-Jun-2017 22:08:17 UTC] PHP   6. include() C:\wamp\www\pixan\wp-settings.php:369
+[12-Jun-2017 22:08:17 UTC] PHP   7. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[12-Jun-2017 22:08:17 UTC] PHP   8. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:99
+[12-Jun-2017 22:08:17 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php:173
+[12-Jun-2017 22:08:17 UTC] PHP  10. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\templates\trx_clients\trx_clients.php:4
+[12-Jun-2017 22:08:17 UTC] PHP  11. require_once() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php:177
+[12-Jun-2017 22:08:34 UTC] PHP Notice:  get_currentuserinfo ha quedado <strong>obsoleto</strong> desde la versión 4.5. Utiliza wp_get_current_user() en su lugar. in C:\wamp\www\pixan\wp-includes\functions.php on line 3703
+[12-Jun-2017 22:08:34 UTC] PHP Stack trace:
+[12-Jun-2017 22:08:34 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Jun-2017 22:08:34 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Jun-2017 22:08:34 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Jun-2017 22:08:34 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Jun-2017 22:08:34 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[12-Jun-2017 22:08:34 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[12-Jun-2017 22:08:34 UTC] PHP   7. get_currentuserinfo() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:483
+[12-Jun-2017 22:08:34 UTC] PHP   8. _deprecated_function() C:\wamp\www\pixan\wp-includes\pluggable-deprecated.php:49
+[12-Jun-2017 22:08:34 UTC] PHP   9. trigger_error() C:\wamp\www\pixan\wp-includes\functions.php:3703
+[12-Jun-2017 22:08:34 UTC] PHP Fatal error:  Call to a member function get_product_price() on a non-object in C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php on line 514
+[12-Jun-2017 22:08:34 UTC] PHP Stack trace:
+[12-Jun-2017 22:08:34 UTC] PHP   1. {main}() C:\wamp\www\pixan\wp-cron.php:0
+[12-Jun-2017 22:08:34 UTC] PHP   2. do_action_ref_array() C:\wamp\www\pixan\wp-cron.php:120
+[12-Jun-2017 22:08:34 UTC] PHP   3. call_user_func_array() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Jun-2017 22:08:34 UTC] PHP   4. Product_List_Settings->send_mail_reminders() C:\wamp\www\pixan\wp-includes\plugin.php:601
+[12-Jun-2017 22:08:34 UTC] PHP   5. Product_List_Settings->send_mail() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:198
+[12-Jun-2017 22:08:34 UTC] PHP   6. Product_List_Settings->show_list_detail_to_email() C:\wamp\www\pixan\wp-content\plugins\product-list\classes\class-product_list.php:213
+[15-Jun-2017 16:38:47 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\wamp\www\pixan\wp-content\themes\organics\templates\trx_events\events-2.php on line 4
+[15-Jun-2017 16:38:48 UTC] PHP Stack trace:
+[15-Jun-2017 16:38:48 UTC] PHP   1. {main}() C:\wamp\www\pixan\index.php:0
+[15-Jun-2017 16:38:48 UTC] PHP   2. require() C:\wamp\www\pixan\index.php:17
+[15-Jun-2017 16:38:48 UTC] PHP   3. require_once() C:\wamp\www\pixan\wp-blog-header.php:13
+[15-Jun-2017 16:38:48 UTC] PHP   4. require_once() C:\wamp\www\pixan\wp-load.php:37
+[15-Jun-2017 16:38:48 UTC] PHP   5. require_once() C:\wamp\www\pixan\wp-config.php:91
+[15-Jun-2017 16:38:48 UTC] PHP   6. include() C:\wamp\www\pixan\wp-settings.php:369
+[15-Jun-2017 16:38:48 UTC] PHP   7. require_once() C:\wamp\www\pixan\wp-content\themes\organics\functions.php:143
+[15-Jun-2017 16:38:48 UTC] PHP   8. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\fw\loader.php:99
+[15-Jun-2017 16:38:48 UTC] PHP   9. require_once() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php:173
+[15-Jun-2017 16:38:48 UTC] PHP  10. organics_autoload_folder() C:\wamp\www\pixan\wp-content\themes\organics\templates\trx_events\trx_events.php:4
+[15-Jun-2017 16:38:48 UTC] PHP  11. require_once() C:\wamp\www\pixan\wp-content\themes\organics\fw\core\core.files.php:177
+[15-Jun-2017 17:08:44 UTC] jp-sitemap-d1lQC: -- Updating...
+[15-Jun-2017 17:08:44 UTC] jp-sitemap-d1lQC: -- Building sitemap-1.xml
+[15-Jun-2017 17:08:44 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_sitemap
+[15-Jun-2017 17:08:44 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_sitemap_index
+[15-Jun-2017 17:08:45 UTC] jp-sitemap-d1lQC: -- Building image-sitemap-1.xml
+[15-Jun-2017 17:08:47 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_img_sitemap
+[15-Jun-2017 17:08:47 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_img_sitemap_index
+[15-Jun-2017 17:08:48 UTC] jp-sitemap-d1lQC: -- Building video-sitemap-1.xml
+[15-Jun-2017 17:08:48 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_vid_sitemap
+[15-Jun-2017 17:08:48 UTC] jp-sitemap-d1lQC: -- Cleaning Up jp_vid_sitemap_index
+[15-Jun-2017 17:08:48 UTC] jp-sitemap-d1lQC: -- Building Master Sitemap.
+[15-Jun-2017 17:08:49 UTC] jp-sitemap-d1lQC: -- Finished.
+[15-Jun-2017 17:08:49 UTC] jp-sitemap-d1lQC:  7.993 seconds elapsed.
