@@ -16,10 +16,10 @@ var $=jQuery.noConflict();
         });
 
         $(".btn-zonas").click(function() {
-		    $('html, body').animate({
-		        scrollTop: $("#zonas-entrega").offset().top -100
-		    }, 2000);
-		});
+            $('html, body').animate({
+                scrollTop: $("#zonas-entrega").offset().top -100
+            }, 2000);
+        });
 
     });
 })(jQuery);

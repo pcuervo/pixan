@@ -516,7 +516,7 @@ a.logo-header-fijo,
 }
 @media(min-width: 1136px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 0.3em!important; } }
 @media(min-width: 1280px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 0.6em!important; } }
-@media(min-width: 1440px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 1.3em!important; } }
+@media(min-width: 1440px){ .top_panel_fixed .top_panel_style_5 .top_panel_wrap_inner .top_panel_middle .menu_main_nav > li { margin: 1.71em 1.1em!important; } }
 
 /*FOOTER*/
 
@@ -667,6 +667,11 @@ footer #text-5.column-1_3 { text-align: center; }
 .post_info .post_info_item,
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
 .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description h2 { display: none!important; }
+
+.products li.product .single_add_to_cart_button {
+	margin: auto!important;
+	display: block;
+}
 
 /*My account*/
 .woocommerce-MyAccount-navigation ul { padding: 0px; }
@@ -974,4 +979,27 @@ div#dialog_zona + .ui-dialog-buttonpane .ui-dialog-buttonset {
 #_fecha_nacimiento::-webkit-inner-spin-button {
     display: none;
     -webkit-appearance: none;
+}
+
+#gmap_geocoding_btn {
+	position: absolute;
+	top: 0px;
+	height: 40px!important;
+	right: 0px;
+	border-radius: 0px!important;
+}
+
+label.label-gmap_geocoding_address {
+	font-weight: 500;
+	color: black;
+}
+label.label-gmap_geocoding_address abbr.required {
+    color: red;
+    font-weight: 700;
+    border: 0;
+}
+
+#dialog_zona #dialogMsj > div {
+	background-color: transparent!important;
+	text-align: center;
 }

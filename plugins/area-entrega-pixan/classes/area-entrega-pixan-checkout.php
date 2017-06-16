@@ -217,9 +217,9 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				<div id="dialogDefaultText">
 				<p>Aún no tenemos cobertura de entrega en tu zona. Por favor dejanos tus datos y nos pondremos en contacto contigo para coordinar una entrega.</p>
 
-					<input type="email" required id="nozona_email" name="nozona_email" placeholder="Tu email" />
-					<input type="text" required id="nozona_nombre" name="nozona_nombre" placeholder="Tu nombre" />
-					<input type="text" id="nozona_telefono" name="nozona_telefono" placeholder="Tu telefóno" />
+					<input type="email" required id="nozona_email" name="nozona_email" placeholder="Tu email*" />
+					<input type="text" required id="nozona_nombre" name="nozona_nombre" placeholder="Tu nombre*" />
+					<input type="number" id="nozona_telefono" name="nozona_telefono" placeholder="Tu telefóno" />
 
 				<small style="color:red; display:none;" id="errorCampos">Los campos email y nombre son obligatorios.</small>
 			  </div></div>';
@@ -259,13 +259,13 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 			</div>';
 
-		echo '<div class="input-group">
+		echo '<label for="gmap_geocoding_addressa" class="label-gmap_geocoding_address">Area de entrega <abbr class="required" title="obligatorio">*</abbr></label><br />
+				<small>Al terminar da clic en verificar para asegurarte de que entregamos en tu zona.</small>
+				<div class="input-group relative">
 					<input type="text" class="form-control" id="gmap_geocoding_address" placeholder="Ingresa la dirección de envio...">
-					<!--
 					<span class="input-group-btn">
-						<button class="btn blue" id="gmap_geocoding_btn"><i class="fa fa-search"></i></button>
+						<button class="btn blue" id="gmap_geocoding_btn">Verificar</button>
 					</span>
-					-->
 					<strong id="searchErrorText">Por favor ingresa una información mas especifica.</strong>
 				</div>
 			<div id="gmap_geocoding" class="gmaps">

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.8.x - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-10 05:57:21+0000\n"
+"PO-Revision-Date: 2017-06-15 12:19:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -225,6 +225,10 @@ msgstr "Aún más felicidad para el desarrollador %s"
 #: wp-admin/users.php:167 wp-admin/users.php:207
 msgid "Sorry, you are not allowed to delete users."
 msgstr "Lo siento, no tienes permisos para borrar usuarios."
+
+#: wp-admin/user-new.php:23 wp-admin/user-new.php:117
+msgid "Sorry, you are not allowed to create users."
+msgstr "Lo sentimos, no tienes permisos para crear usuarios."
 
 #: wp-admin/customize.php:163
 msgid "The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements."
@@ -466,8 +470,8 @@ msgstr "La búsqueda en los plugins instalados incluirá la de términos en el n
 msgid "Custom Logo"
 msgstr "Logotipo personalizado"
 
-#: wp-admin/user-new.php:23 wp-admin/user-new.php:117
-msgid "Sorry, you are not allowed to create users."
+#: wp-admin/users.php:317 wp-admin/users.php:348
+msgid "Sorry, you are not allowed to remove users."
 msgstr "Lo siento, no tienes permisos para crear usuarios."
 
 #: wp-admin/user-new.php:16 wp-admin/user-new.php:56
@@ -660,10 +664,6 @@ msgstr "Esto reemplazará el contenido actual del editor con la última versión
 #: wp-admin/includes/template.php:1523
 msgid "Close media attachment panel"
 msgstr "Cierra el panel de adjuntar medios"
-
-#: wp-admin/users.php:317 wp-admin/users.php:348
-msgid "Sorry, you are not allowed to remove users."
-msgstr "Lo siento, no tienes permisos para borrar usuarios."
 
 #: wp-admin/includes/ms.php:1096
 msgid "Info"

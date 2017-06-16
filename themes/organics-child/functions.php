@@ -60,4 +60,8 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_d
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
 
-?>
+
+function my_woocommerce_add_error( $error ) {
+    return str_replace('Facturación ','',$error);
+}
+add_filter( 'woocommerce_add_error', 'my_woocommerce_add_error' );
