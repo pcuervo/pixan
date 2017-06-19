@@ -10,41 +10,44 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	https://docs.woothemes.com/document/template-structure/
+ * @see 	https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.4.0
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+
 <header><h2><?php _e( 'Información del Cliente', 'woocommerce' ); ?></h2></header>
 
-<table class="shop_table customer_details">
-	<?php if ( $order->customer_note ) : ?>
+<table class="woocommerce-table woocommerce-table--customer-details shop_table customer_details">
+
+	<?php if ( $order->get_customer_note() ) : ?>
 		<tr>
 			<th><?php _e( 'Note:', 'woocommerce' ); ?></th>
-			<td><?php echo wptexturize( $order->customer_note ); ?></td>
+			<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 		</tr>
 	<?php endif; ?>
 
-	<?php if ( $order->billing_email ) : ?>
+	<?php if ( $order->get_billing_email() ) : ?>
 		<tr>
 			<th><?php _e( 'Email:', 'woocommerce' ); ?></th>
-			<td><?php echo esc_html( $order->billing_email ); ?></td>
+			<td><?php echo esc_html( $order->get_billing_email() ); ?></td>
 		</tr>
 	<?php endif; ?>
 
-	<?php if ( $order->billing_phone ) : ?>
+	<?php if ( $order->get_billing_phone() ) : ?>
 		<tr>
-			<th><?php _e( 'Telephone:', 'woocommerce' ); ?></th>
-			<td><?php echo esc_html( $order->billing_phone ); ?></td>
+			<th><?php _e( 'Phone:', 'woocommerce' ); ?></th>
+			<td><?php echo esc_html( $order->get_billing_phone() ); ?></td>
 		</tr>
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+
 </table>
 
 <?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>

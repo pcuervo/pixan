@@ -10,10 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.1.2
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,9 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
 	<?php foreach ( $checkout->checkout_fields['billing'] as $key => $field ) : ?>
-
 		<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-
 	<?php endforeach; ?>
 
 	<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
