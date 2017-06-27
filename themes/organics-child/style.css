@@ -1003,3 +1003,17 @@ label.label-gmap_geocoding_address abbr.required {
 	background-color: transparent!important;
 	text-align: center;
 }
+
+
+#popup_registration .registration_form {
+	text-align: left;
+}
+#popup_registration .registration_form p.woocommerce-FormRow {
+	width: 49%;
+	float: left;
+	margin-right: 1%;
+	margin-bottom: 10px;
+}
+#popup_registration .registration_form p.woocommerce-FormRow.width--99p {
+	width: 99%;
+}

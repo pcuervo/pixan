@@ -12,40 +12,62 @@
 	<a href="#" class="popup_close"></a>
 	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header.png" class="[ margin-bottom ]" alt="logo pixan para header">
 	<div class="form_wrap">
-		<form name="registration_form" method="post" class="register registration_form">
-			<input type="hidden" name="redirect_to" value="<?php echo esc_attr(home_url()); ?>"/>
-			<div class="form_left">
-				<div class="popup_form_field login_field iconed_field icon-user">
-					<input type="text" id="registration_firstname" name="registration_firstname"  value="" placeholder="<?php esc_attr_e('Nombre(s) ', 'organics'); ?>">
-				</div>
-				<div class="popup_form_field email_field iconed_field icon-mail-1">
-					<input type="text" id="registration_email" name="registration_email" value="" placeholder="<?php esc_attr_e('Email', 'organics'); ?>">
-				</div>
-				<div class="popup_form_field date_field iconed_field icon-user">
-					<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('mm/dd/yyyy', 'organics'); ?>" style="width: 90%;">
-				</div>
-				<div class="popup_form_field description_field">
-					<?php esc_html_e('Fecha de nacimiento', 'organics'); ?>
-				</div>
-			</div>
-			<div class="form_right">
-				<div class="popup_form_field login_field iconed_field icon-user">
-					<input type="text" id="registration_lastname" name="registration_lastname"  value="" placeholder="<?php esc_attr_e('Apellido(s) ', 'organics'); ?>">
-				</div>
-				<div class="popup_form_field password_field iconed_field icon-lock">
-					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" id="registration_pwd"  name="registration_pwd"  value="" placeholder="<?php esc_attr_e('Contraseña', 'organics'); ?>">
-				</div>
-				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="registration_pwd2" name="registration_pwd2" value="" placeholder="<?php esc_attr_e('Confirmar contraseña', 'organics'); ?>"></div>
-				<div class="popup_form_field description_field"><?php esc_html_e('Mínimo 6 caracteres', 'organics'); ?></div>
-			</div>
+		<form method="post" class="register registration_form">
+
+			<?php do_action( 'woocommerce_register_form_start' ); ?>
+
+			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
+
+				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+					<label for="reg_username"><?php _e( 'Username', 'woocommerce' ); ?> <span class="required">*</span></label>
+					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
+				</p>
+
+			<?php endif; ?>
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-first">
+				<label for="reg_firstname"><?php _e( 'Nombre', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="text" id="registration_firstname" name="registration_firstname"  value="<?php if ( ! empty( $_POST['registration_firstname'] ) ) echo esc_attr( $_POST['registration_firstname'] ); ?>" placeholder="<?php esc_attr_e('Nombre(s) ', 'organics'); ?>">
+			</p>
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-last">
+				<label for="reg_lastname"><?php _e( 'Apellido', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="text" id="registration_lastname" name="registration_lastname"  value="<?php if ( ! empty( $_POST['registration_lastname'] ) ) echo esc_attr( $_POST['registration_lastname'] ); ?>" placeholder="<?php esc_attr_e('Apellido(s) ', 'organics'); ?>">
+			</p>
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+				<label for="reg_email"><?php _e( 'Email', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="registration_email" id="registration_email" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>" />
+			</p>
+
+			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
+
+				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
+					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="registration_pwd" id="registration_pwd" />
+				</p>
+
+			<?php endif; ?>
+
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide [ width--99p ]">
+				<label for="_fecha_nacimiento" class="popup_form_field description_field"><?php _e( 'Fecha de nacimiento', 'organics' ); ?> <span class="required">*</span></label>
+				<input type="date" id="_fecha_nacimiento" name="_fecha_nacimiento" value="" placeholder="<?php esc_attr_e('mm/dd/yyyy', 'organics'); ?>">
+			</p>
+
 			<div class="[ clearfix ]"></div>
-			<div class="width---100 text-left">
-				<input type="checkbox" value="agree" id="registration_agree" name="registration_agree">
-				<label for="registration_agree"><?php esc_html_e('Estoy de acuerdo con los ', 'organics'); ?><a href="#"><?php esc_html_e('Términos y condiciones', 'organics'); ?></a></label>
-			</div>
-			<div class="popup_form_field submit_field">
-				<input id="btnSubmitRegister" type="submit" class="submit_button disabled" disabled="disabled" value="<?php esc_attr_e('Ingresar', 'organics'); ?>">
-			</div>
+
+			<!-- Spam Trap -->
+			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'woocommerce' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
+
+			<?php do_action( 'woocommerce_register_form' ); ?>
+
+			<div class="[ clearfix ]"></div>
+			<p class="woocomerce-FormRow form-row [ margin-bottom--large ]">
+				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
+				<input type="submit" id="btnSubmitRegister" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Crear cuenta', 'woocommerce' ); ?>" />
+			</p>
+
+			<?php //do_action( 'register_form' ); ?>
+
+			<?php do_action( 'woocommerce_register_form_end' ); ?>
+
 		</form>
 		<div class="result message_block"></div>
 	</div>	<!-- /.registration_wrap -->
