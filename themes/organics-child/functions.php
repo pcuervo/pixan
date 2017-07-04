@@ -2,6 +2,11 @@
 
 define( 'THEMEPATH', get_stylesheet_directory_uri() . '/' );
 
+/*------------------------------------*\
+	#INCLUDES
+\*------------------------------------*/
+require_once( 'inc/pages.php' );
+
 add_action( 'admin_enqueue_scripts', 'load_js');
 function load_js(){
 

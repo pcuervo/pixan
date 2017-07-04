@@ -30,6 +30,9 @@ $top_panel_scheme = organics_get_custom_option('top_panel_scheme');
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+	<!-- Google+ -->
+	<link rel="publisher" href="https://plus.google.com/+PixanS15">
+
     <?php
 	if ( !function_exists('has_site_icon') || !has_site_icon() ) {
 		$favicon = organics_get_custom_option('favicon');
