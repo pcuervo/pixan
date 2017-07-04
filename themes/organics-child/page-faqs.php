@@ -1,6 +1,5 @@
 <?php
 get_header();
-echo '<h2> Preguntas Fecuentes </h2>';
 
 $query_args = array(
 	'post_type'      => 'preguntas-frecuentes',

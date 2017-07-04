@@ -282,7 +282,7 @@ if ( !function_exists( 'organics_woocommerce_product_view' ) ) {
 
         /*  Add to cart Button  */
         ?><div class="shortcode_add_to_button">
-        
+
 		<?php
         echo apply_filters( 'woocommerce_loop_add_to_cart_link',
             sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="icon-shopping-cart13 button %s product_type_%s">Añadir al carrito</a>',
@@ -646,17 +646,22 @@ if ( !function_exists( 'organics_woocommerce_close_item_wrapper' ) ) {
 			    ?>
 			        </div>
 			        <form class="cart" method="post" enctype="multipart/form-data">
-	 	
+
 				 		<div class="quantity">
 							<input type="hidden" class="input-text qty text" name="quantity" value="1" >
 						</div>
-						
+
 					 	<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>">
 
-					 	<button type="submit" class="icon-shopping-cart13 single_add_to_cart_button button alt">Añadir al carrito</button>
+						<?php $url_search = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+							if ( strpos($url_search,'/programar-canasta-recurrente') ) { ?>
+								<a href="<?php echo get_permalink(); ?>" class="button">Seleccionar recurrencia</a>
+						<?php } else { ?>
+								<button type="submit" class="icon-shopping-cart13 single_add_to_cart_button button alt">Añadir al carrito</button>
+						<?php } ?>
 
 					</form>
-					
+
 			    <?php
 
 			        /*  Add to cart Button  */

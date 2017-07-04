@@ -27,6 +27,7 @@ h1 { text-transform: uppercase; }
 .text-left, .text-left--all * { text-align: left; }
 
 .color-primary { color: #80B500; }
+.color-secondary { color: #669100; }
 .color-gray { color: #555555; }
 .color-red { color: #b33451; }
 
@@ -668,10 +669,17 @@ footer #text-5.column-1_3 { text-align: center; }
 li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
 .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description h2 { display: none!important; }
 
-.products li.product .single_add_to_cart_button {
+.shop_mode_thumbs li.product .single_add_to_cart_button {
 	margin: auto!important;
 	display: block;
 }
+
+.shop_mode_list li.product .single_add_to_cart_button {
+	margin: 0px!important;
+	display: block;
+}
+
+.reset_variations { display: none!important; }
 
 /*My account*/
 .woocommerce-MyAccount-navigation ul { padding: 0px; }

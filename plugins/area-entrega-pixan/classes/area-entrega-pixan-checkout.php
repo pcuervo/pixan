@@ -260,7 +260,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 			</div>';
 
 		echo '<label for="gmap_geocoding_addressa" class="label-gmap_geocoding_address">Area de entrega <abbr class="required" title="obligatorio">*</abbr></label><br />
-				<small>Al terminar da clic en verificar para asegurarte de que entregamos en tu zona.</small>
+				<small class="color-secondary">Al terminar da clic en verificar para asegurarte de que entregamos en tu zona.</small>
 				<div class="input-group relative">
 					<input type="text" class="form-control" id="gmap_geocoding_address" placeholder="Ingresa la dirección de envio...">
 					<span class="input-group-btn">

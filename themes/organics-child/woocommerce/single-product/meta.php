@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
-<div class="product_meta">
+<div class="product_meta [ margin-bottom ]">
 	<?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
 	<?php if( $product->is_type( 'variable' ) ) : ?>
 		<small class="[ color-red ]">Para añadir al carrito debes selecciona la recurrencia</small>

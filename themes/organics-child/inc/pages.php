@@ -10,7 +10,7 @@ add_action('init', function(){
 		$page = array(
 			'post_author' => 1,
 			'post_status' => 'publish',
-			'post_title'  => 'Faqs',
+			'post_title'  => 'Preguntas frecuentes',
 			'post_name'   => 'faqs',
 			'post_type'   => 'page'
 		);

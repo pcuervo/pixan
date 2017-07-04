@@ -65,9 +65,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			do_action( 'woocommerce_single_product_summary' );
 		?>
 
-		<a href="<?php echo site_url('/categoria-producto/canastas/comprar-solo-una-vez/'); ?>" class="button">comprar sólo una vez</a>
-		<a onclick="window.history.go(-1); return false;" class="button">volver</a>
-
 	</div><!-- .summary -->
 
 	<div class="[ clearfix ]"></div>
