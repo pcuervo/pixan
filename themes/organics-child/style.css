@@ -1005,6 +1005,7 @@ label.label-gmap_geocoding_address abbr.required {
     color: red;
     font-weight: 700;
     border: 0;
+    cursor: inherit;
 }
 
 #dialog_zona #dialogMsj > div {
@@ -1024,4 +1025,29 @@ label.label-gmap_geocoding_address abbr.required {
 }
 #popup_registration .registration_form p.woocommerce-FormRow.width--99p {
 	width: 99%;
+}
+
+/*regalo - Checkout*/
+#billing_regalo_field input[type="checkbox"]:before,
+.create-account input[type="checkbox"]:before{
+	content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: none;
+    border: 2px solid #80B500;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    left: -3px;
+    bottom: 10px;
+}
+#billing_regalo_field input[type="checkbox"] {
+	width: 0px;
+	height: 0px;
+	margin-right: 20px;
+}
+#billing_regalo_field input[type="checkbox"]:checked:before,
+.create-account input[type="checkbox"]:checked:before {
+	background-color: #80B500;
 }

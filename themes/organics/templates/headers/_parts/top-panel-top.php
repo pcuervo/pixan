@@ -154,7 +154,6 @@ if (in_array('open_hours', $top_panel_top_components) && ($open_hours=trim(organ
         <?php
         }
         ?>
-
     </ul>
 
 </div>
