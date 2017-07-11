@@ -1534,7 +1534,7 @@ function organics_login_validate(form) {
 
 // Registration form
 function organics_registration_validate(form) {
-
+	
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
 	var error = organics_form_validate(form, {
@@ -1559,6 +1559,13 @@ function organics_registration_validate(form) {
 				min_length: { value: 7, message: ORGANICS_GLOBALS['strings']['email_empty'] },
 				max_length: { value: 60, message: ORGANICS_GLOBALS['strings']['email_long'] },
 				mask: { value: ORGANICS_GLOBALS['email_mask'], message: ORGANICS_GLOBALS['strings']['email_not_valid'] }
+			},
+			{
+				field: "registration_email_confirm",
+				min_length: { value: 7, message: ORGANICS_GLOBALS['strings']['email_empty'] },
+				max_length: { value: 60, message: ORGANICS_GLOBALS['strings']['email_long'] },
+				mask: { value: ORGANICS_GLOBALS['email_mask'], message: ORGANICS_GLOBALS['strings']['email_not_valid'] },
+				equal_to: { value: 'registration_email', message: 'Por favor confirme el correo, debe ser igual' }
 			},
 			{
 				field: "registration_pwd",
