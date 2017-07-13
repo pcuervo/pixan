@@ -148,7 +148,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		$semana = array(
 					'Lunes' 	=> 'monday',
 					'Martes' 	=> 'tuesday',
-					'Miercoles' => 'wednesday',
+					'Miércoles' => 'wednesday',
 					'Jueves' 	=> 'thursday',
 					'Viernes' 	=> 'friday',
 					'Sabado' 	=> 'saturday',
@@ -161,7 +161,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 				    'April' => 'Abril',
 				    'May' => 'Mayo',
 				    'June' => 'Junio',
-				    'July ' => 'Julio',
+				    'July' => 'Julio',
 				    'August' => 'Agosto',
 				    'September' => 'Septiembre',
 				    'October' => 'Octubre',

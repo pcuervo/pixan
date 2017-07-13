@@ -31,7 +31,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 	$semana = array(
 				'Lunes' 	=> 'monday',
 				'Martes' 	=> 'tuesday',
-				'Miercoles' => 'wednesday',
+				'Miércoles' => 'wednesday',
 				'Jueves' 	=> 'thursday',
 				'Viernes' 	=> 'friday',
 				'Sabado' 	=> 'saturday',
@@ -44,7 +44,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			    'April' => 'Abril',
 			    'May' => 'Mayo',
 			    'June' => 'Junio',
-			    'July ' => 'Julio',
+			    'July' => 'Julio',
 			    'August' => 'Agosto',
 			    'September' => 'Septiembre',
 			    'October' => 'Octubre',
