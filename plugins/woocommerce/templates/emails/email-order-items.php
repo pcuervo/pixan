@@ -21,10 +21,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $text_align = is_rtl() ? 'right' : 'left';
-
+//var_dump($items);
 foreach ( $items as $item_id => $item ) :
+	
+	//var_dump($item_id);
 	if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		$product = $item->get_product();
+		
+		$meta = get_post_meta( $product->id, 'unidadmedida', true );
 		?>
 		<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 			<td class="td" style="text-align:<?php echo $text_align; ?>; vertical-align:middle; border: 1px solid #eee; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;"><?php
@@ -55,7 +59,7 @@ foreach ( $items as $item_id => $item ) :
 				do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );
 
 			?></td>
-			<td class="td" style="text-align:<?php echo $text_align; ?>; vertical-align:middle; border: 1px solid #eee; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;"><?php echo apply_filters( 'woocommerce_email_order_item_quantity', $item->get_quantity(), $item ); ?></td>
+			<td class="td" style="text-align:<?php echo $text_align; ?>; vertical-align:middle; border: 1px solid #eee; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;"><?php echo apply_filters( 'woocommerce_email_order_item_quantity', $item->get_quantity(), $item ); ?><?php echo ' '.$meta.'(s)'; ?></td>
 			<td class="td" style="text-align:<?php echo $text_align; ?>; vertical-align:middle; border: 1px solid #eee; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td>
 		</tr>
 		<?php
