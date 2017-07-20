@@ -7,6 +7,13 @@ define( 'THEMEPATH', get_stylesheet_directory_uri() . '/' );
 \*------------------------------------*/
 require_once( 'inc/pages.php' );
 
+add_action('woocommerce_before_checkout_form','show_cart_summary',9);
+
+// gets the cart template and outputs it before the form
+function show_cart_summary( ) {
+  wc_get_template_part( 'cart/cart-mail' );
+}
+
 add_action( 'admin_enqueue_scripts', 'load_js');
 function load_js(){
 

@@ -274,7 +274,8 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	}// meta_box_info_maestro
 
 	public function send_email_client_zona(){
-		error_log('NO ZONA MAIL = '.$_POST['nombre'].' '.$_POST['telefono'].' -> '.$_POST['email']);
+		global $woocommerce;
+		error_log('NO ZONA MAIL = '.$_POST['nombre'].' '.$_POST['telefono'].' -> '.$_POST['email'].' == '.$order);
 		$subject = 'Pixan - Cliente sin Zona';
 		$headers = array('Content-Type: text/html; charset=UTF-8');
 		//$headers = 'From: Pixan <' . $ud->user_email . '>' . "\r\n";
@@ -283,8 +284,57 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		$message .= '<br>Telefono: '.$_POST['telefono'];
 		$message .= '<br>Email: '.$_POST['email'];
 		$message .= '<br>Dirección de envio: '.$_POST['direccion'];
-		$message .= '</body></html>';
+		
+		//$message .= wc_get_template_part( 'cart/cart' );
+		$message .= '<table>';
+		$message .= $_POST['tabla'];
+		$message .= '</table>';
+		//$message .= wc_get_template_part( 'cart/cart' );
+		
+		/*
+		$message .= '<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: Helvetica, Roboto, Arial, sans-serif;" border="1">
+					<thead>
+						<tr>
+							<th class="td" scope="col" style="text-align:center;">Producto</th>
+							<th class="td" scope="col" style="text-align:center;">Cantidad</th>
+							<th class="td" scope="col" style="text-align:center;">Precio</th>
+						</tr>
+					</thead>
+					<tbody>';
+					$i = 0;
+					$message .= '<tr><td colspan="3">FUERA1</td></tr>';
+		
+    	$items = $woocommerce->cart->get_cart();
+    	$message .= implode(',',$items);
+        foreach($items as $item => $values) { 
+        	$message .= '<tr><td colspan="3">Dentor</td></tr>';
+            $_product = $values['data']->post; 
+            $message .= "<tr><td colspan='3'><b>".$_product->post_title.'</b>  <br> Quantity: '.$values['quantity'].'<br>'; 
+            $price = get_post_meta($values['product_id'] , '_price', true);
+            $message .= "  Price: ".$price."</td></tr>";
+        } 
+        $message .= '<tr><td colspan="3">DESPUES</td></tr>';
+		
+		$message .= '</tbody>
+					<tfoot>';
+		/*	
+					if ( $totals = $order->get_order_item_totals() ) {
+						$i = 0;
+						foreach ( $totals as $total ) {
+							$i++;
+							$message .= '<tr>
+								<th class="td" scope="row" colspan="2" >'. $total['label']. '</th>
+								<td class="td" >'.$total['value'].'</td>
+							</tr>';
+						}
+					}
+					
+		*/
+		$message .=	'</tfoot>
+				</table>';
+		
 
+		$message .= '</body></html>';
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 		//SEND EMAIL CONFIRMATION
@@ -380,6 +430,15 @@ class Area_Entrega_Checkout_Pixan_Settings {
 											    'class'     => array('form-row-wide'),
 											    'clear'     => true
 										     );
+
+		$fields['billing']['billing_tabla_html'] = array(
+										        'label'     => __('Tabla HTML', 'woocommerce'),
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide'),
+											    'clear'     => true
+										     );
+
 		return $fields;
 
 	}// set_timeframe_required

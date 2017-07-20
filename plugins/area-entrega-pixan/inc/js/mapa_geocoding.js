@@ -30,6 +30,8 @@ $(document).ready(function(){
         $("#lblHorarioEntrega").html($("#area_entrega option:selected").data('hora'));
     });
     
+    $("#billing_tabla_html").val($('.shop_table').html());
+    
 });
 
 var resetInfo = function() {
@@ -278,7 +280,7 @@ var mapGeocoding = function () {
                 $("#dialogLoader").show();
                 $("#dialogDefaultText").hide(); 
 
-                $.post($("#rutaAjax").val(), {action: 'send_email_client_zona', nombre: $("#nozona_nombre").val(), telefono: $("#nozona_telefono").val(), email: $("#nozona_email").val(), direccion: $("#gmap_geocoding_address").val() }, 
+                $.post($("#rutaAjax").val(), {action: 'send_email_client_zona', nombre: $("#nozona_nombre").val(), telefono: $("#nozona_telefono").val(), email: $("#nozona_email").val(), direccion: $("#gmap_geocoding_address").val(), tabla: $("#billing_tabla_html").val() }, 
                   function(data) {
                     
                     if(data == "OK") {

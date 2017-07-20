@@ -322,8 +322,11 @@ function organics_ready_actions() {
 		return false;
 	});
 	// Added to cart
+	var added_cart = false;
 	jQuery('body').bind('added_to_cart', function() {
 		"use strict";
+		added_cart = true;
+		//alert('added_to_cart');
 		// Update amount on the cart button
 		var total = jQuery('.menu_user_cart .total .amount').text();
 		if (total != undefined) {
@@ -345,6 +348,33 @@ function organics_ready_actions() {
 			'summa': total ? total : 0
 		});
 	});
+
+	//UPDATE CART JONAS
+	//alert('ANTES -> '+jQuery('.top_panel_cart_button .cart_items').first().text());
+	if (jQuery('.top_panel_cart_button .cart_items').first().text() == '0 productos' && !added_cart) {
+		var total = jQuery('.menu_user_cart .total .amount').text();
+		//alert('actualizar IF');
+		if (total != undefined) {
+			jQuery('.top_panel_cart_button .cart_summa').text(total);
+		}
+		// Update count items on the cart button
+		var cnt = 0;
+		jQuery('.menu_user_cart .cart_list li').each(function() {
+			var q = jQuery(this).find('.quantity').html().split(' ', 2);
+			if (!isNaN(q[0]))
+				cnt += Number(q[0]);
+		});
+		var items = jQuery('.top_panel_cart_button .cart_items').first().text().split(' ');
+		//alert(items);
+		items[0] = cnt;
+		jQuery('.top_panel_cart_button .cart_items').first().text(items[0]+' '+items[1]);
+		// Update data-attr on button
+		jQuery('.top_panel_cart_button').data({
+			'items': cnt ? cnt : 0,
+			'summa': total ? total : 0
+		});
+	}
+
 	// Show cart
 	jQuery('.top_panel_middle .top_panel_cart_button, .header_mobile .top_panel_cart_button').click(function(e) {
 		"use strict";
