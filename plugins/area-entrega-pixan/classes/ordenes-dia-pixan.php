@@ -120,6 +120,37 @@ class Ordenes_Dia_Pixan {
 			$dayofweek = date('N');
 			$area = "";
 		}
+
+		$id_statuses = array();
+		$default_statuses = wc_get_order_statuses();
+
+		$checkcompleted = '';
+		$checkprocessing = '';
+		$checkshipped = '';
+		$checkinvoiced = '';
+		$checkrefunded = '';
+		$checkonhold = '';
+		$checkcancelled = '';
+		$checkpending = '';
+		$checkfailed = '';
+
+		if(isset($_POST['check-completed']) && $_POST['check-completed'] != '') { $id_statuses[] = $_POST['check-completed']; $checkcompleted = 'checked="checked"'; }
+		if(isset($_POST['check-processing']) && $_POST['check-processing'] != '') { $id_statuses[] = $_POST['check-processing']; $checkprocessing = 'checked="checked"'; }
+		if(isset($_POST['check-shipped']) && $_POST['check-shipped'] != '') { $id_statuses[] = $_POST['check-shipped']; $checkshipped = 'checked="checked"'; }
+		if(isset($_POST['check-invoiced']) && $_POST['check-invoiced'] != '') { $id_statuses[] = $_POST['check-invoiced']; $checkinvoiced = 'checked="checked"'; }
+		if(isset($_POST['check-refunded']) && $_POST['check-refunded'] != '') { $id_statuses[] = $_POST['check-refunded']; $checkrefunded = 'checked="checked"'; }
+		if(isset($_POST['check-on-hold']) && $_POST['check-on-hold'] != '') { $id_statuses[] = $_POST['check-on-hold']; $checkonhold = 'checked="checked"'; }
+		if(isset($_POST['check-cancelled']) && $_POST['check-cancelled'] != '') { $id_statuses[] = $_POST['check-cancelled']; $checkcancelled = 'checked="checked"'; }
+		if(isset($_POST['check-pending']) && $_POST['check-pending'] != '') { $id_statuses[] = $_POST['check-pending']; $checkpending = 'checked="checked"'; }
+		if(isset($_POST['check-failed']) && $_POST['check-failed'] != '') { $id_statuses[] = $_POST['check-failed']; $checkfailed = 'checked="checked"'; }
+		
+		if(empty($id_statuses)) {
+			$id_statuses[] = 'wc-completed'; $checkcompleted = 'checked="checked"';
+			$id_statuses[] = 'wc-processing'; $checkprocessing = 'checked="checked"';
+			$id_statuses[] = 'wc-invoiced'; $checkinvoiced = 'checked="checked"';
+		}
+		
+
 		
 		$id_areas = array();
 		//echo '==='.$dayofweek.'===';
@@ -149,6 +180,26 @@ class Ordenes_Dia_Pixan {
 
 	    $posts = new WP_Query( $query_args );
 	    echo '<form action="index.php" method="post">';
+	    echo '<h4>Status de las ordenes: <br>';
+	    echo '<table style="width: 100%; margin-bottom:10px;">';
+	    echo '<tbody>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-processing" value="wc-processing" '.$checkprocessing.'>En Proceso </label></td>'; 	    
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-invoiced" value="wc-invoiced" '.$checkinvoiced.'>Facturadas </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-completed" value="wc-completed" '.$checkcompleted.'>Completadas </label></td>'; 
+	    echo '</tr>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-failed" value="wc-failed" '.$checkfailed.'>Fallidas </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-on-hold" value="wc-on-hold" '.$checkonhold.'>En espera </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-cancelled" value="wc-cancelled" '.$checkcancelled.'>Canceladas </label></td>'; 
+	    echo '</tr>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-pending" value="wc-pending" '.$checkpending.'>Pendiente de Pago </label></td>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-refunded" value="wc-refunded" '.$checkrefunded.'>Reembolsadas </label></td>'; 
+	    echo '<td style="width:33%;"></td>'; 
+	    echo '</tr>';
+	    echo '</tbody></table>';
+		
 	    echo '<table style="width: 100%;">';
 	    echo '<thead><tr>';
 	    echo '<td style="width: 50%;">Area de entrega </td>';
@@ -195,7 +246,7 @@ class Ordenes_Dia_Pixan {
 		    'meta_key'    => '_billing_area_entrega',
 		    'meta_value'  => $id_areas,
 		    'post_type'   => wc_get_order_types(),
-		    'post_status' => array_keys( wc_get_order_statuses() ),
+		    'post_status' => $id_statuses,
 		) );
 
 		/*
@@ -223,7 +274,7 @@ class Ordenes_Dia_Pixan {
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
 					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
-					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong>'.$default_statuses[$customer_orders[$i]->post_status].'</strong> '.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.' <br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
 				}
 
 			}
@@ -246,6 +297,36 @@ class Ordenes_Dia_Pixan {
 			$dayofweek = date('N');
 			$area = "";
 		}
+
+		$default_statuses = wc_get_order_statuses();
+		$id_statuses = array();
+
+		$checkcompleted = '';
+		$checkprocessing = '';
+		$checkshipped = '';
+		$checkinvoiced = '';
+		$checkrefunded = '';
+		$checkonhold = '';
+		$checkcancelled = '';
+		$checkpending = '';
+		$checkfailed = '';
+
+		if(isset($_POST['check-completed']) && $_POST['check-completed'] != '') { $id_statuses[] = $_POST['check-completed']; $checkcompleted = 'checked="checked"'; }
+		if(isset($_POST['check-processing']) && $_POST['check-processing'] != '') { $id_statuses[] = $_POST['check-processing']; $checkprocessing = 'checked="checked"'; }
+		if(isset($_POST['check-shipped']) && $_POST['check-shipped'] != '') { $id_statuses[] = $_POST['check-shipped']; $checkshipped = 'checked="checked"'; }
+		if(isset($_POST['check-invoiced']) && $_POST['check-invoiced'] != '') { $id_statuses[] = $_POST['check-invoiced']; $checkinvoiced = 'checked="checked"'; }
+		if(isset($_POST['check-refunded']) && $_POST['check-refunded'] != '') { $id_statuses[] = $_POST['check-refunded']; $checkrefunded = 'checked="checked"'; }
+		if(isset($_POST['check-on-hold']) && $_POST['check-on-hold'] != '') { $id_statuses[] = $_POST['check-on-hold']; $checkonhold = 'checked="checked"'; }
+		if(isset($_POST['check-cancelled']) && $_POST['check-cancelled'] != '') { $id_statuses[] = $_POST['check-cancelled']; $checkcancelled = 'checked="checked"'; }
+		if(isset($_POST['check-pending']) && $_POST['check-pending'] != '') { $id_statuses[] = $_POST['check-pending']; $checkpending = 'checked="checked"'; }
+		if(isset($_POST['check-failed']) && $_POST['check-failed'] != '') { $id_statuses[] = $_POST['check-failed']; $checkfailed = 'checked="checked"'; }
+
+		if(empty($id_statuses)) {
+			$id_statuses[] = 'wc-completed'; $checkcompleted = 'checked="checked"';
+			$id_statuses[] = 'wc-processing'; $checkprocessing = 'checked="checked"';
+			$id_statuses[] = 'wc-invoiced'; $checkinvoiced = 'checked="checked"';
+		}
+
 		$id_areas = array();
 		//echo '==='.$dayofweek.'===';
 		$areas_entregas = get_posts( array(
@@ -273,6 +354,28 @@ class Ordenes_Dia_Pixan {
 
 	    $posts = new WP_Query( $query_args );
 	    echo '<form action="admin.php?page=pedidos-geolocalizados-mapa" method="post">';
+	    echo '<h4>Status de las ordenes: <br>';
+	    echo '<table style="width: 100%; margin-bottom:10px;">';
+	    echo '<tbody>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-processing" value="wc-processing" '.$checkprocessing.'>En Proceso </label></td>'; 	    
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-invoiced" value="wc-invoiced" '.$checkinvoiced.'>Facturadas </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-completed" value="wc-completed" '.$checkcompleted.'>Completadas </label></td>'; 
+	    echo '</tr>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-failed" value="wc-failed" '.$checkfailed.'>Fallidas </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-on-hold" value="wc-on-hold" '.$checkonhold.'>En espera </label></td>'; 
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-cancelled" value="wc-cancelled" '.$checkcancelled.'>Canceladas </label></td>'; 
+	    echo '</tr>';
+	    echo '<tr>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-pending" value="wc-pending" '.$checkpending.'>Pendiente de Pago </label></td>';
+	    echo '<td style="width:33%;"><label><input type="checkbox" name="check-refunded" value="wc-refunded" '.$checkrefunded.'>Reembolsadas </label></td>'; 
+	    echo '<td style="width:33%;"></td>'; 
+	    echo '</tr>';
+	    echo '</tbody></table>';
+		
+	    echo '<table style="width: 100%;">';
+	    echo '<tbody>';
 	    echo '<table style="width: 100%;">';
 	    echo '<thead><tr>';
 	    echo '<td style="width: 50%;">Area de entrega </td>';
@@ -320,7 +423,7 @@ class Ordenes_Dia_Pixan {
 		    'meta_key'    => '_billing_area_entrega',
 		    'meta_value'  => $id_areas,
 		    'post_type'   => wc_get_order_types(),
-		    'post_status' => array_keys( wc_get_order_statuses() ),
+		    'post_status' => $id_statuses,
 		) );
 
 		/*
@@ -344,7 +447,7 @@ class Ordenes_Dia_Pixan {
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
 					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
-					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'">'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong>'.$default_statuses[$customer_orders[$i]->post_status].'</strong> '.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
 				}
 
 			}
