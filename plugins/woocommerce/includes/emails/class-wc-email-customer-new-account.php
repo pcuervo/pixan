@@ -75,7 +75,7 @@ class WC_Email_Customer_New_Account extends WC_Email {
 	 * @param bool $password_generated
 	 */
 	public function trigger( $user_id, $user_pass = '', $password_generated = false ) {
-
+		echo 'USER RECIBIDO -> '.$user_id;
 		if ( $user_id ) {
 			$this->object             = new WP_User( $user_id );
 

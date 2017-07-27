@@ -2110,6 +2110,8 @@ if (!function_exists('organics_check_user_role')) {
 if ( !function_exists( 'organics_callback_registration_user' ) ) {
     function organics_callback_registration_user() {
         global $_REQUEST, $ORGANICS_GLOBALS;
+        // include our custom email class
+        //$emailnew = require( 'includes/emails/class-wc-email-customer-new-account.php' );
         /*
         if ( !wp_verify_nonce( $_REQUEST['nonce'], $ORGANICS_GLOBALS['ajax_url'] ) ) {
             var_dump($_REQUEST['nonce']);
@@ -2122,13 +2124,15 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
         $fecha_nacimiento = $_REQUEST['fecha_nacimiento'];
         $user_pwd   = organics_substr($_REQUEST['user_pwd'], 0, 20);
 
-        $response = array('error' => '');
+        $response = array('error' => '', 'id' => '00');
 
         $id = wp_insert_user( array ('user_login' => $user_name, 'user_pass' => $user_pwd, 'user_email' => $user_email) );
-        //var_dump($id);
+        $response['id'] = $id;
+        
         if ( is_wp_error($id) ) {
             $response['error'] = $id->get_error_message();
         } else if (($notify = organics_get_theme_option('notify_about_new_registration'))!='no' && (($contact_email = organics_get_theme_option('contact_email')) || ($contact_email = organics_get_theme_option('admin_email')))) {
+            //$emailnew->trigger( $id, '', false );
             $mail = organics_get_theme_option('mail_function');
             
             if (in_array($notify, array('both', 'admin', 'yes'))) {
@@ -2160,6 +2164,7 @@ if ( !function_exists( 'organics_callback_registration_user' ) ) {
                     . "Subject: " . sanitize_text_field($subj) . "\n";
                 @$mail($user_email, $subj, $msg, $head);
             }
+            
         }
         //AGREGAR FECHA DE NACIMIENTO
         update_user_meta($id, '_fecha_nacimiento', $fecha_nacimiento);

@@ -353,16 +353,20 @@ function organics_ready_actions() {
 	//alert('ANTES -> '+jQuery('.top_panel_cart_button .cart_items').first().text());
 	if (jQuery('.top_panel_cart_button .cart_items').first().text() == '0 productos' && !added_cart) {
 		var total = jQuery('.menu_user_cart .total .amount').text();
-		//alert('actualizar IF');
-		if (total != undefined) {
+		
+		if (total != undefined && total != '') {
 			jQuery('.top_panel_cart_button .cart_summa').text(total);
 		}
 		// Update count items on the cart button
 		var cnt = 0;
 		jQuery('.menu_user_cart .cart_list li').each(function() {
-			var q = jQuery(this).find('.quantity').html().split(' ', 2);
-			if (!isNaN(q[0]))
-				cnt += Number(q[0]);
+			if(jQuery(this).find('.quantity').length) {
+				
+				var q = jQuery(this).find('.quantity').html().split(' ', 2);
+				if (!isNaN(q[0]))
+					cnt += Number(q[0]);
+			}
+			
 		});
 		var items = jQuery('.top_panel_cart_button .cart_items').first().text().split(' ');
 		//alert(items);
@@ -1629,6 +1633,7 @@ function organics_registration_validate(form) {
 			user_pwd: 	form.find('#registration_pwd').val()
 		}).done(function(response) {
 			console.log(response);
+			alert(response);
 			var rez = JSON.parse(response);
 			var result_box = form.find('.result');
 			if (result_box.length==0) result_box = form.siblings('.result');
@@ -1638,6 +1643,33 @@ function organics_registration_validate(form) {
 			if (rez.error === '') {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['registration_success']);
 				setTimeout(function() {
+					//EMAIL NOTIFICATION
+					alert('EMAIL NOTIFICATION');
+					console.log('ID USER -> '+rez.id);
+					jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
+						action: 'customer_new_account_email',
+						nonce: ORGANICS_GLOBALS['ajax_nonce'],
+						customer_id: rez.id,
+						new_customer_data: '',
+						password_generated: false
+					}).done(function(response) {
+						console.log('DONE');
+						console.log("EMAIL NOTIFICATION = "+response);
+						try {
+							var rez2 = JSON.parse(response);
+						} catch (e) {
+							dcl(response);
+						}
+						
+					}).fail(function(xhr, status, error) {
+				        console.log('FAIL');
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
+				    });
+
+					//REALIZAR LOGIN
+					/*
 					jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
 						action: 'login_user',
 						nonce: ORGANICS_GLOBALS['ajax_nonce'],
@@ -1667,7 +1699,9 @@ function organics_registration_validate(form) {
 						result_box.fadeIn().delay(3000).fadeOut();
 					});
 					jQuery('.popup_login_link').trigger('click');
-					}, 3000);
+					
+					*/
+				}, 3000);
 			} else {
 				console.log(rez.error);
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ORGANICS_GLOBALS['strings']['registration_failed'] + ' ' + rez.error);

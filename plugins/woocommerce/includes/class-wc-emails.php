@@ -176,6 +176,10 @@ class WC_Emails {
 		add_action( 'woocommerce_product_on_backorder_notification', array( $this, 'backorder' ) );
 		add_action( 'woocommerce_created_customer_notification', array( $this, 'customer_new_account' ), 10, 3 );
 
+		 // AJAX: New user registration EMAIL NOTIFICATION (JONAS)
+        add_action('wp_ajax_customer_new_account_email',				array( $this, 'customer_new_account' ), 10, 3);
+        add_action('wp_ajax_nopriv_customer_new_account_email',		array( $this, 'customer_new_account' ), 10, 3);
+
 		// Let 3rd parties unhook the above via this hook
 		do_action( 'woocommerce_email', $this );
 	}
