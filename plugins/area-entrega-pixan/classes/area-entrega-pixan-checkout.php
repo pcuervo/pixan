@@ -89,7 +89,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 	public function enqueue_and_localize_scripts(){
 		if( is_checkout() ) {
 			wp_enqueue_style( 'map_checkout_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_checkout_styles.css' );
-			wp_enqueue_script( 'geo-map-api2', 'https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA');
+			wp_enqueue_script( 'geo-map-api2', 'https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=AIzaSyAi4ZbPiWVLU21gxMQa-GE2MznGK1OlpTc');
 			wp_enqueue_script( 'google-function-autocomplete', AREA_ENTREGA_PIXAN_PLUGIN_URL.'inc/js/google-autocomplete.js', array('geo-map-api2'), '1.0', true );
 			wp_enqueue_script( 'geo-map-gmaps2', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('geo-map-api2' ));
 			wp_enqueue_script( 'geo-map-script-geocoding', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa_geocoding.js', array('geo-map-api2', 'geo-map-gmaps2', 'jquery'));

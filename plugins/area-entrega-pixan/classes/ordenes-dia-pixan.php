@@ -94,7 +94,7 @@ class Ordenes_Dia_Pixan {
 			wp_enqueue_script( 'map-admin-orders-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAi4ZbPiWVLU21gxMQa-GE2MznGK1OlpTc');
 			wp_enqueue_script( 'admin-orders-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('map-admin-orders-api' ));	
 			wp_enqueue_script( 'admin-orders-map', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa_admin_orders.js', array('map-admin-orders-api', 'admin-orders-gmaps', 'jquery'));
-			wp_register_style('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
+			wp_register_style('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
   			wp_enqueue_style( 'jquery-ui' ); 
 		}
 	}
@@ -268,7 +268,7 @@ class Ordenes_Dia_Pixan {
 			for($i = 0; $i < count($customer_orders); $i++)
 			{
 				//DESCARTAR PEDIDOS MENORES A UN DIA
-				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days"))) {
+				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days")) || $fech > date('Y-m-d')) {
 					$meta = get_post_meta($customer_orders[$i]->ID);
 					
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
@@ -441,7 +441,7 @@ class Ordenes_Dia_Pixan {
 			for($i = 0; $i < count($customer_orders); $i++)
 			{
 				//DESCARTAR PEDIDOS MENORES A UN DIA
-				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days"))) {
+				if($customer_orders[$i]->post_date < date('Y-m-d',strtotime("-1 days")) || $fech > date('Y-m-d')) {
 					$meta = get_post_meta($customer_orders[$i]->ID);
 					
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
