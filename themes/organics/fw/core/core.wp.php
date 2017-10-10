@@ -2110,8 +2110,9 @@ if (!function_exists('organics_check_user_role')) {
 if ( !function_exists( 'organics_callback_registration_user' ) ) {
     function organics_callback_registration_user() {
         global $_REQUEST, $ORGANICS_GLOBALS;
-        // include our custom email class
-        //$emailnew = require( 'includes/emails/class-wc-email-customer-new-account.php' );
+        //include our custom email class
+        //include( ABSPATH . 'wp-content/plugins/woocommerce/includes/class-wc-emails.php' );
+        //$emailnew = require( ABSPATH . 'wp-content/plugins/woocommerce/includes/emails/class-wc-email-customer-new-account.php' );
         /*
         if ( !wp_verify_nonce( $_REQUEST['nonce'], $ORGANICS_GLOBALS['ajax_url'] ) ) {
             var_dump($_REQUEST['nonce']);

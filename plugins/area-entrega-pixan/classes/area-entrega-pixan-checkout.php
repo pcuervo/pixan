@@ -330,8 +330,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 					}
 					
 		*/
-		$message .=	'</tfoot>
-				</table>';
+		//$message .=	'</tfoot></table>';
 		
 
 		$message .= '</body></html>';

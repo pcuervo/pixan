@@ -1633,7 +1633,7 @@ function organics_registration_validate(form) {
 			user_pwd: 	form.find('#registration_pwd').val()
 		}).done(function(response) {
 			console.log(response);
-			alert(response);
+			//alert(response);
 			var rez = JSON.parse(response);
 			var result_box = form.find('.result');
 			if (result_box.length==0) result_box = form.siblings('.result');
@@ -1644,7 +1644,7 @@ function organics_registration_validate(form) {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ORGANICS_GLOBALS['strings']['registration_success']);
 				setTimeout(function() {
 					//EMAIL NOTIFICATION
-					alert('EMAIL NOTIFICATION');
+					//alert('EMAIL NOTIFICATION');
 					console.log('ID USER -> '+rez.id);
 					jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
 						action: 'customer_new_account_email',
@@ -1669,7 +1669,7 @@ function organics_registration_validate(form) {
 				    });
 
 					//REALIZAR LOGIN
-					/*
+					
 					jQuery.post(ORGANICS_GLOBALS['ajax_url'], {
 						action: 'login_user',
 						nonce: ORGANICS_GLOBALS['ajax_nonce'],
@@ -1700,7 +1700,7 @@ function organics_registration_validate(form) {
 					});
 					jQuery('.popup_login_link').trigger('click');
 					
-					*/
+					
 				}, 3000);
 			} else {
 				console.log(rez.error);

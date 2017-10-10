@@ -91,7 +91,7 @@ class Ordenes_Dia_Pixan {
 		if( is_admin() ) {
 			wp_enqueue_script( 'jquery-ui-datepicker', array('jquery-ui' ) );
 			wp_enqueue_style( 'map_checkout_styles', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/css/map_styles.css' );
-			wp_enqueue_script( 'map-admin-orders-api', 'https://maps.googleapis.com/maps/api/js?libraries=geometry,places,drawing&key=AIzaSyABZ4eSBYBsLi5WQ7WdXZpivNq6n4wQZPA');
+			wp_enqueue_script( 'map-admin-orders-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAi4ZbPiWVLU21gxMQa-GE2MznGK1OlpTc');
 			wp_enqueue_script( 'admin-orders-gmaps', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/gmaps/gmaps.js', array('map-admin-orders-api' ));	
 			wp_enqueue_script( 'admin-orders-map', AREA_ENTREGA_PIXAN_PLUGIN_URL . 'inc/js/mapa_admin_orders.js', array('map-admin-orders-api', 'admin-orders-gmaps', 'jquery'));
 			wp_register_style('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
