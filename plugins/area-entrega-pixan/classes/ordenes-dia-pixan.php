@@ -263,7 +263,7 @@ class Ordenes_Dia_Pixan {
 
 		if(isset($_POST['area_entrega']) && $_POST['area_entrega']!= '') { $tarea = get_the_title($_POST['area_entrega']); }
 		else { $tarea = ''; }
-		echo '<h3>Listado de ordenes para: '.$tarea.' '.$fech.'</h3>';
+		echo '<h3>Listado de ordenes para: <strong>'.$tarea.' '.$fech.'</strong></h3>';
 		if(count($customer_orders) >= 35) {
 			echo '<div class="error"><h3>Para el dia de hoy existen <strong>'.count($customer_orders).'</strong> pedidos/guacales por entregar.</h3></div>';
 		}
@@ -443,7 +443,7 @@ class Ordenes_Dia_Pixan {
 		*/
 		if(isset($_POST['area_entrega']) && $_POST['area_entrega']!= '') { $tarea = get_the_title($_POST['area_entrega']); }
 		else { $tarea = ''; }
-		echo '<h3>Listado de ordenes para: '.$tarea.' '.$fech.'</h3>';
+		echo '<h3>Listado de ordenes para: <strong>'.$tarea.' '.$fech.'</strong></h3>';
 		if(count($customer_orders) >= 35) {
 			echo '<div class="error"><h3>Para el dia de hoy existen <strong>'.count($customer_orders).'</strong> pedidos/guacales por entregar.</h3></div>';
 		}

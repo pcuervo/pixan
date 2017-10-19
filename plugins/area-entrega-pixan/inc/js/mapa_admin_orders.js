@@ -96,7 +96,7 @@ function printMaps() {
 var calcularRuta = function(map,imprimir) {
 
     $('#gmap_admin_orders_instructions').html('');
-    var origen = [19.4016653,-99.1743618];
+    var origen = [19.334082, -99.314186];
     //var origen = [18.994597,-99.481275];
     var color = ["#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000", "#FFFF00", "#0174DF", "#5FB404", "#AC58FA", "#FF8000"];
     $(".orderMap:checked").each(function(index) {
