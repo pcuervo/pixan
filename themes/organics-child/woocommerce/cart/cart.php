@@ -35,6 +35,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 				<th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th>
 				<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
+				<th class="product-unit"></th>
 				<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
@@ -113,7 +114,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 								}
 
 								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+								
 							?>
+
+						</td>
+						<td style="text-align: left;">
+							<small>
+							<?php
+								$tipo_unidad = get_post_meta($product_id, 'unidadmedida', true);
+								echo $tipo_unidad;
+							?>
+							</small>
 						</td>
 
 						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
