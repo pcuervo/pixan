@@ -180,7 +180,7 @@ class Ordenes_Dia_Pixan {
 
 	    $posts = new WP_Query( $query_args );
 	    echo '<form action="index.php" method="post">';
-	    echo '<h4>Status de las ordenes: <br>';
+	    echo '<h4>Status de las ordenes: </h4>';
 	    echo '<table style="width: 100%; margin-bottom:10px;">';
 	    echo '<tbody>';
 	    echo '<tr>';
@@ -260,6 +260,10 @@ class Ordenes_Dia_Pixan {
 		}
 		echo '</select>';
 		*/
+
+		if(isset($_POST['area_entrega']) && $_POST['area_entrega']!= '') { $tarea = get_the_title($_POST['area_entrega']); }
+		else { $tarea = ''; }
+		echo '<h3>Listado de ordenes para: '.$tarea.' '.$fech.'</h3>';
 		if(count($customer_orders) >= 35) {
 			echo '<div class="error"><h3>Para el dia de hoy existen <strong>'.count($customer_orders).'</strong> pedidos/guacales por entregar.</h3></div>';
 		}
@@ -274,7 +278,7 @@ class Ordenes_Dia_Pixan {
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
 					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
-					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong>'.$default_statuses[$customer_orders[$i]->post_status].'</strong> '.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.' <br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong> Pedido # '.$customer_orders[$i]->ID.'</strong> <small>'.$default_statuses[$customer_orders[$i]->post_status].'</small> <br><strong>'.$customer_orders[$i]->post_title.'</strong> <br> Nombre: <strong>'.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'</strong><br> Telefono: <strong>'.$meta['_billing_phone'][0].'</strong><br><strong>'.$meta['_billing_formated_address'][0].'</strong><br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.'<br><!--Total: $'.$meta['_order_total'][0].'--> </div><br/>';
 				}
 
 			}
@@ -354,7 +358,7 @@ class Ordenes_Dia_Pixan {
 
 	    $posts = new WP_Query( $query_args );
 	    echo '<form action="admin.php?page=pedidos-geolocalizados-mapa" method="post">';
-	    echo '<h4>Status de las ordenes: <br>';
+	    echo '<h4>Status de las ordenes: </h4>';
 	    echo '<table style="width: 100%; margin-bottom:10px;">';
 	    echo '<tbody>';
 	    echo '<tr>';
@@ -437,6 +441,12 @@ class Ordenes_Dia_Pixan {
 		}
 		echo '</select>';
 		*/
+		if(isset($_POST['area_entrega']) && $_POST['area_entrega']!= '') { $tarea = get_the_title($_POST['area_entrega']); }
+		else { $tarea = ''; }
+		echo '<h3>Listado de ordenes para: '.$tarea.' '.$fech.'</h3>';
+		if(count($customer_orders) >= 35) {
+			echo '<div class="error"><h3>Para el dia de hoy existen <strong>'.count($customer_orders).'</strong> pedidos/guacales por entregar.</h3></div>';
+		}
 		if(count($customer_orders) > 0) {
 			for($i = 0; $i < count($customer_orders); $i++)
 			{
@@ -447,7 +457,7 @@ class Ordenes_Dia_Pixan {
 					isset($meta['_unidadmedida_orden'][0]) ? $uni = $meta['_unidadmedida_orden'][0] : $uni = '';
 					isset($meta['_temperaturas_orden'][0]) ? $tem = $meta['_temperaturas_orden'][0] : $tem = '';
 
-					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong>'.$default_statuses[$customer_orders[$i]->post_status].'</strong> '.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'<br> Nombre: '.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'<br> Telefono: '.$meta['_billing_phone'][0].'<br>'.$meta['_billing_formated_address'][0].'<br>Total: $'.$meta['_order_total'][0].'<br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.' </div><br/>';
+					echo '<div><input type="checkbox" class="orderMap" id="o_'.$customer_orders[$i]->ID.'" data-lat="'.$meta['_billing_lat'][0].'" data-long="'.$meta['_billing_long'][0].'" data-dir="'.$meta['_billing_formated_address'][0].'" data-num="'.$customer_orders[$i]->ID.'" checked="checked" data-info="'.$customer_orders[$i]->ID.' '.$customer_orders[$i]->post_title.'"> <strong> Pedido # '.$customer_orders[$i]->ID.'</strong> <small>'.$default_statuses[$customer_orders[$i]->post_status].'</small> <br><strong>'.$customer_orders[$i]->post_title.'</strong> <br> Nombre: <strong>'.$meta['_billing_first_name'][0].' '.$meta['_billing_last_name'][0].'</strong><br> Telefono: <strong>'.$meta['_billing_phone'][0].'</strong><br><strong>'.$meta['_billing_formated_address'][0].'</strong><br>Temperaturas: '.$tem.'<br>Unidades: '.$uni.'<br><!--Total: $'.$meta['_order_total'][0].'--> </div><br/>';
 				}
 
 			}
