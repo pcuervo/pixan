@@ -47,6 +47,13 @@ class WC_Subscriptions_Cart {
 	 */
 	 private static $shipping_rates = array();
 
+	 /**
+	 * A cache of the current recurring cart being calculated
+	 *
+	 * @since 2.0.20
+	 */
+	 private static $cached_recurring_cart = null;
+
 	/**
 	 * Bootstraps the class and hooks required actions & filters.
 	 *
@@ -84,7 +91,7 @@ class WC_Subscriptions_Cart {
 		add_action( 'woocommerce_cart_totals_after_order_total', __CLASS__ . '::display_recurring_totals' );
 		add_action( 'woocommerce_review_order_after_order_total', __CLASS__ . '::display_recurring_totals' );
 
-		add_action( 'woocommerce_add_to_cart_validation', __CLASS__ . '::check_valid_add_to_cart', 10, 3 );
+		add_action( 'woocommerce_add_to_cart_validation', __CLASS__ . '::check_valid_add_to_cart', 10, 6 );
 
 		add_filter( 'woocommerce_cart_needs_shipping', __CLASS__ . '::cart_needs_shipping', 11, 1 );
 
@@ -110,6 +117,11 @@ class WC_Subscriptions_Cart {
 
 		// Validate chosen recurring shipping methods
 		add_action( 'woocommerce_after_checkout_validation', __CLASS__ . '::validate_recurring_shipping_methods' );
+
+		// WooCommerce determines if free shipping is available using the WC->cart total and coupons, we need to recalculate its availability when obtaining shipping methods for a recurring cart
+		add_filter( 'woocommerce_shipping_free_shipping_is_available', __CLASS__ . '::maybe_recalculate_shipping_method_availability', 10, 2 );
+
+		add_filter( 'woocommerce_add_to_cart_handler', __CLASS__ . '::add_to_cart_handler', 10, 2 );
 	}
 
 	/**
@@ -130,7 +142,12 @@ class WC_Subscriptions_Cart {
 		}
 
 		// Set which price should be used for calculation
-		add_filter( 'woocommerce_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100, 2 );
+		if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+			add_filter( 'woocommerce_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100, 2 );
+		} else {
+			add_filter( 'woocommerce_product_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100, 2 );
+			add_filter( 'woocommerce_product_variation_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100, 2 );
+		}
 	}
 
 	/**
@@ -140,7 +157,34 @@ class WC_Subscriptions_Cart {
 	 * @since 1.2
 	 */
 	public static function remove_calculation_price_filter() {
-		remove_filter( 'woocommerce_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100, 2 );
+		if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+			remove_filter( 'woocommerce_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100 );
+		} else {
+			remove_filter( 'woocommerce_product_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100 );
+			remove_filter( 'woocommerce_product_variation_get_price', __CLASS__ . '::set_subscription_prices_for_calculation', 100 );
+		}
+	}
+
+	/**
+	 * Use WC core add-to-cart handlers for subscription products.
+	 *
+	 * @param string $handler The name of the handler to use when adding product to the cart
+	 * @param WC_Product $product
+	 */
+	public static function add_to_cart_handler( $handler, $product ) {
+
+		if ( WC_Subscriptions_Product::is_subscription( $product ) ) {
+			switch ( $handler ) {
+				case 'variable-subscription' :
+					$handler = 'variable';
+					break;
+				case 'subscription' :
+					$handler = 'simple';
+					break;
+			}
+		}
+
+		return $handler;
 	}
 
 	/**
@@ -256,6 +300,9 @@ class WC_Subscriptions_Cart {
 			$recurring_cart->next_payment_date  = apply_filters( 'wcs_recurring_cart_next_payment_date', WC_Subscriptions_Product::get_first_renewal_payment_date( $product, $recurring_cart->start_date ), $recurring_cart, $product );
 			$recurring_cart->end_date           = apply_filters( 'wcs_recurring_cart_end_date', WC_Subscriptions_Product::get_expiration_date( $product, $recurring_cart->start_date ), $recurring_cart, $product );
 
+			// Before calculating recurring cart totals, store this recurring cart object
+			self::$cached_recurring_cart = $recurring_cart;
+
 			// No fees recur (yet)
 			$recurring_cart->fees = array();
 			$recurring_cart->fee_total = 0;
@@ -296,10 +343,6 @@ class WC_Subscriptions_Cart {
 		WC()->cart->recurring_carts = $recurring_carts;
 
 		$total = max( 0, round( WC()->cart->cart_contents_total + WC()->cart->tax_total + WC()->cart->shipping_tax_total + WC()->cart->shipping_total + WC()->cart->fee_total, WC()->cart->dp ) );
-
-		if ( isset( WC()->cart->discount_total ) && 0 !== WC()->cart->discount_total ) { // WC < 2.3, deduct deprecated after tax discount total
-			$total = max( 0, round( $total - WC()->cart->discount_total, WC()->cart->dp ) );
-		}
 
 		if ( ! self::charge_shipping_up_front() ) {
 			$total = max( 0, $total - WC()->cart->shipping_tax_total - WC()->cart->shipping_total );
@@ -484,7 +527,7 @@ class WC_Subscriptions_Cart {
 			$default_method = $chosen_methods[ $recurring_cart_package_key ];
 
 		// Set the chosen shipping method (if available) to workaround WC_Shipping::get_default_method() setting the default shipping method whenever method count changes
-		} elseif ( isset( $chosen_methods[ $package_index ] ) && $default_method !== $chosen_methods[ $package_index ] ) {
+		} elseif ( isset( $chosen_methods[ $package_index ] ) && $default_method !== $chosen_methods[ $package_index ] && isset( $available_methods[ $chosen_methods[ $package_index ] ] ) ) {
 			$default_method = $chosen_methods[ $package_index ];
 		}
 
@@ -533,8 +576,7 @@ class WC_Subscriptions_Cart {
 				$all_items_have_free_trial = false;
 				break;
 			} else {
-				$trial_length = ( isset( $cart_item['data']->subscription_trial_length ) ) ? $cart_item['data']->subscription_trial_length : WC_Subscriptions_Product::get_trial_length( $cart_item['data'] );
-				if ( 0 == $trial_length ) {
+				if ( 0 == WC_Subscriptions_Product::get_trial_length( $cart_item['data'] ) ) {
 					$all_items_have_free_trial = false;
 					break;
 				}
@@ -560,7 +602,7 @@ class WC_Subscriptions_Cart {
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item_key => $values ) {
 				$_product = $values['data'];
-				if ( WC_Subscriptions_Product::is_subscription( $_product ) && $_product->needs_shipping() && 'yes' !== $_product->subscription_one_time_shipping ) {
+				if ( WC_Subscriptions_Product::is_subscription( $_product ) && $_product->needs_shipping() && false === WC_Subscriptions_Product::needs_one_time_shipping( $_product ) ) {
 					$cart_contains_subscriptions_needing_shipping = true;
 				}
 			}
@@ -581,8 +623,7 @@ class WC_Subscriptions_Cart {
 			if ( 'none' == self::$calculation_type ) {
 				foreach ( $packages as $index => $package ) {
 					foreach ( $package['contents'] as $cart_item_key => $cart_item ) {
-						$trial_length = ( isset( $cart_item['data']->subscription_trial_length ) ) ? $cart_item['data']->subscription_trial_length : WC_Subscriptions_Product::get_trial_length( $cart_item['data'] );
-						if ( $trial_length > 0 ) {
+						if ( WC_Subscriptions_Product::get_trial_length( $cart_item['data'] ) > 0 ) {
 							unset( $packages[ $index ]['contents'][ $cart_item_key ] );
 						}
 					}
@@ -594,7 +635,7 @@ class WC_Subscriptions_Cart {
 			} elseif ( 'recurring_total' == self::$calculation_type ) {
 				foreach ( $packages as $index => $package ) {
 					foreach ( $package['contents'] as $cart_item_key => $cart_item ) {
-						if ( isset( $cart_item['data']->subscription_one_time_shipping ) && 'yes' == $cart_item['data']->subscription_one_time_shipping ) {
+						if ( WC_Subscriptions_Product::needs_one_time_shipping( $cart_item['data'] ) ) {
 							$packages[ $index ]['contents_cost'] -= $cart_item['line_total'];
 							unset( $packages[ $index ]['contents'][ $cart_item_key ] );
 						}
@@ -624,15 +665,21 @@ class WC_Subscriptions_Cart {
 
 		if ( WC_Subscriptions_Product::is_subscription( $product ) && ! wcs_cart_contains_renewal() ) {
 
+			if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+				$product_price_filter = 'woocommerce_get_price';
+			} else {
+				$product_price_filter = is_a( $product, 'WC_Product_Variation' ) ? 'woocommerce_product_variation_get_price' : 'woocommerce_product_get_price';
+			}
+
 			// Avoid infinite loop
 			remove_filter( 'woocommerce_cart_product_subtotal', __CLASS__ . '::get_formatted_product_subtotal', 11, 4 );
 
-			add_filter( 'woocommerce_get_price', 'WC_Subscriptions_Product::get_sign_up_fee_filter', 100, 2 );
+			add_filter( $product_price_filter, 'WC_Subscriptions_Product::get_sign_up_fee_filter', 100, 2 );
 
 			// And get the appropriate sign up fee string
 			$sign_up_fee_string = $cart->get_product_subtotal( $product, $quantity );
 
-			remove_filter( 'woocommerce_get_price',  'WC_Subscriptions_Product::get_sign_up_fee_filter', 100, 2 );
+			remove_filter( $product_price_filter,  'WC_Subscriptions_Product::get_sign_up_fee_filter', 100, 2 );
 
 			add_filter( 'woocommerce_cart_product_subtotal', __CLASS__ . '::get_formatted_product_subtotal', 11, 4 );
 
@@ -692,10 +739,7 @@ class WC_Subscriptions_Cart {
 
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
-				if ( isset( $cart_item['data']->subscription_trial_length ) && $cart_item['data']->subscription_trial_length > 0 ) {
-					$cart_contains_free_trial = true;
-					break;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) && WC_Subscriptions_Product::get_trial_length( $cart_item['data'] ) > 0 ) {
+				if ( WC_Subscriptions_Product::get_trial_length( $cart_item['data'] ) > 0 ) {
 					$cart_contains_free_trial = true;
 					break;
 				}
@@ -749,11 +793,7 @@ class WC_Subscriptions_Cart {
 					continue;
 				}
 
-				if ( isset( $cart_item['data']->subscription_sign_up_fee ) ) {
-					$sign_up_fee += $cart_item['data']->subscription_sign_up_fee;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
-					$sign_up_fee += WC_Subscriptions_Product::get_sign_up_fee( $cart_item['data'] );
-				}
+				$sign_up_fee += WC_Subscriptions_Product::get_sign_up_fee( $cart_item['data'] );
 			}
 		}
 
@@ -935,7 +975,7 @@ class WC_Subscriptions_Cart {
 		$cart_key = '';
 
 		$product      = $cart_item['data'];
-		$product_id   = ! empty( $product->variation_id ) ? $product->variation_id : $product->id;
+		$product_id   = wcs_get_canonical_product_id( $product );
 		$renewal_time = ! empty( $renewal_time ) ? $renewal_time : WC_Subscriptions_Product::get_first_renewal_payment_time( $product_id );
 		$interval     = WC_Subscriptions_Product::get_interval( $product );
 		$period       = WC_Subscriptions_Product::get_period( $product );
@@ -944,7 +984,7 @@ class WC_Subscriptions_Cart {
 		$trial_length = WC_Subscriptions_Product::get_trial_length( $product );
 
 		if ( $renewal_time > 0 ) {
-			$cart_key .= date( 'Y_m_d_', $renewal_time );
+			$cart_key .= gmdate( 'Y_m_d_', $renewal_time );
 		}
 
 		// First start with the billing interval and period
@@ -983,13 +1023,13 @@ class WC_Subscriptions_Cart {
 	}
 
 	/**
-	 * Don't allow other subscriptions to be added to the cart while it contains a renewal
+	 * Don't allow new subscription products to be added to the cart if it contains a subscription renewal already.
 	 *
 	 * @since 2.0
 	 */
-	public static function check_valid_add_to_cart( $is_valid, $product, $quantity ) {
+	public static function check_valid_add_to_cart( $is_valid, $product_id, $quantity, $variation_id = '', $variations = array(), $item_data = array() ) {
 
-		if ( $is_valid && wcs_cart_contains_renewal() && WC_Subscriptions_Product::is_subscription( $product ) ) {
+		if ( $is_valid && ! isset( $item_data['subscription_renewal'] ) && wcs_cart_contains_renewal() && WC_Subscriptions_Product::is_subscription( $product_id ) ) {
 
 			wc_add_notice( __( 'That subscription product can not be added to your cart as it already contains a subscription renewal.', 'woocommerce-subscriptions' ), 'error' );
 			$is_valid = false;
@@ -1050,15 +1090,18 @@ class WC_Subscriptions_Cart {
 		$added_invalid_notice = false;
 		$standard_packages    = WC()->shipping->get_packages();
 
-		// temporarily store the current calculation type so we can restore it later
-		$calculation_type       = self::$calculation_type;
-		self::$calculation_type = 'recurring_total';
+		// temporarily store the current calculation type and recurring cart key so we can restore them later
+		$calculation_type        = self::$calculation_type;
+		self::$calculation_type  = 'recurring_total';
+		$recurring_cart_key_flag = self::$recurring_cart_key;
 
 		foreach ( WC()->cart->recurring_carts as $recurring_cart_key => $recurring_cart ) {
 
 			if ( false === $recurring_cart->needs_shipping() || 0 == $recurring_cart->next_payment_date ) {
 				continue;
 			}
+
+			self::$recurring_cart_key = $recurring_cart_key;
 
 			$packages = $recurring_cart->get_shipping_packages();
 
@@ -1085,7 +1128,8 @@ class WC_Subscriptions_Cart {
 			}
 		}
 
-		self::$calculation_type = $calculation_type;
+		self::$calculation_type   = $calculation_type;
+		self::$recurring_cart_key = $recurring_cart_key_flag;
 	}
 
 	/**
@@ -1148,208 +1192,50 @@ class WC_Subscriptions_Cart {
 	}
 
 	/**
-	 * Generate a unqiue package key for a given shipping package to be used for caching package rates.
+	 * Generate a unique package key for a given shipping package to be used for caching package rates.
 	 *
 	 * @param array $package A shipping package in the form returned by WC_Cart->get_shipping_packages().
 	 * @return string key hash
 	 * @since 2.0.18
 	 */
 	private static function get_package_shipping_rates_cache_key( $package ) {
-		return md5( implode( array_keys( $package['contents'] ) ) );
+		return md5( json_encode( array( array_keys( $package['contents'] ), $package['contents_cost'], $package['applied_coupons'] ) ) );
+	}
+
+	/**
+	 * When calculating the free shipping method availability, WC uses the WC->cart object. During shipping calculations for
+	 * recurring carts we need the recurring cart's total and coupons to be the base for checking its availability
+	 *
+	 * @param bool $is_available
+	 * @param array $package
+	 * @return bool $is_available a revised version of is_available based off the recurring cart object
+	 *
+	 * @since 2.0.20
+	 */
+	public static function maybe_recalculate_shipping_method_availability( $is_available, $package ) {
+
+		if ( isset( $package['recurring_cart_key'] ) && isset( self::$cached_recurring_cart ) && $package['recurring_cart_key'] == self::$cached_recurring_cart->recurring_cart_key ) {
+
+			// Take a copy of the WC global cart object so we can temporarily set it to base shipping method availability on the cached recurring cart
+			$global_cart = WC()->cart;
+			WC()->cart   = self::$cached_recurring_cart;
+
+			foreach ( WC()->shipping->get_shipping_methods() as $shipping_method ) {
+				if ( $shipping_method->id == 'free_shipping' ) {
+					remove_filter( 'woocommerce_shipping_free_shipping_is_available', __METHOD__ );
+					$is_available = $shipping_method->is_available( $package );
+					add_filter( 'woocommerce_shipping_free_shipping_is_available', __METHOD__, 10, 2 );
+					break;
+				}
+			}
+
+			WC()->cart = $global_cart;
+		}
+
+		return $is_available;
 	}
 
 	/* Deprecated */
-
-	/**
-	 * Returns the formatted subscription price string for an item
-	 *
-	 * @since 1.0
-	 */
-	public static function get_cart_item_price_html( $price_string, $cart_item ) {
-
-		_deprecated_function( __METHOD__, '1.2' );
-
-		return $price_string;
-	}
-
-	/**
-	 * Returns either the total if prices include tax because this doesn't include tax, or the
-	 * subtotal if prices don't includes tax, because this doesn't include tax.
-	 *
-	 * @return string formatted price
-	 *
-	 * @since 1.0
-	 */
-	public static function get_cart_contents_total( $cart_contents_total ) {
-
-		_deprecated_function( __METHOD__, '1.2' );
-
-		return $cart_contents_total;
-	}
-
-	/**
-	 * Calculate totals for the sign-up fees in the cart, based on @see WC_Cart::calculate_totals()
-	 *
-	 * @since 1.0
-	 */
-	public static function calculate_sign_up_fee_totals() {
-		_deprecated_function( __METHOD__, '1.2' );
-	}
-
-	/**
-	 * Function to apply discounts to a product and get the discounted price (before tax is applied)
-	 *
-	 * @param mixed $values
-	 * @param mixed $price
-	 * @param bool $add_totals (default: false)
-	 * @return float price
-	 * @since 1.0
-	 */
-	public static function get_discounted_price( $values, $price, $add_totals = false ) {
-
-		_deprecated_function( __METHOD__, '1.2' );
-
-		return $price;
-	}
-
-	/**
-	 * Function to apply product discounts after tax
-	 *
-	 * @param mixed $values
-	 * @param mixed $price
-	 * @since 1.0
-	 */
-	public static function apply_product_discounts_after_tax( $values, $price ) {
-		_deprecated_function( __METHOD__, '1.2' );
-	}
-
-	/**
-	 * Function to apply cart discounts after tax
-	 *
-	 * @since 1.0
-	 */
-	public static function apply_cart_discounts_after_tax() {
-		_deprecated_function( __METHOD__, '1.2' );
-	}
-
-	/**
-	 * Get tax row amounts with or without compound taxes includes
-	 *
-	 * @return float price
-	 */
-	public static function get_sign_up_taxes_total( $compound = true ) {
-		_deprecated_function( __METHOD__, '1.2' );
-		return 0;
-	}
-
-	public static function get_sign_up_fee_fields() {
-		_deprecated_function( __METHOD__, '1.2' );
-
-		return array(
-			'cart_contents_sign_up_fee_total',
-			'cart_contents_sign_up_fee_count',
-			'sign_up_fee_total',
-			'sign_up_fee_subtotal',
-			'sign_up_fee_subtotal_ex_tax',
-			'sign_up_fee_tax_total',
-			'sign_up_fee_taxes',
-			'sign_up_fee_discount_cart',
-			'sign_up_fee_discount_total',
-		);
-	}
-
-	/**
-	 * Returns the subtotal for a cart item including the subscription period and duration details
-	 *
-	 * @since 1.0
-	 */
-	public static function get_product_subtotal( $product_subtotal, $product ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_product_subtotal( $product_subtotal, $product )' );
-		return self::get_formatted_product_subtotal( $product_subtotal, $product );
-	}
-
-	/**
-	 * Returns a string with the cart discount and subscription period.
-	 *
-	 * @deprecated 1.2
-	 * @since 1.0
-	 */
-	public static function get_discounts_before_tax( $discount, $cart ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_discounts_before_tax( $discount )' );
-		return self::get_formatted_discounts_before_tax( $discount );
-	}
-
-	/**
-	 * Gets the order discount amount - these are applied after tax
-	 *
-	 * @deprecated 1.2
-	 * @since 1.0
-	 */
-	public static function get_discounts_after_tax( $discount, $cart ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_discounts_after_tax( $discount )' );
-		return self::get_formatted_discounts_after_tax( $discount );
-	}
-
-	/**
-	 * Includes the sign-up fee subtotal in the subtotal displayed in the cart.
-	 *
-	 * @deprecated 1.2
-	 * @since 1.0
-	 */
-	public static function get_cart_subtotal( $cart_subtotal, $compound, $cart ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_cart_subtotal( $cart_subtotal, $compound, $cart )' );
-		return self::get_formatted_cart_subtotal( $cart_subtotal, $compound, $cart );
-	}
-
-	/**
-	 * Appends the cart subscription string to a cart total using the @see self::get_cart_subscription_string and then returns it.
-	 *
-	 * @deprecated 1.2
-	 * @since 1.0
-	 */
-	public static function get_total( $total ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_total( $total )' );
-		return self::get_formatted_total( $total );
-	}
-
-	/**
-	 * Appends the cart subscription string to a cart total using the @see self::get_cart_subscription_string and then returns it.
-	 *
-	 * @deprecated 1.2
-	 * @since 1.0
-	 */
-	public static function get_total_ex_tax( $total_ex_tax ) {
-		_deprecated_function( __METHOD__, '1.2', __CLASS__ .'::get_formatted_total_ex_tax( $total_ex_tax )' );
-		return self::get_formatted_total_ex_tax( $total_ex_tax );
-	}
-
-	/**
-	 * Displays each cart tax in a subscription string and calculates the sign-up fee taxes (if any)
-	 * to display in the string.
-	 *
-	 * @since 1.2
-	 */
-	public static function get_formatted_taxes( $formatted_taxes, $cart ) {
-		_deprecated_function( __METHOD__, '1.4.9', __CLASS__ .'::get_recurring_tax_totals( $total_ex_tax )' );
-
-		if ( self::cart_contains_subscription() ) {
-
-			$recurring_taxes = self::get_recurring_taxes();
-
-			foreach ( $formatted_taxes as $tax_id => $tax_amount ) {
-				$formatted_taxes[ $tax_id ] = self::get_cart_subscription_string( $tax_amount, $recurring_taxes[ $tax_id ] );
-			}
-
-			// Add any recurring tax not already handled - when a subscription has a free trial and a sign-up fee, we get a recurring shipping tax with no initial shipping tax
-			foreach ( $recurring_taxes as $tax_id => $tax_amount ) {
-				if ( ! array_key_exists( $tax_id, $formatted_taxes ) ) {
-					$formatted_taxes[ $tax_id ] = self::get_cart_subscription_string( '', $tax_amount );
-				}
-			}
-		}
-
-		return $formatted_taxes;
-	}
 
 	/**
 	 * Checks the cart to see if it contains a subscription product renewal.
@@ -1556,10 +1442,7 @@ class WC_Subscriptions_Cart {
 
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
-				if ( isset( $cart_item['data']->subscription_period ) ) {
-					$period = $cart_item['data']->subscription_period;
-					break;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
+				if ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
 					$period = WC_Subscriptions_Product::get_period( $cart_item['data'] );
 					break;
 				}
@@ -1605,10 +1488,7 @@ class WC_Subscriptions_Cart {
 
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
-				if ( isset( $cart_item['data']->subscription_length ) ) {
-					$length = $cart_item['data']->subscription_length;
-					break;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
+				if ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
 					$length = WC_Subscriptions_Product::get_length( $cart_item['data'] );
 					break;
 				}
@@ -1633,10 +1513,7 @@ class WC_Subscriptions_Cart {
 
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
-				if ( isset( $cart_item['data']->subscription_trial_length ) ) {
-					$trial_length = $cart_item['data']->subscription_trial_length;
-					break;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
+				if ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
 					$trial_length = WC_Subscriptions_Product::get_trial_length( $cart_item['data'] );
 					break;
 				}
@@ -1662,10 +1539,7 @@ class WC_Subscriptions_Cart {
 		// Get the original trial period
 		if ( self::cart_contains_subscription() ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
-				if ( isset( $cart_item['data']->subscription_trial_period ) ) {
-					$trial_period = $cart_item['data']->subscription_trial_period;
-					break;
-				} elseif ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
+				if ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
 					$trial_period = WC_Subscriptions_Product::get_trial_period( $cart_item['data'] );
 					break;
 				}

@@ -31,9 +31,9 @@ function wcs_get_subscription_period_strings( $number = 1, $period = '' ) {
 			// translators: placeholder is number of weeks. (e.g. "Bill this every week / 4 weeks")
 			'week'  => sprintf( _nx( 'week',  '%s weeks',  $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
 			// translators: placeholder is number of months. (e.g. "Bill this every month / 4 months")
-			'month' => sprintf( _nx( 'month', '%s monthes', $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
+			'month' => sprintf( _nx( 'month', '%s months', $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
 			// translators: placeholder is number of years. (e.g. "Bill this every year / 4 years")
-			'year'  => sprintf( _nx( 'año',  '%s years',  $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
+			'year'  => sprintf( _nx( 'year',  '%s years',  $number, 'Subscription billing period.', 'woocommerce-subscriptions' ), $number ),
 		)
 	);
 
@@ -70,15 +70,14 @@ function wcs_get_subscription_trial_period_strings( $number = 1, $period = '' ) 
  * M – for months; allowable range is 1 to 24
  * Y – for years; allowable range is 1 to 5
  *
- * @param string (optional) One of day, week, month or year. If empty, all subscription ranges are returned.
- * @since 2.0
+ * @since 2.1.2
  */
-function wcs_get_subscription_ranges_tlc() {
+function wcs_get_non_cached_subscription_ranges() {
 
 	foreach ( array( 'day', 'week', 'month', 'year' ) as $period ) {
 
 		$subscription_lengths = array(
-			_x( 'all time', 'Subscription length (eg "$10 per month for _all time_")', 'woocommerce-subscriptions' ),
+			_x( 'Never expire', 'Subscription length', 'woocommerce-subscriptions' ),
 		);
 
 		switch ( $period ) {
@@ -126,7 +125,7 @@ function wcs_get_subscription_ranges( $subscription_period = '' ) {
 
 	$locale = get_locale();
 
-	$subscription_ranges = WC_Subscriptions::$cache->cache_and_get( 'wcs-sub-ranges-' . $locale, 'wcs_get_subscription_ranges_tlc', array(), 3 * HOUR_IN_SECONDS );
+	$subscription_ranges = WC_Subscriptions::$cache->cache_and_get( 'wcs-sub-ranges-' . $locale, 'wcs_get_non_cached_subscription_ranges', array(), 3 * HOUR_IN_SECONDS );
 
 	$subscription_ranges = apply_filters( 'woocommerce_subscription_lengths', $subscription_ranges, $subscription_period );
 
@@ -145,11 +144,11 @@ function wcs_get_subscription_ranges( $subscription_period = '' ) {
  */
 function wcs_get_subscription_period_interval_strings( $interval = '' ) {
 
-	$intervals = array( 1 => _x( 'cada', 'period interval (eg "$10 _every_ 2 weeks")', 'woocommerce-subscriptions' ) );
+	$intervals = array( 1 => _x( 'every', 'period interval (eg "$10 _every_ 2 weeks")', 'woocommerce-subscriptions' ) );
 
 	foreach ( range( 2, 6 ) as $i ) {
 		// translators: period interval, placeholder is ordinal (eg "$10 every _2nd/3rd/4th_", etc)
-		$intervals[ $i ] = sprintf( _x( 'cada %s', 'period interval with ordinal number (e.g. "every 2nd"', 'woocommerce-subscriptions' ), WC_Subscriptions::append_numeral_suffix( $i ) );
+		$intervals[ $i ] = sprintf( _x( 'every %s', 'period interval with ordinal number (e.g. "every 2nd"', 'woocommerce-subscriptions' ), WC_Subscriptions::append_numeral_suffix( $i ) );
 	}
 
 	$intervals = apply_filters( 'woocommerce_subscription_period_interval_strings', $intervals );
@@ -214,10 +213,14 @@ function wcs_get_subscription_trial_lengths( $subscription_period = '' ) {
  */
 function wcs_add_time( $number_of_periods, $period, $from_timestamp ) {
 
-	if ( 'month' == $period ) {
-		$next_timestamp = wcs_add_months( $from_timestamp, $number_of_periods );
+	if ( $number_of_periods > 0 ) {
+		if ( 'month' == $period ) {
+			$next_timestamp = wcs_add_months( $from_timestamp, $number_of_periods );
+		} else {
+			$next_timestamp = wcs_strtotime_dark_knight( "+ {$number_of_periods} {$period}", $from_timestamp );
+		}
 	} else {
-		$next_timestamp = strtotime( "+ {$number_of_periods} {$period}", $from_timestamp );
+		$next_timestamp = $from_timestamp;
 	}
 
 	return $next_timestamp;
@@ -239,17 +242,17 @@ function wcs_add_time( $number_of_periods, $period, $from_timestamp ) {
  */
 function wcs_add_months( $from_timestamp, $months_to_add ) {
 
-	$first_day_of_month = date( 'Y-m', $from_timestamp ) . '-1';
-	$days_in_next_month = date( 't', strtotime( "+ {$months_to_add} month", strtotime( $first_day_of_month ) ) );
+	$first_day_of_month = gmdate( 'Y-m', $from_timestamp ) . '-1';
+	$days_in_next_month = gmdate( 't', wcs_strtotime_dark_knight( "+ {$months_to_add} month", wcs_date_to_time( $first_day_of_month ) ) );
 
 	// Payment is on the last day of the month OR number of days in next billing month is less than the the day of this month (i.e. current billing date is 30th January, next billing date can't be 30th February)
-	if ( date( 'd m Y', $from_timestamp ) === date( 't m Y', $from_timestamp ) || date( 'd', $from_timestamp ) > $days_in_next_month ) {
+	if ( gmdate( 'd m Y', $from_timestamp ) === gmdate( 't m Y', $from_timestamp ) || gmdate( 'd', $from_timestamp ) > $days_in_next_month ) {
 		for ( $i = 1; $i <= $months_to_add; $i++ ) {
-			$next_month = strtotime( '+ 3 days', $from_timestamp ); // Add 3 days to make sure we get to the next month, even when it's the 29th day of a month with 31 days
-			$next_timestamp = $from_timestamp = strtotime( date( 'Y-m-t H:i:s', $next_month ) ); // NB the "t" to get last day of next month
+			$next_month = wcs_add_time( 3, 'days', $from_timestamp ); // Add 3 days to make sure we get to the next month, even when it's the 29th day of a month with 31 days
+			$next_timestamp = $from_timestamp = wcs_date_to_time( gmdate( 'Y-m-t H:i:s', $next_month ) ); // NB the "t" to get last day of next month
 		}
 	} else { // Safe to just add a month
-		$next_timestamp = strtotime( "+ {$months_to_add} month", $from_timestamp );
+		$next_timestamp = wcs_strtotime_dark_knight( "+ {$months_to_add} month", $from_timestamp );
 	}
 
 	return $next_timestamp;
@@ -324,7 +327,7 @@ function wcs_estimate_periods_between( $start_timestamp, $end_timestamp, $unit_o
  * @return int number of leap days between the start and end timstamps
  */
 function wcs_number_of_leap_days( $start_timestamp, $end_timestamp ) {
-	if ( ! is_int( $start_timestamp ) || ! is_int( $end_timestamp ) ) {
+	if ( ! is_numeric( $start_timestamp ) || ! is_numeric( $end_timestamp ) ) {
 		throw new InvalidArgumentException( 'Start or end times are not integers' );
 	}
 	// save the date! ;)
@@ -389,13 +392,13 @@ function wcs_estimate_period_between( $last_date, $second_date, $interval = 1 ) 
 		$interval = 1;
 	}
 
-	$last_timestamp    = strtotime( $last_date );
-	$second_timestamp  = strtotime( $second_date );
+	$last_timestamp    = wcs_date_to_time( $last_date );
+	$second_timestamp  = wcs_date_to_time( $second_date );
 
 	$earlier_timestamp = min( $last_timestamp, $second_timestamp );
 	$later_timestamp   = max( $last_timestamp, $second_timestamp );
 
-	$days_in_month     = date( 't', $earlier_timestamp );
+	$days_in_month     = gmdate( 't', $earlier_timestamp );
 	$difference        = absint( $last_timestamp - $second_timestamp );
 	$period_in_seconds = round( $difference / $interval );
 	$possible_periods  = array();
@@ -609,11 +612,67 @@ function wcs_is_datetime_mysql_format( $time ) {
 		$match = preg_match( '/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/', $time );
 
 		// parses time, returns false for invalid dates
-		$valid_time = strtotime( $time );
+		$valid_time = wcs_date_to_time( $time );
 	}
 
 	// magic number -2209078800 is strtotime( '1900-01-00 00:00:00' ). Needed to achieve parity with strptime
 	return ( $match && false !== $valid_time && -2209078800 <= $valid_time ) ? true : false;
+}
+
+/**
+ * Convert a date string into a timestamp without ever adding or deducting time.
+ *
+ * strtotime() would be handy for this purpose, but alas, if other code running on the server
+ * is calling date_default_timezone_set() to change the timezone, strtotime() will assume the
+ * date is in that timezone unless the timezone is specific on the string (which it isn't for
+ * any MySQL formatted date) and attempt to convert it to UTC time by adding or deducting the
+ * GMT/UTC offset for that timezone, so for example, when 3rd party code has set the servers
+ * timezone using date_default_timezone_set( 'America/Los_Angeles' ) doing something like
+ * gmdate( "Y-m-d H:i:s", strtotime( gmdate( "Y-m-d H:i:s" ) ) ) will actually add 7 hours to
+ * the date even though it is a date in UTC timezone because the timezone wasn't specificed.
+ *
+ * This makes sure the date is never converted.
+ *
+ * @param string $date_string A date string formatted in MySQl or similar format that will map correctly when instantiating an instance of DateTime()
+ * @return int Unix timestamp representation of the timestamp passed in without any changes for timezones
+ */
+function wcs_date_to_time( $date_string ) {
+
+	if ( 0 == $date_string ) {
+		return 0;
+	}
+
+	$date_obj = new DateTime( $date_string, new DateTimeZone( 'UTC' ) );
+
+	return intval( $date_obj->format( 'U' ) );
+}
+
+/**
+ * A wrapper for strtotime() designed to stand up against those who want to watch the WordPress burn.
+ *
+ * One day WordPress will require Harvey Dent (aka PHP 5.3) then we can use DateTime::add() instead,
+ * but for now, this ensures when using strtotime() to add time to a timestamp, there are no additional
+ * changes for server specific timezone additions or deductions.
+ *
+ * @param string $time_string A string representation of a date in any format that can be parsed by strtotime()
+ * @return int Unix timestamp representation of the timestamp passed in without any changes for timezones
+ */
+function wcs_strtotime_dark_knight( $time_string, $from_timestamp = null ) {
+
+	$original_timezone = date_default_timezone_get();
+
+	// this should be UTC anyway as WordPress sets it to that, but some plugins and l33t h4xors just want to watch the world burn and set it to something else
+	date_default_timezone_set( 'UTC' );
+
+	if ( null === $from_timestamp ) {
+		$next_timestamp = strtotime( $time_string );
+	} else {
+		$next_timestamp = strtotime( $time_string, $from_timestamp );
+	}
+
+	date_default_timezone_set( $original_timezone );
+
+	return $next_timestamp;
 }
 
 /**
@@ -641,4 +700,147 @@ function wcs_get_days_in_cycle( $period, $interval ) {
 	}
 
 	return apply_filters( 'wcs_get_days_in_cycle', $days_in_cycle, $period, $interval );
+}
+
+/**
+ * Get an instance of the site's timezone.
+ *
+ * @return DateTimeZone Timezone object for the timezone the site is using.
+ */
+function wcs_get_sites_timezone() {
+
+	if ( class_exists( 'ActionScheduler_TimezoneHelper' ) ) {
+
+		// Use Action Scheduler's version when possible as it caches the data
+		$local_timezone = ActionScheduler_TimezoneHelper::get_local_timezone();
+
+	} else {
+
+		$tzstring = get_option( 'timezone_string' );
+
+		if ( empty( $tzstring ) ) {
+
+			$gmt_offset = get_option( 'gmt_offset' );
+
+			if ( 0 == $gmt_offset ) {
+
+				$tzstring = 'UTC';
+
+			} else {
+
+				$gmt_offset *= HOUR_IN_SECONDS;
+				$tzstring    = timezone_name_from_abbr( '', $gmt_offset );
+
+				if ( false === $tzstring ) {
+
+					$is_dst = date( 'I' );
+
+					foreach ( timezone_abbreviations_list() as $abbr ) {
+
+						foreach ( $abbr as $city ) {
+							if ( $city['dst'] == $is_dst && $city['offset'] == $gmt_offset ) {
+								$tzstring = $city['timezone_id'];
+								break 2;
+							}
+						}
+					}
+				}
+
+				if ( false === $tzstring ) {
+					$tzstring = 'UTC';
+				}
+			}
+		}
+
+		$local_timezone = new DateTimeZone( $tzstring );
+	}
+
+	return $local_timezone;
+}
+
+/* Deprecated Functions */
+
+/**
+ * Returns an array of subscription lengths.
+ *
+ * PayPal Standard Allowable Ranges
+ * D – for days; allowable range is 1 to 90
+ * W – for weeks; allowable range is 1 to 52
+ * M – for months; allowable range is 1 to 24
+ * Y – for years; allowable range is 1 to 5
+ *
+ * @param string (optional) One of day, week, month or year. If empty, all subscription ranges are returned.
+ * @since 2.0
+ */
+function wcs_get_subscription_ranges_tlc() {
+	_deprecated_function( __FUNCTION__, '2.1.2', 'wcs_get_non_cached_subscription_ranges' );
+
+	return wcs_get_non_cached_subscription_ranges();
+}
+
+/**
+ * Take a date in the form of a timestamp, MySQL date/time string or DateTime object (or perhaps
+ * a WC_Datetime object when WC > 3.0 is active) and create a WC_DateTime object.
+ *
+ * @since  2.2.0
+ * @param  string|integer|null $date UTC timestamp, or ISO 8601 DateTime. If the DateTime string has no timezone or offset, WordPress site timezone will be assumed. Null if their is no date.
+ * @return null|WC_DateTime in site's timezone
+ */
+function wcs_get_datetime_from( $variable_date_type ) {
+
+	try {
+		if ( empty( $variable_date_type ) ) {
+			$datetime = null;
+		} elseif ( is_a( $variable_date_type, 'WC_DateTime' ) ) {
+			$datetime = $variable_date_type;
+		} elseif ( is_numeric( $variable_date_type ) ) {
+			$datetime = new WC_DateTime( "@{$variable_date_type}", new DateTimeZone( 'UTC' ) );
+			$datetime->setTimezone( new DateTimeZone( wc_timezone_string() ) );
+		} else {
+			$datetime = new WC_DateTime( $variable_date_type, new DateTimeZone( wc_timezone_string() ) );
+		}
+	} catch ( Exception $e ) {
+		$datetime = null;
+	}
+
+	return $datetime;
+}
+
+/**
+ * Get a MySQL date/time string in UTC timezone from a WC_Datetime object.
+ *
+ * @since  2.2.0
+ * @param WC_DateTime
+ * @return string MySQL date/time string representation of the DateTime object in UTC timezone
+ */
+function wcs_get_datetime_utc_string( $datetime ) {
+	$date = clone $datetime; // Don't change the original date object's timezone
+	$date->setTimezone( new DateTimeZone( 'UTC' ) );
+	return $date->format( 'Y-m-d H:i:s' );
+}
+
+/**
+ * Format a date for output, a wrapper for wcs_format_datetime() introduced with WC 3.0.
+ *
+ * @since  2.2.0
+ * @param  WC_DateTime $date
+ * @param  string $format Defaults to the wc_date_format function if not set.
+ * @return string
+ */
+function wcs_format_datetime( $date, $format = '' ) {
+
+	if ( function_exists( 'wc_format_datetime' ) ) { // WC 3.0+
+		$formatted_datetime = wc_format_datetime( $date, $format );
+	} else { // WC < 3.0
+		if ( ! $format ) {
+			$format = wc_date_format();
+		}
+		if ( ! is_a( $date, 'WC_DateTime' ) ) {
+			return '';
+		}
+
+		$formatted_datetime = $date->date_i18n( $format );
+	}
+
+	return $formatted_datetime;
 }

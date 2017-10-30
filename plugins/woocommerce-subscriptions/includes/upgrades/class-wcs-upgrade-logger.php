@@ -25,9 +25,7 @@ class WCS_Upgrade_Logger {
 
 	public static function init() {
 
-		add_action( 'woocommerce_subscriptions_upgraded', __CLASS__ . '::schedule_cleanup' );
-
-		add_action( 'woocommerce_subscriptions_clear_upgrade_log', __CLASS__ . '::clear' );
+		add_action( 'woocommerce_subscriptions_upgraded', __CLASS__ . '::schedule_cleanup', 10, 2 );
 	}
 
 	/**
@@ -35,30 +33,42 @@ class WCS_Upgrade_Logger {
 	 *
 	 * @param string $message
 	 */
-	public static function add( $message ) {
+	public static function add( $message, $handle = '' ) {
+		$handle = ( '' === $handle ) ? self::$handle : $handle;
+
 		if ( empty( self::$log ) ) {
 			self::$log = new WC_Logger(); // can't use __get() no a static property unfortunately
 		}
-		self::$log->add( self::$handle, $message );
+		self::$log->add( $handle, $message );
 	}
 
 	/**
 	 * Clear entries from the upgrade log.
 	 */
 	public static function clear() {
-		if ( empty( self::$log ) ) {
-			self::$log = new WC_Logger();
+
+		if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+
+			if ( empty( self::$log ) ) {
+				self::$log = new WC_Logger();
+			}
+
+			self::$log->clear( self::$handle );
+
+		} else {
+
+			$handler = new WC_Log_Handler_File();
+
+			$handler->clear( self::$handle );
 		}
-		self::$log->clear( self::$handle );
 	}
 
 	/**
 	 * Schedule a hook to automatically clear the log after 8 weeks
 	 */
-	public static function schedule_cleanup() {
-		$time_to_cleanup = gmdate( 'U' ) + self::$weeks_until_cleanup * WEEK_IN_SECONDS;
-		self::add( sprintf( 'Upgrade complete. Scheduling log cleanup for %s GMT/UTC', date( 'Y-m-d H:i:s', $time_to_cleanup ) ) );
-		wc_schedule_single_action( $time_to_cleanup, 'woocommerce_subscriptions_clear_upgrade_log' );
+	public static function schedule_cleanup( $current_version, $old_version ) {
+		$wc_version = defined( 'WC_VERSION' ) ? WC_VERSION : 'undefined';
+		self::add( sprintf( '%s upgrade complete from Subscriptions v%s while WooCommerce WC_VERSION %s and database version %s was active.', $current_version, $old_version, $wc_version, get_option( 'woocommerce_db_version' ) ) );
 	}
 }
 WCS_Upgrade_Logger::init();

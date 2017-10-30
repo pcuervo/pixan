@@ -7,7 +7,7 @@
  * @package		WooCommerce Subscriptions
  * @subpackage	WC_Subscriptions_Email
  * @category	Class
- * @author		Brent Shepherd
+ * @author		Prospress
  */
 class WC_Subscriptions_Email {
 
@@ -26,6 +26,7 @@ class WC_Subscriptions_Email {
 
 		add_filter( 'woocommerce_resend_order_emails_available', __CLASS__ . '::renewal_order_emails_available', -1 ); // run before other plugins so we don't remove their emails
 
+		add_action( 'woocommerce_subscriptions_email_order_details', __CLASS__ . '::order_details', 10, 4 );
 	}
 
 	/**
@@ -42,6 +43,8 @@ class WC_Subscriptions_Email {
 		require_once( 'emails/class-wcs-email-customer-completed-switch-order.php' );
 		require_once( 'emails/class-wcs-email-customer-renewal-invoice.php' );
 		require_once( 'emails/class-wcs-email-cancelled-subscription.php' );
+		require_once( 'emails/class-wcs-email-expired-subscription.php' );
+		require_once( 'emails/class-wcs-email-on-hold-subscription.php' );
 
 		$email_classes['WCS_Email_New_Renewal_Order']        = new WCS_Email_New_Renewal_Order();
 		$email_classes['WCS_Email_New_Switch_Order']         = new WCS_Email_New_Switch_Order();
@@ -50,6 +53,8 @@ class WC_Subscriptions_Email {
 		$email_classes['WCS_Email_Completed_Switch_Order']   = new WCS_Email_Completed_Switch_Order();
 		$email_classes['WCS_Email_Customer_Renewal_Invoice'] = new WCS_Email_Customer_Renewal_Invoice();
 		$email_classes['WCS_Email_Cancelled_Subscription']   = new WCS_Email_Cancelled_Subscription();
+		$email_classes['WCS_Email_Expired_Subscription']     = new WCS_Email_Expired_Subscription();
+		$email_classes['WCS_Email_On_Hold_Subscription']     = new WCS_Email_On_Hold_Subscription();
 
 		return $email_classes;
 	}
@@ -67,6 +72,9 @@ class WC_Subscriptions_Email {
 		}
 
 		add_action( 'woocommerce_subscription_status_updated', __CLASS__ . '::send_cancelled_email', 10, 2 );
+		add_action( 'woocommerce_subscription_status_expired', __CLASS__ . '::send_expired_email', 10, 2 );
+		add_action( 'woocommerce_customer_changed_subscription_to_on-hold', __CLASS__ . '::send_on_hold_email', 10, 2 );
+		add_action( 'woocommerce_subscriptions_switch_completed', __CLASS__ . '::send_switch_order_email', 10 );
 
 		$order_email_actions = array(
 			'woocommerce_order_status_pending_to_processing',
@@ -83,7 +91,6 @@ class WC_Subscriptions_Email {
 		foreach ( $order_email_actions as $action ) {
 			add_action( $action, __CLASS__ . '::maybe_remove_woocommerce_email', 9 );
 			add_action( $action, __CLASS__ . '::send_renewal_order_email', 10 );
-			add_action( $action, __CLASS__ . '::send_switch_order_email', 10 );
 			add_action( $action, __CLASS__ . '::maybe_reattach_woocommerce_email', 11 );
 		}
 	}
@@ -97,9 +104,33 @@ class WC_Subscriptions_Email {
 	public static function send_cancelled_email( $subscription ) {
 		WC()->mailer();
 
-		if ( $subscription->has_status( array( 'pending-cancel', 'cancelled' ) ) && 'true' !== get_post_meta( $subscription->id, '_cancelled_email_sent', true ) ) {
+		if ( $subscription->has_status( array( 'pending-cancel', 'cancelled' ) ) && 'true' !== get_post_meta( $subscription->get_id(), '_cancelled_email_sent', true ) ) {
 			do_action( 'cancelled_subscription_notification', $subscription );
 		}
+	}
+
+	/**
+	 * Init the mailer and call for the expired email notification hook.
+	 *
+	 * @param $subscription WC Subscription
+	 * @since 2.1
+	 */
+	public static function send_expired_email( $subscription ) {
+		WC()->mailer();
+
+		do_action( 'expired_subscription_notification', $subscription );
+	}
+
+	/**
+	 * Init the mailer and call for the suspended email notification hook.
+	 *
+	 * @param $subscription WC Subscription
+	 * @since 2.1
+	 */
+	public static function send_on_hold_email( $subscription ) {
+		WC()->mailer();
+
+		do_action( 'on-hold_subscription_notification', $subscription );
 	}
 
 	/**
@@ -126,7 +157,7 @@ class WC_Subscriptions_Email {
 	 */
 	public static function maybe_remove_woocommerce_email( $order_id ) {
 		if ( wcs_order_contains_renewal( $order_id ) || wcs_order_contains_switch( $order_id ) ) {
-			remove_action( current_filter(), array( 'WC_Emails', 'send_transactional_email' ) );
+			self::detach_woocommerce_transactional_email();
 		}
 	}
 
@@ -139,7 +170,7 @@ class WC_Subscriptions_Email {
 	 */
 	public static function maybe_reattach_woocommerce_email( $order_id ) {
 		if ( wcs_order_contains_renewal( $order_id ) || wcs_order_contains_switch( $order_id ) ) {
-			add_action( current_filter(), array( 'WC_Emails', 'send_transactional_email' ) );
+			self::attach_woocommerce_transactional_email();
 		}
 	}
 
@@ -154,13 +185,16 @@ class WC_Subscriptions_Email {
 	public static function renewal_order_emails_available( $available_emails ) {
 		global $theorder;
 
-		if ( wcs_order_contains_renewal( $theorder->id ) ) {
+		if ( wcs_order_contains_renewal( wcs_get_objects_property( $theorder, 'id' ) ) ) {
 			$available_emails = array(
 				'new_renewal_order',
 				'customer_processing_renewal_order',
 				'customer_completed_renewal_order',
-				'customer_renewal_invoice',
 			);
+
+			if ( $theorder->needs_payment() ) {
+				array_push( $available_emails, 'customer_renewal_invoice' );
+			}
 		}
 
 		return $available_emails;
@@ -218,7 +252,11 @@ class WC_Subscriptions_Email {
 				add_filter( 'woocommerce_order_is_download_permitted', $show_download_links_callback );
 				add_filter( 'woocommerce_order_is_paid', $show_purchase_note_callback );
 
-				$items_table = $order->email_order_items_table( $args );
+				if ( function_exists( 'wc_get_email_order_items' ) ) { // WC 3.0+
+					$items_table = wc_get_email_order_items( $order, $args );
+				} else {
+					$items_table = $order->email_order_items_table( $args );
+				}
 
 				remove_filter( 'woocommerce_order_is_download_permitted', $show_download_links_callback );
 				remove_filter( 'woocommerce_order_is_paid', $show_purchase_note_callback );
@@ -226,6 +264,83 @@ class WC_Subscriptions_Email {
 		}
 
 		return $items_table;
+	}
+
+	/**
+	 * Show the order details table
+	 *
+	 * @param WC_Order $order
+	 * @param bool $sent_to_admin Whether the email is sent to admin - defaults to false
+	 * @param bool $plain_text Whether the email should use plain text templates - defaults to false
+	 * @param WC_Email $email
+	 * @since 2.1
+	 */
+	public static function order_details( $order, $sent_to_admin = false, $plain_text = false, $email = '' ) {
+
+		$order_items_table_args = array(
+			'show_download_links' => ( $sent_to_admin ) ? false : $order->is_download_permitted(),
+			'show_sku'            => $sent_to_admin,
+			'show_purchase_note'  => ( $sent_to_admin ) ? false : $order->has_status( apply_filters( 'woocommerce_order_is_paid_statuses', array( 'processing', 'completed' ) ) ),
+			'show_image'          => '',
+			'image_size'          => '',
+			'plain_text'          => $plain_text,
+		);
+
+		$template_path = ( $plain_text ) ? 'emails/plain/email-order-details.php' : 'emails/email-order-details.php';
+		$order_type    = ( wcs_is_subscription( $order ) ) ? 'subscription' : 'order';
+
+		wc_get_template(
+			$template_path,
+			array(
+				'order'                  => $order,
+				'sent_to_admin'          => $sent_to_admin,
+				'plain_text'             => $plain_text,
+				'email'                  => $email,
+				'order_type'             => $order_type,
+				'order_items_table_args' => $order_items_table_args,
+			),
+			'',
+			plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/'
+		);
+	}
+
+	/**
+	 * Detach WC transactional emails from a specific hook.
+	 *
+	 * @param string Optional. The action hook or filter to detach WC core's transactional emails from. Defaults to the current filter.
+	 * @param int Optional. The priority the function runs on. Default 10.
+	 * @since 2.2.3
+	 */
+	public static function detach_woocommerce_transactional_email( $hook = '', $priority = 10 ) {
+
+		if ( '' === $hook ) {
+			$hook = current_filter();
+		}
+
+		// Emails might be queued or sent immediately so we need to remove both
+		remove_action( $hook, array( 'WC_Emails', 'queue_transactional_email' ), $priority );
+		remove_action( $hook, array( 'WC_Emails', 'send_transactional_email' ), $priority );
+	}
+
+	/**
+	 * Attach WC transactional emails to a specific hook.
+	 *
+	 * @param string Optional. The action hook or filter to attach WC core's transactional emails to. Defaults to the current filter.
+	 * @param int Optional. The priority the function should run on. Default 10.
+	 * @param int Optional. The number of arguments the function accepts. Default 10.
+	 * @since 2.2.3
+	 */
+	public static function attach_woocommerce_transactional_email( $hook = '', $priority = 10, $accepted_args = 10 ) {
+
+		if ( '' === $hook ) {
+			$hook = current_filter();
+		}
+
+		if ( false === WC_Subscriptions::is_woocommerce_pre( '3.0' ) && apply_filters( 'woocommerce_defer_transactional_emails', true ) ) {
+			add_action( $hook, array( 'WC_Emails', 'queue_transactional_email' ), $priority, $accepted_args );
+		} else {
+			add_action( $hook, array( 'WC_Emails', 'send_transactional_email' ), $priority, $accepted_args );
+		}
 	}
 
 	/**

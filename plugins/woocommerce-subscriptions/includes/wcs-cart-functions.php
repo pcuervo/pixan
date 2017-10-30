@@ -49,6 +49,7 @@ function wcs_cart_totals_shipping_html() {
 			foreach ( $packages as $i => $base_package ) {
 
 				$product_names = array();
+				$base_package['recurring_cart_key'] = $recurring_cart_key;
 
 				$package = WC_Subscriptions_Cart::get_calculated_shipping_for_package( $base_package );
 				$index   = sprintf( '%1$s_%2$d', $recurring_cart_key, $i );
@@ -63,7 +64,16 @@ function wcs_cart_totals_shipping_html() {
 				}
 
 				$chosen_initial_method   = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
-				$chosen_recurring_method = isset( WC()->session->chosen_shipping_methods[ $recurring_cart_key . '_' . $i ] ) ? WC()->session->chosen_shipping_methods[ $recurring_cart_key . '_' . $i ] : $chosen_initial_method;
+
+				if ( isset( WC()->session->chosen_shipping_methods[ $recurring_cart_key . '_' . $i ] ) ) {
+					$chosen_recurring_method = WC()->session->chosen_shipping_methods[ $recurring_cart_key . '_' . $i ];
+				} elseif ( in_array( $chosen_initial_method, $package['rates'] ) ) {
+					$chosen_recurring_method = $chosen_initial_method;
+				} else {
+					$chosen_recurring_method = current( $package['rates'] )->id;
+				}
+
+				$shipping_selection_displayed = false;
 
 				if ( ( 1 === count( $package['rates'] ) ) || ( isset( $package['rates'][ $chosen_initial_method ] ) && isset( $initial_packages[ $i ] ) && $package['rates'] == $initial_packages[ $i ]['rates'] && apply_filters( 'wcs_cart_totals_shipping_html_price_only', true, $package, $recurring_cart ) ) ) {
 					$shipping_method = ( 1 === count( $package['rates'] ) ) ? current( $package['rates'] ) : $package['rates'][ $chosen_initial_method ];
@@ -71,7 +81,7 @@ function wcs_cart_totals_shipping_html() {
 					?>
 					<tr class="shipping recurring-total <?php echo esc_attr( $recurring_cart_key ); ?>">
 						<th><?php echo esc_html( sprintf( __( 'Shipping via %s', 'woocommerce-subscriptions' ), $shipping_method->label ) ); ?></th>
-						<td>
+						<td data-title="<?php echo esc_attr( sprintf( __( 'Shipping via %s', 'woocommerce-subscriptions' ), $shipping_method->label ) ); ?>">
 							<?php echo wp_kses_post( wcs_cart_totals_shipping_method_price_label( $shipping_method, $recurring_cart ) ); ?>
 							<?php if ( 1 === count( $package['rates'] ) ) : ?>
 								<?php wcs_cart_print_shipping_input( $index, $shipping_method ); ?>
@@ -86,6 +96,8 @@ function wcs_cart_totals_shipping_html() {
 				} else {
 					// Display the options
 					$product_names = array();
+
+					$shipping_selection_displayed = true;
 
 					if ( $show_package_name ) {
 						$package_name = apply_filters( 'woocommerce_shipping_package_name', sprintf( _n( 'Shipping', 'Shipping %d', ( $i + 1 ), 'woocommerce-subscriptions' ), ( $i + 1 ) ), $i, $package );
@@ -109,7 +121,7 @@ function wcs_cart_totals_shipping_html() {
 					);
 					$show_package_name = false;
 				}
-				do_action( 'woocommerce_subscriptions_after_recurring_shipping_rates', $index, $base_package, $recurring_cart );
+				do_action( 'woocommerce_subscriptions_after_recurring_shipping_rates', $index, $base_package, $recurring_cart, $chosen_recurring_method, $shipping_selection_displayed );
 			}
 		}
 	}
@@ -176,7 +188,7 @@ function wcs_cart_totals_shipping_method_price_label( $method, $cart ) {
 				$price_label .= ' <small>' . WC()->countries->inc_tax_or_vat() . '</small>';
 			}
 		}
-	} else {
+	} elseif ( ! empty( $cart->recurring_cart_key ) ) {
 		$price_label .= _x( 'Free', 'shipping method price', 'woocommerce-subscriptions' );
 	}
 
@@ -208,7 +220,7 @@ function wcs_cart_totals_coupon_html( $coupon, $cart ) {
 
 	$value  = array();
 
-	if ( $amount = $cart->get_coupon_discount_amount( $coupon->code, $cart->display_cart_ex_tax ) ) {
+	if ( $amount = $cart->get_coupon_discount_amount( wcs_get_coupon_property( $coupon, 'code' ), $cart->display_cart_ex_tax ) ) {
 		$discount_html = '-' . wc_price( $amount );
 	} else {
 		$discount_html = '';
@@ -216,7 +228,7 @@ function wcs_cart_totals_coupon_html( $coupon, $cart ) {
 
 	$value[] = apply_filters( 'woocommerce_coupon_discount_amount_html', $discount_html, $coupon );
 
-	if ( $coupon->enable_free_shipping() ) {
+	if ( wcs_get_coupon_property( $coupon, 'enable_free_shipping' ) ) {
 		$value[] = __( 'Free shipping coupon', 'woocommerce-subscriptions' );
 	}
 
@@ -298,10 +310,11 @@ function wcs_cart_pluck( $cart, $field, $default = 0 ) {
 		$value = $cart->$field;
 	} else {
 		foreach ( $cart->get_cart() as $cart_item ) {
+
 			if ( isset( $cart_item[ $field ] ) ) {
 				$value = $cart_item[ $field ];
-			} elseif ( $cart_item['data']->$field ) {
-				$value = $cart_item['data']->$field;
+			} else {
+				$value = WC_Subscriptions_Product::get_meta_data( $cart_item['data'], $field, $default );
 			}
 		}
 	}
@@ -318,9 +331,9 @@ function wcs_cart_pluck( $cart, $field, $default = 0 ) {
 function wcs_add_cart_first_renewal_payment_date( $order_total_html, $cart ) {
 
 	if ( 0 !== $cart->next_payment_date ) {
-		$first_renewal_date = date_i18n( wc_date_format(), strtotime( get_date_from_gmt( $cart->next_payment_date ) ) );
+		$first_renewal_date = date_i18n( wc_date_format(), wcs_date_to_time( get_date_from_gmt( $cart->next_payment_date ) ) );
 		// translators: placeholder is a date
-		$order_total_html  .= '<div class="first-payment-date"><small>' . sprintf( __( 'Primera renovación: %s', 'woocommerce-subscriptions' ), $first_renewal_date ) .  '</small></div>';
+		$order_total_html  .= '<div class="first-payment-date"><small>' . sprintf( __( 'First renewal: %s', 'woocommerce-subscriptions' ), $first_renewal_date ) .  '</small></div>';
 	}
 
 	return $order_total_html;

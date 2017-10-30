@@ -29,7 +29,7 @@ class ActionScheduler_AdminView {
 	 */
 	public function init() {
 
-		if ( defined( 'WP_DEBUG' ) && true == WP_DEBUG && is_admin() && ( ! defined( 'DOING_AJAX' ) || false == DOING_AJAX ) ) {
+		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || false == DOING_AJAX ) ) {
 			add_filter( 'action_scheduler_post_type_args', array( self::instance(), 'action_scheduler_post_type_args' ) );
 		}
 
@@ -60,10 +60,10 @@ class ActionScheduler_AdminView {
 
 	public function action_scheduler_post_type_args( $args ) {
 		return array_merge( $args, array(
-			'show_ui' => true,
-			'show_in_menu' => 'tools.php',
+			'show_ui'           => true,
+			'show_in_menu'      => 'tools.php',
 			'show_in_admin_bar' => false,
-		));
+		) );
 	}
 
 	/**
@@ -198,7 +198,7 @@ class ActionScheduler_AdminView {
 			case 'scheduled':
 				echo get_date_from_gmt( gmdate( 'Y-m-d H:i:s', $next_timestamp ), 'Y-m-d H:i:s' );
 				if ( gmdate( 'U' ) > $next_timestamp ) {
-					printf( __( ' (Hace %s)', 'action-scheduler' ), human_time_diff( gmdate( 'U' ), $next_timestamp ) );
+					printf( __( ' (%s ago)', 'action-scheduler' ), human_time_diff( gmdate( 'U' ), $next_timestamp ) );
 				} else {
 					echo ' (' . human_time_diff( gmdate( 'U' ), $next_timestamp ) . ')';
 				}
@@ -207,7 +207,7 @@ class ActionScheduler_AdminView {
 				echo get_post_modified_time( 'Y-m-d H:i:s' );
 				$modified_timestamp = get_post_modified_time( 'U', true );
 				if ( gmdate( 'U' ) > $modified_timestamp ) {
-					printf( __( ' (Hace %s)', 'action-scheduler' ), human_time_diff( gmdate( 'U' ), $modified_timestamp ) );
+					printf( __( ' (%s ago)', 'action-scheduler' ), human_time_diff( gmdate( 'U' ), $modified_timestamp ) );
 				} else {
 					echo ' (' . human_time_diff( gmdate( 'U' ), $modified_timestamp ) . ')';
 				}

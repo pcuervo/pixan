@@ -44,10 +44,10 @@ class WC_Subscriptions_Synchroniser {
 		self::$setting_id           = WC_Subscriptions_Admin::$option_prefix . '_sync_payments';
 		self::$setting_id_proration = WC_Subscriptions_Admin::$option_prefix . '_prorate_synced_payments';
 
-		self::$sync_field_label      = __( 'Synchronise Renewals', 'woocommerce-subscriptions' );
+		self::$sync_field_label      = __( 'Synchronise renewals', 'woocommerce-subscriptions' );
 		self::$sync_description      = __( 'Align the payment date for all customers who purchase this subscription to a specific day of the week or month.', 'woocommerce-subscriptions' );
 		// translators: placeholder is a year (e.g. "2016")
-		self::$sync_description_year = sprintf( _x( 'Align the payment date for this subscription to a specific day of the year. If the date has already taken place this year, the first payment will be processed in %s. Set the day to 0 to disable payment syncing for this product.', 'used in subscription product edit screen', 'woocommerce-subscriptions' ), date( 'Y', strtotime( '+1 year' ) ) );
+		self::$sync_description_year = sprintf( _x( 'Align the payment date for this subscription to a specific day of the year. If the date has already taken place this year, the first payment will be processed in %s. Set the day to 0 to disable payment syncing for this product.', 'used in subscription product edit screen', 'woocommerce-subscriptions' ), gmdate( 'Y', wcs_date_to_time( '+1 year' ) ) );
 
 		// Add the settings to control whether syncing is enabled and how it will behave
 		add_filter( 'woocommerce_subscription_settings', __CLASS__ . '::add_settings' );
@@ -63,8 +63,8 @@ class WC_Subscriptions_Synchroniser {
 		add_action( 'woocommerce_process_product_meta_subscription', __CLASS__ . '::save_subscription_meta', 10 );
 
 		// Save sync options when a variable subscription product is saved
-		add_action( 'woocommerce_process_product_meta_variable-subscription', __CLASS__ . '::process_product_meta_variable_subscription' ); // WC < 2.4
-		add_action( 'woocommerce_ajax_save_product_variations', __CLASS__ . '::process_product_meta_variable_subscription' );
+		add_action( 'woocommerce_process_product_meta_variable-subscription', __CLASS__ . '::process_product_meta_variable_subscription' );
+		add_action( 'woocommerce_save_product_variation',  __CLASS__ . '::save_product_variation', 20, 2 );
 
 		// Make sure the expiration dates are calculated from the synced start date
 		add_filter( 'woocommerce_subscriptions_product_trial_expiration_date', __CLASS__ . '::recalculate_product_trial_expiration_date', 10, 2 );
@@ -96,13 +96,15 @@ class WC_Subscriptions_Synchroniser {
 
 		// When adding an item to a subscription, check if it is for a synced product to make sure the sync meta is set on the subscription. We can't attach to just the 'woocommerce_new_order_item' here because the '_product_id' and '_variation_id' meta are not set before it fires
 		add_action( 'woocommerce_ajax_add_order_item_meta', __CLASS__ . '::ajax_maybe_add_meta_for_item', 10, 2 );
-		add_action( 'woocommerce_order_add_product', __CLASS__ . '::maybe_add_meta_for_new_product', 10, 3 );
+
+		if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+			add_action( 'woocommerce_order_add_product', __CLASS__ . '::maybe_add_meta_for_new_product', 10, 3 );
+		} else {
+			add_action( 'woocommerce_new_order_item', __CLASS__ . '::maybe_add_meta_for_new_line_item', 10, 3 );
+		}
 
 		// Make sure the sign-up fee for a synchronised subscription is correct
 		add_filter( 'woocommerce_subscriptions_sign_up_fee', __CLASS__ . '::get_synced_sign_up_fee', 1, 3 );
-
-		// Autocomplete subscription orders when they only contain a synchronised subscription
-		add_filter( 'woocommerce_payment_complete_order_status', __CLASS__ . '::order_autocomplete', 10, 2 );
 
 		// If it's an initial sync order and the total is zero, and nothing needs to be shipped, do not reduce stock
 		add_filter( 'woocommerce_order_item_quantity', __CLASS__ . '::maybe_do_not_reduce_stock', 10, 3 );
@@ -149,7 +151,7 @@ class WC_Subscriptions_Synchroniser {
 				'name'          => __( 'Synchronisation', 'woocommerce-subscriptions' ),
 				'type'          => 'title',
 				// translators: placeholders are opening and closing link tags
-				'desc'          => sprintf( _x( 'Align subscription renewal to a specific day of the week, month or year. For example, the first day of the month. %sLearn more%s.', 'used in the general subscription options page', 'woocommerce-subscriptions' ), '<a href="' . esc_url( 'http://docs.woothemes.com/document/subscriptions/renewal-synchronisation/' ) . '">', '</a>' ),
+				'desc'          => sprintf( _x( 'Align subscription renewal to a specific day of the week, month or year. For example, the first day of the month. %sLearn more%s.', 'used in the general subscription options page', 'woocommerce-subscriptions' ), '<a href="' . esc_url( 'http://docs.woocommerce.com/document/subscriptions/renewal-synchronisation/' ) . '">', '</a>' ),
 				'id'            => self::$setting_id . '_title',
 			),
 
@@ -208,7 +210,7 @@ class WC_Subscriptions_Synchroniser {
 				$payment_month = $payment_day['month'];
 				$payment_day   = $payment_day['day'];
 			} else {
-				$payment_month = date( 'm' );
+				$payment_month = gmdate( 'm' );
 			}
 
 			echo '<div class="options_group subscription_pricing subscription_sync show_if_subscription">';
@@ -216,8 +218,8 @@ class WC_Subscriptions_Synchroniser {
 
 			woocommerce_wp_select( array(
 				'id'          => self::$post_meta_key,
-				'class'       => 'wc_input_subscription_payment_sync',
-				'label'       => self::$sync_field_label . ':',
+				'class'       => 'wc_input_subscription_payment_sync select short',
+				'label'       => self::$sync_field_label,
 				'options'     => self::get_billing_period_ranges( $subscription_period ),
 				'description' => self::$sync_description,
 				'desc_tip'    => true,
@@ -229,26 +231,22 @@ class WC_Subscriptions_Synchroniser {
 
 			echo '<div class="subscription_sync_annual" style="' . esc_attr( $display_annual_select ) . '">';
 
-			woocommerce_wp_text_input( array(
-				'id'            => self::$post_meta_key_day,
-				'class'         => 'wc_input_subscription_payment_sync',
-				'label'         => self::$sync_field_label . ':',
-				'placeholder'   => _x( 'Day', 'input field placeholder for day field for annual subscriptions', 'woocommerce-subscriptions' ),
-				'value'         => $payment_day,
-				'type'          => 'number',
-				)
-			);
+			?><p class="form-field _subscription_payment_sync_date_day_field">
+				<label for="_subscription_payment_sync_date_day"><?php echo esc_html( self::$sync_field_label ); ?></label>
+				<span class="wrap">
+					<input type="number" id="<?php echo esc_attr( self::$post_meta_key_day ); ?>" name="<?php echo esc_attr( self::$post_meta_key_day ); ?>" class="wc_input_subscription_payment_sync" value="<?php echo esc_attr( $payment_day ); ?>" placeholder="<?php echo esc_attr_x( 'Day', 'input field placeholder for day field for annual subscriptions', 'woocommerce-subscriptions' ); ?>"  />
 
-			woocommerce_wp_select( array(
-				'id'          => self::$post_meta_key_month,
-				'class'       => 'wc_input_subscription_payment_sync',
-				'label'       => '',
-				'options'     => $wp_locale->month,
-				'description' => self::$sync_description_year,
-				'desc_tip'    => true,
-				'value'       => $payment_month, // Explicity set value in to ensure backward compatibility
-				)
-			);
+					<label for="<?php echo esc_attr( self::$post_meta_key_month ); ?>" class="wcs_hidden_label"><?php esc_html_e( 'Month for Synchronisation', 'woocommerce-subscriptions' ); ?></label>
+					<select id="<?php echo esc_attr( self::$post_meta_key_month ); ?>" name="<?php echo esc_attr( self::$post_meta_key_month ); ?>" class="wc_input_subscription_payment_sync last" >
+						<?php foreach ( $wp_locale->month as $value => $label ) { ?>
+							<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, $payment_month, true ) ?>><?php echo esc_html( $label ); ?></option>
+						<?php } ?>
+					</select>
+
+					</select>
+				</span>
+				<?php echo wcs_help_tip( self::$sync_description_year ); ?>
+			</p><?php
 
 			echo '</div>';
 			echo '</div>';
@@ -266,21 +264,23 @@ class WC_Subscriptions_Synchroniser {
 		if ( self::is_syncing_enabled() ) {
 
 			// Set month as the default billing period
-			if ( ! $subscription_period = get_post_meta( $variation->ID, '_subscription_period', true ) ) {
+			$subscription_period = WC_Subscriptions_Product::get_period( $variation );
+
+			if ( empty( $subscription_period ) ) {
 				$subscription_period = 'month';
 			}
 
 			$display_week_month_select = ( ! in_array( $subscription_period, array( 'month', 'week' ) ) ) ? 'display: none;' : '';
 			$display_annual_select     = ( 'year' != $subscription_period ) ? 'display: none;' : '';
 
-			$payment_day = self::get_products_payment_day( $variation->ID );
+			$payment_day = self::get_products_payment_day( $variation );
 
 			// An annual sync date is already set in the form: array( 'day' => 'nn', 'month' => 'nn' ), create a MySQL string from those values (year and time are irrelvent as they are ignored)
 			if ( is_array( $payment_day ) ) {
 				$payment_month = $payment_day['month'];
 				$payment_day   = $payment_day['day'];
 			} else {
-				$payment_month = date( 'm' );
+				$payment_month = gmdate( 'm' );
 			}
 
 			include( plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/admin/html-variation-synchronisation.php' );
@@ -331,43 +331,36 @@ class WC_Subscriptions_Synchroniser {
 			return;
 		}
 
-		$variable_post_ids = $_POST['variable_post_id'];
-
-		$max_loop = max( array_keys( $variable_post_ids ) );
-
 		// Make sure the parent product doesn't have a sync value (in case it was once a simple subscription)
 		update_post_meta( $post_id, self::$post_meta_key, 0 );
+	}
+
+	/**
+	 * Save sync options when a variable subscription product is saved
+	 *
+	 * @since 1.5
+	 */
+	public static function save_product_variation( $variation_id, $index ) {
+
+		if ( empty( $_POST['_wcsnonce_save_variations'] ) || ! wp_verify_nonce( $_POST['_wcsnonce_save_variations'], 'wcs_subscription_variations' ) || ! isset( $_POST['variable_post_id'] ) || ! is_array( $_POST['variable_post_id'] ) ) {
+			return;
+		}
 
 		$day_field   = 'variable' . self::$post_meta_key_day;
 		$month_field = 'variable' . self::$post_meta_key_month;
 
-		// Save each variations details
-		for ( $i = 0; $i <= $max_loop; $i ++ ) {
+		if ( 'year' == $_POST['variable_subscription_period'][ $index ] ) { // save the day & month for the date rather than just the day
 
-			if ( ! isset( $variable_post_ids[ $i ] ) ) {
-				continue;
-			}
+			$_POST[ 'variable' . self::$post_meta_key ][ $index ] = array(
+				'day'    => isset( $_POST[ $day_field ][ $index ] ) ? $_POST[ $day_field ][ $index ] : 0,
+				'month'  => isset( $_POST[ $month_field ][ $index ] ) ? $_POST[ $month_field ][ $index ] : 0,
+			);
 
-			$variation_id = absint( $variable_post_ids[ $i ] );
-
-			if ( 'year' == $_POST['variable_subscription_period'][ $i ] ) { // save the day & month for the date rather than just the day
-
-				$_POST[ 'variable' . self::$post_meta_key ][ $i ] = array(
-					'day'    => isset( $_POST[ $day_field ][ $i ] ) ? $_POST[ $day_field ][ $i ] : 0,
-					'month'  => isset( $_POST[ $month_field ][ $i ] ) ? $_POST[ $month_field ][ $i ] : 0,
-				);
-
-			} else {
-
-				if ( ! isset( $_POST[ 'variable' . self::$post_meta_key ][ $i ] ) ) {
-					$_POST[ 'variable' . self::$post_meta_key ][ $i ] = 0;
-				}
-			}
-
-			if ( isset( $_POST[ 'variable' . self::$post_meta_key ][ $i ] ) ) {
-				update_post_meta( $variation_id, self::$post_meta_key, $_POST[ 'variable' . self::$post_meta_key ][ $i ] );
-			}
+		} elseif ( ! isset( $_POST[ 'variable' . self::$post_meta_key ][ $index ] ) ) {
+			$_POST[ 'variable' . self::$post_meta_key ][ $index ] = 0;
 		}
+
+		update_post_meta( $variation_id, self::$post_meta_key, $_POST[ 'variable' . self::$post_meta_key ][ $index ] );
 	}
 
 	/**
@@ -407,7 +400,7 @@ class WC_Subscriptions_Synchroniser {
 			$product = wc_get_product( $product );
 		}
 
-		if ( ! is_object( $product ) || ! self::is_syncing_enabled() || 'day' == $product->subscription_period || ! $product->is_type( array( 'subscription', 'variable-subscription', 'subscription_variation' ) ) ) {
+		if ( ! is_object( $product ) || ! self::is_syncing_enabled() || 'day' == WC_Subscriptions_Product::get_period( $product ) || ! WC_Subscriptions_Product::is_subscription( $product ) ) {
 			return false;
 		}
 
@@ -448,15 +441,11 @@ class WC_Subscriptions_Synchroniser {
 
 		if ( ! self::is_syncing_enabled() ) {
 			$payment_date = 0;
-		} elseif ( ! is_object( $product ) ) {
-			$payment_date = get_post_meta( $product, self::$post_meta_key, true );
-		} elseif ( isset( $product->subscription_payment_sync_date ) ) {
-			$payment_date = $product->subscription_payment_sync_date;
 		} else {
-			$payment_date = 0;
+			$payment_date = WC_Subscriptions_Product::get_meta_data( $product, 'subscription_payment_sync_date', 0 );
 		}
 
-		return $payment_date;
+		return apply_filters( 'woocommerce_subscriptions_product_sync_date', $payment_date, $product );
 	}
 
 	/**
@@ -494,14 +483,14 @@ class WC_Subscriptions_Synchroniser {
 			$from_date = WC_Subscriptions_Product::get_trial_expiration_date( $product, $from_date );
 		}
 
-		$from_timestamp = strtotime( $from_date ) + ( get_option( 'gmt_offset' ) * 3600 ); // Site time
+		$from_timestamp = wcs_date_to_time( $from_date ) + ( get_option( 'gmt_offset' ) * 3600 ); // Site time
 
 		$payment_day = self::get_products_payment_day( $product );
 
 		if ( 'week' == $period ) {
 
 			// strtotime() will figure out if the day is in the future or today (see: https://gist.github.com/thenbrent/9698083)
-			$first_payment_timestamp = strtotime( self::$weekdays[ $payment_day ], $from_timestamp );
+			$first_payment_timestamp = wcs_strtotime_dark_knight( self::$weekdays[ $payment_day ], $from_timestamp );
 
 		} elseif ( 'month' == $period ) {
 
@@ -513,7 +502,7 @@ class WC_Subscriptions_Synchroniser {
 
 			} elseif ( gmdate( 'j', $from_timestamp ) > $payment_day ) { // today is later than specified day in the from date, we need the next month
 
-				$month = date( 'F', wcs_add_months( $from_timestamp, 1 ) );
+				$month = gmdate( 'F', wcs_add_months( $from_timestamp, 1 ) );
 
 			} else { // specified day is either today or still to come in the month of the from date
 
@@ -521,7 +510,7 @@ class WC_Subscriptions_Synchroniser {
 
 			}
 
-			$first_payment_timestamp = strtotime( "{$payment_day} {$month}", $from_timestamp );
+			$first_payment_timestamp = wcs_strtotime_dark_knight( "{$payment_day} {$month}", $from_timestamp );
 
 		} elseif ( 'year' == $period ) {
 
@@ -565,7 +554,7 @@ class WC_Subscriptions_Synchroniser {
 					break;
 			}
 
-			$first_payment_timestamp = strtotime( "{$payment_day['day']} {$month}", $from_timestamp );
+			$first_payment_timestamp = wcs_strtotime_dark_knight( "{$payment_day['day']} {$month}", $from_timestamp );
 		}
 
 		// Make sure the next payment is in the future and after the $from_date, as strtotime() will return the date this year for any day in the past when adding months or years (see: https://gist.github.com/thenbrent/9698083)
@@ -576,7 +565,7 @@ class WC_Subscriptions_Synchroniser {
 				$i = 1;
 				// Then make sure the date and time of the payment is in the future
 				while ( ( $first_payment_timestamp < gmdate( 'U' ) || $first_payment_timestamp < $from_timestamp ) && $i < 30 ) {
-					$first_payment_timestamp = strtotime( "+ 1 {$period}", $first_payment_timestamp );
+					$first_payment_timestamp = wcs_add_time( 1, $period, $first_payment_timestamp );
 					$i = $i + 1;
 				}
 			}
@@ -588,7 +577,7 @@ class WC_Subscriptions_Synchroniser {
 		// And convert it to the UTC equivalent of 3am on that day
 		$first_payment_timestamp -= ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 
-		$first_payment = ( 'mysql' == $type && 0 != $first_payment_timestamp ) ? date( 'Y-m-d H:i:s', $first_payment_timestamp ) : $first_payment_timestamp;
+		$first_payment = ( 'mysql' == $type && 0 != $first_payment_timestamp ) ? gmdate( 'Y-m-d H:i:s', $first_payment_timestamp ) : $first_payment_timestamp;
 
 		return apply_filters( 'woocommerce_subscriptions_synced_first_payment_date', $first_payment, $product, $type, $from_date, $from_date_param );
 	}
@@ -661,7 +650,7 @@ class WC_Subscriptions_Synchroniser {
 		$first_payment_date = '';
 
 		if ( self::is_product_synced( $product ) ) {
-			$first_payment_timestamp = self::calculate_first_payment_date( $product->id, 'timestamp' );
+			$first_payment_timestamp = self::calculate_first_payment_date( $product->get_id(), 'timestamp' );
 
 			if ( 0 != $first_payment_timestamp ) {
 
@@ -720,7 +709,9 @@ class WC_Subscriptions_Synchroniser {
 
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			if ( self::is_product_synced( $cart_item['data'] ) && ! self::is_product_prorated( $cart_item['data'] ) && ! self::is_today( self::calculate_first_payment_date( $cart_item['data'], 'timestamp' ) ) ) {
-				WC()->cart->cart_contents[ $cart_item_key ]['data']->subscription_trial_length = ( WC()->cart->cart_contents[ $cart_item_key ]['data']->subscription_trial_length > 1 ) ? WC()->cart->cart_contents[ $cart_item_key ]['data']->subscription_trial_length : 1;
+				$current_trial_length = WC_Subscriptions_Product::get_trial_length( WC()->cart->cart_contents[ $cart_item_key ]['data'] );
+				$new_trial_length     = ( $current_trial_length > 1 ) ? $current_trial_length : 1;
+				wcs_set_objects_property( WC()->cart->cart_contents[ $cart_item_key ]['data'], 'subscription_trial_length', $new_trial_length, 'set_prop_only' );
 			}
 		}
 
@@ -736,7 +727,7 @@ class WC_Subscriptions_Synchroniser {
 
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			if ( self::is_product_synced( $cart_item['data'] ) ) {
-				WC()->cart->cart_contents[ $cart_item_key ]['data']->subscription_trial_length = WC_Subscriptions_Product::get_trial_length( wcs_get_canonical_product_id( $cart_item ) );
+				wcs_set_objects_property( WC()->cart->cart_contents[ $cart_item_key ]['data'], 'subscription_trial_length', WC_Subscriptions_Product::get_trial_length( wcs_get_canonical_product_id( $cart_item ) ), 'set_prop_only' );
 			}
 		}
 		return $total;
@@ -755,7 +746,7 @@ class WC_Subscriptions_Synchroniser {
 		if ( self::is_syncing_enabled() && ! empty( $cart ) && ! wcs_cart_contains_renewal() ) {
 
 			foreach ( $cart->cart_contents as $cart_item_key => $cart_item ) {
-				if ( ( ! is_array( $cart_item['data']->subscription_payment_sync_date ) && $cart_item['data']->subscription_payment_sync_date > 0 ) || ( is_array( $cart_item['data']->subscription_payment_sync_date ) && $cart_item['data']->subscription_payment_sync_date['day'] > 0 ) ) {
+				if ( self::is_product_synced( $cart_item['data'] ) ) {
 					$contains_synced = $cart_item;
 					break;
 				}
@@ -788,7 +779,7 @@ class WC_Subscriptions_Synchroniser {
 
 		if ( $trial_expiration_date > 0 && self::is_product_synced( $product_id ) ) {
 
-			$trial_expiration_timestamp = strtotime( $trial_expiration_date );
+			$trial_expiration_timestamp = wcs_date_to_time( $trial_expiration_date );
 			remove_filter( 'woocommerce_subscriptions_product_trial_expiration_date', __METHOD__ ); // avoid infinite loop
 			$first_payment_timestamp    = self::calculate_first_payment_date( $product_id, 'timestamp' );
 			add_filter( 'woocommerce_subscriptions_product_trial_expiration_date', __METHOD__, 10, 2 ); // avoid infinite loop
@@ -834,7 +825,7 @@ class WC_Subscriptions_Synchroniser {
 		// Convert timestamp to site's time
 		$timestamp += get_option( 'gmt_offset' ) * HOUR_IN_SECONDS;
 
-		return ( gmdate( 'Y-m-d', current_time( 'timestamp' ) ) == date( 'Y-m-d', $timestamp ) ) ? true : false;
+		return ( gmdate( 'Y-m-d', current_time( 'timestamp' ) ) == gmdate( 'Y-m-d', $timestamp ) ) ? true : false;
 	}
 
 	/**
@@ -849,7 +840,7 @@ class WC_Subscriptions_Synchroniser {
 	 */
 	public static function get_synced_sign_up_fee( $sign_up_fee, $subscription, $product_id ) {
 
-		if ( wcs_is_subscription( $subscription ) && self::subscription_contains_synced_product( $subscription ) && count( wcs_get_line_items_with_a_trial( $subscription->id ) ) < 0 ) {
+		if ( wcs_is_subscription( $subscription ) && self::subscription_contains_synced_product( $subscription ) && count( wcs_get_line_items_with_a_trial( $subscription->get_id() ) ) < 0 ) {
 			$sign_up_fee = max( $subscription->get_total_initial_payment() - $subscription->get_total(), 0 );
 		}
 
@@ -871,15 +862,15 @@ class WC_Subscriptions_Synchroniser {
 				return $price;
 			}
 
-			switch ( $product->subscription_period ) {
+			switch ( WC_Subscriptions_Product::get_period( $product ) ) {
 				case 'week' :
-					$days_in_cycle = 7 * $product->subscription_period_interval;
+					$days_in_cycle = 7 * WC_Subscriptions_Product::get_interval( $product );
 					break;
 				case 'month' :
-					$days_in_cycle = date( 't' ) * $product->subscription_period_interval;
+					$days_in_cycle = gmdate( 't' ) * WC_Subscriptions_Product::get_interval( $product );
 					break;
 				case 'year' :
-					$days_in_cycle = ( 365 + date( 'L' ) ) * $product->subscription_period_interval;
+					$days_in_cycle = ( 365 + gmdate( 'L' ) ) * WC_Subscriptions_Product::get_interval( $product );
 					break;
 			}
 
@@ -923,37 +914,6 @@ class WC_Subscriptions_Synchroniser {
 		}
 
 		return $weekday;
-	}
-
-	/**
-	 * Automatically set the order's status to complete if all the subscriptions in an order
-	 * are synced and the order total is zero.
-	 *
-	 * @since 1.5.17
-	 */
-	public static function order_autocomplete( $new_order_status, $order_id ) {
-
-		$order = wc_get_order( $order_id );
-
-		if ( 'processing' == $new_order_status && $order->get_total() == 0 && wcs_order_contains_subscription( $order ) ) {
-
-			$subscriptions   = wcs_get_subscriptions_for_order( $order_id );
-			$all_synced      = true;
-
-			foreach ( $subscriptions as $subscription_id => $subscription ) {
-
-				if ( ! self::subscription_contains_synced_product( $subscription_id ) ) {
-					$all_synced = false;
-					break;
-				}
-			}
-
-			if ( $all_synced ) {
-				$new_order_status = 'completed';
-			}
-		}
-
-		return $new_order_status;
 	}
 
 	/**
@@ -1001,7 +961,7 @@ class WC_Subscriptions_Synchroniser {
 				$product_id = wcs_get_canonical_product_id( $item );
 
 				if ( self::is_product_synced( $product_id ) ) {
-					update_post_meta( $subscription->id, '_contains_synced_subscription', 'true' );
+					update_post_meta( $subscription->get_id(), '_contains_synced_subscription', 'true' );
 					break;
 				}
 			}
@@ -1050,7 +1010,7 @@ class WC_Subscriptions_Synchroniser {
 	public static function subscription_contains_synced_product( $subscription_id ) {
 
 		if ( is_object( $subscription_id ) ) {
-			$subscription_id = $subscription_id->id;
+			$subscription_id = $subscription_id->get_id();
 		}
 
 		return ( 'true' == get_post_meta( $subscription_id, '_contains_synced_subscription', true ) ) ? true : false;
@@ -1064,14 +1024,46 @@ class WC_Subscriptions_Synchroniser {
 	public static function add_to_recurring_cart_key( $cart_key, $cart_item ) {
 		$product = $cart_item['data'];
 
-		if ( self::is_product_synced( $product ) ) {
+		if ( false === strpos( $cart_key, '_synced' ) && self::is_product_synced( $product ) ) {
 			$cart_key .= '_synced';
 		}
 
 		return $cart_key;
 	}
 
+	/**
+	 * When adding a product line item to an order/subscription via the WC_Abstract_Order::add_product() method, check if we should be setting
+	 * the sync meta on the subscription.
+	 *
+	 * Attached to WC 3.0+ hooks and uses WC 3.0 methods.
+	 *
+	 * @param int The new line item id
+	 * @param WC_Order_Item
+	 * @param int The post ID of a WC_Subscription
+	 * @since 2.2.3
+	 */
+	public static function maybe_add_meta_for_new_line_item( $item_id, $item, $subscription_id ) {
+		if ( is_callable( array( $item, 'get_product_id' ) ) ) {
+			$product_id = wcs_get_canonical_product_id( $item );
+
+			if ( self::is_product_synced( $product_id ) ) {
+				self::maybe_add_subscription_meta( $subscription_id );
+			}
+		}
+	}
+
 	/* Deprecated Functions */
+
+	/**
+	 * Automatically set the order's status to complete if all the subscriptions in an order
+	 * are synced and the order total is zero.
+	 *
+	 * @since 1.5.17
+	 */
+	public static function order_autocomplete( $new_order_status, $order_id ) {
+		_deprecated_function( __METHOD__, '2.1.3', 'WC_Subscriptions_Order::maybe_autocomplete_order' );
+		return WC_Subscriptions_Order::maybe_autocomplete_order( $new_order_status, $order_id );
+	}
 
 	/**
 	 * Add the first payment date to the end of the subscription to clarify when the first payment will be processed
@@ -1086,7 +1078,7 @@ class WC_Subscriptions_Synchroniser {
 
 		$cart_item = self::cart_contains_synced_subscription();
 
-		if ( false !== $cart_item && isset( $cart_item['data']->subscription_period ) && ( 'year' != $cart_item['data']->subscription_period || $cart_item['data']->subscription_trial_length > 0 ) ) {
+		if ( false !== $cart_item && '' !== WC_Subscriptions_Product::get_period( $cart_item['data'] ) && ( 'year' != WC_Subscriptions_Product::get_period( $cart_item['data'] ) || WC_Subscriptions_Product::get_trial_length( $cart_item['data'] ) > 0 ) ) {
 
 			$first_payment_date = self::get_products_first_payment_date( $cart_item['data'] );
 
@@ -1181,20 +1173,19 @@ class WC_Subscriptions_Synchroniser {
 	 * @deprecated 2.0
 	 */
 	public static function get_first_payment_date( $first_payment_date, $order, $product_id, $type ) {
-
 		_deprecated_function( __METHOD__, '2.0' );
 
 		$subscription = wcs_get_subscription_from_key( $order . '_' . $product_id );
 
-		if ( self::order_contains_synced_subscription( $order->id ) && 1 >= $subscription->get_completed_payment_count() ) {
+		if ( self::order_contains_synced_subscription( wcs_get_objects_property( $order, 'id' ) ) && 1 >= $subscription->get_completed_payment_count() ) {
 
 			// Don't prematurely set the first payment date when manually adding a subscription from the admin
 			if ( ! is_admin() || 'active' == $subscription->get_status() ) {
 
-				$first_payment_timestamp = self::calculate_first_payment_date( $product_id, 'timestamp', $order->order_date );
+				$first_payment_timestamp = self::calculate_first_payment_date( $product_id, 'timestamp', wcs_get_datetime_utc_string( wcs_get_objects_property( $order, 'date_created' ) ) );
 
 				if ( 0 != $first_payment_timestamp ) {
-					$first_payment_date = ( 'mysql' == $type ) ? date( 'Y-m-d H:i:s', $first_payment_timestamp ) : $first_payment_timestamp;
+					$first_payment_date = ( 'mysql' == $type ) ? gmdate( 'Y-m-d H:i:s', $first_payment_timestamp ) : $first_payment_timestamp;
 				}
 			}
 		}
@@ -1217,7 +1208,7 @@ class WC_Subscriptions_Synchroniser {
 		$first_payment_date = self::get_first_payment_date( $payment_date, $order, $product_id, 'timestamp' );
 
 		if ( ! self::is_today( $first_payment_date ) ) {
-			$payment_date = ( 'timestamp' == $type ) ? $first_payment_date : date( 'Y-m-d H:i:s', $first_payment_date );
+			$payment_date = ( 'timestamp' == $type ) ? $first_payment_date : gmdate( 'Y-m-d H:i:s', $first_payment_date );
 		}
 
 		return $payment_date;
@@ -1237,7 +1228,7 @@ class WC_Subscriptions_Synchroniser {
 		_deprecated_function( __METHOD__, '2.0', __CLASS__ . '::subscription_contains_synced_product()' );
 
 		if ( is_object( $order_id ) ) {
-			$order_id = $order_id->id;
+			$order_id = wcs_get_objects_property( $order_id, 'id' );
 		}
 
 		return ( 'true' == get_post_meta( $order_id, '_order_contains_synced_subscription', true ) ) ? true : false;
@@ -1289,7 +1280,7 @@ class WC_Subscriptions_Synchroniser {
 	public static function get_sign_up_fee( $sign_up_fee, $order, $product_id, $non_subscription_total ) {
 		_deprecated_function( __METHOD__, '2.0', __CLASS__ . '::get_synced_sign_up_fee' );
 
-		if ( 'shop_order' == get_post_type( $order ) && self::order_contains_synced_subscription( $order->id ) && WC_Subscriptions_Order::get_subscription_trial_length( $order ) < 1 ) {
+		if ( 'shop_order' == get_post_type( $order ) && self::order_contains_synced_subscription( wcs_get_objects_property( $order, 'id' ) ) && WC_Subscriptions_Order::get_subscription_trial_length( $order ) < 1 ) {
 			$sign_up_fee = max( WC_Subscriptions_Order::get_total_initial_payment( $order ) - $non_subscription_total, 0 );
 		}
 
@@ -1326,7 +1317,7 @@ class WC_Subscriptions_Synchroniser {
 	public static function recalculate_trial_end_date( $trial_end_date, $recurring_cart, $product ) {
 		_deprecated_function( __METHOD__, '2.0.14' );
 		if ( self::is_product_synced( $product ) ) {
-			$product_id  = ( isset( $product->variation_id ) ) ? $product->variation_id : $product->id;
+			$product_id  = wcs_get_canonical_product_id( $product );
 			$trial_end_date = WC_Subscriptions_Product::get_trial_expiration_date( $product_id );
 		}
 
@@ -1343,7 +1334,7 @@ class WC_Subscriptions_Synchroniser {
 	public static function recalculate_end_date( $end_date, $recurring_cart, $product ) {
 		_deprecated_function( __METHOD__, '2.0.14' );
 		if ( self::is_product_synced( $product ) ) {
-			$product_id  = ( isset( $product->variation_id ) ) ? $product->variation_id : $product->id;
+			$product_id  = wcs_get_canonical_product_id( $product );
 			$end_date = WC_Subscriptions_Product::get_expiration_date( $product_id );
 		}
 

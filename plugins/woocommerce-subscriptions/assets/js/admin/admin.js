@@ -356,34 +356,15 @@ jQuery(document).ready(function($){
 
 			$( '#_subscription_one_time_shipping' ).prop( 'disabled', is_synced_or_has_trial );
 		},
-		show_hidden_panels: function() {
-			// WooCommerce's show_hidden_panels() function introduced a change in WC 2.6.2 which would hide the general panel for variable subscriptions, this fixes that by running the show_hidden_panels() logic again after variable fields have been show/hidden for variable subscriptions
-			$( '.woocommerce_options_panel' ).each( function() {
-
-				if ( 'none' != $( this ).css( 'display' ) ) {
-					return;
-				}
-
-				var $children = $( this ).children( '.options_group' );
-
-				if ( 0 === $children.length ) {
-					return;
-				}
-
-				var $invisble = $children.filter( function() {
-					return 'none' === $( this ).css( 'display' );
-				});
-
-				// Show panel if it's been mistakenly hidden panel
-				if ( $invisble.length != $children.length ) {
-					var $id = $( this ).prop( 'id' );
-					$( '.product_data_tabs' ).find( 'li a[href="#' + $id + '"]' ).parent().show();
-				}
-
+		showHideSubscriptionsPanels: function() {
+			var tab = $( 'div.panel-wrap' ).find( 'ul.wc-tabs li' ).eq( 0 ).find( 'a' );
+			var panel = tab.attr( 'href' );
+			var visible = $( panel ).children( '.options_group' ).filter( function() {
+				return 'none' != $( this ).css( 'display' );
 			});
-
-			// Now select the first panel in case it's changed
-			$( 'ul.wc-tabs li:visible' ).eq( 0 ).find( 'a' ).click();
+			if ( 0 != visible.length ) {
+				tab.click().parent().show();
+			}
 		},
 	});
 
@@ -413,7 +394,7 @@ jQuery(document).ready(function($){
 		$.setTrialPeriods();
 		$.showHideSyncOptions();
 		$.disableEnableOneTimeShipping();
-		$.show_hidden_panels();
+		$.showHideSubscriptionsPanels();
 	}
 
 	// Update subscription ranges when subscription period or interval is changed
@@ -433,7 +414,7 @@ jQuery(document).ready(function($){
 		$.showHideSubscriptionMeta();
 		$.showHideVariableSubscriptionMeta();
 		$.showHideSyncOptions();
-		$.show_hidden_panels();
+		$.showHideSubscriptionsPanels();
 	});
 
 	$('input#_downloadable, input#_virtual').change(function(){
@@ -484,7 +465,16 @@ jQuery(document).ready(function($){
 
 	$('.order_actions .submitdelete').click(function(){
 		if($('[name="contains_subscription"]').val()=='true'){
-			return confirm(WCSubscriptions.bulkTrashWarning);
+			return confirm(WCSubscriptions.trashWarning);
+		}
+	});
+
+	// Notify the store manager that trashing an order via the admin orders table row action also deletes the associated subscription if it exists
+	$( '.row-actions .submitdelete' ).click( function() {
+		var order = $( this ).closest( '.type-shop_order' ).attr( 'id' );
+
+		if ( true === $( '.contains_subscription', $( '#' + order ) ).data( 'contains_subscription' ) ) {
+			return confirm( WCSubscriptions.trashWarning );
 		}
 	});
 

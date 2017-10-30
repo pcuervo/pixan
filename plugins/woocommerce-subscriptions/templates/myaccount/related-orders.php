@@ -12,16 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <header>
-	<h2><?php esc_html_e( 'Ordenes relacionadas', 'woocommerce-subscriptions' ); ?></h2>
+	<h2><?php esc_html_e( 'Related Orders', 'woocommerce-subscriptions' ); ?></h2>
 </header>
 
 <table class="shop_table shop_table_responsive my_account_orders">
 
 	<thead>
 		<tr>
-			<th class="order-number"><span class="nobr"><?php esc_html_e( 'Orden', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="order-date"><span class="nobr"><?php esc_html_e( 'Fecha', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="order-status"><span class="nobr"><?php esc_html_e( 'Estado', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="order-number"><span class="nobr"><?php esc_html_e( 'Order', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="order-date"><span class="nobr"><?php esc_html_e( 'Date', 'woocommerce-subscriptions' ); ?></span></th>
+			<th class="order-status"><span class="nobr"><?php esc_html_e( 'Status', 'woocommerce-subscriptions' ); ?></span></th>
 			<th class="order-total"><span class="nobr"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
 			<th class="order-actions">&nbsp;</th>
 		</tr>
@@ -31,45 +31,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php foreach ( $subscription_orders as $subscription_order ) {
 			$order      = wc_get_order( $subscription_order );
 			$item_count = $order->get_item_count();
+			$order_date = wcs_get_datetime_utc_string( wcs_get_objects_property( $order, 'date_created' ) );
 
 			?><tr class="order">
-				<td class="order-number" data-title="<?php esc_attr_e( 'Numero de orden', 'woocommerce-subscriptions' ); ?>">
+				<td class="order-number" data-title="<?php esc_attr_e( 'Order Number', 'woocommerce-subscriptions' ); ?>">
 					<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
 						<?php echo sprintf( esc_html_x( '#%s', 'hash before order number', 'woocommerce-subscriptions' ), esc_html( $order->get_order_number() ) ); ?>
 					</a>
 				</td>
-				<td class="order-date" data-title="<?php esc_attr_e( 'Fecha', 'woocommerce-subscriptions' ); ?>">
-					<time datetime="<?php echo esc_attr( date( 'Y-m-d', strtotime( $order->order_date ) ) ); ?>" title="<?php echo esc_attr( strtotime( $order->order_date ) ); ?>"><?php echo wp_kses_post( date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ) ); ?></time>
+				<td class="order-date" data-title="<?php esc_attr_e( 'Date', 'woocommerce-subscriptions' ); ?>">
+					<time datetime="<?php echo esc_attr( gmdate( 'Y-m-d', wcs_date_to_time( $order_date ) ) ); ?>" title="<?php echo esc_attr( wcs_date_to_time( $order_date ) ); ?>"><?php echo wp_kses_post( date_i18n( get_option( 'date_format' ), wcs_date_to_time( $order_date ) ) ); ?></time>
 				</td>
-				<td class="order-status" data-title="<?php esc_attr_e( 'Estatus', 'woocommerce-subscriptions' ); ?>" style="white-space:nowrap;">
+				<td class="order-status" data-title="<?php esc_attr_e( 'Status', 'woocommerce-subscriptions' ); ?>" style="white-space:nowrap;">
 					<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 				</td>
 				<td class="order-total" data-title="<?php echo esc_attr_x( 'Total', 'Used in data attribute. Escaped', 'woocommerce-subscriptions' ); ?>">
 					<?php
 					// translators: $1: formatted order total for the order, $2: number of items bought
-					echo wp_kses_post( sprintf( _n( '%1$s de %2$d artículo', '%1$s de %2$d artículos', $item_count, 'woocommerce-subscriptions' ), $order->get_formatted_order_total(), $item_count ) );
+					echo wp_kses_post( sprintf( _n( '%1$s for %2$d item', '%1$s for %2$d items', $item_count, 'woocommerce-subscriptions' ), $order->get_formatted_order_total(), $item_count ) );
 					?>
 				</td>
 				<td class="order-actions">
 					<?php $actions = array();
 
-					if ( in_array( $order->get_status(), apply_filters( 'woocommerce_valid_order_statuses_for_payment', array( 'pending', 'failed' ), $order ) ) ) {
+					if ( in_array( $order->get_status(), apply_filters( 'woocommerce_valid_order_statuses_for_payment', array( 'pending', 'failed' ), $order ) ) && wcs_get_objects_property( $order, 'id' ) == $subscription->get_last_order() ) {
 						$actions['pay'] = array(
 							'url'  => $order->get_checkout_payment_url(),
-							'name' => esc_html_x( 'Pagar', 'pay for a subscription', 'woocommerce-subscriptions' ),
+							'name' => esc_html_x( 'Pay', 'pay for a subscription', 'woocommerce-subscriptions' ),
 						);
 					}
 
 					if ( in_array( $order->get_status(), apply_filters( 'woocommerce_valid_order_statuses_for_cancel', array( 'pending', 'failed' ), $order ) ) ) {
 						$actions['cancel'] = array(
 							'url'  => $order->get_cancel_order_url( wc_get_page_permalink( 'myaccount' ) ),
-							'name' => esc_html_x( 'Cancelar', 'an action on a subscription', 'woocommerce-subscriptions' ),
+							'name' => esc_html_x( 'Cancel', 'an action on a subscription', 'woocommerce-subscriptions' ),
 						);
 					}
 
 					$actions['view'] = array(
 						'url'  => $order->get_view_order_url(),
-						'name' => esc_html_x( 'Ver', 'view a subscription', 'woocommerce-subscriptions' ),
+						'name' => esc_html_x( 'View', 'view a subscription', 'woocommerce-subscriptions' ),
 					);
 
 					$actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order );

@@ -38,7 +38,7 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 	 * @since 2.0
 	 */
 	public static function cancel_subscription( $subscription ) {
-		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->id ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Cancelar' ) ) {
+		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->get_id() ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Cancel' ) ) {
 			$subscription->add_order_note( __( 'Subscription cancelled with PayPal', 'woocommerce-subscriptions' ) );
 		}
 	}
@@ -49,7 +49,7 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 	 * @since 2.0
 	 */
 	public static function suspend_subscription( $subscription ) {
-		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->id ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Suspend' ) ) {
+		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->get_id() ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Suspend' ) ) {
 			$subscription->add_order_note( __( 'Subscription suspended with PayPal', 'woocommerce-subscriptions' ) );
 		}
 	}
@@ -62,7 +62,7 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 	 * @since 2.0
 	 */
 	public static function reactivate_subscription( $subscription ) {
-		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->id ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Reactivate' ) ) {
+		if ( ! wcs_is_paypal_profile_a( wcs_get_paypal_id( $subscription->get_id() ), 'billing_agreement' ) && self::update_subscription_status( $subscription, 'Reactivate' ) ) {
 			$subscription->add_order_note( __( 'Subscription reactivated with PayPal', 'woocommerce-subscriptions' ) );
 		}
 	}
@@ -77,7 +77,7 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 	 */
 	public static function update_subscription_status( $subscription, $new_status ) {
 
-		$profile_id = wcs_get_paypal_id( $subscription->id );
+		$profile_id = wcs_get_paypal_id( $subscription->get_id() );
 
 		if ( wcs_is_paypal_profile_a( $profile_id, 'billing_agreement' ) ) {
 
@@ -93,6 +93,25 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 				$status_updated = true;
 			} else {
 				$status_updated = false;
+
+				if ( $response->has_api_error_for_credentials() ) {
+
+					// Store the profile ID so we can lookup which profiles are affected
+					$profile_ids = get_option( 'wcs_paypal_credentials_error_affected_profiles', '' );
+
+					if ( ! empty( $profile_ids ) ) {
+						$profile_ids .= ', ';
+					}
+					$profile_ids .= $profile_id;
+
+					update_option( 'wcs_paypal_credentials_error_affected_profiles', $profile_ids );
+
+					// And set a flag to display notice
+					update_option( 'wcs_paypal_credentials_error', 'yes' );
+
+					// This message will be added as an order note on by WC_Subscription::update_status()
+					throw new Exception( sprintf( __( 'PayPal API error - credentials are incorrect.', 'woocommerce-subscriptions' ), $new_status ) );
+				}
 			}
 		} else {
 			$status_updated = false;
@@ -110,7 +129,7 @@ class WCS_PayPal_Status_Manager extends WCS_PayPal {
 	 * @since 2.0
 	 */
 	public static function suspend_subscription_on_payment_changed( $status, $subscription ) {
-		return ( 'paypal' == $subscription->payment_gateway->id ) ? 'on-hold' : $status;
+		return ( 'paypal' == $subscription->get_payment_method() ) ? 'on-hold' : $status;
 	}
 
 }

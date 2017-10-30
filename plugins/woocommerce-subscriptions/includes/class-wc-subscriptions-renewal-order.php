@@ -79,18 +79,26 @@ class WC_Subscriptions_Renewal_Order {
 
 		$subscriptions        = wcs_get_subscriptions_for_renewal_order( $order_id );
 		$was_activated        = false;
+		$order                = wc_get_order( $order_id );
 		$order_completed      = in_array( $orders_new_status, array( apply_filters( 'woocommerce_payment_complete_order_status', 'processing', $order_id ), 'processing', 'completed' ) );
-		$order_needed_payment = in_array( $orders_old_status, apply_filters( 'woocommerce_valid_order_statuses_for_payment', array( 'pending', 'on-hold', 'failed' ) ) );
+		$order_needed_payment = in_array( $orders_old_status, apply_filters( 'woocommerce_valid_order_statuses_for_payment', array( 'pending', 'on-hold', 'failed' ), $order ) );
 
 		if ( $order_completed && $order_needed_payment ) {
-			$update_post_data  = array(
-				'ID'            => $order_id,
-				'post_date'     => current_time( 'mysql', 0 ),
-				'post_date_gmt' => current_time( 'mysql', 1 ),
-			);
 
-			wp_update_post( $update_post_data );
-			update_post_meta( $order_id, '_paid_date', current_time( 'mysql', true ) );
+			if ( WC_Subscriptions::is_woocommerce_pre( '3.0' ) ) {
+				$update_post_data  = array(
+					'ID'            => $order_id,
+					'post_date'     => current_time( 'mysql', 0 ),
+					'post_date_gmt' => current_time( 'mysql', 1 ),
+				);
+
+				wp_update_post( $update_post_data );
+				update_post_meta( $order_id, '_paid_date', current_time( 'mysql' ) );
+			} else {
+				// In WC 3.0, only the paid date prop represents the paid date, the post date isn't used anymore, also the paid date is stored and referenced as a MySQL date string in site timezone and a GMT timestamp
+				$order->set_date_paid( current_time( 'timestamp', 1 ) );
+				$order->save();
+			}
 		}
 
 		foreach ( $subscriptions as $subscription ) {
@@ -98,12 +106,16 @@ class WC_Subscriptions_Renewal_Order {
 			// Do we need to activate a subscription?
 			if ( $order_completed && ! $subscription->has_status( wcs_get_subscription_ended_statuses() ) && ! $subscription->has_status( 'active' ) ) {
 
+				// Included here because calling payment_complete sets the retry status to 'cancelled'
+				$is_failed_renewal_order = ( 'failed' === $orders_old_status ) ? true : false;
+				$is_failed_renewal_order = apply_filters( 'woocommerce_subscriptions_is_failed_renewal_order', $is_failed_renewal_order, $order_id, $orders_old_status );
+
 				if ( $order_needed_payment ) {
 					$subscription->payment_complete();
 					$was_activated = true;
 				}
 
-				if ( 'failed' === $orders_old_status ) {
+				if ( $is_failed_renewal_order ) {
 					do_action( 'woocommerce_subscriptions_paid_for_failed_renewal_order', wc_get_order( $order_id ), $subscription );
 				}
 			} elseif ( 'failed' == $orders_new_status ) {
@@ -137,7 +149,7 @@ class WC_Subscriptions_Renewal_Order {
 			$order_number = sprintf( _x( '#%s', 'hash before order number', 'woocommerce-subscriptions' ), $renewal_order->get_order_number() );
 
 			// translators: placeholder is order ID
-			$subscription->add_order_note( sprintf( __( 'Order %s created to record renewal.', 'woocommerce-subscriptions' ), sprintf( '<a href="%s">%s</a> ', esc_url( wcs_get_edit_post_link( $renewal_order->id ) ), $order_number ) ) );
+			$subscription->add_order_note( sprintf( __( 'Order %s created to record renewal.', 'woocommerce-subscriptions' ), sprintf( '<a href="%s">%s</a> ', esc_url( wcs_get_edit_post_link( wcs_get_objects_property( $renewal_order, 'id' ) ) ), $order_number ) ) );
 		}
 
 		return $renewal_order;
@@ -183,115 +195,19 @@ class WC_Subscriptions_Renewal_Order {
 		);
 
 		foreach ( $order_items as $order_item_id => $item ) {
-			$order_items[ $order_item_id ]['item_meta'] = array_diff_key( $item['item_meta'], $switched_order_item_keys );
+			if ( is_callable( array( $item, 'delete_meta_data' ) ) ) { // WC 3.0+
+				foreach ( $switched_order_item_keys as $switch_meta_key => $value ) {
+					$item->delete_meta_data( $switch_meta_key );
+				}
+			} else { // WC 2.6
+				$order_items[ $order_item_id ]['item_meta'] = array_diff_key( $item['item_meta'], $switched_order_item_keys );
+			}
 		}
 
 		return $order_items;
 	}
 
 	/* Deprecated functions */
-
-	/**
-	 * Hooks to the renewal order created action to determine if the order should be emailed to the customer.
-	 *
-	 * @param WC_Order|int $order The WC_Order object or ID of a WC_Order order.
-	 * @since 1.2
-	 * @deprecated 1.4
-	 */
-	public static function maybe_send_customer_renewal_order_email( $order ) {
-		_deprecated_function( __METHOD__, '1.4' );
-		if ( 'yes' == get_option( WC_Subscriptions_Admin::$option_prefix . '_email_renewal_order' ) ) {
-			self::send_customer_renewal_order_email( $order );
-		}
-	}
-
-	/**
-	 * Processing Order
-	 *
-	 * @param WC_Order|int $order The WC_Order object or ID of a WC_Order order.
-	 * @since 1.2
-	 * @deprecated 1.4
-	 */
-	public static function send_customer_renewal_order_email( $order ) {
-		_deprecated_function( __METHOD__, '1.4' );
-
-		if ( ! is_object( $order ) ) {
-			$order = new WC_Order( $order );
-		}
-
-		$mailer = WC()->mailer();
-		$mails  = $mailer->get_emails();
-
-		$mails['WCS_Email_Customer_Renewal_Invoice']->trigger( $order->id );
-	}
-
-	/**
-	 * Change the email subject of the new order email to specify the order is a subscription renewal order
-	 *
-	 * @param string $subject The default WooCommerce email subject
-	 * @param WC_Order $order The WC_Order object which the email relates to
-	 * @since 1.2
-	 * @deprecated 1.4
-	 */
-	public static function email_subject_new_renewal_order( $subject, $order ) {
-		_deprecated_function( __METHOD__, '1.4' );
-
-		if ( wcs_order_contains_renewal( $order ) ) {
-			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-			// translators: 1$: blog name, 2$: order number
-			$subject  = apply_filters( 'woocommerce_subscriptions_email_subject_new_renewal_order', sprintf( _x( '[%1$s] New Subscription Renewal Order (%2$s)', 'used in new renewal order email, deprecated', 'woocommerce-subscriptions' ), $blogname, $order->get_order_number() ), $order );
-		}
-
-		return $subject;
-	}
-
-	/**
-	 * Change the email subject of the processing order email to specify the order is a subscription renewal order
-	 *
-	 * @param string $subject The default WooCommerce email subject
-	 * @param WC_Order $order The WC_Order object which the email relates to
-	 * @since 1.2
-	 * @deprecated 1.4
-	 */
-	public static function email_subject_customer_procesing_renewal_order( $subject, $order ) {
-		_deprecated_function( __METHOD__, '1.4' );
-
-		if ( wcs_order_contains_renewal( $order ) ) {
-			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-			$subject  = apply_filters(
-				'woocommerce_subscriptions_email_subject_customer_procesing_renewal_order',
-				// translators: placeholder is blog name
-				sprintf( _x( '[%s] Subscription Renewal Order', 'used as email subject for renewal order notification email to customer', 'woocommerce-subscriptions' ), $blogname ),
-				$order
-			);
-		}
-
-		return $subject;
-	}
-
-	/**
-	 * Change the email subject of the completed order email to specify the order is a subscription renewal order
-	 *
-	 * @param string $subject The default WooCommerce email subject
-	 * @param WC_Order $order The WC_Order object which the email relates to
-	 * @since 1.2
-	 * @deprecated 1.4
-	 */
-	public static function email_subject_customer_completed_renewal_order( $subject, $order ) {
-		_deprecated_function( __METHOD__, '1.4' );
-
-		if ( wcs_order_contains_renewal( $order ) ) {
-			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-			$subject  = apply_filters(
-				'woocommerce_subscriptions_email_subject_customer_completed_renewal_order',
-				// translators: placeholder is blog name
-				sprintf( _x( '[%s] Subscription Renewal Order', 'used as email subject for renewal order notification email to customer', 'woocommerce-subscriptions' ), $blogname ),
-				$order
-			);
-		}
-
-		return $subject;
-	}
 
 	/**
 	 * Generate an order to record an automatic subscription payment.
@@ -311,7 +227,7 @@ class WC_Subscriptions_Renewal_Order {
 		$subscription  = wcs_get_subscription_from_key( $subscription_key );
 		$renewal_order = wcs_create_renewal_order( $subscription );
 		$renewal_order->payment_complete();
-		return $renewal_order->id;
+		return wcs_get_objects_property( $renewal_order, 'id' );
 	}
 
 	/**
@@ -329,7 +245,7 @@ class WC_Subscriptions_Renewal_Order {
 		_deprecated_function( __METHOD__, '2.0', 'wcs_create_renewal_order( WC_Subscription $subscription )' );
 		$renewal_order = wcs_create_renewal_order( wcs_get_subscription_from_key( $subscription_key ) );
 		$renewal_order->update_status( 'failed' );
-		return $renewal_order->id;
+		return wcs_get_objects_property( $renewal_order, 'id' );
 	}
 
 	/**
@@ -347,7 +263,7 @@ class WC_Subscriptions_Renewal_Order {
 	 */
 	public static function maybe_generate_manual_renewal_order( $user_id, $subscription_key ) {
 		_deprecated_function( __METHOD__, '2.0', __CLASS__ . '::maybe_create_manual_renewal_order( WC_Subscription $subscription )' );
-		self::maybe_create_manual_renewal_order( wcs_get_subscription_from_key( $subscription_key ) )->id;
+		self::maybe_create_manual_renewal_order( wcs_get_subscription_from_key( $subscription_key ) );
 	}
 
 	/**
@@ -365,7 +281,7 @@ class WC_Subscriptions_Renewal_Order {
 
 		$parent_order = self::get_parent_order( $renewal_order );
 
-		return ( null === $parent_order ) ? null : $parent_order->id;
+		return ( null === $parent_order ) ? null : wcs_get_objects_property( $parent_order, 'id' );
 	}
 
 	/**
@@ -388,10 +304,10 @@ class WC_Subscriptions_Renewal_Order {
 		$subscriptions = wcs_get_subscriptions_for_renewal_order( $renewal_order );
 		$subscription  = array_pop( $subscriptions );
 
-		if ( false === $subscription->order ) { // There is no original order
+		if ( false == $subscription->get_parent_id() ) { // There is no original order
 			$parent_order = null;
 		} else {
-			$parent_order = $subscription->order;
+			$parent_order = $subscription->get_parent();
 		}
 
 		return apply_filters( 'woocommerce_subscriptions_parent_order', $parent_order, $renewal_order );
@@ -417,7 +333,7 @@ class WC_Subscriptions_Renewal_Order {
 			$renewal_order_count = count( $all_orders );
 
 			// Don't include the initial order (if any)
-			if ( false !== $subscription->order ) {
+			if ( $subscription->get_parent_id() ) {
 				$renewal_order_count -= 1;
 			}
 		} else {
@@ -527,7 +443,7 @@ class WC_Subscriptions_Renewal_Order {
 			$new_order = wcs_create_renewal_order( $subscription );
 		}
 
-		return $new_order->id;
+		return wcs_get_objects_property( $new_order, 'id' );
 	}
 
 	/**

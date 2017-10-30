@@ -3,7 +3,7 @@
  * Pay for order form displayed after a customer has clicked the "Change Payment method" button
  * next to a subscription on their My Account page.
  *
- * @author 		WooThemes
+ * @author 		Prospress
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<table class="shop_table">
 		<thead>
 			<tr>
-				<th class="product-name"><?php echo esc_html_x( 'Producto', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
-				<th class="product-quantity"><?php echo esc_html_x( 'Cantidad', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
-				<th class="product-total"><?php echo esc_html_x( 'Total', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
+				<th class="product-name"><?php echo esc_html_x( 'Product', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
+				<th class="product-quantity"><?php echo esc_html_x( 'Quantity', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
+				<th class="product-total"><?php echo esc_html_x( 'Totals', 'table headings in notification email', 'woocommerce-subscriptions' ); ?></th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</table>
 
 	<div id="payment">
-		<?php $pay_order_button_text = apply_filters( 'woocommerce_change_payment_button_text', _x( 'Cambiar método de pago', 'text on button on checkout page', 'woocommerce-subscriptions' ) );
+		<?php $pay_order_button_text = apply_filters( 'woocommerce_change_payment_button_text', _x( 'Change Payment Method', 'text on button on checkout page', 'woocommerce-subscriptions' ) );
 
 		if ( $available_gateways = WC()->payment_gateways->get_available_payment_gateways() ) { ?>
 		<ul class="payment_methods methods">
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="form-row">
 			<?php wp_nonce_field( 'wcs_change_payment_method', '_wcsnonce', true, true ); ?>
 			<?php echo wp_kses( apply_filters( 'woocommerce_change_payment_button_html', '<input type="submit" class="button alt" id="place_order" value="' . esc_attr( $pay_order_button_text ) . '" data-value="' . esc_attr( $pay_order_button_text ) . '" />' ), array( 'input' => array( 'type' => array(), 'class' => array(), 'id' => array(), 'value' => array(), 'data-value' => array() ) ) ); ?>
-			<input type="hidden" name="woocommerce_change_payment" value="<?php echo esc_attr( $subscription->id ); ?>" />
+			<input type="hidden" name="woocommerce_change_payment" value="<?php echo esc_attr( $subscription->get_id() ); ?>" />
 		</div>
 		<?php endif; ?>
 

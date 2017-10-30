@@ -34,8 +34,10 @@ class WCS_Query extends WC_Query {
 	public function init_query_vars() {
 		$this->query_vars = array(
 			'view-subscription' => get_option( 'woocommerce_myaccount_view_subscriptions_endpoint', 'view-subscription' ),
-			'subscriptions'     => get_option( 'woocommerce_myaccount_subscriptions_endpoint', 'subscriptions' ),
 		);
+		if ( ! WC_Subscriptions::is_woocommerce_pre( '2.6' ) ) {
+			$this->query_vars['subscriptions'] = get_option( 'woocommerce_myaccount_subscriptions_endpoint', 'subscriptions' );
+		}
 	}
 
 	/**
@@ -66,6 +68,9 @@ class WCS_Query extends WC_Query {
 			foreach ( $this->query_vars as $key => $query_var ) {
 				if ( $this->is_query( $query_var ) ) {
 					$title = $this->get_endpoint_title( $key );
+
+					// unhook after we've returned our title to prevent it from overriding others
+					remove_filter( 'the_title', array( $this, __FUNCTION__ ), 11 );
 				}
 			}
 		}
@@ -107,9 +112,9 @@ class WCS_Query extends WC_Query {
 
 		// Add our menu item after the Orders tab if it exists, otherwise just add it to the end
 		if ( array_key_exists( 'orders', $menu_items ) ) {
-			$menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Suscripciones', 'woocommerce-subscriptions' ) );
+			$menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Subscriptions', 'woocommerce-subscriptions' ) );
 		} else {
-			$menu_items['subscriptions'] = __( 'Suscripciones', 'woocommerce-subscriptions' );
+			$menu_items['subscriptions'] = __( 'Subscriptions', 'woocommerce-subscriptions' );
 		}
 
 		return $menu_items;

@@ -1,0 +1,17 @@
+2017-10-30T17:34:47+00:00 INFO Queuing 3.0.0 - wc_update_300_webhooks
+2017-10-30T17:34:47+00:00 INFO Queuing 3.0.0 - wc_update_300_grouped_products
+2017-10-30T17:34:47+00:00 INFO Queuing 3.0.0 - wc_update_300_settings
+2017-10-30T17:34:47+00:00 INFO Queuing 3.0.0 - wc_update_300_product_visibility
+2017-10-30T17:34:47+00:00 INFO Queuing 3.0.0 - wc_update_300_db_version
+2017-10-30T17:34:48+00:00 ERROR Unable to dispatch WooCommerce updater: Operation timed out after 1016 milliseconds with 0 out of -1 bytes received
+2017-10-30T17:34:49+00:00 INFO Running wc_update_300_webhooks callback
+2017-10-30T17:34:50+00:00 INFO Finished wc_update_300_webhooks callback
+2017-10-30T17:34:50+00:00 INFO Running wc_update_300_grouped_products callback
+2017-10-30T17:34:50+00:00 INFO Finished wc_update_300_grouped_products callback
+2017-10-30T17:34:50+00:00 INFO Running wc_update_300_settings callback
+2017-10-30T17:34:50+00:00 INFO Finished wc_update_300_settings callback
+2017-10-30T17:34:50+00:00 INFO Running wc_update_300_product_visibility callback
+2017-10-30T17:34:50+00:00 INFO Finished wc_update_300_product_visibility callback
+2017-10-30T17:34:50+00:00 INFO Running wc_update_300_db_version callback
+2017-10-30T17:34:50+00:00 INFO Finished wc_update_300_db_version callback
+2017-10-30T17:34:50+00:00 INFO Data update complete

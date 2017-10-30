@@ -8,9 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * An email sent to the admin when a subscription is cancelled (either by a store manager, or the customer).
  *
  * @class 	WCS_Email_Cancelled_Subscription
- * @version	1.4
+ * @version	2.1
  * @package	WooCommerce_Subscriptions/Classes/Emails
- * @author 	Brent Shepherd
+ * @author 	Prospress
  * @extends WC_Email
  */
 class WCS_Email_Cancelled_Subscription extends WC_Email {
@@ -64,7 +64,7 @@ class WCS_Email_Cancelled_Subscription extends WC_Email {
 			return;
 		}
 
-		update_post_meta( $subscription->id, '_cancelled_email_sent', 'true' );
+		update_post_meta( $subscription->get_id(), '_cancelled_email_sent', 'true' );
 		$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 	}
 
@@ -79,8 +79,11 @@ class WCS_Email_Cancelled_Subscription extends WC_Email {
 		wc_get_template(
 			$this->template_html,
 			array(
-				'subscription'      => $this->object,
-				'email_heading'     => $this->get_heading(),
+				'subscription'  => $this->object,
+				'email_heading' => $this->get_heading(),
+				'sent_to_admin' => true,
+				'plain_text'    => false,
+				'email'         => $this,
 			),
 			'',
 			$this->template_base
@@ -99,8 +102,11 @@ class WCS_Email_Cancelled_Subscription extends WC_Email {
 		wc_get_template(
 			$this->template_plain,
 			array(
-				'subscription'        => $this->object,
-				'email_heading'       => $this->get_heading(),
+				'subscription'  => $this->object,
+				'email_heading' => $this->get_heading(),
+				'sent_to_admin' => true,
+				'plain_text'    => true,
+				'email'         => $this,
 			),
 			'',
 			$this->template_base

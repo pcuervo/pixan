@@ -181,7 +181,7 @@ class WC_PayPal_Standard_Subscriptions {
 	public static function cancel_subscription_with_paypal( $order, $product_id = '', $profile_id = '' ) {
 		_deprecated_function( __METHOD__, '2.0', 'WCS_PayPal_Status_Manager::cancel_subscription( $subscription )' );
 		foreach ( wcs_get_subscriptions_for_order( $order, array( 'order_type' => 'parent' ) ) as $subscription ) {
-			self::change_subscription_status( $profile_id, 'Cancelar', $subscription );
+			self::change_subscription_status( $profile_id, 'Cancel', $subscription );
 		}
 	}
 

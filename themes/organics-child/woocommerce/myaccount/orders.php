@@ -58,7 +58,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								<?php echo wc_get_order_status_name( $order->get_status() ); ?>
 
 							<?php elseif ( 'order-total' === $column_id ) : ?>
-								<?php echo sprintf( _n( '%s for %s item', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
+								<?php echo sprintf( _n( '%s por %s producto', '%s por %s productos', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
 								<?php

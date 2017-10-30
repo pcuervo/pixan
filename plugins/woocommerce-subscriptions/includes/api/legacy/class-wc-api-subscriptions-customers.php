@@ -42,8 +42,6 @@ class WC_API_Subscriptions_Customers extends WC_API_Customers {
 	 * @return array
 	 */
 	public function register_routes( $routes ) {
-		$routes = parent::register_routes( $routes );
-
 		# GET /customers/<id>/subscriptions
 		$routes[ $this->base . '/(?P<id>\d+)/subscriptions' ] = array(
 			array( array( $this, 'get_customer_subscriptions' ), WC_API_SERVER::READABLE ),
@@ -59,7 +57,7 @@ class WC_API_Subscriptions_Customers extends WC_API_Customers {
 	 * @param $id int
 	 * @param $fields array
 	 */
-	public function get_customer_subscriptions( $id, $fields = null ) {
+	public function get_customer_subscriptions( $id, $fields = null, $filter = array() ) {
 		global $wpdb;
 
 		// check the customer id given is a valid customer in the store. We're able to leech off WC-API for this.
@@ -69,23 +67,21 @@ class WC_API_Subscriptions_Customers extends WC_API_Customers {
 			return $id;
 		}
 
-		$subscription_ids = $wpdb->get_col( $wpdb->prepare( "SELECT ID, post_date_gmt
-						FROM {$wpdb->posts} AS posts
-						LEFT JOIN {$wpdb->postmeta} AS meta on posts.ID = meta.post_id
-						WHERE meta.meta_key = '_customer_user'
-						AND   meta.meta_value = '%d'
-						AND   posts.post_type = 'shop_subscription'
-						AND   posts.post_status IN ( '" . implode( "','", array_keys( wcs_get_subscription_statuses() ) ) . "' )
-						GROUP BY posts.ID
-						ORDER BY posts.post_date_gmt DESC
-					", $id ) );
+		$customer_subscriptions = $subscription_ids = array();
+		$filter['customer_id']  = $id;
+		$subscriptions          = WC()->api->WC_API_Subscriptions->get_subscriptions( $fields, $filter, null, -1 );
 
-		$subscriptions = array();
+		if ( ! empty( $subscriptions['subscriptions'] ) && is_array( $subscriptions['subscriptions'] ) ) {
+			foreach ( $subscriptions['subscriptions'] as $subscription ) {
+				if ( isset( $subscription['billing_schedule']['interval'] ) ) { // make sure the interval is not a string to fully support backwards compat.
+					$subscription['billing_schedule']['interval'] = intval( $subscription['billing_schedule']['interval'] );
+				}
 
-		foreach ( $subscription_ids as $subscription_id ) {
-			$subscriptions[] = WC()->api->WC_API_Subscriptions->get_subscription( $subscription_id, $fields );
+				$customer_subscriptions[] = array( 'subscription' => $subscription );
+				$subscription_ids[]       = $subscription['id'];
+			}
 		}
 
-		return array( 'customer_subscriptions' => apply_filters( 'wc_subscriptions_api_customer_subscriptions', $subscriptions, $id, $fields, $subscription_ids, $this->server ) );
+		return array( 'customer_subscriptions' => apply_filters( 'wc_subscriptions_api_customer_subscriptions', $customer_subscriptions, $id, $fields, $subscription_ids, $this->server ) );
 	}
 }

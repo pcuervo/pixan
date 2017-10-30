@@ -25,6 +25,7 @@ require_once( 'includes/class-wcs-paypal-standard-change-payment-method.php' );
 require_once( 'includes/admin/class-wcs-paypal-admin.php' );
 require_once( 'includes/admin/class-wcs-paypal-change-payment-method-admin.php' );
 require_once( 'includes/deprecated/class-wc-paypal-standard-subscriptions.php' );
+require_once( 'includes/class-wcs-paypal-standard-ipn-failure-handler.php' );
 
 class WCS_PayPal {
 
@@ -90,6 +91,10 @@ class WCS_PayPal {
 
 		add_filter( 'woocommerce_subscriptions_admin_meta_boxes_script_parameters', __CLASS__ . '::maybe_add_change_payment_method_warning' );
 
+		// Run the IPN failure handler attach and detach functions before and after processing to catch and log any unexpected shutdowns
+		add_action( 'valid-paypal-standard-ipn-request', 'WCS_PayPal_Standard_IPN_Failure_Handler::attach', -1, 1 );
+		add_action( 'valid-paypal-standard-ipn-request', 'WCS_PayPal_Standard_IPN_Failure_Handler::detach', 1, 1 );
+
 		WCS_PayPal_Supports::init();
 		WCS_PayPal_Status_Manager::init();
 		WCS_PayPal_Standard_Switcher::init();
@@ -154,7 +159,7 @@ class WCS_PayPal {
 					update_option( 'wcs_paypal_rt_enabled_accounts', wcs_json_encode( $accounts_with_reference_transactions_enabled ) );
 					$reference_transactions_enabled = true;
 				} else {
-					set_transient( $transient_key, $api_username, DAY_IN_SECONDS );
+					set_transient( $transient_key, $api_username, WEEK_IN_SECONDS );
 				}
 			}
 		}
@@ -229,7 +234,7 @@ class WCS_PayPal {
 
 						foreach ( wcs_get_subscriptions_for_order( $order, array( 'order_type' => 'any' ) ) as $subscription ) {
 							$subscription->set_payment_method( $payment_method );
-							wcs_set_paypal_id( $subscription, $billing_agreement_response->get_billing_agreement_id() );
+							wcs_set_paypal_id( $subscription, $billing_agreement_response->get_billing_agreement_id() ); // Also saves the subscription
 						}
 
 						if ( ! wcs_is_subscription( $order ) ) {
@@ -296,20 +301,24 @@ class WCS_PayPal {
 	 */
 	public static function process_ipn_request( $transaction_details ) {
 
-		require_once( 'includes/class-wcs-paypal-standard-ipn-handler.php' );
-		require_once( 'includes/class-wcs-paypal-reference-transaction-ipn-handler.php' );
+		try {
+			require_once( 'includes/class-wcs-paypal-standard-ipn-handler.php' );
+			require_once( 'includes/class-wcs-paypal-reference-transaction-ipn-handler.php' );
 
-		if ( ! isset( $transaction_details['txn_type'] ) || ! in_array( $transaction_details['txn_type'], array_merge( self::get_ipn_handler( 'standard' )->get_transaction_types(), self::get_ipn_handler( 'reference' )->get_transaction_types() ) ) ) {
-			return;
-		}
+			if ( ! isset( $transaction_details['txn_type'] ) || ! in_array( $transaction_details['txn_type'], array_merge( self::get_ipn_handler( 'standard' )->get_transaction_types(), self::get_ipn_handler( 'reference' )->get_transaction_types() ) ) ) {
+				return;
+			}
 
-		WC_Gateway_Paypal::log( 'Subscription Transaction Type: ' . $transaction_details['txn_type'] );
-		WC_Gateway_Paypal::log( 'Subscription Transaction Details: ' . print_r( $transaction_details, true ) );
+			WC_Gateway_Paypal::log( 'Subscription Transaction Type: ' . $transaction_details['txn_type'] );
+			WC_Gateway_Paypal::log( 'Subscription Transaction Details: ' . print_r( $transaction_details, true ) );
 
-		if ( in_array( $transaction_details['txn_type'], self::get_ipn_handler( 'standard' )->get_transaction_types() ) ) {
-			self::get_ipn_handler( 'standard' )->valid_response( $transaction_details );
-		} elseif ( in_array( $transaction_details['txn_type'], self::get_ipn_handler( 'reference' )->get_transaction_types() ) ) {
-			self::get_ipn_handler( 'reference' )->valid_response( $transaction_details );
+			if ( in_array( $transaction_details['txn_type'], self::get_ipn_handler( 'standard' )->get_transaction_types() ) ) {
+				self::get_ipn_handler( 'standard' )->valid_response( $transaction_details );
+			} elseif ( in_array( $transaction_details['txn_type'], self::get_ipn_handler( 'reference' )->get_transaction_types() ) ) {
+				self::get_ipn_handler( 'reference' )->valid_response( $transaction_details );
+			}
+		} catch ( Exception $e ) {
+			WCS_PayPal_Standard_IPN_Failure_Handler::log_unexpected_exception( $e );
 		}
 	}
 
@@ -321,7 +330,7 @@ class WCS_PayPal {
 	public static function process_subscription_payment( $amount, $order ) {
 
 		// If the subscription is using reference transactions, we can process the payment ourselves
-		$paypal_profile_id = wcs_get_paypal_id( $order->id );
+		$paypal_profile_id = wcs_get_paypal_id( wcs_get_objects_property( $order, 'id' ) );
 
 		if ( wcs_is_paypal_profile_a( $paypal_profile_id, 'billing_agreement' ) ) {
 
@@ -405,7 +414,7 @@ class WCS_PayPal {
 		);
 
 		foreach ( $post_meta_keys as $post_meta_key ) {
-			delete_post_meta( $resubscribe_order->id, $post_meta_key );
+			delete_post_meta( wcs_get_objects_property( $resubscribe_order, 'id' ), $post_meta_key );
 		}
 
 		return $resubscribe_order;
@@ -424,9 +433,9 @@ class WCS_PayPal {
 		global $post;
 		$subscription = wcs_get_subscription( $post );
 
-		if ( 'paypal' === $subscription->payment_method ) {
+		if ( 'paypal' === $subscription->get_payment_method() ) {
 
-			$paypal_profile_id  = wcs_get_paypal_id( $subscription->id );
+			$paypal_profile_id  = wcs_get_paypal_id( $subscription->get_id() );
 			$is_paypal_standard = ! wcs_is_paypal_profile_a( $paypal_profile_id, 'billing_agreement' );
 
 			if ( $is_paypal_standard ) {

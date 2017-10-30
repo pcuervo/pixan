@@ -42,6 +42,22 @@ function wcs_maybe_make_user_inactive( $user_id ) {
 }
 
 /**
+ * Wrapper for wcs_maybe_make_user_inactive() that accepts a subscription instead of a user ID.
+ * Handy for hooks that pass a subscription object.
+ *
+ * @since 2.2.9
+ * @param WC_Subscription|WC_Order
+ */
+function wcs_maybe_make_user_inactive_for( $subscription ) {
+	wcs_maybe_make_user_inactive( $subscription->get_user_id() );
+}
+add_action( 'woocommerce_subscription_status_failed', 'wcs_maybe_make_user_inactive_for', 10, 1 );
+add_action( 'woocommerce_subscription_status_on-hold', 'wcs_maybe_make_user_inactive_for', 10, 1 );
+add_action( 'woocommerce_subscription_status_cancelled', 'wcs_maybe_make_user_inactive_for', 10, 1 );
+add_action( 'woocommerce_subscription_status_switched', 'wcs_maybe_make_user_inactive_for', 10, 1 );
+add_action( 'woocommerce_subscription_status_expired', 'wcs_maybe_make_user_inactive_for', 10, 1 );
+
+/**
  * Update a user's role to a special subscription's role
  *
  * @param int $user_id The ID of a user
@@ -157,7 +173,7 @@ function wcs_get_users_subscriptions( $user_id = 0 ) {
 
 	$subscriptions = apply_filters( 'wcs_pre_get_users_subscriptions', array(), $user_id );
 
-	if ( empty( $subscriptions ) ) {
+	if ( empty( $subscriptions ) && 0 !== $user_id && ! empty( $user_id ) ) {
 
 		$post_ids = get_posts( array(
 			'posts_per_page' => -1,
@@ -172,7 +188,11 @@ function wcs_get_users_subscriptions( $user_id = 0 ) {
 		) );
 
 		foreach ( $post_ids as $post_id ) {
-			$subscriptions[ $post_id ] = wcs_get_subscription( $post_id );
+			$subscription = wcs_get_subscription( $post_id );
+
+			if ( $subscription ) {
+				$subscriptions[ $post_id ] = $subscription;
+			}
 		}
 	}
 
@@ -235,7 +255,7 @@ function wcs_can_user_put_subscription_on_hold( $subscription, $user = '' ) {
 		if ( $user->ID == $subscription->get_user_id() ) {
 
 			// Make sure subscription suspension count hasn't been reached
-			$suspension_count    = $subscription->suspension_count;
+			$suspension_count    = intval( $subscription->get_suspension_count() );
 			$allowed_suspensions = get_option( WC_Subscriptions_Admin::$option_prefix . '_max_customer_suspensions', 0 );
 
 			if ( 'unlimited' === $allowed_suspensions || $allowed_suspensions > $suspension_count ) { // 0 not > anything so prevents a customer ever being able to suspend
@@ -256,19 +276,19 @@ function wcs_get_all_user_actions_for_subscription( $subscription, $user_id ) {
 
 	$actions = array();
 
-	if ( user_can( $user_id, 'edit_shop_subscription_status', $subscription->id ) ) {
+	if ( user_can( $user_id, 'edit_shop_subscription_status', $subscription->get_id() ) ) {
 
 		$admin_with_suspension_disallowed = ( current_user_can( 'manage_woocommerce' ) && '0' === get_option( WC_Subscriptions_Admin::$option_prefix . '_max_customer_suspensions', '0' ) ) ? true : false;
 		$current_status = $subscription->get_status();
 
 		if ( $subscription->can_be_updated_to( 'on-hold' ) && wcs_can_user_put_subscription_on_hold( $subscription, $user_id ) && ! $admin_with_suspension_disallowed ) {
 			$actions['suspend'] = array(
-				'url'  => wcs_get_users_change_status_link( $subscription->id, 'on-hold', $current_status ),
+				'url'  => wcs_get_users_change_status_link( $subscription->get_id(), 'on-hold', $current_status ),
 				'name' => __( 'Suspend', 'woocommerce-subscriptions' ),
 			);
 		} elseif ( $subscription->can_be_updated_to( 'active' ) && ! $subscription->needs_payment() ) {
 			$actions['reactivate'] = array(
-				'url'  => wcs_get_users_change_status_link( $subscription->id, 'active', $current_status ),
+				'url'  => wcs_get_users_change_status_link( $subscription->get_id(), 'active', $current_status ),
 				'name' => __( 'Reactivate', 'woocommerce-subscriptions' ),
 			);
 		}
@@ -282,10 +302,10 @@ function wcs_get_all_user_actions_for_subscription( $subscription, $user_id ) {
 
 		// Show button for subscriptions which can be cancelled and which may actually require cancellation (i.e. has a future payment)
 		$next_payment = $subscription->get_time( 'next_payment' );
-		if ( $subscription->can_be_updated_to( 'cancelled' ) && ! $subscription->is_one_payment() && ( $next_payment > 0 || ( $subscription->has_status( 'on-hold' ) && empty( $next_payment ) ) ) ) {
+		if ( $subscription->can_be_updated_to( 'cancelled' ) && ( ! $subscription->is_one_payment() && ( $subscription->has_status( 'on-hold' ) && empty( $next_payment ) ) || $next_payment > 0 ) ) {
 			$actions['cancel'] = array(
-				'url'  => wcs_get_users_change_status_link( $subscription->id, 'cancelled', $current_status ),
-				'name' => _x( 'Cancelar', 'an action on a subscription', 'woocommerce-subscriptions' ),
+				'url'  => wcs_get_users_change_status_link( $subscription->get_id(), 'cancelled', $current_status ),
+				'name' => _x( 'Cancel', 'an action on a subscription', 'woocommerce-subscriptions' ),
 			);
 		}
 	}
@@ -309,7 +329,7 @@ function wcs_user_has_capability( $allcaps, $caps, $args ) {
 				$user_id  = $args[1];
 				$subscription = wcs_get_subscription( $args[2] );
 
-				if ( $user_id === $subscription->get_user_id() ) {
+				if ( $subscription && $user_id === $subscription->get_user_id() ) {
 					$allcaps['edit_shop_subscription_payment_method'] = true;
 				}
 			break;
@@ -345,8 +365,21 @@ function wcs_user_has_capability( $allcaps, $caps, $args ) {
 					$allcaps['subscribe_again'] = true;
 				}
 			break;
+			case 'pay_for_order' :
+				$user_id = $args[1];
+				$order   = wc_get_order( $args[2] );
+
+				if ( $order && wcs_order_contains_subscription( $order, 'any' ) ) {
+
+					if ( $user_id === $order->get_user_id() ) {
+						$allcaps['pay_for_order'] = true;
+					} else {
+						unset( $allcaps['pay_for_order'] );
+					}
+				}
+			break;
 		}
 	}
 	return $allcaps;
 }
-add_filter( 'user_has_cap', 'wcs_user_has_capability', 10, 3 );
+add_filter( 'user_has_cap', 'wcs_user_has_capability', 15, 3 );

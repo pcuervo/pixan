@@ -21,9 +21,15 @@ class ActionScheduler_CronSchedule implements ActionScheduler_Schedule {
 	 */
 	public function next( DateTime $after = NULL ) {
 		$after = empty($after) ? clone $this->start : clone $after;
-		return $this->cron->getNextRunDate($after, 0, TRUE);
+		return $this->cron->getNextRunDate($after, 0, false);
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function is_recurring() {
+		return true;
+	}
 
 	/**
 	 * For PHP 5.2 compat, since DateTime objects can't be serialized
@@ -41,4 +47,4 @@ class ActionScheduler_CronSchedule implements ActionScheduler_Schedule {
 		$this->start = as_get_datetime_object($this->start_timestamp);
 	}
 }
- 
+

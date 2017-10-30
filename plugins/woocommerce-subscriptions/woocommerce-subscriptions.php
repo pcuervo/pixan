@@ -1,13 +1,15 @@
 <?php
 /**
  * Plugin Name: WooCommerce Subscriptions
- * Plugin URI: http://www.woothemes.com/products/woocommerce-subscriptions/
+ * Plugin URI: http://www.woocommerce.com/products/woocommerce-subscriptions/
  * Description: Sell products and services with recurring payments in your WooCommerce Store.
  * Author: Prospress Inc.
  * Author URI: http://prospress.com/
- * Version: 2.0.19
+ * Version: 2.2.11
  *
- * Copyright 2016 Prospress, Inc.  (email : freedoms@prospress.com)
+ * Woo: 27147:6115e6d7e297b623a169fdcf5728b224
+ *
+ * Copyright 2017 Prospress, Inc.  (email : freedoms@prospress.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,11 +42,11 @@ if ( ! function_exists( 'woothemes_queue_update' ) || ! function_exists( 'is_woo
 woothemes_queue_update( plugin_basename( __FILE__ ), '6115e6d7e297b623a169fdcf5728b224', '27147' );
 
 /**
- * Check if WooCommerce is active, and if it isn't, disable Subscriptions.
+ * Check if WooCommerce is active and at the required minimum version, and if it isn't, disable Subscriptions.
  *
  * @since 1.0
  */
-if ( ! is_woocommerce_active() || version_compare( get_option( 'woocommerce_db_version' ), '2.3', '<' ) ) {
+if ( ! is_woocommerce_active() || version_compare( get_option( 'woocommerce_db_version' ), '2.5', '<' ) ) {
 	add_action( 'admin_notices', 'WC_Subscriptions::woocommerce_inactive_notice' );
 	return;
 }
@@ -95,7 +97,7 @@ require_once( 'includes/class-wcs-action-scheduler.php' );
 
 require_once( 'includes/abstracts/abstract-wcs-cache-manager.php' );
 
-require_once( 'includes/class-wcs-cache-manager-tlc.php' );
+require_once( 'includes/class-wcs-cached-data-manager.php' );
 
 require_once( 'includes/class-wcs-cart-renewal.php' );
 
@@ -104,6 +106,14 @@ require_once( 'includes/class-wcs-cart-resubscribe.php' );
 require_once( 'includes/class-wcs-cart-initial-payment.php' );
 
 require_once( 'includes/class-wcs-download-handler.php' );
+
+require_once( 'includes/class-wcs-retry-manager.php' );
+
+require_once( 'includes/class-wcs-cart-switch.php' );
+
+require_once( 'includes/class-wcs-limiter.php' );
+
+require_once( 'includes/legacy/class-wcs-array-property-post-meta-black-magic.php' );
 
 /**
  * The main subscriptions class.
@@ -118,7 +128,7 @@ class WC_Subscriptions {
 
 	public static $plugin_file = __FILE__;
 
-	public static $version = '2.0.19';
+	public static $version = '2.2.11';
 
 	private static $total_subscription_count = null;
 
@@ -135,6 +145,8 @@ class WC_Subscriptions {
 
 		// Register our custom subscription order type after WC_Post_types::register_post_types()
 		add_action( 'init', __CLASS__ . '::register_order_types', 6 );
+
+		add_filter( 'woocommerce_data_stores', __CLASS__ . '::add_data_stores', 10, 1 );
 
 		// Register our custom subscription order statuses before WC_Post_types::register_post_status()
 		add_action( 'init', __CLASS__ . '::register_post_status', 9 );
@@ -164,9 +176,6 @@ class WC_Subscriptions {
 		// Attach hooks which depend on WooCommerce constants
 		add_action( 'plugins_loaded', __CLASS__ . '::attach_dependant_hooks' );
 
-		// WooCommerce 2.0 Notice
-		add_action( 'admin_notices', __CLASS__ . '::woocommerce_dependancy_notice' );
-
 		// Staging site or site migration notice
 		add_action( 'admin_notices', __CLASS__ . '::woocommerce_site_change_notice' );
 
@@ -177,11 +186,28 @@ class WC_Subscriptions {
 
 		add_action( 'in_plugin_update_message-' . plugin_basename( __FILE__ ), __CLASS__ . '::update_notice', 10, 2 );
 
-		$scheduler_class = apply_filters( 'woocommerce_subscriptions_scheduler', 'WCS_Action_Scheduler' );
-
 		self::$cache = WCS_Cache_Manager::get_instance();
 
+		$scheduler_class = apply_filters( 'woocommerce_subscriptions_scheduler', 'WCS_Action_Scheduler' );
+
 		self::$scheduler = new $scheduler_class();
+	}
+
+	/**
+	 * Register data stores for WooCommerce 3.0+
+	 *
+	 * @since 2.2.0
+	 */
+	public static function add_data_stores( $data_stores ) {
+
+		$data_stores['subscription']                   = 'WCS_Subscription_Data_Store_CPT';
+
+		// Use WC core data stores for our products
+		$data_stores['product-variable-subscription']  = 'WC_Product_Variable_Data_Store_CPT';
+		$data_stores['product-subscription_variation'] = 'WC_Product_Variation_Data_Store_CPT';
+		$data_stores['order-item-line_item_pending_switch'] = 'WC_Order_Item_Product_Data_Store';
+
+		return $data_stores;
 	}
 
 	/**
@@ -235,7 +261,7 @@ class WC_Subscriptions {
 					'exclude_from_order_webhooks'      => true,
 					'exclude_from_order_reports'       => true,
 					'exclude_from_order_sales_reports' => true,
-					'class_name'                       => 'WC_Subscription',
+					'class_name'                       => self::is_woocommerce_pre( '3.0' ) ? 'WC_Subscription_Legacy' : 'WC_Subscription',
 				)
 			)
 		);
@@ -252,7 +278,7 @@ class WC_Subscriptions {
 	 * they want to add more links, or modify any of the messages.
 	 * @since  2.0
 	 *
-	 * @return string 						what appears in the list table of the subscriptions
+	 * @return string what appears in the list table of the subscriptions
 	 */
 	private static function get_not_found_text() {
 		if ( true === apply_filters( 'woocommerce_subscriptions_not_empty', wcs_do_subscriptions_exist() ) ) {
@@ -260,7 +286,7 @@ class WC_Subscriptions {
 		} else {
 			$not_found_text = '<p>' . __( 'Subscriptions will appear here for you to view and manage once purchased by a customer.', 'woocommerce-subscriptions' ) . '</p>';
 			// translators: placeholders are opening and closing link tags
-			$not_found_text .= '<p>' . sprintf( __( '%sLearn more about managing subscriptions &raquo;%s', 'woocommerce-subscriptions' ), '<a href="http://docs.woothemes.com/document/subscriptions/store-manager-guide/#section-3" target="_blank">', '</a>' ) . '</p>';
+			$not_found_text .= '<p>' . sprintf( __( '%sLearn more about managing subscriptions &raquo;%s', 'woocommerce-subscriptions' ), '<a href="http://docs.woocommerce.com/document/subscriptions/store-manager-guide/#section-3" target="_blank">', '</a>' ) . '</p>';
 			// translators: placeholders are opening and closing link tags
 			$not_found_text .= '<p>' . sprintf( __( '%sAdd a subscription product &raquo;%s', 'woocommerce-subscriptions' ), '<a href="' . esc_url( WC_Subscriptions_Admin::add_subscription_url() ) . '">', '</a>' ) . '</p>';
 		}
@@ -390,9 +416,12 @@ class WC_Subscriptions {
 
 			self::add_notice( __( 'A subscription has been removed from your cart. Products and subscriptions can not be purchased at the same time.', 'woocommerce-subscriptions' ), 'notice' );
 
-			// Redirect to cart page to remove subscription & notify shopper
-			add_filter( 'add_to_cart_fragments', __CLASS__ . '::redirect_ajax_add_to_cart' );
-
+			if ( WC_Subscriptions::is_woocommerce_pre( '3.0.8' ) ) {
+				// Redirect to cart page to remove subscription & notify shopper
+				add_filter( 'add_to_cart_fragments', __CLASS__ . '::redirect_ajax_add_to_cart' );
+			} else {
+				add_filter( 'woocommerce_add_to_cart_fragments', __CLASS__ . '::redirect_ajax_add_to_cart' );
+			}
 		}
 
 		return $valid;
@@ -406,7 +435,7 @@ class WC_Subscriptions {
 	public static function remove_subscriptions_from_cart() {
 
 		foreach ( WC()->cart->cart_contents as $cart_item_key => $cart_item ) {
-			if ( WC_Subscriptions_Product::is_subscription( $cart_item['product_id'] ) ) {
+			if ( WC_Subscriptions_Product::is_subscription( $cart_item['data'] ) ) {
 				WC()->cart->set_quantity( $cart_item_key, 0 );
 			}
 		}
@@ -424,7 +453,7 @@ class WC_Subscriptions {
 	public static function add_to_cart_redirect( $url ) {
 
 		// If product is of the subscription type
-		if ( isset( $_REQUEST['add-to-cart'] ) &&  is_numeric( $_REQUEST['add-to-cart'] ) && WC_Subscriptions_Product::is_subscription( (int) $_REQUEST['add-to-cart'] ) ) {
+		if ( isset( $_REQUEST['add-to-cart'] ) && is_numeric( $_REQUEST['add-to-cart'] ) && WC_Subscriptions_Product::is_subscription( (int) $_REQUEST['add-to-cart'] ) ) {
 
 			// Redirect to checkout if mixed checkout is disabled
 			if ( 'yes' != get_option( WC_Subscriptions_Admin::$option_prefix . '_multiple_purchase', 'no' ) ) {
@@ -434,7 +463,7 @@ class WC_Subscriptions {
 				$url = WC()->cart->get_checkout_url();
 
 			// Redirect to the same page (if the customer wouldn't be redirected to the cart) to ensure the cart widget loads correctly
-			} elseif ( 'yes' != get_option( 'woocommerce_cart_redirect_after_add' ) ) {
+			} elseif ( 'yes' != get_option( 'woocommerce_cart_redirect_after_add' ) && self::is_woocommerce_pre( '2.5' ) ) {
 
 				$url = remove_query_arg( 'add-to-cart' );
 
@@ -493,7 +522,7 @@ class WC_Subscriptions {
 		wc_get_template( 'single-product/add-to-cart/variable-subscription.php', array(
 			'available_variations' => $get_variations ? $product->get_available_variations() : false,
 			'attributes'           => $product->get_variation_attributes(),
-			'selected_attributes'  => $product->get_variation_default_attributes(),
+			'selected_attributes'  => $product->get_default_attributes(),
 		), '', plugin_dir_path( __FILE__ ) . 'templates/' );
 	}
 
@@ -553,7 +582,7 @@ class WC_Subscriptions {
 	 */
 
 	/**
-	 * Called when WooCommerce is inactive to display an inactive notice.
+	 * Called when WooCommerce is inactive or running and out-of-date version to display an inactive notice.
 	 *
 	 * @since 1.2
 	 */
@@ -568,11 +597,11 @@ class WC_Subscriptions {
 		printf( esc_html__( '%1$sWooCommerce Subscriptions is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for WooCommerce Subscriptions to work. Please %5$sinstall & activate WooCommerce &raquo;%6$s',  'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="http://wordpress.org/extend/plugins/woocommerce/">', '</a>', '<a href="' .  esc_url( $install_url ) . '">', '</a>' ); ?>
 	</p>
 </div>
-		<?php elseif ( version_compare( get_option( 'woocommerce_db_version' ), '2.3', '<' ) ) : ?>
+		<?php elseif ( version_compare( get_option( 'woocommerce_db_version' ), '2.4', '<' ) ) : ?>
 <div id="message" class="error">
 	<p><?php
 		// translators: 1$-2$: opening and closing <strong> tags, 3$-4$: opening and closing link tags, leads to plugin admin
-		printf( esc_html__( '%1$sWooCommerce Subscriptions is inactive.%2$s This version of Subscriptions requires WooCommerce 2.3 or newer. Please %3$supdate WooCommerce to version 2.3 or newer &raquo;%4$s', 'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?>
+		printf( esc_html__( '%1$sWooCommerce Subscriptions is inactive.%2$s This version of Subscriptions requires WooCommerce 2.4 or newer. Please %3$supdate WooCommerce to version 2.4 or newer &raquo;%4$s', 'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?>
 	</p>
 </div>
 		<?php endif; ?>
@@ -646,11 +675,6 @@ class WC_Subscriptions {
 	 */
 	public static function load_plugin_textdomain() {
 
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-subscriptions' );
-
-		// Allow upgrade safe, site specific language files in /wp-content/languages/woocommerce-subscriptions/
-		load_textdomain( 'woocommerce-subscriptions', WP_LANG_DIR.'/woocommerce/woocommerce-subscriptions-'.$locale.'.mo' );
-
 		$plugin_rel_path = apply_filters( 'woocommerce_subscriptions_translation_file_rel_path', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 		// Then check for a language file in /wp-content/plugins/woocommerce-subscriptions/languages/ (this will be overriden by any file already loaded)
@@ -676,6 +700,10 @@ class WC_Subscriptions {
 
 		require_once( 'includes/admin/class-wcs-admin-meta-boxes.php' );
 
+		require_once( 'includes/admin/class-wcs-admin-reports.php' );
+
+		require_once( 'includes/admin/reports/class-wcs-report-cache-manager.php' );
+
 		require_once( 'includes/admin/meta-boxes/class-wcs-meta-box-related-orders.php' );
 
 		require_once( 'includes/admin/meta-boxes/class-wcs-meta-box-subscription-data.php' );
@@ -698,8 +726,34 @@ class WC_Subscriptions {
 
 		require_once( 'includes/class-wcs-user-change-status-handler.php' );
 
-		// Provide a hook to prevent running deprecation handling for stores that know they have no deprecated code
-		if ( apply_filters( 'woocommerce_subscriptions_load_deprecation_handlers', true ) ) {
+		require_once( 'includes/class-wcs-my-account-payment-methods.php' );
+
+		if ( self::is_woocommerce_pre( '3.0' ) ) {
+
+			require_once( 'includes/legacy/class-wc-subscription-legacy.php' );
+
+			require_once( 'includes/legacy/class-wcs-product-legacy.php' );
+
+			require_once( 'includes/legacy/class-wc-product-subscription-legacy.php' );
+
+			require_once( 'includes/legacy/class-wc-product-subscription-variation-legacy.php' );
+
+			require_once( 'includes/legacy/class-wc-product-variable-subscription-legacy.php' );
+
+			// Load WC_DateTime when it doesn't exist yet so we can use it for datetime handling consistently with WC 3.0+
+			if ( ! class_exists( 'WC_DateTime' ) ) {
+				require_once( 'includes/libraries/class-wc-datetime.php' );
+			}
+		} else {
+			require_once( 'includes/class-wc-order-item-pending-switch.php' );
+
+			require_once( 'includes/data-stores/class-wcs-subscription-data-store-cpt.php' );
+
+			require_once( 'includes/deprecated/class-wcs-deprecated-filter-hooks.php' );
+		}
+
+		// Provide a hook to enable running deprecation handling for stores that might want to check for deprecated code
+		if ( apply_filters( 'woocommerce_subscriptions_load_deprecation_handlers', false ) ) {
 
 			require_once( 'includes/abstracts/abstract-wcs-hook-deprecator.php' );
 
@@ -733,24 +787,6 @@ class WC_Subscriptions {
 	}
 
 	/**
-	 * Displays a notice to upgrade if using less than the ideal version of WooCommerce
-	 *
-	 * @since 1.3
-	 */
-	public static function woocommerce_dependancy_notice() {
-
-		if ( version_compare( WC()->version, '2.3', '<' ) && current_user_can( 'install_plugins' ) ) { ?>
-			<div id="message" class="error">
-				<p><?php
-					// translators: 1$-2$: opening and closing <strong> tags, 3$-4$: opening and closing link tags, leads to plugin admin
-					printf( esc_html__( '%1$sYou have an out-of-date version of WooCommerce installed%2$s. WooCommerce Subscriptions no longer supports versions of WooCommerce prior to 2.3. Please %3$supgrade WooCommerce to version 2.3 or newer%4$s to avoid issues.', 'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?>
-				</p>
-			</div>
-		<?php
-		}
-	}
-
-	/**
 	 * Displays a notice when Subscriptions is being run on a different site, like a staging or testing site.
 	 *
 	 * @since 1.3.8
@@ -778,7 +814,7 @@ class WC_Subscriptions {
 				<div id="message" class="error">
 					<p><?php
 						// translators: 1$-2$: opening and closing <strong> tags, 3$-4$: opening and closing link tags. Leads to duplicate site article on docs
-						printf( esc_html__( 'It looks like this site has moved or is a duplicate site. %1$sWooCommerce Subscriptions%2$s has disabled automatic payments and subscription related emails on this site to prevent duplicate payments from a staging or test environment. %3$sLearn more &raquo;%4$s.', 'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="http://docs.woothemes.com/document/subscriptions/faq/#section-39" target="_blank">', '</a>' ); ?></p>
+						printf( esc_html__( 'It looks like this site has moved or is a duplicate site. %1$sWooCommerce Subscriptions%2$s has disabled automatic payments and subscription related emails on this site to prevent duplicate payments from a staging or test environment. %3$sLearn more &raquo;%4$s.', 'woocommerce-subscriptions' ), '<strong>', '</strong>', '<a href="http://docs.woocommerce.com/document/subscriptions/faq/#section-39" target="_blank">', '</a>' ); ?></p>
 					<div style="margin: 5px 0;">
 						<a class="button button-primary" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wc_subscription_duplicate_site', 'ignore' ), 'wcs_duplicate_site', '_wcsnonce' ) ); ?>"><?php esc_html_e( 'Quit nagging me (but don\'t enable automatic payments)', 'woocommerce-subscriptions' ); ?></a>
 						<a class="button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wc_subscription_duplicate_site', 'update' ), 'wcs_duplicate_site', '_wcsnonce' ) ); ?>"><?php esc_html_e( 'Enable automatic payments', 'woocommerce-subscriptions' ); ?></a>
@@ -942,7 +978,35 @@ class WC_Subscriptions {
 	 */
 	public static function is_duplicate_site() {
 
-		$is_duplicate = ( get_site_url() !== self::get_site_url() ) ? true : false;
+		if ( defined( 'WP_SITEURL' ) ) {
+			$site_url = WP_SITEURL;
+		} else {
+			$site_url = get_site_url();
+		}
+
+		$wp_site_url_parts  = wp_parse_url( $site_url );
+		$wcs_site_url_parts = wp_parse_url( self::get_site_url() );
+
+		if ( ! isset( $wp_site_url_parts['path'] ) && ! isset( $wcs_site_url_parts['path'] ) ) {
+			$paths_match = true;
+		} elseif ( isset( $wp_site_url_parts['path'] ) && isset( $wcs_site_url_parts['path'] ) && $wp_site_url_parts['path'] == $wcs_site_url_parts['path'] ) {
+			$paths_match = true;
+		} else {
+			$paths_match = false;
+		}
+
+		if ( isset( $wp_site_url_parts['host'] ) && isset( $wcs_site_url_parts['host'] ) && $wp_site_url_parts['host'] == $wcs_site_url_parts['host'] ) {
+			$hosts_match = true;
+		} else {
+			$hosts_match = false;
+		}
+
+		// Check the host and path, do not check the protocol/scheme to avoid issues with WP Engine and other occasions where the WP_SITEURL constant may be set, but being overridden (e.g. by FORCE_SSL_ADMIN)
+		if ( $paths_match && $hosts_match ) {
+			$is_duplicate = false;
+		} else {
+			$is_duplicate = true;
+		}
 
 		return apply_filters( 'woocommerce_subscriptions_is_duplicate_site', $is_duplicate );
 	}
@@ -958,8 +1022,8 @@ class WC_Subscriptions {
 
 		$plugin_links = array(
 			'<a href="' . WC_Subscriptions_Admin::settings_tab_url() . '">' . __( 'Settings', 'woocommerce-subscriptions' ) . '</a>',
-			'<a href="http://docs.woothemes.com/document/subscriptions/">' . _x( 'Docs', 'short for documents', 'woocommerce-subscriptions' ) . '</a>',
-			'<a href="http://support.woothemes.com">' . __( 'Support', 'woocommerce-subscriptions' ) . '</a>',
+			'<a href="http://docs.woocommerce.com/document/subscriptions/">' . _x( 'Docs', 'short for documents', 'woocommerce-subscriptions' ) . '</a>',
+			'<a href="https://www.woocommerce.com/my-account/create-a-ticket/">' . __( 'Support', 'woocommerce-subscriptions' ) . '</a>',
 		);
 
 		return array_merge( $plugin_links, $links );
@@ -978,7 +1042,11 @@ class WC_Subscriptions {
 	 */
 	public static function get_current_sites_duplicate_lock() {
 
-		$site_url = get_option( 'siteurl' );
+		if ( defined( 'WP_SITEURL' ) ) {
+			$site_url = WP_SITEURL;
+		} else {
+			$site_url = get_site_url();
+		}
 
 		return substr_replace( $site_url, '_[wc_subscriptions_siteurl]_', strlen( $site_url ) / 2, 0 );
 	}
@@ -1060,7 +1128,7 @@ class WC_Subscriptions {
 
 		$update_notice = '<div class="wc_plugin_upgrade_notice">';
 		// translators: placeholders are opening and closing tags. Leads to docs on version 2
-		$update_notice .= sprintf( __( 'Warning! Version 2.0 is a major update to the WooCommerce Subscriptions extension. Before updating, please create a backup, update all WooCommerce extensions and test all plugins, custom code and payment gateways with version 2.0 on a staging site. %sLearn more about the changes in version 2.0 &raquo;%s', 'woocommerce-subscriptions' ), '<a href="http://docs.woothemes.com/document/subscriptions/version-2/">', '</a>' );
+		$update_notice .= sprintf( __( 'Warning! Version 2.0 is a major update to the WooCommerce Subscriptions extension. Before updating, please create a backup, update all WooCommerce extensions and test all plugins, custom code and payment gateways with version 2.0 on a staging site. %sLearn more about the changes in version 2.0 &raquo;%s', 'woocommerce-subscriptions' ), '<a href="http://docs.woocommerce.com/document/subscriptions/version-2/">', '</a>' );
 		$update_notice .= '</div> ';
 
 		echo wp_kses_post( $update_notice );
@@ -1076,54 +1144,13 @@ class WC_Subscriptions {
 
 			echo '<div class="update-nag">';
 			echo sprintf( esc_html__( 'Warning! You are running version %s of WooCommerce Subscriptions plugin code but your database has been upgraded to Subscriptions version 2.0. This will cause major problems on your store.', 'woocommerce-subscriptions' ), esc_html( self::$version ) ) . '<br />';
-			echo sprintf( esc_html__( 'Please upgrade the WooCommerce Subscriptions plugin to version 2.0 or newer immediately. If you need assistance, after upgrading to Subscriptions v2.0, please %sopen a support ticket%s.', 'woocommerce-subscriptions' ), '<a href="https://www.woothemes.com/my-account/create-a-ticket/">', '</a>' );
+			echo sprintf( esc_html__( 'Please upgrade the WooCommerce Subscriptions plugin to version 2.0 or newer immediately. If you need assistance, after upgrading to Subscriptions v2.0, please %sopen a support ticket%s.', 'woocommerce-subscriptions' ), '<a href="https://www.woocommerce.com/my-account/create-a-ticket/">', '</a>' );
 			echo '</div> ';
 
 		}
 	}
 
 	/* Deprecated Functions */
-
-	/**
-	 * Was called when a plugin is activated using official register_activation_hook() API
-	 *
-	 * Upgrade routine is now in @see maybe_activate_woocommerce_subscriptions()
-	 *
-	 * @since 1.0
-	 */
-	public static function activate_woocommerce_subscriptions() {
-		_deprecated_function( __METHOD__, '1.1', __CLASS__ . '::maybe_activate_woocommerce_subscriptions()' );
-	}
-
-	/**
-	 * Override the WooCommerce "Add to Cart" text with "Sign Up Now"
-	 *
-	 * @since 1.0
-	 * @deprecated 1.5
-	 */
-	public static function add_to_cart_text( $button_text, $product_type = '' ) {
-		global $product;
-
-		_deprecated_function( __METHOD__, '1.1', 'WC_Product::add_to_cart_text()' );
-
-		if ( WC_Subscriptions_Product::is_subscription( $product ) || in_array( $product_type, array( 'subscription', 'subscription-variation' ) ) ) {
-			$button_text = get_option( WC_Subscriptions_Admin::$option_prefix . '_add_to_cart_button_text', __( 'Sign Up Now', 'woocommerce-subscriptions' ) );
-		}
-
-		return $button_text;
-	}
-
-	/**
-	 * Subscriptions are individual items so override the WC_Product is_sold_individually function
-	 * to reflect this.
-	 *
-	 * @since 1.0
-	 * @deprecated 1.5
-	 */
-	public static function is_sold_individually( $is_individual, $product ) {
-		_deprecated_function( __CLASS__ . '::' . __FUNCTION__, '1.1', 'WC_Product::is_sold_individually()' );
-		return $is_individual;
-	}
 
 	/**
 	 * Workaround the last day of month quirk in PHP's strtotime function.
@@ -1218,41 +1245,6 @@ class WC_Subscriptions {
 	}
 
 	/**
-	 * Check if the installed version of WooCommerce is 2.3 or older.
-	 *
-	 * @since 1.5.17
-	 */
-	public static function is_woocommerce_pre_2_3() {
-		_deprecated_function( __METHOD__, '1.5.29', __CLASS__ . '::is_woocommerce_pre( "2.3" )' );
-		return self::is_woocommerce_pre( '2.3' );
-	}
-
-	/**
-	 * Check if the installed version of WooCommerce is 2.2 or older.
-	 *
-	 * @since 1.5.10
-	 */
-	public static function is_woocommerce_pre_2_2() {
-		_deprecated_function( __METHOD__, '1.5.29', __CLASS__ . '::is_woocommerce_pre( "2.2" )' );
-		return self::is_woocommerce_pre( '2.2' );
-	}
-
-	/**
-	 * Check if the installed version of WooCommerce is 2.1 or older.
-	 *
-	 * Only for use when we need to check version. If the code in question relys on a specific
-	 * WC2.1 only function or class, then it's better to check that function or class exists rather
-	 * than using this more generic check.
-	 *
-	 * @since 1.4.5
-	 * @deprecated 2.0		Removing support for WC before 2.3.0
-	 */
-	public static function is_woocommerce_pre_2_1() {
-		_deprecated_function( __METHOD__, '1.5.29', __CLASS__ . '::is_woocommerce_pre( "2.1" )' );
-		return self::is_woocommerce_pre( '2.1' );
-	}
-
-	/**
 	 * which was called @see woocommerce_format_total() prior to WooCommerce 2.1.
 	 *
 	 * Deprecated since we no longer need to support the workaround required for WC versions < 2.1
@@ -1263,6 +1255,15 @@ class WC_Subscriptions {
 	public static function format_total( $number ) {
 		_deprecated_function( __METHOD__, '2.0', 'wc_format_decimal()' );
 		return wc_format_decimal( $number );
+	}
+
+	/**
+	 * Displays a notice to upgrade if using less than the ideal version of WooCommerce
+	 *
+	 * @since 1.3
+	 */
+	public static function woocommerce_dependancy_notice() {
+		_deprecated_function( __METHOD__, '2.1', __CLASS__ . '::woocommerce_inactive_notice()' );
 	}
 }
 

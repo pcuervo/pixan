@@ -12,9 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+require_once( 'includes/class-wcs-select2.php' );
 require_once( 'includes/wcs-deprecated-functions.php' );
+require_once( 'includes/wcs-compatibility-functions.php' );
 require_once( 'includes/wcs-conditional-functions.php' );
 require_once( 'includes/wcs-formatting-functions.php' );
+require_once( 'includes/wcs-product-functions.php' );
 require_once( 'includes/wcs-cart-functions.php' );
 require_once( 'includes/wcs-order-functions.php' );
 require_once( 'includes/wcs-time-functions.php' );
@@ -23,6 +26,7 @@ require_once( 'includes/wcs-helper-functions.php' );
 require_once( 'includes/wcs-renewal-functions.php' );
 require_once( 'includes/wcs-resubscribe-functions.php' );
 require_once( 'includes/wcs-switch-functions.php' );
+require_once( 'includes/wcs-limit-functions.php' );
 
 if ( is_admin() ) {
 	require_once( 'includes/admin/wcs-admin-functions.php' );
@@ -75,7 +79,7 @@ function wcs_do_subscriptions_exist() {
 function wcs_get_subscription( $the_subscription ) {
 
 	if ( is_object( $the_subscription ) && wcs_is_subscription( $the_subscription ) ) {
-		$the_subscription = $the_subscription->id;
+		$the_subscription = $the_subscription->get_id();
 	}
 
 	$subscription = WC()->order_factory->get_order( $the_subscription );
@@ -99,10 +103,10 @@ function wcs_create_subscription( $args = array() ) {
 
 	$order = ( isset( $args['order_id'] ) ) ? wc_get_order( $args['order_id'] ) : null;
 
-	if ( ! empty( $order ) && isset( $order->post->post_date ) ) {
-		$default_start_date = ( '0000-00-00 00:00:00' != $order->post->post_date_gmt ) ? $order->post->post_date_gmt : get_gmt_from_date( $order->post->post_date );
+	if ( ! empty( $order ) ) {
+		$default_start_date  = wcs_get_datetime_utc_string( wcs_get_objects_property( $order, 'date_created' ) );
 	} else {
-		$default_start_date = current_time( 'mysql', true );
+		$default_start_date = gmdate( 'Y-m-d H:i:s' );
 	}
 
 	$default_args = array(
@@ -111,10 +115,10 @@ function wcs_create_subscription( $args = array() ) {
 		'customer_note'      => null,
 		'customer_id'        => ( ! empty( $order ) ) ? $order->get_user_id() : null,
 		'start_date'         => $default_start_date,
-		'created_via'        => ( ! empty( $order ) ) ? $order->created_via : '',
-		'order_version'      => ( ! empty( $order ) ) ? $order->order_version : WC_VERSION,
-		'currency'           => ( ! empty( $order ) ) ? $order->order_currency : get_woocommerce_currency(),
-		'prices_include_tax' => ( ! empty( $order ) ) ? ( ( $order->prices_include_tax ) ? 'yes' : 'no' ) : get_option( 'woocommerce_prices_include_tax' ), // we don't use wc_prices_include_tax() here because WC doesn't use it in wc_create_order(), not 100% sure why it doesn't also check the taxes are enabled, but there could forseeably be a reason
+		'created_via'        => ( ! empty( $order ) ) ? wcs_get_objects_property( $order, 'created_via' ) : '',
+		'order_version'      => ( ! empty( $order ) ) ? wcs_get_objects_property( $order, 'version' ) : WC_VERSION,
+		'currency'           => ( ! empty( $order ) ) ? wcs_get_objects_property( $order, 'currency' ) : get_woocommerce_currency(),
+		'prices_include_tax' => ( ! empty( $order ) ) ? ( ( wcs_get_objects_property( $order, 'prices_include_tax' ) ) ? 'yes' : 'no' ) : get_option( 'woocommerce_prices_include_tax' ), // we don't use wc_prices_include_tax() here because WC doesn't use it in wc_create_order(), not 100% sure why it doesn't also check the taxes are enabled, but there could forseeably be a reason
 	);
 
 	$args              = wp_parse_args( $args, $default_args );
@@ -123,7 +127,7 @@ function wcs_create_subscription( $args = array() ) {
 	// validate the start_date field
 	if ( ! is_string( $args['start_date'] ) || false === wcs_is_datetime_mysql_format( $args['start_date'] ) ) {
 		return new WP_Error( 'woocommerce_subscription_invalid_start_date_format', _x( 'Invalid date. The date must be a string and of the format: "Y-m-d H:i:s".', 'Error message while creating a subscription', 'woocommerce-subscriptions' ) );
-	} else if ( strtotime( $args['start_date'] ) > current_time( 'timestamp', true ) ) {
+	} else if ( wcs_date_to_time( $args['start_date'] ) > current_time( 'timestamp', true ) ) {
 		return new WP_Error( 'woocommerce_subscription_invalid_start_date', _x( 'Subscription start date must be before current day.', 'Error message while creating a subscription', 'woocommerce-subscriptions' ) );
 	}
 
@@ -189,7 +193,7 @@ function wcs_create_subscription( $args = array() ) {
 	update_post_meta( $subscription_id, '_customer_user', $args['customer_id'] );
 	update_post_meta( $subscription_id, '_order_version', $args['order_version'] );
 
-	return new WC_Subscription( $subscription_id );
+	return wcs_get_subscription( $subscription_id );
 }
 
 /**
@@ -201,13 +205,13 @@ function wcs_create_subscription( $args = array() ) {
 function wcs_get_subscription_statuses() {
 
 	$subscription_statuses = array(
-		'wc-pending'        => _x( 'Pendiente', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-active'         => _x( 'Activa', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-on-hold'        => _x( 'En espera', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-cancelled'      => _x( 'Cancelada', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-pending'        => _x( 'Pending', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-active'         => _x( 'Active', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-on-hold'        => _x( 'On hold', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-cancelled'      => _x( 'Cancelled', 'Subscription status', 'woocommerce-subscriptions' ),
 		'wc-switched'       => _x( 'Switched', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-expired'        => _x( 'Caducada', 'Subscription status', 'woocommerce-subscriptions' ),
-		'wc-pending-cancel' => _x( 'Cancelación en proceso', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-expired'        => _x( 'Expired', 'Subscription status', 'woocommerce-subscriptions' ),
+		'wc-pending-cancel' => _x( 'Pending Cancellation', 'Subscription status', 'woocommerce-subscriptions' ),
 	);
 
 	return apply_filters( 'wcs_subscription_statuses', $subscription_statuses );
@@ -250,8 +254,8 @@ function wcs_get_address_type_to_display( $address_type ) {
 	}
 
 	$address_types = apply_filters( 'woocommerce_subscription_address_types', array(
-		'shipping' => __( 'Dirección de compra', 'woocommerce-subscriptions' ),
-		'billing' => __( 'Datos de facturación', 'woocommerce-subscriptions' ),
+		'shipping' => __( 'Shipping Address', 'woocommerce-subscriptions' ),
+		'billing' => __( 'Billing Address', 'woocommerce-subscriptions' ),
 	) );
 
 	// if we can't find the address type, return the raw key
@@ -269,14 +273,36 @@ function wcs_get_address_type_to_display( $address_type ) {
 function wcs_get_subscription_date_types() {
 
 	$dates = array(
-		'start'        => _x( 'Fecha de Inicio', 'table heading', 'woocommerce-subscriptions' ),
-		'trial_end'    => _x( 'Pago final', 'table heading', 'woocommerce-subscriptions' ),
-		'next_payment' => _x( 'Próximo pago', 'table heading', 'woocommerce-subscriptions' ),
-		'last_payment' => _x( 'Último pago', 'table heading', 'woocommerce-subscriptions' ),
-		'end'          => _x( 'Fin', 'table heading', 'woocommerce-subscriptions' ),
+		'start'        => _x( 'Start Date', 'table heading', 'woocommerce-subscriptions' ),
+		'trial_end'    => _x( 'Trial End', 'table heading', 'woocommerce-subscriptions' ),
+		'next_payment' => _x( 'Next Payment', 'table heading', 'woocommerce-subscriptions' ),
+		'last_payment' => _x( 'Last Order Date', 'table heading', 'woocommerce-subscriptions' ),
+		'cancelled'    => _x( 'Cancelled Date', 'table heading', 'woocommerce-subscriptions' ),
+		'end'          => _x( 'End Date', 'table heading', 'woocommerce-subscriptions' ),
 	);
 
 	return apply_filters( 'woocommerce_subscription_dates', $dates );
+}
+
+/**
+ * Find whether to display a specific date type in the admin area
+ *
+ * @param string A subscription date type key. One of the array key values returned by @see wcs_get_subscription_date_types().
+ * @param WC_Subscription
+ * @since 2.1
+ * @return bool
+ */
+function wcs_display_date_type( $date_type, $subscription ) {
+
+	if ( 'last_payment' === $date_type ) {
+		$display_date_type = false;
+	} elseif ( 'cancelled' === $date_type && 0 == $subscription->get_date( $date_type ) ) {
+		$display_date_type = false;
+	} else {
+		$display_date_type = true;
+	}
+
+	return apply_filters( 'wcs_display_date_type', $display_date_type, $date_type, $subscription );
 }
 
 /**
@@ -292,6 +318,49 @@ function wcs_get_date_meta_key( $date_type ) {
 		return new WP_Error( 'woocommerce_subscription_wrong_date_type_format', __( 'Date type can not be an empty string.', 'woocommerce-subscriptions' ) );
 	}
 	return apply_filters( 'woocommerce_subscription_date_meta_key_prefix', sprintf( '_schedule_%s', $date_type ), $date_type );
+}
+
+/**
+ * Accept a variety of date type keys and normalise them to current canonical key.
+ *
+ * This method saves code calling the WC_Subscription date functions, e.g. self::get_date(), needing
+ * to make sure they pass the correct date type key, which can involve transforming a prop key or
+ * deprecated date type key.
+ *
+ * @since 2.2.0
+ * @param string $date_type_key String referring to a valid date type, can be: 'date_created', 'trial_end', 'next_payment', 'last_order_date_created' or 'end', or any other value returned by @see this->get_valid_date_types()
+ * @return string
+ */
+function wcs_normalise_date_type_key( $date_type_key, $display_deprecated_notice = false ) {
+
+	// Accept date types with a 'schedule_' prefix, like 'schedule_next_payment' because that's the key used for props
+	$prefix_length = strlen( 'schedule_' );
+	if ( 'schedule_' === substr( $date_type_key, 0, $prefix_length ) ) {
+		$date_type_key = substr( $date_type_key, $prefix_length );
+	}
+
+	// Accept dates with a '_date' suffix, like 'next_payment_date' or 'start_date'
+	$suffix_length = strlen( '_date' );
+	if ( '_date' === substr( $date_type_key, -$suffix_length ) ) {
+		$date_type_key = substr( $date_type_key, 0, -$suffix_length );
+	}
+
+	$deprecated_notice = '';
+
+	if ( 'start' === $date_type_key ) {
+		$deprecated_notice = 'The "start" date type parameter has been deprecated to align date types with improvements to date APIs in WooCommerce 3.0, specifically the introduction of a new "date_created" API. Use "date_created"';
+		$date_type_key     = 'date_created';
+	} elseif ( 'last_payment' === $date_type_key ) {
+		$deprecated_notice = 'The "last_payment" date type parameter has been deprecated due to ambiguity (it actually returns the date created for the last order) and to align date types with improvements to date APIs in WooCommerce 3.0, specifically the introduction of a new "date_paid" API. Use "last_order_date_created" or "last_order_date_paid"';
+		// For backward compatibility we have to use the date created here not the 'date_paid', see: https://github.com/Prospress/woocommerce-subscriptions/issues/1943
+		$date_type_key = 'last_order_date_created';
+	}
+
+	if ( true === $display_deprecated_notice && ! empty( $deprecated_notice ) ) {
+		wcs_deprecated_argument( esc_attr( wcs_get_calling_function_name() ), '2.2.0', $deprecated_notice );
+	}
+
+	return $date_type_key;
 }
 
 /**
@@ -534,10 +603,19 @@ function wcs_get_order_items_product_id( $item_id ) {
  * items representing a variation, that means the 'variation_id' value, if the item is not a variation, that means
  * the 'product_id value. This function helps save keystrokes on the idiom to check if an item is to a variation or not.
  *
- * @param array $item Either a cart item or order/subscription line item
+ * @param array or object $item Either a cart item, order/subscription line item, or a product.
  */
-function wcs_get_canonical_product_id( $item ) {
-	return ( ! empty( $item['variation_id'] ) ) ? $item['variation_id'] : $item['product_id'];
+function wcs_get_canonical_product_id( $item_or_product ) {
+
+	if ( is_a( $item_or_product, 'WC_Product' ) ) {
+		$product_id = $item_or_product->get_id(); // WC_Product::get_id(), introduced in WC 2.5+, will return the variation ID by default
+	} elseif ( is_a( $item_or_product, 'WC_Order_Item' ) ) { // order line item in WC 3.0+
+		$product_id = ( $item_or_product->get_variation_id() ) ? $item_or_product->get_variation_id() : $item_or_product->get_product_id();
+	} else { // order line item in WC < 3.0
+		$product_id = ( ! empty( $item_or_product['variation_id'] ) ) ? $item_or_product['variation_id'] : $item_or_product['product_id'];
+	}
+
+	return $product_id;
 }
 
 /**
@@ -561,4 +639,3 @@ function wcs_is_view_subscription_page() {
 
 	return ( is_page( wc_get_page_id( 'myaccount' ) ) && isset( $wp->query_vars['view-subscription'] ) ) ? true : false;
 }
-

@@ -17,74 +17,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WC_Product_Subscription extends WC_Product_Simple {
 
-	var $subscription_price;
-
-	var $subscription_period;
-
-	var $subscription_period_interval;
-
-	var $subscription_length;
-
-	var $subscription_trial_length;
-
-	var $subscription_trial_period;
-
-	var $subscription_sign_up_fee;
+	/**
+	 * Get internal type.
+	 *
+	 * @return string
+	 */
+	public function get_type() {
+		return 'subscription';
+	}
 
 	/**
-	 * Create a simple subscription product object.
+	 * Auto-load in-accessible properties on demand.
 	 *
-	 * @access public
-	 * @param mixed $product
+	 * @param mixed $key
+	 * @return mixed
 	 */
-	public function __construct( $product ) {
-		parent::__construct( $product );
-		$this->product_type = 'subscription';
+	public function __get( $key ) {
 
-		// Load all meta fields
-		$this->product_custom_fields = get_post_meta( $this->id );
+		$value = wcs_product_deprecated_property_handler( $key, $this );
 
-		// Convert selected subscription meta fields for easy access
-		if ( ! empty( $this->product_custom_fields['_subscription_price'][0] ) ) {
-			$this->subscription_price = $this->product_custom_fields['_subscription_price'][0];
+		// No matching property found in wcs_product_deprecated_property_handler()
+		if ( is_null( $value ) ) {
+			$value = parent::__get( $key );
 		}
 
-		if ( ! empty( $this->product_custom_fields['_subscription_sign_up_fee'][0] ) ) {
-			$this->subscription_sign_up_fee = $this->product_custom_fields['_subscription_sign_up_fee'][0];
-		}
-
-		if ( ! empty( $this->product_custom_fields['_subscription_period'][0] ) ) {
-			$this->subscription_period = $this->product_custom_fields['_subscription_period'][0];
-		}
-
-		if ( ! empty( $this->product_custom_fields['_subscription_period_interval'][0] ) ) {
-			$this->subscription_period_interval = $this->product_custom_fields['_subscription_period_interval'][0];
-		}
-
-		if ( ! empty( $this->product_custom_fields['_subscription_length'][0] ) ) {
-			$this->subscription_length = $this->product_custom_fields['_subscription_length'][0];
-		}
-
-		if ( ! empty( $this->product_custom_fields['_subscription_trial_length'][0] ) ) {
-			$this->subscription_trial_length = $this->product_custom_fields['_subscription_trial_length'][0];
-		}
-
-		if ( ! empty( $this->product_custom_fields['_subscription_trial_period'][0] ) ) {
-			$this->subscription_trial_period = $this->product_custom_fields['_subscription_trial_period'][0];
-		}
-
-		$this->subscription_payment_sync_date = ( ! isset( $this->product_custom_fields['_subscription_payment_sync_date'][0] ) ) ? 0 : maybe_unserialize( $this->product_custom_fields['_subscription_payment_sync_date'][0] );
-
-		$this->subscription_one_time_shipping = ( ! isset( $this->product_custom_fields['_subscription_one_time_shipping'][0] ) ) ? 'no' : $this->product_custom_fields['_subscription_one_time_shipping'][0];
-
-		if ( ! isset( $this->product_custom_fields['_subscription_limit'][0] ) ) {
-			$this->limit_subscriptions = 'no';
-		} elseif ( 'yes' == $this->product_custom_fields['_subscription_limit'][0] ) { // backward compatibility
-			$this->limit_subscriptions = 'any';
-		} else {
-			$this->limit_subscriptions = $this->product_custom_fields['_subscription_limit'][0];
-		}
-
+		return $value;
 	}
 
 	/**
@@ -131,20 +88,40 @@ class WC_Product_Subscription extends WC_Product_Simple {
 	}
 
 	/**
+	 * Checks if the store manager has requested the current product be limited to one purchase
+	 * per customer, and if so, checks whether the customer already has an active subscription to
+	 * the product.
+	 *
+	 * @access public
+	 * @return bool
+	 */
+	function is_purchasable() {
+		$purchasable = WCS_Limiter::is_purchasable( parent::is_purchasable(), $this );
+
+		return apply_filters( 'woocommerce_subscription_is_purchasable', $purchasable, $this );
+	}
+
+	/* Deprecated Functions */
+
+	/**
+	 * Return the sign-up fee for this product
+	 *
+	 * @return string
+	 */
+	public function get_sign_up_fee() {
+		wcs_deprecated_function( __METHOD__, '2.2.0', 'WC_Subscriptions_Product::get_sign_up_fee( $this )' );
+		return WC_Subscriptions_Product::get_sign_up_fee( $this );
+	}
+
+	/**
 	 * Returns the sign up fee (including tax) by filtering the products price used in
 	 * @see WC_Product::get_price_including_tax( $qty )
 	 *
 	 * @return string
 	 */
 	public function get_sign_up_fee_including_tax( $qty = 1 ) {
-
-		add_filter( 'woocommerce_get_price', array( &$this, 'get_sign_up_fee' ), 100, 0 );
-
-		$sign_up_fee_including_tax = parent::get_price_including_tax( $qty );
-
-		remove_filter( 'woocommerce_get_price', array( &$this, 'get_sign_up_fee' ), 100, 0 );
-
-		return $sign_up_fee_including_tax;
+		wcs_deprecated_function( __METHOD__, '2.2.0', 'wcs_get_price_including_tax( $product, array( "qty" => $qty, "price" => WC_Subscriptions_Product::get_sign_up_fee( $product ) ) )' );
+		return wcs_get_price_including_tax( $this, array( 'qty' => $qty, 'price' => WC_Subscriptions_Product::get_sign_up_fee( $this ) ) );
 	}
 
 	/**
@@ -154,41 +131,7 @@ class WC_Product_Subscription extends WC_Product_Simple {
 	 * @return string
 	 */
 	public function get_sign_up_fee_excluding_tax( $qty = 1 ) {
-
-		add_filter( 'woocommerce_get_price', array( &$this, 'get_sign_up_fee' ), 100, 0 );
-
-		$sign_up_fee_excluding_tax = parent::get_price_excluding_tax( $qty );
-
-		remove_filter( 'woocommerce_get_price', array( &$this, 'get_sign_up_fee' ), 100, 0 );
-
-		return $sign_up_fee_excluding_tax;
-	}
-
-	/**
-	 * Return the sign-up fee for this product
-	 *
-	 * @return string
-	 */
-	public function get_sign_up_fee() {
-		return WC_Subscriptions_Product::get_sign_up_fee( $this );
-	}
-
-	/**
-	 * Checks if the store manager has requested the current product be limited to one purchase
-	 * per customer, and if so, checks whether the customer already has an active subscription to
-	 * the product.
-	 *
-	 * @access public
-	 * @return bool
-	 */
-	function is_purchasable() {
-
-		$purchasable = parent::is_purchasable();
-
-		if ( true === $purchasable && false === WC_Subscriptions_Product::is_purchasable( $purchasable, $this ) ) {
-			$purchasable = false;
-		}
-
-		return apply_filters( 'woocommerce_subscription_is_purchasable', $purchasable, $this );
+		wcs_deprecated_function( __METHOD__, '2.2.0', 'wcs_get_price_excluding_tax( $product, array( "qty" => $qty, "price" => WC_Subscriptions_Product::get_sign_up_fee( $product ) ) )' );
+		return wcs_get_price_excluding_tax( $this, array( 'qty' => $qty, 'price' => WC_Subscriptions_Product::get_sign_up_fee( $this ) ) );
 	}
 }

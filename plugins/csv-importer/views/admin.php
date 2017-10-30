@@ -415,7 +415,8 @@ $import = AitImport::get_instance();
 	</div>
 
 	<?php
-	foreach ($import->post_types as $type) { ?>
+	//foreach ($import->post_types as $type) {
+	for ($a=0; $a<0; $a++) { ?>
 	<div class="import-custom-type metabox-holder">
 		
 		<div class="import-options postbox">
