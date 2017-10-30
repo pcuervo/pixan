@@ -1029,7 +1029,7 @@ label.label-gmap_geocoding_address abbr.required {
 
 /*regalo - Checkout*/
 #billing_regalo_field input[type="checkbox"]:before,
-.create-account input[type="checkbox"]:before{
+.create-account input[type="checkbox"]:before, #ship-to-different-address-checkbox input[type="checkbox"]:before{
 	content: "";
     display: inline-block;
     width: 17px;
@@ -1042,12 +1042,13 @@ label.label-gmap_geocoding_address abbr.required {
     left: -3px;
     bottom: 10px;
 }
-#billing_regalo_field input[type="checkbox"] {
+#billing_regalo_field input[type="checkbox"], #ship-to-different-address-checkbox input[type="checkbox"]{
 	width: 0px;
 	height: 0px;
 	margin-right: 20px;
 }
 #billing_regalo_field input[type="checkbox"]:checked:before,
-.create-account input[type="checkbox"]:checked:before {
+.create-account input[type="checkbox"]:checked:before,
+#ship-to-different-address-checkbox input[type="checkbox"]:checked:before {
 	background-color: #80B500;
 }

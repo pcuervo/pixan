@@ -40,7 +40,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 		<div id="customer_details">
 			<?php do_action( 'woocommerce_checkout_billing' ); ?>
-			<?php //do_action( 'woocommerce_checkout_shipping' ); ?>
+			<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 		</div>
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>

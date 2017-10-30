@@ -357,7 +357,7 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		$fields['billing']['billing_address_2'] = array(
 											    'required'  => false,
 											    'type'		=> 'text',
-											    'class'     => array('form-row-wide hide'),
+											    'class'     => array('form-row-wide hide '),
 											    'clear'     => true
 										     );
 		$fields['billing']['billing_city'] = array(
@@ -438,6 +438,79 @@ class Area_Entrega_Checkout_Pixan_Settings {
 											    'clear'     => true
 										     );
 
+		//----------------------------------------------------------------
+		
+		$fields['shipping']['shipping_first_name'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_last_name'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_company'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_country'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide hide '),
+											    'clear'     => true
+										     );
+
+		$fields['shipping']['shipping_address_1'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide  '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_address_2'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_city'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide'),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_country'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_state'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide '),
+											    'clear'     => true
+										     );
+		$fields['shipping']['shipping_postcode'] = array(
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide '),
+											    'clear'     => true
+										     );
+
+
+		$fields['shipping']['shipping_formated_address'] = array(
+										        'label'     => __('Dirección Formateada', 'woocommerce'),
+											    'required'  => false,
+											    'type'		=> 'text',
+											    'class'     => array('form-row-wide '),
+											    'clear'     => true
+										     );
+		
 		return $fields;
 
 	}// set_timeframe_required
