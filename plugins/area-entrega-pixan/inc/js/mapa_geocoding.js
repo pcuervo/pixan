@@ -44,6 +44,13 @@ var resetInfo = function() {
     $("#billing_formated_address").val('');
     $("#billing_lat").val('');
     $("#billing_long").val('');
+
+    //SHIPPING
+    $("#shipping_address_1").val('');
+    $("#shipping_address_2").val('');
+    $("#shipping_city").val('');
+    $("#shipping_postcode").val('');
+    $("#shipping_formated_address").val('');
 }
 
 var limpiarLabels = function() {
@@ -128,18 +135,23 @@ var mapGeocoding = function () {
                                 switch(results[0].address_components[i].types[n]) {
                                     case 'street_number':
                                         $("#billing_address_1").val(results[0].address_components[i].long_name+' '+$("#billing_address_1").val());
+                                        $("#shipping_address_1").val(results[0].address_components[i].long_name+' '+$("#billing_address_1").val());
                                         break;
                                     case 'route':
                                         $("#billing_address_1").val(results[0].address_components[i].long_name+' '+$("#billing_address_1").val());
+                                        $("#shipping_address_1").val(results[0].address_components[i].long_name+' '+$("#billing_address_1").val());
                                         break;                                        
                                     case 'sublocality':
                                         $("#billing_address_2").val(results[0].address_components[i].long_name);
+                                        $("#shipping_address_2").val(results[0].address_components[i].long_name);
                                         break;
                                     case 'administrative_area_level_3':
                                         $("#billing_city").val(results[0].address_components[i].long_name);
+                                        $("#shipping_city").val(results[0].address_components[i].long_name);
                                         break;
                                     case 'postal_code':
                                         $("#billing_postcode").val(results[0].address_components[i].long_name);
+                                        $("#shipping_postcode").val(results[0].address_components[i].long_name);
                                         break;
                                     default:
                                         //console.log('No usado -> '+results[0].address_components[i].types[n]);
@@ -149,6 +161,7 @@ var mapGeocoding = function () {
 
                         var latlng = results[0].geometry.location;
                         $("#billing_formated_address").val(results[0].formatted_address);
+                        $("#shipping_formated_address").val(results[0].formatted_address);
                         $("#billing_lat").val(latlng.lat());
                         $("#billing_long").val(latlng.lng());
                         //map.setCenter(latlng.lat(), latlng.lng());

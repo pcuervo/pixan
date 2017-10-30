@@ -45,13 +45,13 @@ $col    = 1;
 
 <?php foreach ( $get_addresses as $name => $title ) : ?>
 
-	<div class="u-column<?php echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
+	<div class="u-column<?php //echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php //echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
 		<header class="woocommerce-Address-title title">
 			<h5><?php echo $title; ?></h5>
 			<div class="[ clearfix ]"></div>
 			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php _e( 'Edit', 'woocommerce' ); ?></a>
 		</header>
-		<address>
+		<p>
 			<?php
 				$address = apply_filters( 'woocommerce_my_account_my_address_formatted_address', array(
 					'first_name'  => get_user_meta( $customer_id, $name . '_first_name', true ),
@@ -72,7 +72,7 @@ $col    = 1;
 				else
 					echo $formatted_address;
 			?>
-		</address>
+		</p>
 	</div>
 
 <?php endforeach; ?>
