@@ -49,8 +49,22 @@ class Area_Entrega_Checkout_Pixan_Settings {
 
 		add_action( 'wp_ajax_send_email_client_zona', array( $this, 'send_email_client_zona') );
 		add_action( 'wp_ajax_nopriv_send_email_client_zona', array( $this, 'send_email_client_zona') );
+
+		//add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
+		add_filter( 'woocommerce_add_error', 'my_woocommerce_add_error' );
+		add_action('woocommerce_checkout_process', 'misha_check_if_selected');
 	}
 
+	
+ 
+	public function misha_check_if_selected() {
+	 	//var_dump($_POST);
+		// you can add any custom validations here
+		if ( empty( $_POST['contactmethod'] ) ) {
+			wc_add_notice( 'Please select your preferred contact method.', 'error' );
+		}
+	 
+	}
 
 	/**
 	 * Register all custom post types needed for "Administrador de Cursos"
@@ -341,6 +355,27 @@ class Area_Entrega_Checkout_Pixan_Settings {
 		echo "OK";
 		wp_die();
 	}
+
+
+
+	public function my_custom_checkout_field_process() {
+	    // Check if set, if its not set add an error.
+	    var_dump($_POST);
+	    if ( ! $_POST['billing_lat'] )
+	        wc_add_notice( __( 'Please enter something into this new shiny field.' ), 'error' );
+	}
+
+	// alter the subscriptions error
+	public function my_woocommerce_add_error( $error ) {
+		var_dump($error);
+		echo '<br> ------------------------------- '.$error;
+	    if( 'Latitud es un campo requerido' == $error ) {
+	        $error = 'The shiny brand new error message';
+	    }
+	    return $error;
+	}
+	
+
 
 	/**
 	* Display extra inputs for checkout page

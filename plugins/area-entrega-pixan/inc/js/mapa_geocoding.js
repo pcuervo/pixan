@@ -3,6 +3,9 @@ $ = jQuery.noConflict();
 
 zonaarray = new Array();
 $(document).ready(function(){
+    $("#billing_lat").val('');
+    $("#billing_long").val('');
+    
     var existe = document.getElementById('gmap_geocoding');
     if (existe !== null) {
         mapGeocoding();
