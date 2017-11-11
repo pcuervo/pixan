@@ -1029,7 +1029,7 @@ label.label-gmap_geocoding_address abbr.required {
 
 /*regalo - Checkout*/
 #billing_regalo_field input[type="checkbox"]:before,
-.create-account input[type="checkbox"]:before, #ship-to-different-address-checkbox input[type="checkbox"]:before{
+.create-account input[type="checkbox"]:before{
 	content: "";
     display: inline-block;
     width: 17px;
@@ -1042,13 +1042,82 @@ label.label-gmap_geocoding_address abbr.required {
     left: -3px;
     bottom: 10px;
 }
-#billing_regalo_field input[type="checkbox"], #ship-to-different-address-checkbox input[type="checkbox"]{
+#billing_regalo_field input[type="checkbox"] {
 	width: 0px;
 	height: 0px;
 	margin-right: 20px;
 }
 #billing_regalo_field input[type="checkbox"]:checked:before,
-.create-account input[type="checkbox"]:checked:before,
-#ship-to-different-address-checkbox input[type="checkbox"]:checked:before {
+.create-account input[type="checkbox"]:checked:before {
 	background-color: #80B500;
+}
+
+.esg-filters.esg-singlefilters {
+	display: none!important;
+}
+
+
+
+
+/* Tooltip container */
+
+.tooltip {
+    position: relative;
+    display: none;
+    background-color: #555555;
+    width: 18px;
+    height: 15px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    padding-bottom: 4px;
+    cursor: pointer;
+}
+.woocommerce-MyAccount-navigation-link--subscriptions .tooltip,
+.woocommerce-MyAccount-navigation-link--product-list .tooltip {
+    display: inline-block!important;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext--subscriptions,
+.tooltip .tooltiptext--product-list {
+    visibility: hidden;
+    width: 220px; 
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext--subscriptions::after,
+.tooltip .tooltiptext--product-list::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.woocommerce-MyAccount-navigation-link--subscriptions .tooltip:hover .tooltiptext--subscriptions,
+.woocommerce-MyAccount-navigation-link--product-list .tooltip:hover .tooltiptext--product-list {
+    visibility: visible;
+    opacity: 1;
 }

@@ -17,7 +17,9 @@ if ( $posts->have_posts() ) {
 	<?php }
 } ?>
 
-<p>Si tu pregunta no está en esta sección te pedimos enviarnos un correo a <a href="mailto: ventas@pixansustentable.com">ventas@pixansustentable.com</a> para contestarte a la brevedad.</p>
+<p>Si tu pregunta no está en esta sección te pedimos enviarnos un correo a <a href="mailto:ventas@isana.com.mx">ventas@isana.com.mx</a> para contestarte a la brevedad.</p>
 <p>Gracias</p>
 
 <?php get_footer(); ?>
+
+
